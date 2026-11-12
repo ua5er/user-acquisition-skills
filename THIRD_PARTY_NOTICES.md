@@ -32,4 +32,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## morphdom
 
-`gallery/morphdom.min.js` is morphdom 2.7.4 (https://github.com/patrick-steele-idem/morphdom), MIT licence, copyright (c) Patrick Steele-Idem. It updates the live gallery screens in place. `gallery/dc-lite.js` is original code in this repository under its MIT licence.
+`gallery/morphdom.min.js` is morphdom 2.7.4 (https://github.com/patrick-steele-idem/morphdom), MIT licence, copyright (c) Patrick Steele-Idem. It updates the live gallery screens in place. `gallery/dc-lite.js` is [dc-lite](https://github.com/ua5er/dc-lite), original code by the same author under the MIT licence.

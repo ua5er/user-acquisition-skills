@@ -49,7 +49,7 @@ These are design cases. They do not contain measured conversion results.
 
 ### Live gallery
 
-**[See all 19 concepts live](https://ua5er.github.io/user-acquisition-skills/#paywalls)**: 14 animated paywalls and 5 onboarding flows you can tap through in the browser.
+**[See all 19 concepts live](https://ua5er.github.io/user-acquisition-skills/#paywalls)**: 14 animated paywalls and 5 onboarding flows you can tap through in the browser. They run on [dc-lite](https://github.com/ua5er/dc-lite), a small open renderer for interactive design boards.
 
 ### Previews
 
