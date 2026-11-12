@@ -1,6 +1,6 @@
-# Vlad Yasinski's Growth Skills: agent skills for app and subscription growth
+# User acquisition skills by Vlad Yasinski: agent skills for app and subscription growth
 
-Growth Skills is a set of eight open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
+User Acquisition Skills is a set of eight open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
 ## Install
 
@@ -8,16 +8,16 @@ Requires Node.js. Uses the open [`skills` CLI](https://github.com/vercel-labs/sk
 
 ```bash
 # Install all skills from this repository (you choose agents interactively)
-npx skills add vlad-yasinski/growth-skills
+npx skills add ua5er/user-acquisition-skills
 
 # List what is inside without installing
-npx skills add vlad-yasinski/growth-skills --list
+npx skills add ua5er/user-acquisition-skills --list
 
 # Install one skill into Claude Code, globally, without prompts
-npx skills add vlad-yasinski/growth-skills --skill paywall-audit -a claude-code -g -y
+npx skills add ua5er/user-acquisition-skills --skill paywall-audit -a claude-code -g -y
 
 # Install everything for every detected agent
-npx skills add vlad-yasinski/growth-skills --all
+npx skills add ua5er/user-acquisition-skills --all
 ```
 
 Then ask your agent in plain words, for example: "Audit this paywall", "Write kill and scale rules for our Meta campaigns", or "Check why Meta and Stripe disagree on purchases".

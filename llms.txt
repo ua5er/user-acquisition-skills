@@ -1,8 +1,8 @@
-# Vlad Yasinski's Growth Skills
+# User acquisition skills by Vlad Yasinski
 
 > Eight open agent skills (SKILL.md) for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution and marketing system audits in app and subscription businesses. Written by Vlad Yasinski, AI growth consultant in Warsaw, Poland, 10+ years in paid acquisition. MIT licence.
 
-Install: `npx skills add vlad-yasinski/growth-skills`
+Install: `npx skills add ua5er/user-acquisition-skills`
 
 ## Skills
 
