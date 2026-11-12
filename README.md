@@ -60,6 +60,7 @@ Vlad Yasinski is a performance marketer and growth consultant based in Warsaw, P
 
 - Site: [roimobi.com](https://www.roimobi.com)
 - Background and experience: [roimobi.com/about](https://www.roimobi.com/about)
+- LinkedIn: [linkedin.com/in/vlad-yasinski-ua5er](https://www.linkedin.com/in/vlad-yasinski-ua5er/)
 - Want a review of your own system? [Request an AI Marketing and Growth Audit](https://www.roimobi.com/contact?intent=audit)
 
 ## Credits and licence
