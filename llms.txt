@@ -14,6 +14,9 @@ Install: `npx skills add ua5er/user-acquisition-skills`
 - [creative-testing-research](skills/creative-testing-research/SKILL.md): creative testing and public ad library research
 - [weekly-ua-report](skills/weekly-ua-report/SKILL.md): weekly acquisition report that ends in decisions
 - [ai-marketing-system-audit](skills/ai-marketing-system-audit/SKILL.md): marketing loop audit
+- [meta-ads-learning-audit](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/meta-ads-learning-audit): audit a Meta account stuck in learning and write a post-mortem of past campaigns
+- [meta-ads-launch-planner](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/meta-ads-launch-planner): plan a Meta launch that exits learning, with budget math, rules and a scaling schedule
+- [meta-creative-testing](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/meta-creative-testing): creative testing for Meta after Andromeda, with winner and kill criteria and briefs
 
 ## Examples
 

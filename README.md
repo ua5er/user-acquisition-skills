@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski: agent skills for app and subscription growth
 
-User Acquisition Skills is a set of eight open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
+User Acquisition Skills is a set of eleven open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
 ## Install
 
@@ -34,6 +34,9 @@ Then ask your agent in plain words, for example: "Audit this paywall", "Write ki
 | [`creative-testing-research`](skills/creative-testing-research/SKILL.md) | Plans a creative testing cycle and researches competitors from public ad libraries only. |
 | [`weekly-ua-report`](skills/weekly-ua-report/SKILL.md) | Builds a one-page weekly acquisition report that ends in decisions. |
 | [`ai-marketing-system-audit`](skills/ai-marketing-system-audit/SKILL.md) | Maps a marketing system as a loop (acquire, convert, measure, automate, intelligence, decide) and ranks the gaps. |
+| [`meta-ads-learning-audit`](skills/meta-ads-learning-audit/SKILL.md) | Audits a Meta ad account stuck in "Learning limited": event volume against the budget learning needs, split signal, CPM of small test ad sets, funnel and CAPI, and a post-mortem table of past campaigns. Works from exports and screenshots, no API token. |
+| [`meta-ads-launch-planner`](skills/meta-ads-launch-planner/SKILL.md) | Plans a Meta sales launch that exits learning: budget from target CPA x 50 events a week (with `budget.py`), one broad ad set on CBO, day-by-day decision rules, automated stop and restart rules, scaling schedule, relaunch playbook and a plan document for management. |
+| [`meta-creative-testing`](skills/meta-creative-testing/SKILL.md) | Designs creative testing for Meta after Andromeda: which past ads to relaunch and why, three test structures with the cost of an answer, winner, kill and fatigue criteria, a weekly creative flow and a brief template for designers and UGC creators. |
 
 ## How these were used
 
