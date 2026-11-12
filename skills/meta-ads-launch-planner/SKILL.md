@@ -22,7 +22,7 @@ day1_budget             = learning_budget_per_day / 2   (when the client wants a
 checkpoint_events       = 5 purchases after day 1 (or after ~2× target CPA × 5 spent)
 max_exposure            = spend until the first real stop decision
 ```
-Example: CPA £38 → £271/day to learn → round to ~10 purchases/day = £380. Cautious start: £190 on day 1, £380 from day 2 if 5+ purchases. Worst case before stopping: ~£380 over 2 days.
+Example: CPA $38 → $271/day to learn → round to ~10 purchases/day = $380. Cautious start: $190 on day 1, $380 from day 2 if 5+ purchases. Worst case before stopping: ~$380 over 2 days.
 
 Use `scripts/budget.py` (below) to print the table for several CPA scenarios. Always show the CPA sensitivity: purchases/day at CPA ±30%.
 
@@ -48,7 +48,7 @@ Notes from practice:
 ## 5. Day-by-day plan (put it in the doc as a table)
 | When | Budget / spent so far | Check and action |
 |---|---|---|
-| Day 0 | £0 | Old campaign off at launch, test purchase hits the pixel, rules and exclusions on |
+| Day 0 | $0 | Old campaign off at launch, test purchase hits the pixel, rules and exclusions on |
 | Day 1 | ½ learning budget | Midday: 0 purchases at ~½ day budget → check tracking. End: 5+ → full budget from day 2; 1 to 4 → one more day |
 | Day 2 | Full (or ½) | Still <5 purchases after ~2 days of ½ budget → stop, old campaign back on, fix funnel |
 | Days 3 to 4 | Full | No edits. Rules handle weak ads. Day 4: ≥7/day → plan scaling |

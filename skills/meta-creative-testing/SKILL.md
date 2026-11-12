@@ -24,7 +24,7 @@ Output table: creative | purchases | CPA | ROAS | in/out | reason.
 
 Explain the default with this logic (use the account's numbers):
 - With a fixed budget, a weak creative spends its full budget even when it is clearly losing on day 1, and a strong one is capped and starves.
-- 11 creatives at £150 each = £1,650 for one answer. Previous fixed-budget tests that got £250 to 320 each and 0 to 2 purchases answered nothing.
+- 11 creatives at $150 each = $1,650 for one answer. Previous fixed-budget tests that got $250 to 320 each and 0 to 2 purchases answered nothing.
 - In one ad set, Meta shifts spend to creatives with early signals; the stop rule caps the loss on a bad creative at ~2× target CPA.
 - Each creative is a separate ad with a clear name, so per-creative metrics stay visible.
 - Testing tools are also built to increase test spend. The advertiser's goal is the cheapest winner.

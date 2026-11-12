@@ -22,11 +22,11 @@ Also ask for: the funnel URL, the business model (one-off purchase or subscripti
 ### A. Event volume vs learning threshold (always first)
 - Meta needs about **50 optimization events per ad set per 7 days** to exit learning. Translate it to the account: `events_per_day_needed = 50 / 7 ≈ 7`.
 - For each active ad set: `events_per_week = purchases_last_7d`. Below 50 means it will not stabilize, whatever the creative.
-- Minimum budget to learn: `daily_budget_min = target_CPA × 50 / 7`. Compare it to the real budget. Show the gap as one number ("you spend £120/day, learning needs ~£271/day at £38 CPA").
+- Minimum budget to learn: `daily_budget_min = target_CPA × 50 / 7`. Compare it to the real budget. Show the gap as one number ("you spend $120/day, learning needs ~$271/day at $38 CPA").
 - Pixel total vs ad set share: if the pixel sees 14 purchases/day from all traffic but the main ad set gets 3, the account is not data-poor, the structure is splitting signal.
 
 ### B. Fragmentation
-- Count ad sets that spent money in the last 14 days. Many ad sets with £50 to 150/day each and 0 to 2 purchases = signal split across too many learners.
+- Count ad sets that spent money in the last 14 days. Many ad sets with $50 to 150/day each and 0 to 2 purchases = signal split across too many learners.
 - For each failed test ad set compute **spend needed to learn** (`target_CPA × 50`) vs **actual spend**. A test that got 1/5 of what it needed did not fail; it never ran.
 
 ### C. CPM and auction
@@ -51,7 +51,7 @@ Also ask for: the funnel URL, the business model (one-off purchase or subscripti
 
 Produce two things:
 
-**1. Diagnosis (5 to 8 bullets, plain language).** Each bullet: finding → number → consequence. Example: "5 test ad sets spent £256 to 318 each and got 0 to 2 purchases. Each needed ~£1,550 to learn. They were stopped at 1/5 of that, so they answered nothing."
+**1. Diagnosis (5 to 8 bullets, plain language).** Each bullet: finding → number → consequence. Example: "5 test ad sets spent $256 to 318 each and got 0 to 2 purchases. Each needed ~$1,550 to learn. They were stopped at 1/5 of that, so they answered nothing."
 
 **2. Previous campaigns table** (for a client or manager):
 
