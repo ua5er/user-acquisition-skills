@@ -23,6 +23,15 @@ The paywall of a subscription AI photo app needed a rebuild that could be tested
 7. V5: V3 with a new plan set taken from the brief. Illustrative prices: a 1-day trial at 0.99 then 9.99 per week, a 1-week trial at 4.99 then 19.99 per month, one year at 49.99. Per-day prices shown: 0.99, 0.71 (4.99 divided by 7) and 0.14 (49.99 divided by 365). The "Save 79%" label on the year is computed against twelve payments of 19.99 (239.88). The discount strip and timer were removed because these plans carry no discount, and a timer without a real offer would be misleading. Default selection: the 1-week trial, changeable in the design tool's tweak panel.
 8. V6: V5 with one difference, a white CTA with dark text.
 
+## Previews
+
+The app brand is blurred.
+
+<p>
+  <img src="../assets/previews/paywall-studio-open.gif" alt="Animated paywall concept with a photo collage hero, a first-month offer strip with a reserve timer and two plans priced per day" width="300">
+  <img src="../assets/previews/paywall-likes-counter.jpg" alt="V3.2 paywall concept with a likes counter and floating hearts over the hero photo" width="300">
+</p>
+
 ## What was produced
 
 - A baseline (V1), a polish-only version (V2), two audited versions (V3, V3.2), a new layout (V4), two trial-plan versions (V5, V6).

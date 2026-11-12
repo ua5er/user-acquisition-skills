@@ -47,6 +47,17 @@ Two design explorations for a subscription AI photo app (app name withheld) used
 
 These are design cases. They do not contain measured conversion results.
 
+### Previews
+
+Screens from the design boards. The app brand is blurred.
+
+<p>
+  <img src="assets/previews/paywall-studio-open.gif" alt="Animated paywall concept: photo collage hero, first-month offer with a reserve timer, weekly and monthly plans with the price per day" width="300">
+  <img src="assets/previews/paywall-likes-counter.jpg" alt="Paywall concept with a running likes counter and floating hearts above the plan picker" width="300">
+</p>
+
+<img src="assets/previews/onboarding-likes-rain.jpg" alt="Six-screen onboarding concept: selfies in, a few selfies become a shoot, post one, notifications, pick up to three styles, the studio is ready" width="900">
+
 ## Principles
 
 - Your data first. The skills do not insert industry benchmarks. Any number in an example is labelled as an example.

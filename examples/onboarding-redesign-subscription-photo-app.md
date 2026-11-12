@@ -26,6 +26,12 @@ The app name is not published here on purpose.
    - E, avalanche of likes: reactions are the hero, photos are the excuse. The person taps a post action and a stream of reactions builds up.
 4. Iterated each concept through a second pass (v2) that made the person do something (pick styles, drive the demo, assemble the profile, press post). Concept E got a third pass that reused the mechanics from the paywall work (hearts flying out of a growing counter, a light rain of hearts in the background).
 
+## Previews
+
+Six screens of one concept, where a likes counter and a slow rain of hearts carry the story from selfies to a finished shoot. Placeholder notes from the board are blurred.
+
+<img src="../assets/previews/onboarding-likes-rain.jpg" alt="Six-screen onboarding concept: selfies in, a few selfies become a whole shoot, post one, the phone keeps buzzing, pick up to three styles, the studio is ready" width="900">
+
 ## What was produced
 
 - 1 baseline plus 5 concepts, 11 interactive prototypes in total across v1 to v3 (A to E v1, A to E v2, and E v3).
