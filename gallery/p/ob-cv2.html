@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Studio onboarding C v2 · your story</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050509}
+a{color:#ffffff}a:hover{color:#ff9d9a}
+.cv2 .ph{position:relative;width:390px;height:844px;border-radius:48px;overflow:hidden;background:#08080f;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.09);flex:none}
+.cv2 .fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cv2 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0}
+.cv2 .h{margin:0;font-size:40px;font-weight:900;letter-spacing:-1.4px;line-height:1;text-wrap:balance}
+.cv2 .sub{margin:0;font-size:16px;line-height:1.45;color:rgba(255,255,255,.78)}
+.cv2 .micro{font-size:13px;line-height:1.4;color:rgba(255,255,255,.7)}
+.cv2 .need{display:inline-block;padding:4px 8px;border:1px dashed rgba(255,193,77,.7);border-radius:6px;font-size:12px;line-height:1.35;font-weight:600;color:#ffc14d}
+
+/* story bar */
+.cv2 .sbar{position:absolute;top:60px;left:16px;right:16px;display:flex;gap:4px;z-index:3}
+.cv2 .seg{position:relative;flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden}
+.cv2 .seg.done{background:#ffffff}
+.cv2 .seg i{position:absolute;inset:0;border-radius:2px;background:#ffffff;transform-origin:0 50%;animation:segfill 12s linear infinite}
+@keyframes segfill{0%{transform:scaleX(0)}50%,100%{transform:scaleX(1)}}
+.cv2 .mark{position:absolute;top:76px;left:16px;display:flex;align-items:center;gap:8px;z-index:3}
+
+/* CTAs: gradient with white sheen, white with a dark-tinted subtle sheen. Sheen on transform only */
+.cv2 .cta,.cv2 .wcta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;height:56px;border-radius:28px;font-size:17px;font-weight:700;text-decoration:none;transition:transform 120ms ease-out}
+.cv2 .cta{background:linear-gradient(90deg,#ff746f,#c14ca8 55%,#5d5bd7);color:#ffffff}
+.cv2 .cta:hover{color:#ffffff}
+.cv2 .wcta{background:#ffffff;color:#0b0b12}
+.cv2 .wcta:hover{color:#0b0b12}
+.cv2 .cta:active,.cv2 .wcta:active{transform:scale(.97)}
+.cv2 .cta::after,.cv2 .wcta::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;transform:translateX(-150%);animation:sheen 7s ease-in-out 1.2s infinite both;pointer-events:none}
+.cv2 .cta::after{background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.35),rgba(255,255,255,0))}
+.cv2 .wcta::after{background:linear-gradient(100deg,rgba(11,11,18,0),rgba(11,11,18,.1),rgba(11,11,18,0))}
+@keyframes sheen{0%{transform:translateX(-150%)}17%,100%{transform:translateX(325%)}}
+
+/* reading-rhythm entrance: opacity + 12px, one curve everywhere */
+.cv2 .in{animation:rise 450ms cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}}
+.cv2 .tap{position:absolute;z-index:2;display:block}
+
+/* C1 */
+.cv2 .kb{animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+
+/* C2 picker */
+.cv2 .pv{opacity:0;z-index:0;transition:opacity 0s linear 450ms}
+.cv2 .pv.on{opacity:1;z-index:1;transition:opacity 450ms cubic-bezier(.2,.8,.2,1)}
+.cv2 .trow{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px;animation:rise 400ms cubic-bezier(.2,.8,.2,1) both}
+.cv2 .tile{position:relative;display:block;height:124px;padding:0;border:0;border-radius:16px;overflow:hidden;background:#15151f;color:#ffffff;font-family:inherit;cursor:pointer;opacity:.8;transition:transform 160ms ease-out,opacity 200ms ease-out}
+.cv2 .tile.on{opacity:1}
+.cv2 .tile:active{transform:scale(.96)}
+.cv2 .tile:focus-visible{outline:2px solid #ffffff;outline-offset:2px}
+.cv2 .tile .tname{position:absolute;left:10px;bottom:8px;font-size:13px;font-weight:600;line-height:1.2;text-align:left}
+.cv2 .tile .tscrim{position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(180deg,rgba(8,8,15,0),rgba(8,8,15,.85))}
+.cv2 .ring{position:absolute;inset:0;border-radius:16px;padding:2px;background:linear-gradient(135deg,#ff746f,#c14ca8 55%,#5d5bd7);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity 200ms ease-out;pointer-events:none}
+.cv2 .badge{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:10px;background:#ffffff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 200ms ease-out}
+.cv2 .tile.on .ring,.cv2 .tile.on .badge{opacity:1}
+
+/* C3 prompt words */
+.cv2 .w{display:inline-block;margin-right:4px;animation:word 12s linear infinite both}
+@keyframes word{0%{opacity:0}1.7%,94%{opacity:1}98%,100%{opacity:0}}
+
+/* C4 wall */
+.cv2 .col{position:absolute;width:122px;display:flex;flex-direction:column;gap:8px;will-change:transform}
+.cv2 .col img{width:122px;height:180px;border-radius:16px;object-fit:cover;display:block;flex:none}
+.cv2 .up{animation:up 16s ease-in-out infinite alternate}
+.cv2 .down{animation:down 16s ease-in-out infinite alternate}
+@keyframes up{to{transform:translateY(-24px)}}
+@keyframes down{to{transform:translateY(24px)}}
+.cv2 .rev{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.08);display:flex;flex-direction:column;gap:6px}
+
+/* C5 fan */
+.cv2 .fan{position:absolute;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+.cv2 .fan .card{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:#15151f}
+.cv2 .fan .card.ringed{padding:2px;background:linear-gradient(135deg,#ff746f,#c14ca8 55%,#5d5bd7)}
+.cv2 .fan .card.dim{opacity:.6}
+.cv2 .fan img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.cv2 .fan-c{animation:dealc 450ms cubic-bezier(.2,.8,.2,1) both}
+.cv2 .fan-l{animation:deall 500ms cubic-bezier(.2,.8,.2,1) 80ms both}
+.cv2 .fan-r{animation:dealr 500ms cubic-bezier(.2,.8,.2,1) 80ms both}
+@keyframes dealc{from{opacity:0;transform:scale(.94)}}
+@keyframes deall{from{opacity:0;transform:translateX(24px) rotate(0deg)}}
+@keyframes dealr{from{opacity:0;transform:translateX(-24px) rotate(0deg)}}
+
+/* performance: everything stops while the artboard is off-screen */
+.cv2.is-off *,.cv2.is-off *::after{animation-play-state:paused !important}
+@media (prefers-reduced-motion: reduce){
+  .cv2 *,.cv2 *::after{animation:none !important;transition:none !important}
+}
+</style>
+
+<style>html,body{margin:0;overflow:hidden}</style>
+</head><body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div class="cv2" ref="{{ setRoot }}" data-board="Cv2" style="width: 2636px; height: 1140px; box-sizing: border-box; padding: 48px; background: #050509; color: #ffffff; font-family: Archivo, sans-serif; display: flex; flex-direction: column; gap: 36px;">
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-size: 44px; font-weight: 800; letter-spacing: -1.4px; line-height: 1.1;">Concept C · your story</div>
+    <div style="font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.7); max-width: 1500px;">Five full-screen stories with an honest progress bar. In the second one the user picks looks, and the last story returns them as "your first shoot".</div>
+    <div style="font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.7); max-width: 1500px;"></div>
+  </div>
+
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+
+    <!-- C1 hook -->
+    <div id="cv2-1" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px;"><span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;">C1</span>Story 1 · hook</div>
+      <div class="ph">
+        <img class="fill kb" src="img/1bcf6ebd340b2c209118a51eea05f0bc.webp" alt="Golden hour portrait made from selfies" style="object-position: center 30%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.6) 0%, rgba(8,8,15,0) 18%, rgba(8,8,15,0) 48%, rgba(8,8,15,0.94) 80%);"></div>
+        <div class="sbar"><div class="seg"><i></i></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+        <div class="mark">
+          <svg width="22" height="22" viewBox="0 0 512 512" aria-hidden="true"><path d="M70 159a18 18 0 0 1 25-16l88 43v207l-88 43a18 18 0 0 1-25-16z" fill="#5d5bd7"></path><path d="M157 124a18 18 0 0 1 25-16l104 51v194c-24 4-42 14-54 31-12 16-18 36-22 60l-28 14a18 18 0 0 1-25-16z" fill="#c14ca8"></path><path d="M250 89a18 18 0 0 1 25-16l156 77a18 18 0 0 1 10 16v259a18 18 0 0 1-10 16l-156 77a18 18 0 0 1-25-16z" fill="#ff746f"></path></svg>
+          <span style="font-size: 14px; font-weight: 700;">Studio</span>
+        </div>
+        <a class="tap" href="#cv2-2" aria-label="Next story" style="top: 100px; right: 0; width: 50%; height: 380px;"></a>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; gap: 12px; z-index: 2;">
+          <h1 class="h in">This portrait started as<br><span class="serif" style="font-size: 46px; line-height: 1.05; color: #ff9d9a;">a selfie</span></h1>
+          <p class="sub in" style="animation-delay: 80ms;">Upload a few selfies and get studio portraits in about 5 minutes</p>
+          <div class="in" style="margin-top: 8px; animation-delay: 240ms;"><a class="wcta" href="#cv2-2">See the looks</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C2 pick your looks -->
+    <div id="cv2-2" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px;"><span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;">C2</span>Story 2 · pick your looks</div>
+      <div class="ph">
+        <sc-for list="{{ looks }}" as="l" hint-placeholder-count="6">
+          <img class="fill pv {{ l.pvCls }}" src="{{ l.src }}" alt="" style="object-position: center 30%;">
+        </sc-for>
+        <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,8,15,0.6) 0%, rgba(8,8,15,0) 18%, rgba(8,8,15,0) 30%, rgba(8,8,15,0.94) 52%, rgba(8,8,15,0.96) 100%);"></div>
+        <div class="sbar"><div class="seg done"></div><div class="seg"><i></i></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+        <div class="mark">
+          <svg width="22" height="22" viewBox="0 0 512 512" aria-hidden="true"><path d="M70 159a18 18 0 0 1 25-16l88 43v207l-88 43a18 18 0 0 1-25-16z" fill="#5d5bd7"></path><path d="M157 124a18 18 0 0 1 25-16l104 51v194c-24 4-42 14-54 31-12 16-18 36-22 60l-28 14a18 18 0 0 1-25-16z" fill="#c14ca8"></path><path d="M250 89a18 18 0 0 1 25-16l156 77a18 18 0 0 1 10 16v259a18 18 0 0 1-10 16l-156 77a18 18 0 0 1-25-16z" fill="#ff746f"></path></svg>
+          <span style="font-size: 14px; font-weight: 700;">Studio</span>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 40px; display: flex; flex-direction: column; z-index: 2;">
+          <div style="padding: 0 24px; display: flex; flex-direction: column; gap: 8px;">
+            <h2 class="h in" style="font-size: 32px; letter-spacing: -1.1px;">Pick the looks for your first shoot</h2>
+            <p class="sub in" style="animation-delay: 80ms;">Choose up to 3</p>
+          </div>
+          <div style="margin-top: 16px; padding: 0 16px; display: flex; flex-direction: column; gap: 8px;">
+            <div class="trow" style="animation-delay: 160ms;">
+              <sc-for list="{{ row1 }}" as="t" hint-placeholder-count="3">
+                <button type="button" class="tile {{ t.cls }}" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}">
+                  <img class="fill" src="{{ t.src }}" alt="">
+                  <span class="tscrim"></span>
+                  <span class="tname">{{ t.name }}</span>
+                  <span class="ring"></span>
+                  <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" fill="none" stroke="#0b0b12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                </button>
+              </sc-for>
+            </div>
+            <div class="trow" style="animation-delay: 230ms;">
+              <sc-for list="{{ row2 }}" as="t" hint-placeholder-count="3">
+                <button type="button" class="tile {{ t.cls }}" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}">
+                  <img class="fill" src="{{ t.src }}" alt="">
+                  <span class="tscrim"></span>
+                  <span class="tname">{{ t.name }}</span>
+                  <span class="ring"></span>
+                  <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" fill="none" stroke="#0b0b12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="in" style="margin-top: 16px; padding: 0 24px; animation-delay: 320ms;"><a class="wcta" href="#cv2-3">{{ pickCta }}</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C3 video from one line -->
+    <div id="cv2-3" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px;"><span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;">C3</span>Story 3 · video from one line</div>
+      <div class="ph">
+        <video class="fill" src="img/a1be6d5333deac9a30ca24d1d51152d6.mp4" poster="img/afbea65e9da9ed193da9230b22ccf690.jpg" muted="{{ yes }}" loop="{{ yes }}" playsInline="{{ yes }}" preload="metadata"></video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.6) 0%, rgba(8,8,15,0) 18%, rgba(8,8,15,0) 46%, rgba(8,8,15,0.92) 78%);"></div>
+        <div class="sbar"><div class="seg done"></div><div class="seg done"></div><div class="seg"><i></i></div><div class="seg"></div><div class="seg"></div></div>
+        <div class="mark">
+          <svg width="22" height="22" viewBox="0 0 512 512" aria-hidden="true"><path d="M70 159a18 18 0 0 1 25-16l88 43v207l-88 43a18 18 0 0 1-25-16z" fill="#5d5bd7"></path><path d="M157 124a18 18 0 0 1 25-16l104 51v194c-24 4-42 14-54 31-12 16-18 36-22 60l-28 14a18 18 0 0 1-25-16z" fill="#c14ca8"></path><path d="M250 89a18 18 0 0 1 25-16l156 77a18 18 0 0 1 10 16v259a18 18 0 0 1-10 16l-156 77a18 18 0 0 1-25-16z" fill="#ff746f"></path></svg>
+          <span style="font-size: 14px; font-weight: 700;">Studio</span>
+        </div>
+        <a class="tap" href="#cv2-4" aria-label="Next story" style="top: 100px; right: 0; width: 50%; height: 280px;"></a>
+        <div style="position: absolute; top: 392px; left: 24px; right: 24px; height: 48px; box-sizing: border-box; padding: 0 16px; border-radius: 16px; background: rgba(8,8,15,0.72); display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; z-index: 2;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none;"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4z" stroke="#ff9d9a" stroke-width="2" stroke-linejoin="round"></path><path d="M13.5 6.5l4 4" stroke="#ff9d9a" stroke-width="2"></path></svg>
+          <span aria-label="Me in an old city courtyard"><span class="w" style="animation-delay: 1050ms;">Me</span><span class="w" style="animation-delay: 1190ms;">in</span><span class="w" style="animation-delay: 1330ms;">an</span><span class="w" style="animation-delay: 1470ms;">old</span><span class="w" style="animation-delay: 1610ms;">city</span><span class="w" style="animation-delay: 1750ms;">courtyard</span></span>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; gap: 20px; z-index: 2;">
+          <h2 class="h in">Type one line, get a video of you</h2>
+          <div class="in" style="animation-delay: 240ms;"><a class="wcta" href="#cv2-4">Add videos to my shoot</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C4 proof wall -->
+    <div id="cv2-4" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px;"><span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;">C4</span>Story 4 · wall of proof</div>
+      <div class="ph">
+        <div aria-hidden="true" style="position: absolute; inset: 0;">
+          <div class="col up" style="left: 4px; top: -40px;">
+            <img src="img/7ec8f3ae9dd3abb8a651dbb6f78fd504.webp" alt=""><img src="img/dfe712402599ef07cf8ae3c48c9b2d1b.webp" alt=""><img src="img/c7b39acdcee3aa3a7156c23c5c82e238.webp" alt=""><img src="img/0ab866f4416cfd2c7a7b80fa122c948b.webp" alt=""><img src="img/61d89b39ec612971a950488347f4729a.webp" alt="">
+          </div>
+          <div class="col down" style="left: 134px; top: -120px;">
+            <img src="img/0ab866f4416cfd2c7a7b80fa122c948b.webp" alt=""><img src="img/81d5790966f90bb95fecfb9e01963b00.webp" alt=""><img src="img/fe1b0b9c91fd90b2950cb0094855fdd5.webp" alt=""><img src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt=""><img src="img/c7b39acdcee3aa3a7156c23c5c82e238.webp" alt="">
+          </div>
+          <div class="col up" style="left: 264px; top: -20px;">
+            <img src="img/61d89b39ec612971a950488347f4729a.webp" alt=""><img src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt=""><img src="img/1bcf6ebd340b2c209118a51eea05f0bc.webp" alt=""><img src="img/dfe712402599ef07cf8ae3c48c9b2d1b.webp" alt=""><img src="img/81d5790966f90bb95fecfb9e01963b00.webp" alt="">
+          </div>
+        </div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.55) 0%, rgba(8,8,15,0.55) 18%, rgba(8,8,15,0.96) 32%, rgba(8,8,15,0.96) 100%);"></div>
+        <div class="sbar"><div class="seg done"></div><div class="seg done"></div><div class="seg done"></div><div class="seg"><i></i></div><div class="seg"></div></div>
+        <div class="mark">
+          <svg width="22" height="22" viewBox="0 0 512 512" aria-hidden="true"><path d="M70 159a18 18 0 0 1 25-16l88 43v207l-88 43a18 18 0 0 1-25-16z" fill="#5d5bd7"></path><path d="M157 124a18 18 0 0 1 25-16l104 51v194c-24 4-42 14-54 31-12 16-18 36-22 60l-28 14a18 18 0 0 1-25-16z" fill="#c14ca8"></path><path d="M250 89a18 18 0 0 1 25-16l156 77a18 18 0 0 1 10 16v259a18 18 0 0 1-10 16l-156 77a18 18 0 0 1-25-16z" fill="#ff746f"></path></svg>
+          <span style="font-size: 14px; font-weight: 700;">Studio</span>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; z-index: 2;">
+          <h2 class="h in">2 million portraits made in the app</h2>
+          <div class="in" style="margin-top: 12px; animation-delay: 80ms; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 18px; font-weight: 700;">
+            <span role="img" aria-label="5 stars" style="display: flex; gap: 2px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#ffc14d"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#ffc14d"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#ffc14d"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#ffc14d"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#ffc14d"></path></svg>
+            </span>
+            <span>4.9 average rating</span>
+            <span class="need"></span>
+          </div>
+          <div class="in" style="margin-top: 20px; animation-delay: 160ms; display: flex; flex-direction: column; gap: 8px;">
+            <figure class="rev" style="margin: 0;">
+              <blockquote style="margin: 0; font-size: 15px; line-height: 1.4;">It really looks like me. The likeness is unsettling in the best way. It looks like me on a very good day.</blockquote>
+              <figcaption class="micro"><span class="need"></span></figcaption>
+            </figure>
+            <figure class="rev" style="margin: 0;">
+              <blockquote style="margin: 0; font-size: 15px; line-height: 1.4;">My LinkedIn photo is from here. Two colleagues asked which photographer I went to. I did not tell them.</blockquote>
+              <figcaption class="micro"><span class="need"></span></figcaption>
+            </figure>
+          </div>
+          <div class="in" style="margin-top: 24px; animation-delay: 240ms;"><a class="cta" href="#cv2-5">See my shoot</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C5 your first shoot -> paywall -->
+    <div id="cv2-5" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px;"><span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;">C5</span>Story 5 · your shoot, then paywall</div>
+      <div class="ph">
+        <div class="sbar"><div class="seg done"></div><div class="seg done"></div><div class="seg done"></div><div class="seg done"></div><div class="seg"><i></i></div></div>
+        <div class="mark">
+          <svg width="22" height="22" viewBox="0 0 512 512" aria-hidden="true"><path d="M70 159a18 18 0 0 1 25-16l88 43v207l-88 43a18 18 0 0 1-25-16z" fill="#5d5bd7"></path><path d="M157 124a18 18 0 0 1 25-16l104 51v194c-24 4-42 14-54 31-12 16-18 36-22 60l-28 14a18 18 0 0 1-25-16z" fill="#c14ca8"></path><path d="M250 89a18 18 0 0 1 25-16l156 77a18 18 0 0 1 10 16v259a18 18 0 0 1-10 16l-156 77a18 18 0 0 1-25-16z" fill="#ff746f"></path></svg>
+          <span style="font-size: 14px; font-weight: 700;">Studio</span>
+        </div>
+        <div style="position: absolute; top: 108px; left: 0; right: 0; height: 250px;">
+          <div class="fan fan-l" style="top: 37px; left: 40px; width: 124px; height: 176px; border-radius: 18px; transform: rotate(-10deg);">
+            <div class="card {{ fanL.cls }}"><img src="{{ fanL.src }}" alt="{{ fanL.name }}"></div>
+          </div>
+          <div class="fan fan-r" style="top: 37px; left: 226px; width: 124px; height: 176px; border-radius: 18px; transform: rotate(10deg);">
+            <div class="card {{ fanR.cls }}"><img src="{{ fanR.src }}" alt="{{ fanR.name }}"></div>
+          </div>
+          <div class="fan fan-c" style="top: 17px; left: 119px; width: 152px; height: 216px; border-radius: 20px; z-index: 1;">
+            <div class="card {{ fanC.cls }}"><img src="{{ fanC.src }}" alt="{{ fanC.name }}"></div>
+          </div>
+        </div>
+        <a class="tap" href="#cv2-2" aria-label="Change looks" style="top: 100px; left: 0; width: 50%; height: 260px; z-index: 2;"></a>
+        <div style="position: absolute; top: 384px; left: 24px; right: 24px; display: flex; flex-direction: column;">
+          <h2 class="h in" style="animation-delay: 360ms;">Your first shoot</h2>
+          <div class="serif in" style="font-size: 36px; line-height: 1.1; color: #ff9d9a; animation-delay: 440ms;">ready in about 5 minutes</div>
+          <ul style="margin: 20px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.4;">
+            <li class="in" style="display: flex; gap: 12px; align-items: flex-start; animation-delay: 520ms;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="flex: none; margin-top: 2px;"><path d="M3 9.5l4 4 8-8.5" fill="none" stroke="#ff9d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Studio portraits in {{ lookList }}</span></li>
+            <li class="in" style="display: flex; gap: 12px; align-items: flex-start; animation-delay: 590ms;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="flex: none; margin-top: 2px;"><path d="M3 9.5l4 4 8-8.5" fill="none" stroke="#ff9d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Short videos from a one-line prompt</span></li>
+            <li class="in" style="display: flex; gap: 12px; align-items: flex-start; animation-delay: 660ms;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="flex: none; margin-top: 2px;"><path d="M3 9.5l4 4 8-8.5" fill="none" stroke="#ff9d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Ready about 5 minutes after you upload your selfies</span></li>
+          </ul>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; z-index: 3;">
+          <div class="in" style="animation-delay: 740ms;"><span class="need"></span></div>
+          <div class="in" style="margin-top: 16px; animation-delay: 820ms;"><a class="cta" href="#paywall">Start my shoot</a></div>
+          <div class="micro in" style="margin-top: 8px; text-align: center; animation-delay: 860ms;">Next: choose your plan</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2636,"height":1140}}'>
+class Component extends DCLogic {
+  // Perf contract: one setState per tap, no intervals, no rAF. CSS drives every loop.
+  // An IntersectionObserver sets "live"; off-screen the root gets .is-off (all animations paused) and the video pauses.
+  state = { picks: ['golden'] };
+  setRoot = (el) => { if (el) this.root = el; };
+  componentDidMount() {
+    if (!this.root) this.root = document.querySelector('[data-board="Cv2"]');
+    this.reduce = false;
+    try { this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (this.root && 'IntersectionObserver' in window) {
+      this.io = new IntersectionObserver((entries) => {
+        this.setLive(entries[entries.length - 1].isIntersecting);
+      }, { threshold: 0.05 });
+      this.io.observe(this.root);
+    } else {
+      this.setLive(true);
+    }
+  }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    this.setLive(false);
+  }
+  setLive(on) {
+    this.live = on;
+    const r = this.root;
+    if (!r) return;
+    r.classList.toggle('is-off', !on);
+    r.querySelectorAll('video').forEach((v) => {
+      if (on && !this.reduce) { v.muted = true; v.playsInline = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+      else v.pause();
+    });
+  }
+  toggle(id) {
+    this.setState((st) => {
+      const p = st.picks.slice();
+      const i = p.indexOf(id);
+      if (i >= 0) {
+        if (p.length === 1) return null;
+        p.splice(i, 1);
+      } else {
+        if (p.length >= 3) p.shift();
+        p.push(id);
+      }
+      return { picks: p };
+    });
+  }
+  renderVals() {
+    const all = [
+      { id: 'golden', name: 'Golden hour', src: 'img/1bcf6ebd340b2c209118a51eea05f0bc.webp' },
+      { id: 'white', name: 'White studio', src: 'img/0ab866f4416cfd2c7a7b80fa122c948b.webp' },
+      { id: 'offroad', name: 'Off-road', src: 'img/fe1b0b9c91fd90b2950cb0094855fdd5.webp' },
+      { id: 'paris', name: 'Paris', src: 'img/61d89b39ec612971a950488347f4729a.webp' },
+      { id: 'bw', name: 'Black and white', src: 'img/81d5790966f90bb95fecfb9e01963b00.webp' },
+      { id: 'velvet', name: 'Red velvet', src: 'img/c7b39acdcee3aa3a7156c23c5c82e238.webp' }
+    ];
+    const picks = this.state.picks;
+    const current = picks[picks.length - 1];
+    const byId = {};
+    all.forEach((l) => { byId[l.id] = l; });
+    const tiles = all.map((l) => {
+      const on = picks.indexOf(l.id) >= 0;
+      return { name: l.name, src: l.src, cls: on ? 'on' : '', pressed: on ? 'true' : 'false', pick: () => this.toggle(l.id) };
+    });
+    const looks = all.map((l) => ({ src: l.src, pvCls: l.id === current ? 'on' : '' }));
+    const n = picks.length;
+    const pickCta = n === 1 ? 'Use this look' : 'Use these ' + n + ' looks';
+    const names = picks.map((id) => byId[id].name);
+    const lookList = names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+    const fanIds = picks.slice();
+    all.forEach((l) => { if (fanIds.length < 3 && fanIds.indexOf(l.id) < 0) fanIds.push(l.id); });
+    const card = (id) => ({ src: byId[id].src, name: byId[id].name, cls: picks.indexOf(id) >= 0 ? 'ringed' : 'dim' });
+    return {
+      yes: true,
+      setRoot: this.setRoot,
+      looks,
+      row1: tiles.slice(0, 3),
+      row2: tiles.slice(3, 6),
+      pickCta,
+      lookList,
+      fanC: card(fanIds[0]),
+      fanL: card(fanIds[1]),
+      fanR: card(fanIds[2])
+    };
+  }
+}
+</script>
+<script src="../morphdom.min.js"></script>
+<script src="../dc-lite.js"></script>
+</body></html>

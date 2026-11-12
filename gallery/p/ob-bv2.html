@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Studio onboarding B v2 · demo shoot</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050509}
+a{color:#ffffff}a:hover{color:#ff9d9a}
+.bv{--ease:cubic-bezier(.2,.8,.2,1)}
+.bv ::selection{background:rgba(255,157,154,.35);color:#ffffff}
+.ph{position:relative;width:390px;height:844px;border-radius:48px;overflow:hidden;background:#08080f;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.09);flex:none}
+.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.h{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.08;margin:0}
+.lbl{display:flex;align-items:center;gap:10px;height:24px;font-size:13px;color:rgba(255,255,255,.62)}
+.tag{font-size:12px;font-weight:600;padding:3px 8px;border:1px solid rgba(255,255,255,.22);border-radius:6px;color:rgba(255,255,255,.82)}
+.need{color:#ffc58a}
+/* progress: five 2px segments, filled ones carry the brand gradient as one continuous strip */
+.prog{position:absolute;top:56px;left:24px;right:24px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.seg{height:2px;border-radius:1px;background:rgba(255,255,255,.14)}
+.seg.f{background:linear-gradient(90deg,#ff746f,#c14ca8 55%,#5d5bd7);background-size:342px 2px}
+.seg.s1{background-position:0 0}.seg.s2{background-position:-69px 0}.seg.s3{background-position:-138px 0}.seg.s4{background-position:-207px 0}.seg.s5{background-position:-277px 0}
+/* CTA: brand pill, slow sheen on the compositor */
+.cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;width:100%;height:56px;padding:0 20px;border:0;border-radius:28px;background:linear-gradient(90deg,#ff746f,#c14ca8 55%,#5d5bd7);color:#ffffff;font-family:Archivo,sans-serif;font-size:17px;font-weight:700;cursor:pointer;transition:transform 120ms var(--ease)}
+.cta:active{transform:scale(.97)}
+.cta:focus-visible{outline:2px solid #ffffff;outline-offset:3px}
+.cta::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;transform:translateX(-150%);background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.34),rgba(255,255,255,0));animation:sheen 7s ease-in-out infinite;will-change:transform;pointer-events:none}
+@keyframes sheen{0%,83%{transform:translateX(-150%)}100%{transform:translateX(325%)}}
+.micro{font-size:12px;line-height:16px;color:rgba(255,255,255,.58);text-align:center}
+/* reading rhythm: headline first, then the visual, then the CTA settles */
+.in{animation:rise 400ms var(--ease) both}
+.vin{animation:rise 450ms var(--ease) both}
+.settle{animation:settle 300ms var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes settle{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+/* B1 cross-fade: base portrait stays, two layers fade over it, 18 s loop, opacity only */
+.xf1{animation:xf1 18s linear infinite;will-change:opacity}
+.xf2{animation:xf2 18s linear infinite;will-change:opacity}
+@keyframes xf1{0%,33.3%{opacity:0}38.3%,72%{opacity:1}72.1%,100%{opacity:0}}
+@keyframes xf2{0%,66.6%{opacity:0}71.6%,95%{opacity:1}100%{opacity:0}}
+/* B2 result frame and thumbnails */
+.shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity 500ms var(--ease),transform 500ms var(--ease)}
+.shot.on{opacity:1;transform:none;z-index:1}
+.thumbs{position:absolute;top:548px;left:0;right:0;display:flex;gap:8px;padding:4px 24px;overflow-x:auto;scrollbar-width:none}
+.thumbs::-webkit-scrollbar{display:none}
+.th{flex:none;width:64px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:0;border:0;background:none;color:rgba(255,255,255,.72);font-family:Archivo,sans-serif;font-size:11px;line-height:13px;text-align:center;cursor:pointer}
+.th .im{position:relative;width:64px;height:80px;border-radius:12px;overflow:hidden;outline:2px solid rgba(255,255,255,0);outline-offset:2px;transition:outline-color 200ms var(--ease)}
+.th.sel .im{outline-color:#ffffff}
+.th.sel{color:#ffffff}
+.th:active .im{transform:scale(.97)}
+.th:focus-visible .im{outline-color:#ff9d9a}
+.ck{position:absolute;top:4px;right:4px;width:18px;height:18px;border-radius:9px;background:#ffffff;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.8);transition:opacity 200ms var(--ease),transform 200ms var(--ease)}
+.th.sel .ck{opacity:1;transform:none}
+.cnt{position:absolute;inset:0;opacity:0;transition:opacity 150ms linear}
+.cnt.on{opacity:1}
+/* B3 */
+.chip{height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:rgba(255,255,255,.86);font-family:Archivo,sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:background-color 200ms var(--ease),border-color 200ms var(--ease)}
+.chip.sel{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);color:#ffffff}
+.chip:active{transform:scale(.97)}
+.chip:focus-visible{outline:2px solid #ff9d9a;outline-offset:2px}
+.caret{display:inline-block;width:2px;height:18px;margin-left:2px;vertical-align:-3px;background:#ff9d9a;animation:blink 1s steps(1) infinite}
+.caret.off{visibility:hidden;animation:none}
+@keyframes blink{50%{opacity:0}}
+.bar{position:absolute;left:16px;right:16px;bottom:16px;height:2px;border-radius:1px;background:rgba(255,255,255,.18);overflow:hidden}
+.bar i{position:absolute;inset:0;background:#ffffff;transform-origin:0 50%;animation:bar 900ms cubic-bezier(.4,0,.2,1) both}
+@keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.vid{animation:vid 400ms var(--ease) both}
+@keyframes vid{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+/* B4 */
+.tile{position:relative;border-radius:16px;overflow:hidden;background:#14141f;animation:rise 450ms var(--ease) both}
+.badge{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:10px;background:#ffffff;display:flex;align-items:center;justify-content:center;animation:fade 200ms linear both}
+/* B5 segmented control and preview */
+.segc{position:absolute;top:156px;left:24px;right:24px;height:44px;box-sizing:border-box;padding:2px;border-radius:12px;background:rgba(255,255,255,.07);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.pill{position:absolute;top:2px;bottom:2px;left:2px;width:calc((100% - 4px) / 4);border-radius:10px;background:#ffffff;transition:transform 250ms var(--ease)}
+.pill.p1{transform:translateX(100%)}.pill.p2{transform:translateX(200%)}.pill.p3{transform:translateX(300%)}
+.sg{position:relative;z-index:1;border:0;background:none;color:rgba(255,255,255,.72);font-family:Archivo,sans-serif;font-size:14px;font-weight:600;cursor:pointer;border-radius:10px;transition:color 250ms var(--ease)}
+.sg.sel{color:#0b0b12}
+.sg:focus-visible{outline:2px solid #ff9d9a;outline-offset:-2px}
+.card{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity 300ms var(--ease),transform 0s linear 300ms;pointer-events:none}
+.card.on{opacity:1;transform:none;transition:opacity 300ms var(--ease),transform 300ms var(--ease);pointer-events:auto}
+.bar-g{height:10px;border-radius:5px;background:rgba(255,255,255,.16)}
+/* B6 */
+.row{display:flex;align-items:center;gap:12px;height:52px;padding:0 12px;animation:rise 400ms var(--ease) both}
+.rv{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:6px}
+/* off-screen: everything holds still */
+.dc-paused,.dc-paused *,.dc-paused *::before,.dc-paused *::after{animation-play-state:paused !important}
+@media (prefers-reduced-motion: reduce){.bv *,.bv *::before,.bv *::after{animation:none !important;transition:none !important}}
+</style>
+
+<style>html,body{margin:0;overflow:hidden}</style>
+</head><body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div ref="{{ setRoot }}" class="{{ rootClass }}" style="width: 2636px; height: 1140px; box-sizing: border-box; padding: 48px; background: #050509; color: #ffffff; font-family: Archivo, sans-serif; display: flex; flex-direction: column; gap: 36px;">
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 44px; font-weight: 800; letter-spacing: -1.4px; line-height: 1.1;">Concept B · demo shoot</div>
+    <div style="font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.72); max-width: 1500px;">The user drives the demo: picks looks, writes one line for a video, chooses where the photos go and sees their own set at the peak. The last screen repeats their choices and says plainly that a plan comes next.</div>
+  </div>
+
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+
+    <!-- B1 · hook -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="lbl"><span class="tag">B1</span>Hook · the portrait from the ad</div>
+      <div class="ph">
+        <img class="fill" src="img/1bcf6ebd340b2c209118a51eea05f0bc.webp" alt="Sample portrait in golden hour light">
+        <img class="fill xf1" src="img/61d89b39ec612971a950488347f4729a.webp" alt="">
+        <img class="fill xf2" src="img/0ab866f4416cfd2c7a7b80fa122c948b.webp" alt="">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0) 45%, rgba(8,8,15,0.78) 66%, #08080f 84%);"></div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; gap: 16px;">
+          <div class="in">
+            <h1 class="h" style="font-size: 32px;">A photo shoot from</h1>
+            <div class="serif" style="font-size: 46px; line-height: 1; color: #ff9d9a;">a few selfies</div>
+          </div>
+          <p class="in" style="margin: 0; font-size: 16px; line-height: 1.45; color: rgba(255,255,255,0.78); animation-delay: 120ms;">Studio portraits and short videos of you, ready in about 5 minutes.</p>
+          <div class="settle" style="display: flex; flex-direction: column; gap: 12px; animation-delay: 700ms;">
+            <button class="cta" type="button">Run a demo shoot</button>
+            <div class="micro">Takes under a minute. Nothing to upload yet.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B2 · pick looks -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="lbl"><span class="tag">B2</span>Pick looks · tap to get a portrait<span class="need"></span></div>
+      <div class="ph">
+        <div class="prog"><span class="seg f s1"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span></div>
+        <h2 class="h in" style="position: absolute; top: 76px; left: 24px; right: 24px;">Tap a look to shoot it</h2>
+        <div class="vin" style="position: absolute; top: 156px; left: 24px; width: 342px; height: 344px; border-radius: 24px; overflow: hidden; background: #12121e; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); animation-delay: 150ms;">
+          <sc-for list="{{ frame }}" as="f" hint-placeholder-count="6">
+            <img class="{{ f.cls }}" src="{{ f.src }}" alt="{{ f.alt }}">
+          </sc-for>
+          <div style="position: absolute; z-index: 2; top: 12px; left: 12px; width: 56px; height: 56px; box-sizing: border-box; border-radius: 16px; background: #14141f; box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 6px 16px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: rgba(255,255,255,0.72);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.6l1.4-2h5l1.4 2h1.6A2.5 2.5 0 0 1 20 8.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5z"></path><circle cx="12" cy="12.5" r="3.5"></circle></svg>
+            <span style="font-size: 10px; line-height: 12px;">Selfie</span>
+          </div>
+          <sc-if value="{{ hasCurrent }}" hint-placeholder-val="{{ true }}">
+            <span style="position: absolute; z-index: 2; left: 12px; bottom: 12px; height: 28px; padding: 0 10px; border-radius: 8px; background: rgba(8,8,15,0.66); display: flex; align-items: center; font-size: 13px; font-weight: 600;">{{ currentName }}</span>
+          </sc-if>
+        </div>
+        <p style="position: absolute; top: 512px; left: 24px; right: 24px; margin: 0; font-size: 13px; line-height: 18px; color: rgba(255,255,255,0.6);">Sample results. Your selfies go in after this demo.</p>
+        <div class="thumbs" role="group" aria-label="Looks">
+          <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="6">
+            <button class="{{ t.cls }}" type="button" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}">
+              <span class="im"><img class="fill" src="{{ t.src }}" alt=""><span class="ck"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></span>
+              <span>{{ t.name }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="position: absolute; top: 676px; left: 24px; right: 24px; height: 20px; font-size: 15px; font-weight: 600;" aria-live="polite">
+          <sc-for list="{{ counts }}" as="c" hint-placeholder-count="6">
+            <span class="{{ c.cls }}">{{ c.text }}</span>
+          </sc-for>
+        </div>
+        <div class="settle" style="position: absolute; left: 24px; right: 24px; bottom: 40px; animation-delay: 1100ms;"><button class="cta" type="button">Next, make a video</button></div>
+      </div>
+    </div>
+
+    <!-- B3 · make a video -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="lbl"><span class="tag">B3</span>One line becomes a video</div>
+      <div class="ph">
+        <div class="prog"><span class="seg f s1"></span><span class="seg f s2"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span></div>
+        <h2 class="h in" style="position: absolute; top: 76px; left: 24px; right: 24px;">Write one line, get a video of you</h2>
+        <div class="vin" style="position: absolute; top: 156px; left: 24px; width: 342px; height: 300px; border-radius: 24px; overflow: hidden; background: #12121e; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); animation-delay: 150ms;">
+          <sc-if value="{{ b3idle }}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; color: rgba(255,255,255,0.56);">Pick a line below</div>
+          </sc-if>
+          <sc-if value="{{ b3poster }}" hint-placeholder-val="{{ true }}">
+            <img class="fill" src="{{ lineObj.poster }}" alt="" style="opacity: 0.5;">
+          </sc-if>
+          <sc-if value="{{ b3render }}" hint-placeholder-val="{{ false }}">
+            <div class="bar"><i></i></div>
+          </sc-if>
+          <sc-if value="{{ b3play }}" hint-placeholder-val="{{ true }}">
+            <div class="vid" style="position: absolute; inset: 0;">
+              <video data-v="b3" class="fill" src="{{ lineObj.src }}" poster="{{ lineObj.poster }}" muted="{{ yes }}" loop="{{ yes }}" playsInline="{{ yes }}" preload="metadata"></video>
+            </div>
+          </sc-if>
+        </div>
+        <div style="position: absolute; top: 468px; left: 24px; right: 24px; height: 56px; box-sizing: border-box; padding: 0 16px; border-radius: 20px; background: rgba(255,255,255,0.07); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"></path><path d="M13.5 6.5l4 4"></path></svg>
+          <span style="flex: 1; min-width: 0; font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden;"><span ref="{{ setTyped }}"></span><span class="{{ caretCls }}"></span></span>
+        </div>
+        <div style="position: absolute; top: 536px; left: 24px; right: 24px; display: flex; flex-wrap: wrap; gap: 8px;" role="group" aria-label="Video lines">
+          <sc-for list="{{ chips }}" as="c" hint-placeholder-count="3">
+            <button class="{{ c.cls }}" type="button" aria-pressed="{{ c.pressed }}" onClick="{{ c.pick }}">{{ c.text }}</button>
+          </sc-for>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; gap: 12px;">
+          <div class="micro">Sped up for the demo. Your real shoot takes about 5 minutes.</div>
+          <div class="settle" style="animation-delay: 900ms;"><button class="cta" type="button">Add this video to my shoot</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B4 · your shoot (peak) -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="lbl"><span class="tag">B4</span>Peak · the set assembles</div>
+      <div class="ph">
+        <div class="prog"><span class="seg f s1"></span><span class="seg f s2"></span><span class="seg f s3"></span><span class="seg"></span><span class="seg"></span></div>
+        <h2 class="h in" style="position: absolute; top: 76px; left: 24px; right: 24px;">Your shoot so far</h2>
+        <div style="position: absolute; top: 140px; left: 16px; right: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: 172px 172px 136px; gap: 8px;">
+          <div class="tile" style="grid-column: span 2; grid-row: span 2; animation-delay: 450ms;">
+            <video data-v="b4" class="fill" src="{{ lineObj.src }}" poster="{{ lineObj.poster }}" muted="{{ yes }}" loop="{{ yes }}" playsInline="{{ yes }}" preload="metadata"></video>
+            <span style="position: absolute; left: 10px; bottom: 10px; max-width: 200px; height: 28px; padding: 0 10px; border-radius: 8px; background: rgba(8,8,15,0.68); display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden;"><svg width="8" height="10" viewBox="0 0 10 12" aria-hidden="true"><path d="M1 1v10l8-5z" fill="#ffffff"></path></svg>{{ lineObj.text }}</span>
+            <span class="badge" style="animation-delay: 900ms;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+          </div>
+          <div class="tile" style="animation-delay: 530ms;">
+            <img class="fill" src="{{ b4.t1.src }}" alt="{{ b4.t1.alt }}">
+            <sc-if value="{{ b4.t1.chosen }}" hint-placeholder-val="{{ true }}"><span class="badge" style="animation-delay: 980ms;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+          </div>
+          <div class="tile" style="animation-delay: 610ms;">
+            <img class="fill" src="{{ b4.t2.src }}" alt="{{ b4.t2.alt }}">
+            <sc-if value="{{ b4.t2.chosen }}" hint-placeholder-val="{{ true }}"><span class="badge" style="animation-delay: 1060ms;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+          </div>
+          <div class="tile" style="animation-delay: 690ms;">
+            <img class="fill" src="{{ b4.t3.src }}" alt="{{ b4.t3.alt }}">
+            <sc-if value="{{ b4.t3.chosen }}" hint-placeholder-val="{{ false }}"><span class="badge" style="animation-delay: 1140ms;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+          </div>
+          <div class="tile" style="animation-delay: 770ms;">
+            <img class="fill" src="{{ b4.t4.src }}" alt="{{ b4.t4.alt }}">
+            <sc-if value="{{ b4.t4.chosen }}" hint-placeholder-val="{{ false }}"><span class="badge" style="animation-delay: 1220ms;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+          </div>
+          <div class="tile" style="animation-delay: 850ms;">
+            <img class="fill" src="{{ b4.t5.src }}" alt="{{ b4.t5.alt }}">
+            <sc-if value="{{ b4.t5.chosen }}" hint-placeholder-val="{{ false }}"><span class="badge" style="animation-delay: 1300ms;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+          </div>
+        </div>
+        <div style="position: absolute; top: 660px; left: 24px; right: 24px; display: flex; flex-direction: column; gap: 8px;">
+          <p style="margin: 0; font-size: 14px; line-height: 20px; color: rgba(255,255,255,0.74);">The looks and the line you picked, plus more from the same selfies.</p>
+          <p class="need" style="margin: 0; font-size: 13px; line-height: 18px;"></p>
+        </div>
+        <div class="settle" style="position: absolute; left: 24px; right: 24px; bottom: 40px; animation-delay: 1500ms;"><button class="cta" type="button">See where they fit</button></div>
+      </div>
+    </div>
+
+    <!-- B5 · where it goes -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="lbl"><span class="tag">B5</span>Where the photos go · a live profile</div>
+      <div class="ph">
+        <div class="prog"><span class="seg f s1"></span><span class="seg f s2"></span><span class="seg f s3"></span><span class="seg f s4"></span><span class="seg"></span></div>
+        <h2 class="h in" style="position: absolute; top: 76px; left: 24px; right: 24px;">Where will you post them</h2>
+        <div class="segc vin" role="group" aria-label="Where the photos go" style="animation-delay: 150ms;">
+          <span class="{{ pillCls }}"></span>
+          <sc-for list="{{ dests }}" as="d" hint-placeholder-count="4">
+            <button class="{{ d.cls }}" type="button" aria-pressed="{{ d.pressed }}" onClick="{{ d.pick }}">{{ d.name }}</button>
+          </sc-for>
+        </div>
+        <div class="vin" style="position: absolute; top: 216px; left: 24px; width: 342px; height: 420px; border-radius: 24px; overflow: hidden; background: #12121e; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); animation-delay: 300ms;">
+          <!-- Social -->
+          <div class="{{ cardCls.social }}">
+            <div style="display: flex; align-items: center; gap: 12px; height: 68px; padding: 0 14px;">
+              <img src="{{ avatar }}" alt="" style="width: 40px; height: 40px; border-radius: 20px; object-fit: cover; object-position: 50% 15%;">
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 15px; font-weight: 700;">your.looks</span><span style="font-size: 12px; color: rgba(255,255,255,0.58);">New set</span></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px;">
+              <sc-for list="{{ social }}" as="g" hint-placeholder-count="9">
+                <div style="position: relative; height: 116px; overflow: hidden;"><img class="fill" src="{{ g }}" alt=""></div>
+              </sc-for>
+            </div>
+          </div>
+          <!-- Dating -->
+          <div class="{{ cardCls.dating }}">
+            <div style="position: absolute; inset: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 8px;">
+              <div style="position: relative; grid-column: span 2; grid-row: span 2; border-radius: 16px; overflow: hidden;">
+                <img class="fill" src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt="">
+                <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: linear-gradient(180deg, rgba(8,8,15,0), rgba(8,8,15,0.8));"></div>
+                <div style="position: absolute; left: 12px; bottom: 14px; width: 140px; display: flex; flex-direction: column; gap: 6px;"><span class="bar-g" style="width: 110px; background: rgba(255,255,255,0.6);"></span><span class="bar-g" style="width: 72px;"></span></div>
+              </div>
+              <div style="position: relative; border-radius: 12px; overflow: hidden;"><img class="fill" src="{{ dating.a }}" alt=""></div>
+              <div style="position: relative; border-radius: 12px; overflow: hidden;"><img class="fill" src="{{ dating.b }}" alt=""></div>
+            </div>
+          </div>
+          <!-- Work -->
+          <div class="{{ cardCls.work }}">
+            <div style="height: 112px; background: #1b1b28;"></div>
+            <img src="img/0ab866f4416cfd2c7a7b80fa122c948b.webp" alt="" style="position: absolute; top: 64px; left: 20px; width: 96px; height: 96px; border-radius: 48px; object-fit: cover; object-position: 50% 18%; box-shadow: 0 0 0 4px #12121e;">
+            <div style="position: absolute; top: 176px; left: 20px; display: flex; flex-direction: column; gap: 8px;"><span class="bar-g" style="width: 160px; height: 12px; background: rgba(255,255,255,0.6);"></span><span class="bar-g" style="width: 208px;"></span></div>
+            <div style="position: absolute; top: 236px; left: 20px; right: 20px; bottom: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+              <div style="position: relative; border-radius: 12px; overflow: hidden;"><img class="fill" src="{{ work.a }}" alt=""></div>
+              <div style="position: relative; border-radius: 12px; overflow: hidden;"><img class="fill" src="{{ work.b }}" alt=""></div>
+            </div>
+          </div>
+          <!-- Family -->
+          <div class="{{ cardCls.family }}" style="background: #24201d;">
+            <div style="position: absolute; left: 28px; top: 64px; width: 140px; box-sizing: border-box; padding: 10px; background: #ece6dc; box-shadow: 0 0 0 3px #1a1714, 0 12px 24px rgba(0,0,0,0.45);"><img src="img/dfe712402599ef07cf8ae3c48c9b2d1b.webp" alt="" style="display: block; width: 120px; height: 160px; object-fit: cover;"></div>
+            <div style="position: absolute; right: 28px; top: 120px; width: 124px; box-sizing: border-box; padding: 10px; background: #ece6dc; box-shadow: 0 0 0 3px #1a1714, 0 12px 24px rgba(0,0,0,0.45);"><img src="img/81d5790966f90bb95fecfb9e01963b00.webp" alt="" style="display: block; width: 104px; height: 136px; object-fit: cover;"></div>
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 64px; background: #1c1916;"></div>
+          </div>
+        </div>
+        <p style="position: absolute; top: 652px; left: 24px; right: 24px; margin: 0; font-size: 14px; line-height: 20px; color: rgba(255,255,255,0.74);">One shoot covers all of them.</p>
+        <div class="settle" style="position: absolute; left: 24px; right: 24px; bottom: 40px; animation-delay: 800ms;"><button class="cta" type="button">Looks right, continue</button></div>
+      </div>
+    </div>
+
+    <!-- B6 · proof and start -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="lbl"><span class="tag">B6</span>Trust, then paywall</div>
+      <div class="ph">
+        <div class="prog"><span class="seg f s1"></span><span class="seg f s2"></span><span class="seg f s3"></span><span class="seg f s4"></span><span class="seg f s5"></span></div>
+        <div class="in" style="position: absolute; top: 76px; left: 24px; right: 24px;">
+          <h2 class="h">Now do it with</h2>
+          <div class="serif" style="font-size: 40px; line-height: 1; color: #ff9d9a;">your own selfies</div>
+        </div>
+        <div style="position: absolute; top: 172px; left: 24px; right: 24px; padding: 4px 0; border-radius: 20px; background: #12121e; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);">
+          <div class="row" style="animation-delay: 450ms;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="14" height="14" rx="2.5"></rect><path d="M7 2.5h11.5A2.5 2.5 0 0 1 21 5v11.5"></path><path d="M3 15l4-4 4 4 2-2 4 4"></path></svg>
+            <div style="flex: 1; min-width: 0; font-size: 14px; line-height: 18px;"><span style="color: rgba(255,255,255,0.58);">Looks: </span>{{ recapLooks }}</div>
+            <div style="display: flex; gap: 4px;">
+              <sc-for list="{{ recapThumbs }}" as="r" hint-placeholder-count="2">
+                <img src="{{ r }}" alt="" style="width: 28px; height: 36px; border-radius: 6px; object-fit: cover;">
+              </sc-for>
+            </div>
+          </div>
+          <div style="height: 1px; margin: 0 12px; background: rgba(255,255,255,0.07);"></div>
+          <div class="row" style="animation-delay: 530ms;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2.5"></rect><path d="M16 10.5l5-3v9l-5-3"></path></svg>
+            <div style="flex: 1; min-width: 0; font-size: 14px; line-height: 18px;"><span style="color: rgba(255,255,255,0.58);">Video: </span>{{ lineObj.text }}</div>
+            <img src="{{ lineObj.poster }}" alt="" style="width: 28px; height: 36px; border-radius: 6px; object-fit: cover;">
+          </div>
+          <div style="height: 1px; margin: 0 12px; background: rgba(255,255,255,0.07);"></div>
+          <div class="row" style="animation-delay: 610ms;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3L10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg>
+            <div style="flex: 1; min-width: 0; font-size: 14px; line-height: 18px;"><span style="color: rgba(255,255,255,0.58);">For: </span>{{ destName }}</div>
+          </div>
+        </div>
+        <div style="position: absolute; top: 364px; left: 24px; right: 24px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.78); animation: fade 300ms linear 1010ms both;">
+          <span style="display: flex; gap: 2px;" role="img" aria-label="5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="#f2c25b"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="#f2c25b"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="#f2c25b"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="#f2c25b"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z" fill="#f2c25b"></path></svg>
+          </span>
+          <span style="font-variant-numeric: tabular-nums;">Rated 4.9 · 2 million portraits made</span>
+        </div>
+        <div style="position: absolute; top: 396px; left: 24px; right: 24px; display: flex; flex-direction: column; gap: 8px; animation: fade 300ms linear 1100ms both;">
+          <div class="rv">
+            <div style="font-size: 14px; font-weight: 700;">My LinkedIn photo is from here</div>
+            <div style="font-size: 13px; line-height: 18px; color: rgba(255,255,255,0.74);">Two colleagues asked which photographer I went to. I did not tell them.</div>
+            <div class="need" style="font-size: 12px;"></div>
+          </div>
+          <div class="rv">
+            <div style="font-size: 14px; font-weight: 700;">It really looks like me</div>
+            <div style="font-size: 13px; line-height: 18px; color: rgba(255,255,255,0.74);">The likeness is unsettling in the best way. It looks like me on a very good day.</div>
+            <div class="need" style="font-size: 12px;"></div>
+          </div>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 32px; display: flex; flex-direction: column; gap: 10px;">
+          <div class="need" style="font-size: 12px; line-height: 16px; text-align: center;"></div>
+          <div class="settle" style="animation-delay: 1400ms;"><button class="cta" type="button">Start my shoot</button></div>
+          <div class="micro">Next: choose a plan, then add your selfies. Ready in about 5 minutes.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2636,"height":1140}}'>
+const B = "img/";
+const LOOKS = [
+  { id: "golden", name: "Golden hour", src: B + "1bcf6ebd340b2c209118a51eea05f0bc.webp" },
+  { id: "paris", name: "Paris", src: B + "61d89b39ec612971a950488347f4729a.webp" },
+  { id: "bw", name: "Black and white", src: B + "81d5790966f90bb95fecfb9e01963b00.webp" },
+  { id: "velvet", name: "Red velvet", src: B + "f091ec11cd7c7fb5d1f245b676eb053d.webp" },
+  { id: "studio", name: "White studio", src: B + "0ab866f4416cfd2c7a7b80fa122c948b.webp" },
+  { id: "offroad", name: "Off-road", src: B + "fe1b0b9c91fd90b2950cb0094855fdd5.webp" },
+];
+const LINES = [
+  { id: "lion", text: "Me and a lion in the rain", src: B + "658e8cb157b9e7bae05139c0b6855cd8", poster: B + "e8b8d53763c576245ae4e17237fdbaf9" },
+  { id: "party", text: "A night out with friends", src: B + "03d9808d94706c25ec8449d2ede5b8d8.mp4", poster: B + "edd51c3999e7a17990f65bfeb331e7c5.jpg" },
+  { id: "city", text: "Walking through an old city", src: B + "a1be6d5333deac9a30ca24d1d51152d6.mp4", poster: B + "afbea65e9da9ed193da9230b22ccf690.jpg" },
+];
+const FILL = [B + "7ec8f3ae9dd3abb8a651dbb6f78fd504.webp", B + "c7b39acdcee3aa3a7156c23c5c82e238.webp", B + "dfe712402599ef07cf8ae3c48c9b2d1b.webp"];
+const DESTS = [
+  { id: "social", name: "Social" },
+  { id: "dating", name: "Dating" },
+  { id: "work", name: "Work" },
+  { id: "family", name: "Family" },
+];
+const lookById = (id) => LOOKS.find((l) => l.id === id) || LOOKS[0];
+const lineById = (id) => LINES.find((l) => l.id === id) || LINES[0];
+const TYPE_MS = 40;    // per character, about 1 s per line
+const RENDER_MS = 900; // progress line before the video shows
+const MIN_GAP = 250;   // timed state updates never closer than this
+
+class Component extends DCLogic {
+  state = {
+    live: true,
+    looks: ["golden", "paris"], // defaults keep the whole flow complete on the board
+    current: "paris",
+    b2stage: 0,                 // 0 empty, 1 golden developed, 2 paris developed (or the user tapped)
+    line: "lion",
+    phase: "idle",              // idle | typing | render | play
+    dest: "social",
+  };
+  setRoot = (el) => { this.root = el; };
+  setTyped = (el) => { this.typedEl = el; if (el) el.textContent = this.typedText || ""; };
+
+  componentDidMount() {
+    this.t = 0; this.q = []; this.pending = null; this.lastFlush = -1e9; this.typing = null; this.live = true;
+    this.reduced = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (this.reduced) {
+      this.typedText = LINES[0].text;
+      if (this.typedEl) this.typedEl.textContent = this.typedText;
+      this.setState({ b2stage: 2, phase: "play" });
+      return;
+    }
+    // the authored sequence, on a clock that only runs while the artboard is on screen
+    this.at(600, "b2", () => { if (this.view().b2stage < 1) this.patch({ b2stage: 1, current: "golden" }); });
+    this.at(1200, "b3", () => { if (this.view().phase === "idle") this.runLine("lion", false); });
+    this.at(1500, "b4", () => { this.b4ready = true; this.syncVideos(); });
+    this.at(2000, "b2", () => { if (this.view().b2stage < 2) this.patch({ b2stage: 2, current: "paris" }); });
+    if (this.root && "IntersectionObserver" in window) {
+      this.io = new IntersectionObserver((es) => {
+        const live = es[es.length - 1].isIntersecting;
+        if (live === this.live) return;
+        this.live = live;
+        this.setState({ live });
+        if (live) this.start(); else this.stop();
+        this.syncVideos();
+      }, { threshold: 0.05 });
+      this.io.observe(this.root);
+    }
+    this.start();
+  }
+  componentDidUpdate() { this.syncVideos(); }
+  componentWillUnmount() { this.stop(); if (this.io) this.io.disconnect(); this.live = false; this.syncVideos(); }
+
+  view() { return this.pending ? Object.assign({}, this.state, this.pending) : this.state; }
+  at(ms, tag, fn) { this.q.push({ at: this.t + ms, tag, fn }); this.start(); }
+  cancel(tag) { this.q = this.q.filter((e) => e.tag !== tag); }
+  patch(obj) { this.pending = Object.assign(this.pending || {}, obj); this.start(); }
+
+  start() { if (!this.raf && !this.inTick && this.live && !this.reduced) { this.prev = 0; this.raf = requestAnimationFrame(this.tick); } }
+  stop() { if (this.raf) cancelAnimationFrame(this.raf); this.raf = 0; }
+  tick = (now) => {
+    this.raf = 0;
+    if (!this.live) return;
+    this.inTick = true;
+    const dt = this.prev ? Math.min(now - this.prev, 100) : 0;
+    this.prev = now; this.t += dt;
+    const due = this.q.filter((e) => e.at <= this.t);
+    if (due.length) { this.q = this.q.filter((e) => e.at > this.t); due.forEach((e) => e.fn()); }
+    if (this.typing) {
+      const ty = this.typing;
+      const n = Math.min(ty.text.length, Math.floor((this.t - ty.start) / TYPE_MS));
+      if (n !== ty.n) { ty.n = n; this.typedText = ty.text.slice(0, n); if (this.typedEl) this.typedEl.textContent = this.typedText; }
+      if (n >= ty.text.length) {
+        this.typing = null;
+        this.patch({ phase: "render" });
+        this.at(RENDER_MS, "b3", () => this.patch({ phase: "play" }));
+      }
+    }
+    if (this.pending && this.t - this.lastFlush >= MIN_GAP) {
+      const p = this.pending; this.pending = null; this.lastFlush = this.t; this.setState(p);
+    }
+    this.inTick = false;
+    // stop condition: nothing queued, nothing typing, nothing waiting to flush
+    if (this.q.length || this.typing || this.pending) this.raf = requestAnimationFrame(this.tick);
+  };
+
+  runLine(id, byUser) {
+    this.cancel("b3");
+    const line = lineById(id);
+    this.typing = { text: line.text, start: this.t, n: 0 };
+    this.typedText = "";
+    if (this.typedEl) this.typedEl.textContent = "";
+    if (byUser) { this.pending && delete this.pending.phase; this.setState({ line: id, phase: "typing" }); }
+    else this.patch({ line: id, phase: "typing" });
+    this.start();
+  }
+
+  pickLook(id) {
+    const s = this.view();
+    let looks = s.b2stage < 2 ? (s.b2stage === 1 ? ["golden"] : []) : s.looks.slice();
+    let current = id;
+    if (looks.indexOf(id) >= 0) {
+      if (looks.length === 1) return;
+      looks = looks.filter((x) => x !== id);
+      current = s.current === id ? looks[looks.length - 1] : s.current;
+    } else looks.push(id);
+    this.cancel("b2");
+    if (this.pending) { delete this.pending.b2stage; delete this.pending.current; }
+    this.setState({ looks, current, b2stage: 2 });
+  }
+
+  // Budget: two videos at most (B3 and B4), only while on screen, never under reduced motion.
+  syncVideos() {
+    if (!this.root) return;
+    const s = this.state;
+    const on = { b3: this.live && !this.reduced && s.phase === "play", b4: this.live && !this.reduced && !!this.b4ready };
+    this.root.querySelectorAll("video[data-v]").forEach((v) => {
+      const want = !!on[v.getAttribute("data-v")];
+      if (want && v.paused) { v.muted = true; v.playsInline = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+      else if (!want && !v.paused) v.pause();
+    });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const shown = s.b2stage === 0 ? [] : s.b2stage === 1 ? ["golden"] : s.looks;
+    const current = s.b2stage === 0 ? null : s.b2stage === 1 ? "golden" : s.current;
+    const chosen = s.looks.map(lookById);
+    const lineObj = lineById(s.line);
+
+    // B4: chosen looks first, then fill portraits, nothing twice
+    const pool = chosen.map((l) => ({ src: l.src, alt: l.name, chosen: true }))
+      .concat(FILL.map((src) => ({ src, alt: "", chosen: false })))
+      .concat(LOOKS.filter((l) => s.looks.indexOf(l.id) < 0).map((l) => ({ src: l.src, alt: "", chosen: false })));
+    const b4 = { t1: pool[0], t2: pool[1], t3: pool[2], t4: pool[3], t5: pool[4] };
+
+    const others = LOOKS.filter((l) => s.looks.indexOf(l.id) < 0).map((l) => l.src);
+    const social = chosen.map((l) => l.src).concat(FILL, others).slice(0, 9);
+    const notVelvet = chosen.filter((l) => l.id !== "velvet").map((l) => l.src).concat(FILL);
+    const notStudio = chosen.filter((l) => l.id !== "studio").map((l) => l.src).concat(FILL);
+
+    const names = chosen.map((l) => l.name);
+    const recapLooks = names.length > 3 ? names.slice(0, 3).join(", ") + " and " + (names.length - 3) + " more" : names.join(", ");
+    const destIdx = Math.max(0, DESTS.findIndex((d) => d.id === s.dest));
+
+    return {
+      yes: true,
+      setRoot: this.setRoot,
+      setTyped: this.setTyped,
+      rootClass: s.live ? "bv" : "bv dc-paused",
+      // B2
+      frame: LOOKS.map((l) => ({ src: l.src, alt: l.id === current ? "Sample result: " + l.name : "", cls: l.id === current ? "shot on" : "shot" })),
+      hasCurrent: !!current,
+      currentName: current ? lookById(current).name : "",
+      thumbs: LOOKS.map((l) => {
+        const sel = shown.indexOf(l.id) >= 0;
+        return { name: l.name, src: l.src, cls: sel ? "th sel" : "th", pressed: sel ? "true" : "false", pick: () => this.pickLook(l.id) };
+      }),
+      counts: [1, 2, 3, 4, 5, 6].map((n) => ({ text: n + (n === 1 ? " look" : " looks") + " in your shoot", cls: shown.length === n ? "cnt on" : "cnt" })),
+      // B3
+      lineObj,
+      b3idle: s.phase === "idle",
+      b3poster: s.phase === "render" || s.phase === "play",
+      b3render: s.phase === "render",
+      b3play: s.phase === "play",
+      caretCls: s.phase === "play" ? "caret off" : "caret",
+      chips: LINES.map((l) => {
+        const sel = s.phase !== "idle" && s.line === l.id;
+        return { text: l.text, cls: sel ? "chip sel" : "chip", pressed: sel ? "true" : "false", pick: () => this.runLine(l.id, true) };
+      }),
+      // B4
+      b4,
+      // B5
+      pillCls: "pill p" + destIdx,
+      dests: DESTS.map((d) => ({ name: d.name, cls: d.id === s.dest ? "sg sel" : "sg", pressed: d.id === s.dest ? "true" : "false", pick: () => this.setState({ dest: d.id }) })),
+      cardCls: {
+        social: s.dest === "social" ? "card on" : "card",
+        dating: s.dest === "dating" ? "card on" : "card",
+        work: s.dest === "work" ? "card on" : "card",
+        family: s.dest === "family" ? "card on" : "card",
+      },
+      avatar: chosen[0].src,
+      social,
+      dating: { a: notVelvet[0], b: notVelvet[1] },
+      work: { a: notStudio[0], b: notStudio[1] },
+      // B6
+      recapLooks,
+      recapThumbs: chosen.slice(0, 3).map((l) => l.src),
+      destName: DESTS[destIdx].name,
+    };
+  }
+}
+</script>
+<script src="../morphdom.min.js"></script>
+<script src="../dc-lite.js"></script>
+</body></html>

@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Studio onboarding E v3 · like rain</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050509}
+a{color:#f2f0f5}a:hover{color:#ff9d9a}
+::selection{background:rgba(255,90,110,.35);color:#ffffff}
+.v3-ph{position:relative;width:390px;height:844px;border-radius:48px;overflow:hidden;background:#08080f;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);flex:none;color:#f2f0f5;isolation:isolate;contain:layout paint}
+.v3-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.v3-h1{margin:0;font-weight:900;font-size:36px;line-height:1.04;letter-spacing:-0.03em;text-wrap:balance}
+.v3-serif{display:block;margin-top:2px;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:36px;line-height:1.05;letter-spacing:0;color:#ff9d9a}
+.v3-sub{margin:0;font-size:15px;line-height:22px;color:rgba(242,240,245,.78);text-wrap:pretty}
+.v3-num,.v3-cnt{font-variant-numeric:tabular-nums;letter-spacing:0}
+.v3-lbl{font-size:13px;color:rgba(242,240,245,.62)}
+.v3-lbl b{display:inline-block;margin-right:10px;padding:4px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.18);font-weight:600;color:#f2f0f5}
+.v3-prog{position:absolute;top:20px;left:24px;right:24px;display:flex;gap:4px;z-index:8}
+.v3-prog i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.2)}
+.v3-prog i.on{background:#f2f0f5}
+.v3-copy{position:absolute;left:24px;right:24px;bottom:40px;display:flex;flex-direction:column;z-index:6}
+.v3-need{padding:8px 12px;border-radius:10px;border:1px dashed rgba(242,240,245,.32);font-size:12px;line-height:16px;color:rgba(242,240,245,.74)}
+.v3-cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:4px;height:56px;border-radius:28px;background:linear-gradient(90deg,#ff746f,#c14ca8 55%,#5d5bd7);color:#ffffff;font-size:17px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .16s cubic-bezier(.23,1,.32,1);margin-top:24px}
+.v3-cta:hover{color:#ffffff}
+.v3-cta:active{transform:scale(.97)}
+.v3-cta:focus-visible,.v3-wbtn:focus-visible,.v3-tile:focus-visible,.v3-tap:focus-visible{outline:2px solid #f2f0f5;outline-offset:3px}
+.v3-cta::after{content:"";position:absolute;top:0;bottom:0;left:0;width:96px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.32),rgba(255,255,255,0));transform:translateX(-140px) skewX(-20deg);animation:v3Sheen 7s ease-in-out infinite;animation-delay:var(--sd,0s);pointer-events:none}
+.v3-nudge{animation:v3Nudge 7s ease-in-out infinite;animation-delay:var(--sd,0s)}
+@keyframes v3Sheen{0%,83%{transform:translateX(-140px) skewX(-20deg)}100%{transform:translateX(440px) skewX(-20deg)}}
+@keyframes v3Nudge{0%,84%,100%{transform:translateX(0)}92%{transform:translateX(4px)}}
+.v3-wbtn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:48px;padding:0;border:0;border-radius:24px;background:#f2f0f5;color:#08080f;font-family:Archivo,sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:transform .16s cubic-bezier(.23,1,.32,1),background-color .2s ease-out,color .2s ease-out}
+.v3-wbtn:active{transform:scale(.97)}
+.v3-wbtn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:96px;background:linear-gradient(90deg,rgba(8,8,15,0),rgba(8,8,15,.12),rgba(8,8,15,0));transform:translateX(-140px) skewX(-20deg);animation:v3Sheen 7s ease-in-out infinite;animation-delay:var(--sd,0s);pointer-events:none}
+.v3-wbtn.done{background:rgba(242,240,245,.12);color:#f2f0f5;cursor:default}
+.v3-wbtn.done::after{display:none}
+.v3-hint{position:absolute;inset:0;border-radius:24px;border:2px solid rgba(242,240,245,.7);pointer-events:none;animation:v3Hint 1.6s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes v3Hint{0%{opacity:.8;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.05,1.32)}}
+.v3-in{animation:v3In .4s cubic-bezier(.2,.8,.2,1) backwards}
+.v3-d1{animation-delay:80ms}.v3-d2{animation-delay:160ms}.v3-d4{animation-delay:400ms}.v3-d7{animation-delay:700ms}
+@keyframes v3In{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.v3-fade{animation:v3Fade .8s ease-out backwards}
+@keyframes v3Fade{from{opacity:0}to{opacity:1}}
+.v3-band{position:absolute;left:0;right:0;overflow:hidden;pointer-events:none}
+.v3-mask{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 80%,transparent 100%)}
+.v3-rs{position:absolute;left:0;top:0;width:390px;will-change:transform;animation-name:v3Fall;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes v3Fall{from{transform:translateY(-420px)}to{transform:none}}
+.v3-rF{animation-duration:3.5s}.v3-rM{animation-duration:4.2s}.v3-rM2{animation-duration:2.2s}.v3-rN{animation-duration:3.2s}
+.v3-pill{display:flex;align-items:center;gap:8px;background:rgba(8,8,15,.72);border:1px solid rgba(255,255,255,.18);font-weight:800;white-space:nowrap;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+.v3-beat{animation:v3Beat 1.2s ease-in-out infinite}
+@keyframes v3Beat{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}}
+.v3-o{position:absolute;width:0;height:0;pointer-events:none}
+.v3f{position:absolute;display:block;opacity:0;animation-duration:1.8s;animation-timing-function:cubic-bezier(.23,1,.32,1);animation-iteration-count:infinite}
+.z14{left:-7px;top:-7px;width:14px;height:14px}.z18{left:-9px;top:-9px;width:18px;height:18px}.z20{left:-10px;top:-10px;width:20px;height:20px}.z26{left:-13px;top:-13px;width:26px;height:26px}.z30{left:-15px;top:-15px;width:30px;height:30px}
+.v3ring{position:absolute;left:-100px;top:-100px;width:200px;height:200px;display:block;opacity:0;animation:v3Ring 1.8s cubic-bezier(.23,1,.32,1) infinite}
+.v3ring-s{left:-60px;top:-60px;width:120px;height:120px}
+@keyframes v3Ring{0%{opacity:0;transform:scale(.2) rotate(0deg)}15%{opacity:1}65%{opacity:.9}100%{opacity:0;transform:scale(1) rotate(24deg)}}
+.v3-once .v3f{animation-iteration-count:1;animation-duration:1.3s;animation-delay:0s;animation-fill-mode:both}
+.v3-once .v3f:nth-child(even){animation-delay:.07s}
+.v3-once .v3ring{animation-iteration-count:1;animation-delay:0s;animation-fill-mode:both}
+.v3-popheart{position:absolute;left:-36px;top:-36px;width:72px;height:72px;display:block;animation:v3Pop .9s cubic-bezier(.23,1,.32,1) both}
+@keyframes v3Pop{0%{opacity:0;transform:scale(.3)}22%{opacity:1;transform:scale(1.1)}40%{transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:translateY(-12px) scale(1)}}
+.v3-tap{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;z-index:4}
+.v3-badge{position:absolute;left:6px;bottom:6px;display:flex;align-items:center;gap:4px;height:24px;padding:0 8px 0 6px;border-radius:12px;background:rgba(8,8,15,.72);color:#ffffff;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.v3-bh{display:block;flex:none;width:14px;height:14px}
+.v3-note{position:absolute;left:0;right:0;top:0;height:64px;box-sizing:border-box;padding:0 12px;border-radius:16px;background:#15151d;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 24px rgba(0,0,0,.4);display:flex;align-items:center;gap:12px;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s cubic-bezier(.2,.8,.2,1)}
+.v3-chip{animation:v3In .45s cubic-bezier(.2,.8,.2,1) backwards}
+.v3-tile{position:relative;height:148px;padding:0;border:0;border-radius:12px;overflow:hidden;background:#12121a;cursor:pointer;color:#f2f0f5;font-family:Archivo,sans-serif;text-align:left;transition:transform .16s cubic-bezier(.23,1,.32,1)}
+.v3-tile:active{transform:scale(.97)}
+.v3-seg{position:relative;width:22px;height:22px;display:block}
+.v3-seg span{position:absolute;inset:0;display:block;transition:opacity .3s ease-out}
+.v3-state{position:absolute;left:0;top:0;white-space:nowrap;transition:opacity .2s ease-out}
+.v3-e2s{position:absolute;left:147px;top:236px;width:96px;height:128px;border-radius:12px;background:#15151d;border:1px solid rgba(255,255,255,.1);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;animation-duration:.9s;animation-timing-function:cubic-bezier(.2,.8,.2,1);animation-fill-mode:both}
+@keyframes v3SelL{0%,44%{opacity:1;transform:translateX(-112px)}100%{opacity:0;transform:translateX(0) scale(.8)}}
+@keyframes v3SelC{0%,44%{opacity:1;transform:none}100%{opacity:0;transform:scale(.8)}}
+@keyframes v3SelR{0%,44%{opacity:1;transform:translateX(112px)}100%{opacity:0;transform:translateX(0) scale(.8)}}
+.v3-e2c{position:absolute;inset:0;border-radius:12px;overflow:hidden;background:#12121a;box-shadow:0 12px 28px rgba(0,0,0,.45);animation-duration:.5s;animation-timing-function:cubic-bezier(.2,.8,.2,1);animation-fill-mode:backwards}
+@keyframes v3C0{from{opacity:0;transform:translate(118px,-12px) rotate(10deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes v3C1{from{opacity:0;transform:translate(40px,0) rotate(3deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes v3C2{from{opacity:0;transform:translate(-40px,0) rotate(-3deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes v3C3{from{opacity:0;transform:translate(-118px,-12px) rotate(-10deg) scale(.6)}to{opacity:1;transform:none}}
+.v3-e2b{animation:v3BIn .3s cubic-bezier(.2,.8,.2,1) backwards}
+.v3-e2b .v3-badge{position:static}
+@keyframes v3BIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.v3-gt{position:relative;height:120px;overflow:hidden;background:#12121a}
+.v3-pop{animation:v3Tile 9s cubic-bezier(.77,0,.175,1) infinite}
+@keyframes v3Tile{0%,20%,100%{transform:scale(1)}6%,14%{transform:scale(1.08)}}
+[data-off] *,[data-off] *::after{animation-play-state:paused !important}
+[data-off] .v3-rs{will-change:auto}
+@media (prefers-reduced-motion: reduce){
+.v3-in,.v3-fade,.v3-cta::after,.v3-wbtn::after,.v3-nudge,.v3-hint,.v3-beat,.v3-e2s,.v3-e2c,.v3-e2b,.v3-pop,.v3-chip{animation:none !important}
+.v3-rain,.v3-o,.v3f,.v3ring,.v3-popheart,.v3-cta::after,.v3-wbtn::after,.v3-hint{display:none !important}
+.v3-note,.v3-seg span,.v3-state{transition:none}
+}
+
+@keyframes kS0{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-96px,-95px) scale(1.25) rotate(18deg)}}
+@keyframes kS1{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(63px,-122px) scale(1.25) rotate(-20deg)}}
+@keyframes kS2{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(137px,13px) scale(1.25) rotate(-7deg)}}
+@keyframes kS3{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-25px,-98px) scale(1.25) rotate(-23deg)}}
+@keyframes kS4{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(147px,-79px) scale(1.25) rotate(-23deg)}}
+@keyframes kS5{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(107px,47px) scale(1.25) rotate(-5deg)}}
+@keyframes kS6{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(27px,-106px) scale(1.25) rotate(-18deg)}}
+@keyframes kS7{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(137px,-6px) scale(1.25) rotate(-20deg)}}
+@keyframes kS8{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-51px,-102px) scale(1.25) rotate(-25deg)}}
+@keyframes kS9{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(99px,-102px) scale(1.25) rotate(21deg)}}
+@keyframes kS10{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(131px,52px) scale(1.25) rotate(14deg)}}
+@keyframes kS11{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(20px,-130px) scale(1.25) rotate(-6deg)}}
+@keyframes kS12{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(97px,-19px) scale(1.25) rotate(-13deg)}}
+@keyframes kS13{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-97px,-136px) scale(1.25) rotate(-10deg)}}
+@keyframes kS14{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(93px,-133px) scale(1.25) rotate(16deg)}}
+@keyframes kS15{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(112px,29px) scale(1.25) rotate(-22deg)}}
+@keyframes kS16{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-7px,-152px) scale(1.25) rotate(14deg)}}
+@keyframes kS17{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(106px,-49px) scale(1.25) rotate(7deg)}}
+@keyframes kU0{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-153px,-64px) scale(1.25) rotate(-4deg)}}
+@keyframes kU1{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-25px,-121px) scale(1.25) rotate(8deg)}}
+@keyframes kU2{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(82px,-75px) scale(1.25) rotate(-11deg)}}
+@keyframes kU3{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-114px,-115px) scale(1.25) rotate(-6deg)}}
+@keyframes kU4{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(37px,-125px) scale(1.25) rotate(-20deg)}}
+@keyframes kU5{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(118px,-39px) scale(1.25) rotate(-10deg)}}
+@keyframes kU6{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-44px,-130px) scale(1.25) rotate(-23deg)}}
+@keyframes kU7{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(86px,-122px) scale(1.25) rotate(22deg)}}
+@keyframes kU8{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-139px,-94px) scale(1.25) rotate(-19deg)}}
+@keyframes kU9{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(4px,-129px) scale(1.25) rotate(25deg)}}
+@keyframes kU10{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(94px,-46px) scale(1.25) rotate(-21deg)}}
+@keyframes kU11{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-79px,-134px) scale(1.25) rotate(-22deg)}}
+@keyframes kU12{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(43px,-88px) scale(1.25) rotate(-22deg)}}
+@keyframes kU13{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-122px,-59px) scale(1.25) rotate(7deg)}}
+@keyframes kU14{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-10px,-113px) scale(1.25) rotate(18deg)}}
+@keyframes kU15{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(90px,-64px) scale(1.25) rotate(-23deg)}}
+@keyframes kU16{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-85px,-120px) scale(1.25) rotate(11deg)}}
+@keyframes kU17{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(34px,-96px) scale(1.25) rotate(-16deg)}}
+@keyframes kD0{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(79px,35px) scale(1.25) rotate(-24deg)}}
+@keyframes kD1{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(1px,111px) scale(1.25) rotate(-25deg)}}
+@keyframes kD2{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-115px,72px) scale(1.25) rotate(17deg)}}
+@keyframes kD3{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(57px,136px) scale(1.25) rotate(-6deg)}}
+@keyframes kD4{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-76px,91px) scale(1.25) rotate(24deg)}}
+@keyframes kD5{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(87px,107px) scale(1.25) rotate(24deg)}}
+@keyframes kD6{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-61px,135px) scale(1.25) rotate(-20deg)}}
+@keyframes kD7{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(69px,41px) scale(1.25) rotate(6deg)}}
+@keyframes kD8{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-10px,95px) scale(1.25) rotate(15deg)}}
+@keyframes kD9{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-127px,52px) scale(1.25) rotate(-4deg)}}
+@keyframes kD10{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(17px,94px) scale(1.25) rotate(26deg)}}
+@keyframes kD11{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-92px,85px) scale(1.25) rotate(23deg)}}
+@keyframes kD12{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(57px,81px) scale(1.25) rotate(-19deg)}}
+@keyframes kD13{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-47px,87px) scale(1.25) rotate(-18deg)}}
+@keyframes kD14{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(91px,77px) scale(1.25) rotate(-12deg)}}
+@keyframes kD15{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-22px,83px) scale(1.25) rotate(-14deg)}}
+@keyframes kR0{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-102px,-24px) scale(1.25) rotate(-11deg)}}
+@keyframes kR1{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(58px,51px) scale(1.25) rotate(16deg)}}
+@keyframes kR2{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-26px,-99px) scale(1.25) rotate(22deg)}}
+@keyframes kR3{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-27px,75px) scale(1.25) rotate(16deg)}}
+@keyframes kR4{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(51px,-48px) scale(1.25) rotate(-4deg)}}
+@keyframes kR5{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-70px,15px) scale(1.25) rotate(-15deg)}}
+@keyframes kR6{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(92px,21px) scale(1.25) rotate(-4deg)}}
+@keyframes kR7{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-92px,-90px) scale(1.25) rotate(4deg)}}
+@keyframes kR8{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(28px,109px) scale(1.25) rotate(-9deg)}}
+@keyframes kR9{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(36px,-131px) scale(1.25) rotate(-25deg)}}
+@keyframes kR10{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(-69px,57px) scale(1.25) rotate(-15deg)}}
+@keyframes kR11{0%{opacity:0;transform:scale(.4)}12%,70%{opacity:1}100%{opacity:0;transform:translate(127px,-41px) scale(1.25) rotate(-22deg)}}
+.vS0{animation-name:kS0;animation-delay:-0s}.vS1{animation-name:kS1;animation-delay:-0.1s}.vS2{animation-name:kS2;animation-delay:-0.2s}.vS3{animation-name:kS3;animation-delay:-0.3s}.vS4{animation-name:kS4;animation-delay:-0.4s}.vS5{animation-name:kS5;animation-delay:-0.5s}.vS6{animation-name:kS6;animation-delay:-0.6s}.vS7{animation-name:kS7;animation-delay:-0.7s}.vS8{animation-name:kS8;animation-delay:-0.8s}.vS9{animation-name:kS9;animation-delay:-0.9s}.vS10{animation-name:kS10;animation-delay:-1s}.vS11{animation-name:kS11;animation-delay:-1.1s}.vS12{animation-name:kS12;animation-delay:-1.2s}.vS13{animation-name:kS13;animation-delay:-1.3s}.vS14{animation-name:kS14;animation-delay:-1.4s}.vS15{animation-name:kS15;animation-delay:-1.5s}.vS16{animation-name:kS16;animation-delay:-1.6s}.vS17{animation-name:kS17;animation-delay:-1.7s}.vU0{animation-name:kU0;animation-delay:-0s}.vU1{animation-name:kU1;animation-delay:-0.1s}.vU2{animation-name:kU2;animation-delay:-0.2s}.vU3{animation-name:kU3;animation-delay:-0.3s}.vU4{animation-name:kU4;animation-delay:-0.4s}.vU5{animation-name:kU5;animation-delay:-0.5s}.vU6{animation-name:kU6;animation-delay:-0.6s}.vU7{animation-name:kU7;animation-delay:-0.7s}.vU8{animation-name:kU8;animation-delay:-0.8s}.vU9{animation-name:kU9;animation-delay:-0.9s}.vU10{animation-name:kU10;animation-delay:-1s}.vU11{animation-name:kU11;animation-delay:-1.1s}.vU12{animation-name:kU12;animation-delay:-1.2s}.vU13{animation-name:kU13;animation-delay:-1.3s}.vU14{animation-name:kU14;animation-delay:-1.4s}.vU15{animation-name:kU15;animation-delay:-1.5s}.vU16{animation-name:kU16;animation-delay:-1.6s}.vU17{animation-name:kU17;animation-delay:-1.7s}.vD0{animation-name:kD0;animation-delay:-0s}.vD1{animation-name:kD1;animation-delay:-0.1s}.vD2{animation-name:kD2;animation-delay:-0.2s}.vD3{animation-name:kD3;animation-delay:-0.3s}.vD4{animation-name:kD4;animation-delay:-0.4s}.vD5{animation-name:kD5;animation-delay:-0.5s}.vD6{animation-name:kD6;animation-delay:-0.6s}.vD7{animation-name:kD7;animation-delay:-0.7s}.vD8{animation-name:kD8;animation-delay:-0.8s}.vD9{animation-name:kD9;animation-delay:-0.9s}.vD10{animation-name:kD10;animation-delay:-1s}.vD11{animation-name:kD11;animation-delay:-1.1s}.vD12{animation-name:kD12;animation-delay:-1.2s}.vD13{animation-name:kD13;animation-delay:-1.3s}.vD14{animation-name:kD14;animation-delay:-1.4s}.vD15{animation-name:kD15;animation-delay:-1.5s}.vR0{animation-name:kR0;animation-delay:-0s}.vR1{animation-name:kR1;animation-delay:-0.1s}.vR2{animation-name:kR2;animation-delay:-0.2s}.vR3{animation-name:kR3;animation-delay:-0.3s}.vR4{animation-name:kR4;animation-delay:-0.4s}.vR5{animation-name:kR5;animation-delay:-0.5s}.vR6{animation-name:kR6;animation-delay:-0.6s}.vR7{animation-name:kR7;animation-delay:-0.7s}.vR8{animation-name:kR8;animation-delay:-0.8s}.vR9{animation-name:kR9;animation-delay:-0.9s}.vR10{animation-name:kR10;animation-delay:-1s}.vR11{animation-name:kR11;animation-delay:-1.1s}
+</style>
+
+<style>html,body{margin:0;overflow:hidden}</style>
+</head><body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div ref="{{ rootRef }}" style="position: relative; width: 2636px; height: 1140px; box-sizing: border-box; padding: 48px; background: #050509; color: #f2f0f5; font-family: Archivo, sans-serif; display: flex; flex-direction: column; gap: 32px; overflow: hidden;">
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position: absolute; width: 0; height: 0; overflow: hidden;"><defs><symbol id="v3a" viewBox="0 0 20 20"><path d="M10 17.5s-6.5-4.1-6.5-8.6A3.6 3.6 0 0 1 10 6.6a3.6 3.6 0 0 1 6.5 2.3c0 4.5-6.5 8.6-6.5 8.6z" fill="#ff5a6e"></path></symbol><symbol id="v3b" viewBox="0 0 20 20"><path d="M10 17.5s-6.5-4.1-6.5-8.6A3.6 3.6 0 0 1 10 6.6a3.6 3.6 0 0 1 6.5 2.3c0 4.5-6.5 8.6-6.5 8.6z" fill="#ff8fa0"></path></symbol><symbol id="v3c" viewBox="0 0 20 20"><path d="M10 17.5s-6.5-4.1-6.5-8.6A3.6 3.6 0 0 1 10 6.6a3.6 3.6 0 0 1 6.5 2.3c0 4.5-6.5 8.6-6.5 8.6z" fill="#ffb3c0"></path></symbol><symbol id="v3w" viewBox="0 0 20 20"><path d="M10 17.5s-6.5-4.1-6.5-8.6A3.6 3.6 0 0 1 10 6.6a3.6 3.6 0 0 1 6.5 2.3c0 4.5-6.5 8.6-6.5 8.6z" fill="#ffffff"></path></symbol><symbol id="v3o" viewBox="0 0 20 20"><path d="M10 17.5s-6.5-4.1-6.5-8.6A3.6 3.6 0 0 1 10 6.6a3.6 3.6 0 0 1 6.5 2.3c0 4.5-6.5 8.6-6.5 8.6z" fill="none" stroke="#f2f0f5" stroke-width="1.6"></path></symbol><symbol id="v3r" viewBox="0 0 200 200"><use href="#v3a" x="168" y="123" width="18" height="18"></use><use href="#v3b" x="125" y="170" width="14" height="14"></use><use href="#v3c" x="58" y="168" width="18" height="18"></use><use href="#v3w" x="15" y="125" width="14" height="14"></use><use href="#v3a" x="13" y="58" width="18" height="18"></use><use href="#v3b" x="60" y="15" width="14" height="14"></use><use href="#v3c" x="123" y="13" width="18" height="18"></use><use href="#v3w" x="170" y="60" width="14" height="14"></use></symbol><g id="v3gM"><use href="#v3c" x="358" y="5" width="15" height="15" opacity="0.79"></use><use href="#v3b" x="202" y="246" width="15" height="15" opacity="0.92"></use><use href="#v3a" x="55" y="60" width="14" height="14" opacity="0.85"></use><use href="#v3w" x="312" y="402" width="14" height="14" opacity="0.80"></use><use href="#v3a" x="370" y="165" width="12" height="12" opacity="0.76"></use><use href="#v3b" x="131" y="30" width="14" height="14" opacity="0.77"></use><use href="#v3b" x="103" y="236" width="13" height="13" opacity="0.84"></use><use href="#v3b" x="166" y="371" width="13" height="13" opacity="0.81"></use><use href="#v3b" x="100" y="420" width="14" height="14" opacity="0.95"></use></g><g id="v3gN"><use href="#v3w" x="371" y="199" width="18" height="18" opacity="0.96" transform="rotate(5 380 208)"></use><use href="#v3a" x="72" y="376" width="19" height="19" opacity="0.93" transform="rotate(14 81 385)"></use><use href="#v3a" x="312" y="335" width="24" height="24" opacity="0.97" transform="rotate(-12 324 347)"></use><use href="#v3a" x="50" y="1" width="21" height="21" opacity="0.93" transform="rotate(-18 60 11)"></use></g></defs></svg>
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="font-size: 44px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;">Concept E · like rain</div>
+    <div style="font-size: 16px; line-height: 24px; color: rgba(242,240,245,0.74); max-width: 1480px;">Likes are the hero: a counter spins up to six figures and hearts burst out of it, with a slow rain of large hearts in the background. The explainer screen stays calm so the text reads.</div>
+  </div>
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+
+    <div id="v3-e1" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="v3-lbl"><b>E1</b>Hook · the counter spins, hearts burst</div>
+      <div class="v3-ph">
+        <img class="v3-fill" src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt="Studio portrait in a red dress with a glass of wine" style="object-position: 50% 18%;">
+        <div class="v3-band v3-rain" style="top: 0; height: 560px; z-index: 2;"><div class="v3-rs v3-rM" style="height: 1260px; animation-delay: -0.4s; opacity: .85;"><svg width="390" height="1260" aria-hidden="true" style="display: block;"><use href="#v3gM"></use><use href="#v3gM" y="420"></use><use href="#v3gM" y="840"></use></svg></div><div class="v3-rs v3-rN" style="height: 1260px; animation-delay: -1.3s; opacity: .9;"><svg width="390" height="1260" aria-hidden="true" style="display: block;"><use href="#v3gN"></use><use href="#v3gN" y="420"></use><use href="#v3gN" y="840"></use></svg></div></div>
+        <div style="position: absolute; inset: 0; z-index: 3; background: linear-gradient(180deg, rgba(8,8,15,0.35) 0%, rgba(8,8,15,0) 14%, rgba(8,8,15,0) 44%, rgba(8,8,15,0.86) 60%, #08080f 67%);"></div>
+        <div class="v3-prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="v3-o" style="left: 56px; top: 334px; z-index: 5;"><svg class="v3ring" aria-hidden="true" style="animation-delay: 0s;"><use href="#v3r"></use></svg><svg class="v3f vS0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vS1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vS3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vS4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vS6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vS7 z26" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vS9 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vS10 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vS12 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vS13 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vS15 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vS16 z26" aria-hidden="true"><use href="#v3w"></use></svg></div>
+        <div class="v3-pill v3-in v3-d4" style="position: absolute; left: 24px; top: 304px; z-index: 6; height: 60px; padding: 0 24px 0 16px; border-radius: 30px; font-size: 28px;">
+          <svg class="v3-beat" width="32" height="32" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex: none;"><use href="#v3a"></use></svg>
+          <span><span class="v3-cnt" ref="{{ rE1 }}" style="display: inline-block; min-width: 118px;">0</span> <span style="font-size: 17px; font-weight: 600; color: rgba(242,240,245,0.8);">likes</span></span>
+        </div>
+        <div class="v3-copy">
+          <h1 class="v3-h1 v3-in" style="font-size: 44px;">Selfies in.<span class="v3-serif">Studio portraits out.</span></h1>
+          <p class="v3-sub v3-in v3-d1" style="margin-top: 12px;">Ready in about 5 minutes. The likes are up to your friends.</p>
+          <div class="v3-in v3-d2" style="margin-top: 16px; display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 18px; color: rgba(242,240,245,0.78);"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex: none;"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg><span><span class="v3-num">4.9</span> rating · <span class="v3-num">2</span> million portraits</span></div>
+          <a class="v3-cta v3-in v3-d7" href="#v3-e2" style="--sd: 0s;"><span>Show me how</span><span class="v3-nudge" style="display: flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="v3-e2" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="v3-lbl"><b>E2</b>How it works · no hearts, text first</div>
+      <div class="v3-ph">
+        <div class="v3-band v3-rain" style="top: 0; height: 440px; z-index: 1;"><div style="position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(180deg, rgba(8,8,15,0), #08080f);"></div></div>
+        <div class="v3-prog" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div style="position: absolute; inset: 0; z-index: 2;"><div class="v3-e2s" style="animation-name: v3SelL;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(242,240,245,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="10" r="3"></circle><path d="M7 17.5c1-2.2 2.8-3.3 5-3.3s4 1.1 5 3.3"></path></svg><span style="font-size: 12px; color: rgba(242,240,245,0.7);">selfie</span></div><div class="v3-e2s" style="animation-name: v3SelC;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(242,240,245,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="10" r="3"></circle><path d="M7 17.5c1-2.2 2.8-3.3 5-3.3s4 1.1 5 3.3"></path></svg><span style="font-size: 12px; color: rgba(242,240,245,0.7);">selfie</span></div><div class="v3-e2s" style="animation-name: v3SelR;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(242,240,245,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="10" r="3"></circle><path d="M7 17.5c1-2.2 2.8-3.3 5-3.3s4 1.1 5 3.3"></path></svg><span style="font-size: 12px; color: rgba(242,240,245,0.7);">selfie</span></div><div style="position: absolute; left: 9px; top: 222px; width: 136px; height: 180px; transform: rotate(-10deg);"><div class="v3-e2c" style="animation-name: v3C0; animation-delay: 900ms;"><img class="v3-fill" src="img/1bcf6ebd340b2c209118a51eea05f0bc.webp" alt="" style="object-position: 50% 22%;"><div class="v3-e2b" style="position: absolute; left: 8px; bottom: 8px; animation-delay: 1600ms;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>1,204</span></span></div></div></div><div style="position: absolute; left: 87px; top: 210px; width: 136px; height: 180px; transform: rotate(-3.5deg);"><div class="v3-e2c" style="animation-name: v3C1; animation-delay: 990ms;"><img class="v3-fill" src="img/61d89b39ec612971a950488347f4729a.webp" alt="" style="object-position: 50% 22%;"><div class="v3-e2b" style="position: absolute; left: 8px; bottom: 8px; animation-delay: 1750ms;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>3,418</span></span></div></div></div><div style="position: absolute; left: 167px; top: 210px; width: 136px; height: 180px; transform: rotate(3.5deg);"><div class="v3-e2c" style="animation-name: v3C2; animation-delay: 1080ms;"><img class="v3-fill" src="img/0ab866f4416cfd2c7a7b80fa122c948b.webp" alt="" style="object-position: 50% 22%;"><div class="v3-e2b" style="position: absolute; left: 8px; bottom: 8px; animation-delay: 1900ms;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>2,836</span></span></div></div></div><div style="position: absolute; left: 245px; top: 222px; width: 136px; height: 180px; transform: rotate(10deg);"><div class="v3-e2c" style="animation-name: v3C3; animation-delay: 1170ms;"><img class="v3-fill" src="img/c7b39acdcee3aa3a7156c23c5c82e238.webp" alt="" style="object-position: 50% 22%;"><div class="v3-e2b" style="position: absolute; left: 8px; bottom: 8px; animation-delay: 2050ms;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>5,127</span></span></div></div></div></div>
+        <div class="v3-in v3-d7" style="position: absolute; left: 24px; right: 24px; top: 436px; z-index: 3; display: flex; flex-direction: column; gap: 8px;">
+          <div class="v3-need"></div>
+          <div class="v3-need"></div>
+        </div>
+        <div class="v3-copy">
+          <h2 class="v3-h1 v3-in">A few selfies become a whole shoot</h2>
+          <p class="v3-sub v3-in v3-d1" style="margin-top: 12px;">Upload them once. Your portraits are ready in about 5 minutes.</p>
+          <a class="v3-cta v3-in v3-d7" href="#v3-e3" style="--sd: -1.1s;"><span>Try posting one</span><span class="v3-nudge" style="display: flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="v3-e3" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="v3-lbl"><b>E3</b>Post one · hearts burst from the like button (interactive)</div>
+      <div class="v3-ph">
+        <div class="v3-prog" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="v3-in" style="position: absolute; left: 24px; right: 24px; top: 52px; height: 44px; display: flex; align-items: center; gap: 12px;">
+          <img src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt="" style="width: 32px; height: 32px; border-radius: 16px; object-fit: cover; object-position: 50% 15%;">
+          <span style="font-size: 14px; font-weight: 600;">your.looks</span>
+          <span style="font-size: 13px; color: rgba(242,240,245,0.6);">{{ e3.status }}</span>
+        </div>
+        <div class="v3-in v3-d1" style="position: absolute; left: 24px; top: 100px; width: 342px; height: 380px; border-radius: 12px; overflow: hidden; background: #12121a;">
+          <img class="v3-fill" src="img/c7b39acdcee3aa3a7156c23c5c82e238.webp" alt="Your portrait in a red dress in a sunlit room" style="object-position: 50% 28%;">
+          <sc-if value="{{ e3.posted }}" hint-placeholder-val="{{ false }}">
+            <div class="v3-band v3-rain" style="top: 0; height: 380px; z-index: 2;"><div class="v3-fade" style="position: absolute; inset: 0; animation-delay: 1.4s;"><div class="v3-rs v3-rM" style="height: 840px; animation-delay: -1.7s;"><svg width="390" height="840" aria-hidden="true" style="display: block;"><use href="#v3gM"></use><use href="#v3gM" y="420"></use></svg></div></div><div class="v3-fade" style="position: absolute; inset: 0; animation-delay: 2.8s;"><div class="v3-rs v3-rN" style="height: 840px; animation-delay: -0.9s;"><svg width="390" height="840" aria-hidden="true" style="display: block;"><use href="#v3gN"></use><use href="#v3gN" y="420"></use></svg></div></div></div>
+          </sc-if>
+          <div style="position: absolute; inset: 0; z-index: 3; pointer-events: none;">
+            <sc-for list="{{ e3.slots }}" as="b" hint-placeholder-count="0">
+              <div>
+                <sc-if value="{{ b.even }}" hint-placeholder-val="{{ false }}"><div class="v3-o v3-once" style="left: {{ b.x }}; top: {{ b.y }};"><span class="v3-popheart"><svg viewBox="0 0 20 20" width="100%" height="100%" aria-hidden="true" style="display: block;"><use href="#v3w"></use></svg></span><svg class="v3ring" aria-hidden="true"><use href="#v3r"></use></svg><svg class="v3f vR0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR2 z14" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vR3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vR5 z18" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR7 z26" aria-hidden="true"><use href="#v3w"></use></svg></div></sc-if>
+                <sc-if value="{{ b.odd }}" hint-placeholder-val="{{ false }}"><div class="v3-o v3-once" style="left: {{ b.x }}; top: {{ b.y }};"><span class="v3-popheart"><svg viewBox="0 0 20 20" width="100%" height="100%" aria-hidden="true" style="display: block;"><use href="#v3w"></use></svg></span><svg class="v3ring" aria-hidden="true"><use href="#v3r"></use></svg><svg class="v3f vR0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR2 z14" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vR3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vR5 z18" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR7 z26" aria-hidden="true"><use href="#v3w"></use></svg></div></sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <button class="v3-tap" type="button" onClick="{{ tap3 }}" aria-label="{{ e3.tapLabel }}"></button>
+        </div>
+        <sc-if value="{{ e3.posted }}" hint-placeholder-val="{{ false }}">
+          <div class="v3-o" style="left: 38px; top: 506px; z-index: 6;"><svg class="v3ring" aria-hidden="true" style="animation-delay: 0s;"><use href="#v3r"></use></svg><svg class="v3f vU0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vU3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vU6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU7 z26" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vU9 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU10 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vU12 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU13 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vU15 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU16 z26" aria-hidden="true"><use href="#v3w"></use></svg></div>
+        </sc-if>
+        <div style="position: absolute; left: 24px; right: 24px; top: 484px; height: 44px; display: flex; align-items: center; gap: 8px; z-index: 5;">
+          <span style="position: relative; width: 44px; height: 44px; margin-left: -8px; display: flex; align-items: center; justify-content: center;">
+            <sc-if value="{{ e3.posted }}" hint-placeholder-val="{{ false }}"><svg class="v3-beat" width="28" height="28" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex: none;"><use href="#v3a"></use></svg></sc-if>
+            <sc-if value="{{ e3.notPosted }}" hint-placeholder-val="{{ true }}"><svg width="28" height="28" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex: none;"><use href="#v3o"></use></svg></sc-if>
+          </span>
+          <span class="v3-cnt" ref="{{ rE3 }}" style="font-size: 20px; font-weight: 800; line-height: 24px;">0</span>
+          <span style="font-size: 14px; color: rgba(242,240,245,0.76);">likes</span>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; top: 528px; font-size: 12px; line-height: 16px; color: rgba(242,240,245,0.66);">Example post. Likes are illustrative.</div>
+        <div class="v3-in v3-d4" style="position: absolute; left: 24px; right: 24px; top: 560px; z-index: 5;">
+          <sc-if value="{{ e3.notPosted }}" hint-placeholder-val="{{ true }}">
+            <button class="v3-wbtn" type="button" onClick="{{ post }}" style="--sd: -2.2s;"><span class="v3-hint"></span>Post</button>
+          </sc-if>
+          <sc-if value="{{ e3.posted }}" hint-placeholder-val="{{ false }}">
+            <button class="v3-wbtn done" type="button" disabled="{{ yes }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Posted</button>
+          </sc-if>
+        </div>
+        <div class="v3-copy">
+          <h2 class="v3-h1 v3-in">Now post one</h2>
+          <p class="v3-sub v3-in v3-d1" style="margin-top: 8px;">{{ e3.sub }}</p>
+          <div style="height: 80px;">
+            <sc-if value="{{ e3.posted }}" hint-placeholder-val="{{ false }}"><a class="v3-cta v3-in" href="#v3-e4" style="--sd: -2.2s; animation-delay: 600ms;"><span>Check my phone</span><span class="v3-nudge" style="display: flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></a></sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="v3-e4" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="v3-lbl"><b>E4</b>Lock screen · notifications, light heart rain</div>
+      <div class="v3-ph">
+        <img class="v3-fill" src="img/81d5790966f90bb95fecfb9e01963b00.webp" alt="" style="object-position: 50% 30%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.7) 0%, rgba(8,8,15,0.7) 62%, rgba(8,8,15,0.94) 72%, #08080f 78%);"></div>
+        <div class="v3-prog" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        <div style="position: absolute; left: 0; right: 0; top: 60px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+          <span style="font-size: 15px; font-weight: 500; color: rgba(242,240,245,0.82);">Wednesday, November 11</span>
+          <span class="v3-num" style="font-size: 76px; font-weight: 500; line-height: 84px; letter-spacing: -0.02em;">9:41</span>
+        </div>
+        <div class="v3-band v3-rain v3-mask" style="top: 164px; height: 400px; z-index: 1;"><div class="v3-rs v3-rM" style="height: 840px; animation-delay: -0.2s; opacity: .6;"><svg width="390" height="840" aria-hidden="true" style="display: block;"><use href="#v3gM"></use><use href="#v3gM" y="420"></use></svg></div></div>
+        <div style="position: absolute; top: 196px; left: 16px; right: 16px; height: 320px; z-index: 3;">
+          <sc-for list="{{ e4.cards }}" as="n" hint-placeholder-count="6">
+            <div class="v3-note" style="transform: {{ n.tf }}; opacity: {{ n.op }}; z-index: {{ n.z }};">
+              <span style="flex: none; width: 36px; height: 36px; border-radius: 18px; background: #262631; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">{{ n.initial }}</span>
+              <span style="flex: 1; min-width: 0; font-size: 14px; line-height: 20px; color: rgba(242,240,245,0.82);"><b style="font-weight: 600; color: #f2f0f5;">{{ n.who }}</b> {{ n.text }}</span>
+              <img src="{{ n.thumb }}" alt="" style="flex: none; width: 36px; height: 36px; border-radius: 8px; object-fit: cover; object-position: 50% 20%;">
+            </div>
+          </sc-for>
+          <sc-if value="{{ e4.fold }}" hint-placeholder-val="{{ false }}">
+            <div class="v3-chip" style="position: absolute; left: 0; right: 0; top: 76px; height: 48px; border-radius: 16px; background: #15151d; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 600; z-index: 12;">
+              <span style="position: relative; width: 20px; height: 20px; flex: none;">
+                <span class="v3-o" style="left: 10px; top: 10px;"><svg class="v3ring" aria-hidden="true" style="animation-delay: 0s;"><use href="#v3r"></use></svg><svg class="v3f vU0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU2 z14" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vU4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vU6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU8 z20" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vU10 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vU12 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU14 z18" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vU16 z26" aria-hidden="true"><use href="#v3w"></use></svg></span>
+                <svg class="v3-beat" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="display: block; position: relative;"><use href="#v3a"></use></svg>
+              </span>
+              <span>+ <span class="v3-cnt" ref="{{ rE4 }}">2,391</span> more</span>
+            </div>
+          </sc-if>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; top: 532px; z-index: 4; text-align: center; font-size: 12px; line-height: 16px; color: rgba(242,240,245,0.66);">Notifications are illustrative.</div>
+        <div class="v3-copy">
+          <h2 class="v3-h1 v3-in">Your phone<span class="v3-serif" style="font-size: 40px;">won’t stop buzzing</span></h2>
+          <a class="v3-cta v3-in v3-d7" href="#v3-e5" style="--sd: -3.3s;"><span>Pick my styles</span><span class="v3-nudge" style="display: flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="v3-e5" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="v3-lbl"><b>E5</b>Styles · every pick bursts (interactive)</div>
+      <div class="v3-ph">
+        <div class="v3-prog" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="v3-in v3-d4" style="position: absolute; top: 48px; left: 24px; right: 24px; height: 56px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; background: #15151d; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; z-index: 5;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 12px; line-height: 16px; color: rgba(242,240,245,0.66);">Like forecast</span>
+            <span style="position: relative; display: block; width: 160px; height: 20px; font-size: 16px; line-height: 20px; font-weight: 700;" aria-live="polite">
+              <span class="v3-state" style="opacity: {{ e5.s0 }};">Drizzle</span>
+              <span class="v3-state" style="opacity: {{ e5.s1 }};">Steady rain</span>
+              <span class="v3-state" style="opacity: {{ e5.s2 }};">Downpour</span>
+            </span>
+          </div>
+          <div style="display: flex; gap: 6px;" role="img" aria-label="{{ e5.segLabel }}">
+            <sc-for list="{{ e5.segs }}" as="g" hint-placeholder-count="3">
+              <span class="v3-seg"><span><svg viewBox="0 0 20 20" width="22" height="22" aria-hidden="true" style="display: block;"><use href="#v3o"></use></svg></span><span style="opacity: {{ g.op }};"><svg viewBox="0 0 20 20" width="22" height="22" aria-hidden="true" style="display: block;"><use href="#v3a"></use></svg></span></span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position: absolute; top: 116px; left: 24px; right: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; z-index: 2;">
+          <sc-for list="{{ e5.styles }}" as="s" hint-placeholder-count="6">
+            <button class="v3-tile" type="button" onClick="{{ s.pick }}" aria-pressed="{{ s.pressed }}">
+              <img class="v3-fill" src="{{ s.img }}" alt="" style="object-position: 50% 25%;">
+              <span style="position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(180deg, rgba(8,8,15,0), rgba(8,8,15,0.85));"></span>
+              <span style="position: absolute; left: 0; right: 0; top: 0; height: 48px; background: linear-gradient(180deg, rgba(8,8,15,0.7), rgba(8,8,15,0));"></span>
+              <span style="position: absolute; left: 12px; top: 10px; font-size: 14px; font-weight: 600;">{{ s.name }}</span>
+              <span class="v3-badge" style="left: 8px; bottom: 8px;"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>{{ s.likes }}</span></span>
+              <span style="position: absolute; inset: 0; border-radius: 12px; box-sizing: border-box; border: {{ s.bd }}; transition: border-color .16s ease-out;"></span>
+              <sc-if value="{{ s.on }}" hint-placeholder-val="{{ false }}">
+                <span style="position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; border-radius: 12px; background: #ff5a6e; display: flex; align-items: center; justify-content: center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08080f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+              </sc-if>
+            </button>
+          </sc-for>
+        </div>
+        <div class="v3-band v3-rain v3-mask" style="top: 104px; height: 480px; z-index: 3;">
+          
+          <sc-if value="{{ e5.r2 }}" hint-placeholder-val="{{ false }}"><div class="v3-fade" style="position: absolute; inset: 0;"><div class="v3-rs v3-rM" style="height: 1260px; animation-delay: -1.9s; opacity: .8;"><svg width="390" height="1260" aria-hidden="true" style="display: block;"><use href="#v3gM"></use><use href="#v3gM" y="420"></use><use href="#v3gM" y="840"></use></svg></div></div></sc-if>
+          <sc-if value="{{ e5.r3 }}" hint-placeholder-val="{{ false }}"><div class="v3-fade" style="position: absolute; inset: 0;"><div class="v3-rs v3-rN" style="height: 1260px; animation-delay: -0.5s; opacity: .9;"><svg width="390" height="1260" aria-hidden="true" style="display: block;"><use href="#v3gN"></use><use href="#v3gN" y="420"></use><use href="#v3gN" y="840"></use></svg></div></div></sc-if>
+        </div>
+        <div style="position: absolute; inset: 0; z-index: 4; pointer-events: none;">
+          <sc-for list="{{ e5.styles }}" as="s" hint-placeholder-count="0">
+            <div>
+              <sc-if value="{{ s.even }}" hint-placeholder-val="{{ false }}"><div class="v3-o v3-once" style="left: {{ s.cx }}; top: {{ s.cy }};"><svg class="v3f vR0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR2 z14" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vR3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vR5 z18" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR7 z26" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vR8 z20" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vR9 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3ring" aria-hidden="true"><use href="#v3r"></use></svg></div></sc-if>
+              <sc-if value="{{ s.odd }}" hint-placeholder-val="{{ false }}"><div class="v3-o v3-once" style="left: {{ s.cx }}; top: {{ s.cy }};"><svg class="v3f vR0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR2 z14" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vR3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vR5 z18" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vR6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vR7 z26" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vR8 z20" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vR9 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3ring" aria-hidden="true"><use href="#v3r"></use></svg></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div class="v3-copy">
+          <h2 class="v3-h1 v3-in">Pick up to 3 styles</h2>
+          <p class="v3-sub v3-in v3-d1" style="margin-top: 8px;">Your first shoot uses these.</p>
+          <a class="v3-cta v3-in v3-d7" href="#v3-e6" style="--sd: -4.4s;"><span>Build my shoot</span><span class="v3-nudge" style="display: flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="v3-e6" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="v3-lbl"><b>E6</b>Finale · likes on every tile, then paywall</div>
+      <div class="v3-ph">
+        <div class="v3-prog" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="v3-in" style="position: absolute; top: 40px; left: 20px; right: 20px; height: 72px; display: flex; align-items: center; gap: 12px; z-index: 6;">
+          <img src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt="Your profile photo" style="width: 56px; height: 56px; border-radius: 28px; object-fit: cover; object-position: 50% 15%; flex: none;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 14px; line-height: 18px; font-weight: 600;">your.looks</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="v3-beat" width="24" height="24" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex: none;"><use href="#v3a"></use></svg>
+              <span class="v3-cnt" ref="{{ rE6 }}" style="display: inline-block; min-width: 132px; font-size: 28px; line-height: 32px; font-weight: 800;">0</span>
+              <span style="font-size: 14px; color: rgba(242,240,245,0.76);">likes</span>
+            </div>
+            <span style="font-size: 12px; line-height: 16px; color: rgba(242,240,245,0.66);">Example profile. Likes are illustrative.</span>
+          </div>
+        </div>
+        <div style="position: absolute; top: 128px; left: 0; right: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; z-index: 1;"><div class="v3-gt v3-pop" style="animation-delay: 0.0s;"><img class="v3-fill" src="{{ e6.t0 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>12,408</span></span></div><div class="v3-gt v3-pop" style="animation-delay: 0.9s;"><img class="v3-fill" src="{{ e6.t1 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span class="v3-cnt" ref="{{ rT0 }}" style="display: inline-block; min-width: 40px;">8,153</span></span></div><div class="v3-gt v3-pop" style="animation-delay: 1.8s;"><img class="v3-fill" src="{{ e6.t2 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>31,240</span></span></div><div class="v3-gt v3-pop" style="animation-delay: 0.9s;"><img class="v3-fill" src="{{ e6.t3 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span class="v3-cnt" ref="{{ rT1 }}" style="display: inline-block; min-width: 40px;">5,617</span></span></div><div class="v3-gt v3-pop" style="animation-delay: 1.8s;"><video class="v3-fill" ref="{{ rVid }}" src="img/03d9808d94706c25ec8449d2ede5b8d8.mp4" poster="img/edd51c3999e7a17990f65bfeb331e7c5.jpg" muted="{{ yes }}" loop="{{ yes }}" playsInline="{{ yes }}" preload="metadata" aria-label="Short video: you at a rooftop party at night"></video><span style="position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; border-radius: 12px; background: rgba(8,8,15,0.7); display: flex; align-items: center; justify-content: center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1.5v7l6-3.5z" fill="#f2f0f5"></path></svg></span><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>48,902</span></span></div><div class="v3-gt v3-pop" style="animation-delay: 2.7s;"><img class="v3-fill" src="{{ e6.t4 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span class="v3-cnt" ref="{{ rT2 }}" style="display: inline-block; min-width: 40px;">9,034</span></span></div><div class="v3-gt"><img class="v3-fill" src="{{ e6.t5 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>22,716</span></span></div><div class="v3-gt"><img class="v3-fill" src="{{ e6.t6 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>6,480</span></span></div><div class="v3-gt"><img class="v3-fill" src="{{ e6.t7 }}" alt="" style="object-position: 50% 24%;"><span class="v3-badge"><svg class="v3-bh" viewBox="0 0 20 20" aria-hidden="true"><use href="#v3a"></use></svg><span>14,371</span></span></div></div>
+        <div class="v3-band v3-rain" style="top: 128px; height: 420px; z-index: 2;"><div class="v3-rs v3-rM" style="height: 840px; animation-delay: -1.1s;"><svg width="390" height="840" aria-hidden="true" style="display: block;"><use href="#v3gM"></use><use href="#v3gM" y="420"></use></svg></div><div class="v3-rs v3-rN" style="height: 840px; animation-delay: -0.7s; opacity: .9;"><svg width="390" height="840" aria-hidden="true" style="display: block;"><use href="#v3gN"></use><use href="#v3gN" y="420"></use></svg></div></div>
+        <div style="position: absolute; left: 0; right: 0; top: 400px; bottom: 0; z-index: 4; background: linear-gradient(180deg, rgba(8,8,15,0) 0%, rgba(8,8,15,0.9) 22%, #08080f 34%);"></div>
+        <div style="position: absolute; inset: 0; z-index: 5; pointer-events: none;">
+          <div class="v3-o" style="left: 149px; top: 230px;"><svg class="v3ring v3ring-s" aria-hidden="true" style="animation-delay: 0s;"><use href="#v3r"></use></svg><svg class="v3f vU3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU9 z18" aria-hidden="true"><use href="#v3a"></use></svg></div><div class="v3-o" style="left: 19px; top: 352px;"><svg class="v3ring v3ring-s" aria-hidden="true" style="animation-delay: -0.6s;"><use href="#v3r"></use></svg><svg class="v3f vU9 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU15 z14" aria-hidden="true"><use href="#v3a"></use></svg></div><div class="v3-o" style="left: 279px; top: 352px;"><svg class="v3ring v3ring-s" aria-hidden="true" style="animation-delay: -1.2s;"><use href="#v3r"></use></svg><svg class="v3f vU15 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vU3 z20" aria-hidden="true"><use href="#v3a"></use></svg></div>
+          <div class="v3-o" style="left: 100px; top: 77px;"><svg class="v3f vD0 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vD1 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vD3 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vD4 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vD6 z14" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vD7 z26" aria-hidden="true"><use href="#v3w"></use></svg><svg class="v3f vD9 z18" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vD10 z26" aria-hidden="true"><use href="#v3b"></use></svg><svg class="v3f vD12 z20" aria-hidden="true"><use href="#v3a"></use></svg><svg class="v3f vD13 z30" aria-hidden="true"><use href="#v3c"></use></svg><svg class="v3f vD15 z14" aria-hidden="true"><use href="#v3a"></use></svg></div>
+        </div>
+        <div class="v3-copy" style="bottom: 24px;">
+          <h2 class="v3-h1 v3-in" style="font-size: 34px;">Your studio is ready<span class="v3-serif" style="font-size: 26px;">about 5 minutes to your first shoot</span></h2>
+          <p class="v3-sub v3-in v3-d1" style="margin-top: 8px; font-size: 14px; line-height: 20px;">{{ e6.sub }}</p>
+          <div class="v3-in v3-d2" style="margin-top: 16px; display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 18px; color: rgba(242,240,245,0.78);"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex: none;"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg><span><span class="v3-num">4.9</span> rating · <span class="v3-num">2</span> million portraits</span></div>
+          <a class="v3-cta v3-in v3-d7" href="#paywall" style="--sd: -5.5s; margin-top: 16px;"><span>Start my shoot</span><span class="v3-nudge" style="display: flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></a>
+          <div class="v3-in v3-d7" style="margin-top: 8px; text-align: center; font-size: 13px; line-height: 16px; color: rgba(242,240,245,0.7);">Next: choose your plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2636,"height":1140}}'>
+const B = "img/";
+const P = {
+  p01: B + "1bcf6ebd340b2c209118a51eea05f0bc.webp", p02: B + "81d5790966f90bb95fecfb9e01963b00.webp", p03: B + "61d89b39ec612971a950488347f4729a.webp",
+  p04: B + "7ec8f3ae9dd3abb8a651dbb6f78fd504.webp", p05: B + "f091ec11cd7c7fb5d1f245b676eb053d.webp", p06: B + "fe1b0b9c91fd90b2950cb0094855fdd5.webp",
+  p07: B + "dfe712402599ef07cf8ae3c48c9b2d1b.webp", p08: B + "c7b39acdcee3aa3a7156c23c5c82e238.webp", p09: B + "0ab866f4416cfd2c7a7b80fa122c948b.webp"
+};
+const STYLES = [
+  { id: "gold", name: "Golden hour", img: P.p01, likes: "18,402" },
+  { id: "paris", name: "Paris", img: P.p03, likes: "24,915" },
+  { id: "bw", name: "Black and white", img: P.p02, likes: "11,736" },
+  { id: "velvet", name: "Red velvet", img: P.p08, likes: "31,208" },
+  { id: "studio", name: "White studio", img: P.p09, likes: "9,644" },
+  { id: "road", name: "Off-road", img: P.p06, likes: "15,370" }
+];
+const FILL = [P.p04, P.p07, P.p05, P.p01, P.p03, P.p08, P.p02, P.p09, P.p06];
+const NOTES = [
+  { who: "mila.r", text: "liked your photo", thumb: P.p08 },
+  { who: "dan_k", text: "started following you", thumb: P.p01 },
+  { who: "sofia.v", text: "commented: where was this taken", thumb: P.p03 },
+  { who: "alex.m", text: "liked your photo", thumb: P.p08 },
+  { who: "nina_p", text: "shared your photo", thumb: P.p01 },
+  { who: "tom.w", text: "liked your photo", thumb: P.p03 }
+];
+const CARD_T = [900, 1800, 2700, 3200, 3700, 4200];
+const FOLD_T = 6500;
+const AUTO_POST_T = 4000;
+const STATES = ["Drizzle", "Steady rain", "Downpour"];
+// Looping like counters (paywall V3_2d): spin from 0 to a target with smoothstep, hold, restart with the next target.
+const LOOPS = {
+  e1: { targets: [248913, 173204, 312650, 196481], period: 5000, from: 0.05, to: 0.7 },
+  e6: { targets: [1248913, 986420, 1412077, 1107354], period: 6000, from: 0.05, to: 0.7 },
+  t0: { targets: [8153, 12904, 9771], period: 4200, from: 0.05, to: 0.7 },
+  t1: { targets: [5617, 7342, 6085], period: 4800, from: 0.05, to: 0.7 },
+  t2: { targets: [9034, 11268, 8410], period: 5400, from: 0.05, to: 0.7 }
+};
+
+function fmt(v) { return Math.max(0, Math.round(v)).toLocaleString("en-US"); }
+function loopVal(c, t, still) {
+  if (still) return c.targets[0];
+  const target = c.targets[Math.floor(t / c.period) % c.targets.length];
+  const p = (t % c.period) / c.period;
+  if (p < c.from) return 0;
+  if (p < c.to) { const k = (p - c.from) / (c.to - c.from); return target * k * k * (3 - 2 * k); }
+  return target;
+}
+// One climb with smoothstep, then keeps growing at `rate` per second (never stops).
+function climb(t, b, dur, rate, still) {
+  if (still) return b;
+  if (t <= 0) return 0;
+  const p = Math.min(1, t / dur);
+  return t > dur ? b + ((t - dur) / 1000) * rate : b * p * p * (3 - 2 * p);
+}
+function joinNames(ns) {
+  if (ns.length <= 1) return ns.join("");
+  return ns.slice(0, -1).join(", ") + " and " + ns[ns.length - 1];
+}
+
+class Component extends DCLogic {
+  state = {
+    posted: false,
+    slots: [0, 1, 2].map(() => ({ x: "171px", y: "190px", par: -1 })), next: 0,
+    picks: ["gold"], vol: { gold: -1, paris: -1, bw: -1, velvet: -1, studio: -1, road: -1 },
+    n4: 0, fold4: false
+  };
+
+  el = {};
+  tl = 0; prev = 0; lastW = -1e9; lastSet = -1e9; postT = -1; foldT = -1; e3add = 0;
+  rootRef = (el) => { this.root = el; };
+  rE1 = (el) => { this.el.e1 = el; if (el) this.write(); };
+  rE3 = (el) => { this.el.e3 = el; };
+  rE4 = (el) => { this.el.e4 = el; if (el) this.write(); };
+  rE6 = (el) => { this.el.e6 = el; if (el) this.write(); };
+  rT0 = (el) => { this.el.t0 = el; };
+  rT1 = (el) => { this.el.t1 = el; };
+  rT2 = (el) => { this.el.t2 = el; };
+  rVid = (el) => { this.vid = el; };
+
+  componentDidMount() {
+    this.still = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (this.root) this.root.setAttribute("data-off", "");
+    if (this.still) {
+      this.tl = 1e6;
+      this.setState({ n4: 6, fold4: true });
+      this.write();
+      return;
+    }
+    if (typeof IntersectionObserver !== "undefined" && this.root) {
+      this.io = new IntersectionObserver((ents) => {
+        const e = ents[ents.length - 1];
+        this.setLive(!!(e && e.isIntersecting));
+      }, { threshold: 0.05 });
+      this.io.observe(this.root);
+    } else {
+      this.setLive(true);
+    }
+  }
+
+  componentWillUnmount() {
+    this.live = false;
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+    this.raf = 0;
+    if (this.vid) this.vid.pause();
+  }
+
+  // Off-screen: CSS animations paused, video paused, rAF stopped. Time only advances while visible.
+  setLive(on) {
+    if (this.live === on) return;
+    this.live = on;
+    if (this.root) { if (on) this.root.removeAttribute("data-off"); else this.root.setAttribute("data-off", ""); }
+    const v = this.vid;
+    if (v) {
+      if (on) { v.muted = true; const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }
+      else v.pause();
+    }
+    if (on && !this.raf) { this.prev = 0; this.raf = requestAnimationFrame(this.loop); }
+    if (!on && this.raf) { cancelAnimationFrame(this.raf); this.raf = 0; }
+  }
+
+  loop = (now) => {
+    if (!this.live) { this.raf = 0; return; }
+    this.raf = requestAnimationFrame(this.loop);
+    const d = this.prev ? Math.min(250, now - this.prev) : 0;
+    this.prev = now;
+    this.tl += d;
+    if (now - this.lastW < 100) return;
+    this.lastW = now;
+    this.write();
+    this.schedule(now);
+  };
+
+  // Stage changes only: at most one React update per 250 ms.
+  schedule(now) {
+    const t = this.tl, S = this.state;
+    if (!S.posted && t >= AUTO_POST_T) { this.post(); return; }
+    let n4 = 0;
+    for (let i = 0; i < CARD_T.length; i++) if (t >= CARD_T[i]) n4++;
+    const fold4 = t >= FOLD_T;
+    if ((n4 !== S.n4 || fold4 !== S.fold4) && now - this.lastSet >= 250) {
+      this.lastSet = now;
+      if (fold4 && this.foldT < 0) this.foldT = t;
+      this.setState({ n4, fold4 });
+    }
+  }
+
+  // Counters go straight to the DOM through refs, 10 Hz at most. Never through setState.
+  write() {
+    const t = this.tl || 0, still = !!this.still;
+    const put = (key, v) => {
+      const el = this.el[key];
+      if (!el) return;
+      const s = fmt(v);
+      if (el.textContent !== s) el.textContent = s;
+    };
+    put("e1", loopVal(LOOPS.e1, t, still));
+    put("e6", loopVal(LOOPS.e6, t + 1700, still));
+    put("t0", loopVal(LOOPS.t0, t + 600, still));
+    put("t1", loopVal(LOOPS.t1, t + 2100, still));
+    put("t2", loopVal(LOOPS.t2, t + 3300, still));
+    const tp = this.postT < 0 ? -1 : t - this.postT;
+    put("e3", (this.postT < 0 ? 0 : climb(tp, 48260, 6000, 140, still)) + this.e3add);
+    put("e4", 2391 + (this.foldT < 0 || still ? 0 : Math.floor(((t - this.foldT) / 1000) * 3)));
+  }
+
+  post() {
+    if (this.state.posted) return;
+    this.postT = this.tl || 0;
+    this.setState({ posted: true });
+    if (this.still || !this.live) setTimeout(() => this.write(), 0);
+  }
+
+  tap3(e) {
+    if (!this.state.posted) { this.post(); return; }
+    let x = 171, y = 190;
+    try {
+      const r = e.currentTarget.getBoundingClientRect();
+      if (r.width > 0 && e.clientX) { x = ((e.clientX - r.left) * 342) / r.width; y = ((e.clientY - r.top) * 380) / r.height; }
+    } catch (err) {}
+    this.e3add += Math.round(320 + Math.random() * 680);
+    this.setState(s => {
+      const slots = s.slots.slice();
+      const i = s.next % 3;
+      slots[i] = { x: Math.round(x) + "px", y: Math.round(y) + "px", par: slots[i].par === 0 ? 1 : 0 };
+      return { slots, next: s.next + 1 };
+    });
+    if (this.still || !this.live) setTimeout(() => this.write(), 0);
+  }
+
+  pick(id) {
+    this.setState(s => {
+      const p = s.picks.slice();
+      const vol = Object.assign({}, s.vol);
+      const i = p.indexOf(id);
+      if (i >= 0) { if (p.length > 1) p.splice(i, 1); }
+      else {
+        p.push(id);
+        if (p.length > 3) p.shift();
+        vol[id] = vol[id] === 0 ? 1 : 0;
+      }
+      return { picks: p, vol };
+    });
+  }
+
+  renderVals() {
+    const S = this.state;
+
+    const e3 = {
+      posted: S.posted, notPosted: !S.posted,
+      status: S.posted ? "Just now" : "Draft",
+      sub: S.posted ? "Tap the photo to add more likes." : "Tap Post and watch the likes pour in.",
+      tapLabel: S.posted ? "Like the photo" : "Post the photo",
+      slots: S.slots.map(b => ({ x: b.x, y: b.y, even: b.par === 0, odd: b.par === 1 }))
+    };
+
+    const cards = NOTES.map((n, i) => {
+      const shown = i < S.n4;
+      const age = S.n4 - 1 - i;
+      let tf = "translateY(-12px)", op = "0";
+      if (shown) {
+        if (S.fold4) {
+          if (age === 0) { tf = "translateY(0px)"; op = "1"; }
+          else { tf = "translateY(76px) scale(0.92)"; op = "0"; }
+        } else if (age <= 2) { tf = "translateY(" + age * 72 + "px)"; op = "1"; }
+        else if (age === 3) { tf = "translateY(208px) scale(0.96)"; op = "0.7"; }
+        else if (age === 4) { tf = "translateY(222px) scale(0.92)"; op = "0.45"; }
+        else { tf = "translateY(234px) scale(0.88)"; op = "0.25"; }
+      }
+      return { who: n.who, initial: n.who.charAt(0).toUpperCase(), text: n.text, thumb: n.thumb, tf, op, z: String(10 + i) };
+    });
+    const e4 = { cards, fold: S.fold4 };
+
+    const picks = S.picks;
+    const lvl = Math.min(3, picks.length);
+    const e5 = {
+      s0: lvl === 1 ? "1" : "0", s1: lvl === 2 ? "1" : "0", s2: lvl === 3 ? "1" : "0",
+      r2: lvl >= 2, r3: lvl >= 3,
+      segLabel: "Like forecast: " + STATES[lvl - 1],
+      segs: [0, 1, 2].map(i => ({ op: i < lvl ? "1" : "0" })),
+      styles: STYLES.map((s, i) => {
+        const on = picks.indexOf(s.id) >= 0;
+        return {
+          name: s.name, img: s.img, likes: s.likes, on, pressed: on ? "true" : "false",
+          bd: on ? "2px solid #f2f0f5" : "1px solid rgba(255,255,255,0.08)",
+          pick: () => this.pick(s.id),
+          cx: (i % 2 === 0 ? 24 + 22 : 24 + 165 + 12 + 22) + "px",
+          cy: (116 + Math.floor(i / 2) * 160 + 148 - 20) + "px",
+          even: S.vol[s.id] === 0, odd: S.vol[s.id] === 1
+        };
+      })
+    };
+
+    const chosen = picks.map(id => STYLES.find(s => s.id === id));
+    const first = chosen.map(s => s.img);
+    const rest = FILL.filter(src => first.indexOf(src) < 0);
+    while (first.length < 3) first.push(rest.shift());
+    const g = first.concat(rest);
+    const e6 = {
+      t0: g[0], t1: g[1], t2: g[2], t3: g[3], t4: g[4], t5: g[5], t6: g[6], t7: g[7],
+      sub: joinNames(chosen.map(s => s.name)) + ". Portraits first, then a short video from one line of text."
+    };
+
+    return {
+      yes: true, e3, e4, e5, e6,
+      tap3: (e) => this.tap3(e), post: () => this.post(),
+      rootRef: this.rootRef, rE1: this.rE1, rE3: this.rE3, rE4: this.rE4, rE6: this.rE6,
+      rT0: this.rT0, rT1: this.rT1, rT2: this.rT2, rVid: this.rVid
+    };
+  }
+}
+
+</script>
+<script src="../morphdom.min.js"></script>
+<script src="../dc-lite.js"></script>
+</body></html>

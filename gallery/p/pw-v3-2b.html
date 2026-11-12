@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Studio paywall V3_2b assets</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08080f}
+a{color:rgba(255,255,255,0.66);text-decoration:none}
+a:hover{color:#ffffff}
+button{font:inherit;color:inherit;border:none;background:none;padding:0;margin:0;text-align:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #a8b6ff;outline-offset:2px}
+input::placeholder{color:rgba(255,255,255,0.45)}
+.nm-scroll::-webkit-scrollbar{width:0;height:0}
+@keyframes nmDrift{from{transform:translateY(0)}to{transform:translateY(-150px)}}
+.nm-drift{animation:nmDrift 36s ease-in-out infinite alternate}
+@keyframes nmSheen{0%,30%{transform:translateX(-140px) skewX(-20deg)}100%{transform:translateX(460px) skewX(-20deg)}}
+.nm-sheen{animation:nmSheen 7s ease-in-out infinite}
+@keyframes nmNudge{0%,70%,100%{transform:translateX(0)}85%{transform:translateX(4px)}}
+.nm-nudge{animation:nmNudge 7s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.nm-drift,.nm-sheen,.nm-nudge{animation:none}.nm-sheen{display:none}}
+@keyframes nmXf{0%{opacity:0}6%{opacity:1}25%{opacity:1}31%{opacity:0}100%{opacity:0}}
+.nm-xf{animation:nmXf 16s ease-in-out infinite}
+.nm-x2{animation-delay:4s}.nm-x3{animation-delay:8s}.nm-x4{animation-delay:12s}
+@media (prefers-reduced-motion: reduce){.nm-xf{animation:none}}
+@keyframes nmRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes nmSheet{from{transform:translateY(100%)}to{transform:none}}
+@keyframes nmFade{from{opacity:0}to{opacity:1}}
+.nm-rise{animation:nmRise 300ms cubic-bezier(0.23,1,0.32,1) backwards}
+.nm-d1{animation-delay:50ms}.nm-d2{animation-delay:100ms}.nm-d3{animation-delay:150ms}.nm-d4{animation-delay:200ms}
+.nm-sheet{animation:nmSheet 400ms cubic-bezier(0.32,0.72,0,1) both}
+.nm-fade{animation:nmFade 200ms ease-out both}
+.nm-press{transition:transform 160ms cubic-bezier(0.23,1,0.32,1)}
+.nm-press:active{transform:scale(0.97)}
+@media (prefers-reduced-motion: reduce){.nm-rise,.nm-sheet,.nm-fade{animation:none}.nm-press:active{transform:none}}
+.nm-scroll{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.nm-hero{contain:layout paint}
+.nm-drift{will-change:transform}
+[data-screen-label] img{-webkit-user-drag:none;user-select:none}
+[data-screen-label]:has(.nm-sheet) .nm-hero *{animation-play-state:paused}
+
+/* slow CTA sheen: 7 s cycle, ~1.2 s sweep, transform only */
+.nm-sheen2{position:relative;overflow:hidden}
+.nm-sheen2::after{content:"";position:absolute;top:0;left:0;width:80px;height:100%;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%);transform:translateX(-140px) skewX(-20deg);animation:nmSheen2 7s ease-in-out infinite;will-change:transform;pointer-events:none}
+.nm-sheen2.nm-sheen-dark::after{background:linear-gradient(90deg,rgba(11,11,18,0) 0%,rgba(11,11,18,0.1) 50%,rgba(11,11,18,0) 100%)}
+@keyframes nmSheen2{0%,83%{transform:translateX(-140px) skewX(-20deg)}100%{transform:translateX(460px) skewX(-20deg)}}
+@media (prefers-reduced-motion: reduce){.nm-sheen2::after{animation:none;display:none}}
+</style>
+
+<style>html,body{margin:0;overflow:hidden}</style>
+</head><body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div data-screen-label="V3_2b · assets" style="position: relative; width: 402px; height: 874px; background: #08080f; overflow: hidden; font-family: Archivo, -apple-system, system-ui, sans-serif; color: #f4f2f7; -webkit-font-smoothing: antialiased;">
+
+  <div class="nm-scroll" style="position: absolute; inset: 0; overflow-y: auto;">
+    <div style="min-height: 100%; display: flex; flex-direction: column;">
+
+      <div class="nm-hero" style="position: relative; flex: 1 1 auto; min-height: 300px; overflow: hidden;">
+        <div role="img" aria-label="Studio looks slideshow" style="position: absolute; inset: 0; overflow: hidden;">
+          <img src="img/6f543bb23e15ae09b39c623ccb98df81.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%;" decoding="async" draggable="false" fetchpriority="high">
+          <img class="nm-xf" src="img/68f0538c5df5ba2f76aeed5822c3fa71.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; opacity: 0;" decoding="async" draggable="false">
+          <img class="nm-xf nm-x2" src="img/fb4cddd94d19d70a3af13dcac2ca727a.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; opacity: 0;" decoding="async" draggable="false">
+          <img class="nm-xf nm-x3" src="img/5902a9f3c164bc05b4f06dd79629bab9.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; opacity: 0;" decoding="async" draggable="false">
+          <img class="nm-xf nm-x4" src="img/afde1b1df7837e82846d6d4227f14618.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; opacity: 0;" decoding="async" draggable="false">
+        </div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.28) 0%, rgba(8,8,15,0) 18%, rgba(8,8,15,0.5) 42%, rgba(8,8,15,0.92) 62%, #08080f 82%);"></div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 0; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+          <h1 class="nm-rise" style="margin: 0; text-align: center; font-weight: 400;">
+            <span style="display: block; font-size: 34px; font-weight: 900; line-height: 1; letter-spacing: -1.2px;">Keep creating</span>
+            <span style="display: block; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 38px; line-height: 1.05; letter-spacing: -0.4px; margin-top: 2px;">looks you love</span>
+          </h1>
+          <div style="display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px; border-radius: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);">
+            <svg width="76" height="14" viewBox="0 0 76 14" role="img" aria-label="Star rating" style="display: block;"><path fill="#ffd27a" d="M7 1l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6zM22.5 1l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6zM38 1l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6zM53.5 1l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6zM69 1l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"></path></svg>
+            <span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); white-space: nowrap;">4.9 rating</span>
+          </div>
+          <ul class="nm-rise nm-d1" style="margin: 0; padding: 0; list-style: none; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px;">
+            <li style="display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex-shrink: 0;"><circle cx="10" cy="10" r="6.6" fill="none" stroke="#7ef0b9" stroke-width="1.5"></circle><path d="M10 6.1l1.25 2.6 2.85.4-2.05 2 .48 2.83L10 12.6l-2.53 1.33.48-2.83-2.05-2 2.85-.4z" fill="#7ef0b9"></path></svg>
+              <span style="font-size: 14px; font-weight: 600; line-height: 1.25; letter-spacing: -0.1px; color: rgba(255,255,255,0.92);">Credits for new looks</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex-shrink: 0;"><path d="M11.4 2.6L5.6 10.8h3.5l-.9 6.6 5.9-8.4h-3.5z" fill="none" stroke="#c2a6ff" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+              <span style="font-size: 14px; font-weight: 600; line-height: 1.25; letter-spacing: -0.1px; color: rgba(255,255,255,0.92);">Results come faster</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex-shrink: 0;"><path d="M10 2.6l5.6 2.2v4.7c0 3.3-2.25 6.2-5.6 7.3-3.35-1.1-5.6-4-5.6-7.3V4.8z" fill="none" stroke="#a8b6ff" stroke-width="1.5" stroke-linejoin="round"></path><path d="M7.4 9.9l2 2 3.4-3.7" fill="none" stroke="#a8b6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-size: 14px; font-weight: 600; line-height: 1.25; letter-spacing: -0.1px; color: rgba(255,255,255,0.92);">No ads, ever</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="display: block; flex-shrink: 0;"><path d="M10 2.4l1.85 4.35L16.2 8.6l-4.35 1.85L10 14.8l-1.85-4.35L3.8 8.6l4.35-1.85z" fill="none" stroke="#9fd8ff" stroke-width="1.5" stroke-linejoin="round"></path><path d="M15.4 13.1l.72 1.68 1.68.72-1.68.72-.72 1.68-.72-1.68-1.68-.72 1.68-.72z" fill="#9fd8ff"></path></svg>
+              <span style="font-size: 14px; font-weight: 600; line-height: 1.25; letter-spacing: -0.1px; color: rgba(255,255,255,0.92);">Best image quality</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nm-rise nm-d2" style="margin: 16px 20px 0; min-height: 40px; box-sizing: border-box; padding: 0 12px; border-radius: 12px; background: rgba(126,240,185,0.1); border: 1px dashed rgba(126,240,185,0.5); display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="display: block; flex-shrink: 0;"><path d="M2 8.6V3.2c0-.66.54-1.2 1.2-1.2h5.4l5.1 5.1a1.2 1.2 0 0 1 0 1.7l-4.9 4.9a1.2 1.2 0 0 1-1.7 0z" fill="none" stroke="#7ef0b9" stroke-width="1.4" stroke-linejoin="round"></path><circle cx="5.4" cy="5.4" r="1.1" fill="#7ef0b9"></circle></svg>
+        <span style="flex: 1; min-width: 0; font-size: 13px; font-weight: 600; letter-spacing: -0.1px; color: #c9f9e2;">50% off your first month</span>
+        <span role="timer" aria-label="Offer reserved for" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; color: #c9f9e2; white-space: nowrap; font-variant-numeric: tabular-nums;">Reserved {{ timer }}</span>
+      </div>
+
+      <div class="nm-rise nm-d3" role="group" aria-label="Choose a plan" style="padding: 28px 20px 0; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
+        <sc-for list="{{ plans }}" as="plan" hint-placeholder-count="2">
+          <button type="button" class="nm-press" onClick="{{ plan.pick }}" aria-pressed="{{ plan.pressed }}" style="position: relative; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 72px; box-sizing: border-box; padding: 14px 16px; border-radius: 20px; border: {{ plan.border }}; background: {{ plan.bg }}; transition: border-color 180ms ease, background 180ms ease, transform 160ms cubic-bezier(0.23,1,0.32,1);">
+            <span style="width: 22px; height: 22px; border-radius: 11px; border: {{ plan.radioBorder }}; background: {{ plan.radioBg }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-sizing: border-box;">
+              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="display: block; opacity: {{ plan.dot }}; transform: scale({{ plan.dotScale }}); transition: opacity 160ms ease-out, transform 160ms cubic-bezier(0.23,1,0.32,1);"><path d="M2.6 6.3l2.2 2.2 4.6-5" fill="none" stroke="#0b0b12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.2px; white-space: nowrap;">{{ plan.name }}</span>
+                <sc-if value="{{ plan.hasSave }}" hint-placeholder-val="{{ false }}">
+                  <span style="padding: 3px 8px; border-radius: 8px; background: rgba(255,116,111,0.2); color: #ffb0ad; font-size: 12px; font-weight: 700; line-height: 1.2; white-space: nowrap;">{{ plan.save }}</span>
+                </sc-if>
+              </span>
+              <span style="display: flex; align-items: baseline; gap: 6px; font-size: 13px; color: {{ plan.subColor }}; white-space: nowrap;">
+                <sc-if value="{{ plan.hasOld }}" hint-placeholder-val="{{ false }}">
+                  <s style="color: rgba(255,255,255,0.6);">{{ plan.old }}</s>
+                </sc-if>
+                <span>{{ plan.sub }}</span>
+              </span>
+            </span>
+            <span style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;">
+              <span style="display: flex; align-items: baseline; gap: 6px;">
+                <sc-if value="{{ plan.hasOldDay }}" hint-placeholder-val="{{ false }}">
+                  <s style="font-size: 13px; color: rgba(255,255,255,0.6);">{{ plan.oldDay }}</s>
+                </sc-if>
+                <span style="font-size: 22px; font-weight: 800; line-height: 1; letter-spacing: -0.4px; font-variant-numeric: tabular-nums;">{{ plan.perDay }}</span>
+              </span>
+              <span style="font-size: 12px; color: {{ plan.subColor }};">per day</span>
+            </span>
+            <sc-if value="{{ plan.hasTag }}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: -10px; right: 16px; height: 20px; padding: 0 10px; border-radius: 10px; display: flex; align-items: center; background: linear-gradient(120deg, #5d5bd7, #e0605c); color: #ffffff; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;">{{ plan.tag }}</span>
+            </sc-if>
+          </button>
+        </sc-for>
+      </div>
+
+      <p style="margin: 0; text-align: center; font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.7); padding: 12px 24px 0; flex-shrink: 0;">{{ note }}</p>
+
+      <button type="button" class="nm-press nm-rise nm-d4" onClick="{{ openSheet }}" style="margin: 12px 20px 0; height: 58px; border-radius: 29px; background: linear-gradient(120deg, #5d5bd7 0%, #b9456b 100%); color: #ffffff; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 18px; font-weight: 800; letter-spacing: -0.3px; flex-shrink: 0; box-shadow: 0 14px 34px rgba(93,91,215,0.38), inset 0 1px 0 rgba(255,255,255,0.28);">
+        <span class="nm-sheen" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 80px; height: 100%; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); pointer-events: none;"></span>
+        <span style="position: relative;">Continue</span>
+        <svg class="nm-nudge" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" style="display: block; position: relative;"><path d="M4 9h10M10 5l4 4-4 4" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 20px 0; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.86); flex-shrink: 0;">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="display: block;"><path d="M8 1.8l4.6 1.8v3.9c0 2.7-1.85 5.1-4.6 6-2.75-.9-4.6-3.3-4.6-6V3.6z" fill="none" stroke="#7ef0b9" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.9 7.9l1.6 1.6 2.7-3" fill="none" stroke="#7ef0b9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span>Cancel anytime. No commitment.</span>
+      </div>
+
+      <nav aria-label="Legal" style="display: flex; justify-content: center; gap: 4px; padding: 0 20px 12px; font-size: 12px; flex-shrink: 0;">
+        <a href="#" style="display: flex; align-items: center; height: 44px; padding: 0 8px;">Terms of Use</a>
+        <a href="#" style="display: flex; align-items: center; height: 44px; padding: 0 8px;">Privacy Policy</a>
+        <a href="#" style="display: flex; align-items: center; height: 44px; padding: 0 8px;">Restore</a>
+      </nav>
+    </div>
+  </div>
+
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; z-index: 10;">
+      <button type="button" aria-label="Close payment sheet" onClick="{{ closeSheet }}" class="nm-fade" style="position: absolute; inset: 0; width: 100%; background: rgba(2,2,6,0.72);"></button>
+      <div class="nm-scroll nm-sheet" role="dialog" aria-label="Choose payment method" style="position: absolute; left: 0; right: 0; bottom: 0; max-height: 88%; overflow-y: auto; background: #16161e; border-radius: 28px 28px 0 0; padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 -20px 60px rgba(0,0,0,0.6);">
+        <div aria-hidden="true" style="align-self: center; width: 36px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.22);"></div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <h2 style="margin: 0; flex: 1; font-size: 20px; font-weight: 800; letter-spacing: -0.4px;">Choose payment method</h2>
+          <button type="button" aria-label="Close" onClick="{{ closeSheet }}" style="width: 44px; height: 44px; margin-right: -6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span style="width: 32px; height: 32px; border-radius: 16px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="display: block;"><path d="M2 2l8 8M10 2l-8 8" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+          </button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+          <button type="button" aria-label="Apple Pay" aria-pressed="{{ applePressed }}" onClick="{{ pickApple }}" style="height: 60px; border-radius: 16px; border: {{ appleBorder }}; background: {{ appleBg }}; display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <svg width="15" height="18" viewBox="0 0 170 170" fill="#ffffff" aria-hidden="true" style="display: block;"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.23 13.56-4.49 4.13-9.3 6.25-14.45 6.37-3.7 0-8.16-1.05-13.38-3.19-5.24-2.13-10.05-3.18-14.46-3.18-4.62 0-9.57 1.05-14.86 3.18-5.3 2.14-9.57 3.26-12.84 3.37-4.93.21-9.85-1.97-14.76-6.55-3.14-2.73-7.06-7.41-11.74-14.04-5.02-7.08-9.15-15.29-12.39-24.65C7.7 117.06 6 107.28 6 97.82c0-10.83 2.34-20.17 7.03-27.99 3.68-6.28 8.58-11.23 14.7-14.87 6.13-3.63 12.75-5.49 19.87-5.6 3.93 0 9.08 1.22 15.46 3.6 6.36 2.39 10.45 3.61 12.24 3.61 1.34 0 5.88-1.42 13.58-4.26 7.28-2.63 13.43-3.72 18.46-3.29 13.63 1.1 23.87 6.47 30.68 16.15-12.19 7.39-18.22 17.73-18.1 31 .11 10.34 3.86 18.94 11.23 25.77 3.34 3.17 7.07 5.62 11.22 7.35-.9 2.61-1.85 5.11-2.87 7.51zM119.11 7.24c0 8.08-2.95 15.62-8.84 22.6-7.1 8.3-15.69 13.1-25.01 12.34a25.2 25.2 0 0 1-.19-3.06c0-7.76 3.38-16.06 9.38-22.85 2.99-3.43 6.8-6.29 11.42-8.57 4.61-2.25 8.97-3.49 13.07-3.7.12 1.09.17 2.18.17 3.24z"></path></svg>
+            <span style="font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 500; letter-spacing: -0.4px; line-height: 1;">Pay</span>
+          </button>
+          <button type="button" aria-label="Google Pay" aria-pressed="{{ googlePressed }}" onClick="{{ pickGoogle }}" style="height: 60px; border-radius: 16px; border: {{ googleBorder }}; background: {{ googleBg }}; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg width="17" height="17" viewBox="0 0 48 48" aria-hidden="true" style="display: block;"><path fill="#4285f4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"></path><path fill="#34a853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"></path><path fill="#fbbc05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"></path><path fill="#ea4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"></path></svg>
+            <span style="font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 500; letter-spacing: -0.4px; line-height: 1;">Pay</span>
+          </button>
+          <button type="button" aria-pressed="{{ cardPressed }}" onClick="{{ pickCard }}" style="height: 60px; border-radius: 16px; border: {{ cardBorder }}; background: {{ cardBg }}; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="display: block;"><rect x="2.5" y="4.5" width="15" height="11" rx="2.5" fill="none" stroke="#ffffff" stroke-width="1.5"></rect><path d="M2.5 8.5h15" stroke="#ffffff" stroke-width="1.5"></path></svg>
+            <span style="font-size: 15px; font-weight: 700; letter-spacing: -0.1px;">Card</span>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+          <sc-for list="{{ lines }}" as="ln" hint-placeholder-count="2">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 14px; color: {{ ln.color }};">
+              <span>{{ ln.label }}</span>
+              <span style="font-variant-numeric: tabular-nums;">{{ ln.value }}</span>
+            </div>
+          </sc-for>
+          <div aria-hidden="true" style="height: 1px; background: rgba(255,255,255,0.12);"></div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 17px; font-weight: 800;">
+            <span>Total today</span>
+            <span style="font-variant-numeric: tabular-nums;">{{ total }}</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+            <span style="font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.68);">{{ renewLine }}</span>
+            <sc-if value="{{ hasSaving }}" hint-placeholder-val="{{ false }}">
+              <span style="padding: 3px 8px; border-radius: 8px; background: rgba(126,240,185,0.14); color: #9ff3cb; font-size: 12px; font-weight: 700; white-space: nowrap;">You save {{ saving }}</span>
+            </sc-if>
+          </div>
+        </div>
+        <sc-if value="{{ showCardForm }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 8px;">
+            <sc-for list="{{ fields }}" as="f" hint-placeholder-count="5">
+              <div style="grid-column: {{ f.span }}; display: flex; flex-direction: column; gap: 6px;">
+                <label for="{{ f.id }}" style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.72);">{{ f.label }}</label>
+                <input id="{{ f.id }}" type="{{ f.type }}" inputmode="{{ f.mode }}" autocomplete="{{ f.auto }}" placeholder="{{ f.ph }}" style="width: 100%; box-sizing: border-box; height: 48px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); padding: 0 14px; font: inherit; font-size: 16px; color: #ffffff;">
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <button type="button" class="nm-press nm-sheen2" style="height: 58px; border-radius: 29px; background: linear-gradient(120deg, #5d5bd7 0%, #b9456b 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; letter-spacing: -0.3px;">{{ payLabel }}</button>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8);">
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display: block;"><rect x="2.5" y="6" width="9" height="6" rx="1.6" fill="none" stroke="#ffffff" stroke-width="1.3"></rect><path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" fill="none" stroke="#ffffff" stroke-width="1.3"></path></svg>
+          <span>Secure checkout · Cancel anytime</span>
+        </div>
+        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.62);">{{ fineprint }}</p>
+      </div>
+    </div>
+  </sc-if>
+
+  <button type="button" aria-label="Close paywall" style="position: absolute; top: 52px; right: 14px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; z-index: 6;">
+    <span style="width: 32px; height: 32px; border-radius: 16px; background: rgba(4,4,8,0.6); border: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center;"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="display: block;"><path d="M2 2l8 8M10 2l-8 8" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+  </button>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"defaultPlan":{"editor":"enum","options":["w1","m1"],"default":"m1","tsType":"string","section":"Plans"},"offerMinutes":{"editor":"int","default":10,"min":1,"max":60,"step":1,"unit":"min","tsType":"number","section":"Offer"},"$preview":{"width":402,"height":874}}'>
+const PLANS = [
+  { id: "w1", name: "1 Week", price: "$8.99", renew: "$8.99", period: "week", plain: true, perDay: "$1.28", sub: "$8.99 per week", tag: "" },
+  { id: "m1", name: "1 Month", price: "$14.99", renew: "$29.99", period: "month", old: "$29.99", perDay: "$0.50", oldDay: "$1.00", sub: "$14.99 first month", save: "Save 50%", tag: "Most popular" }
+];
+const FIELDS = [
+  { id: "v32b-email", label: "Email", type: "email", mode: "email", auto: "email", ph: "you@example.com", span: "1 / -1" },
+  { id: "v32b-card", label: "Card number", type: "text", mode: "numeric", auto: "cc-number", ph: "1234 1234 1234 1234", span: "1 / -1" },
+  { id: "v32b-exp", label: "Expiry", type: "text", mode: "numeric", auto: "cc-exp", ph: "MM / YY", span: "auto" },
+  { id: "v32b-cvc", label: "CVC", type: "text", mode: "numeric", auto: "cc-csc", ph: "CVC", span: "auto" },
+  { id: "v32b-name", label: "Name on card", type: "text", mode: "text", auto: "cc-name", ph: "Full name", span: "1 / -1" }
+];
+
+class Component extends DCLogic {
+  state = { plan: null, method: "apple", sheet: false, left: null };
+
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      const cur = this.state.left == null ? (this.props.offerMinutes ?? 10) * 60 : this.state.left;
+      if (cur <= 0) { clearInterval(this.timer); return; }
+      this.setState({ left: cur - 1 });
+    }, 1000);
+  }
+
+  componentWillUnmount() { clearInterval(this.timer); }
+
+  renderVals() {
+    const selId = this.state.plan || this.props.defaultPlan || "m1";
+    const sel = PLANS.find(p => p.id === selId) || PLANS[1];
+    const m = this.state.method;
+    const note = sel.plain
+      ? sel.price + " per week. Renews automatically until you cancel."
+      : "First month " + sel.price + ", then " + sel.renew + "/month. Renews automatically until you cancel.";
+    const fineprint = sel.plain
+      ? "Your subscription costs " + sel.price + " USD and renews automatically once per calendar " + sel.period + " for " + sel.renew + " USD. Cancel before your next charge to avoid it."
+      : "Your first month costs " + sel.price + " USD. Unless you cancel before it ends, you will be charged " + sel.renew + " USD automatically when the period ends. After that, your subscription renews automatically once per calendar " + sel.period + " for " + sel.renew + " USD. Cancel before your next charge to avoid it.";
+    const total = sel.price + " USD";
+    const left = this.state.left == null ? (this.props.offerMinutes ?? 10) * 60 : this.state.left;
+    const pad = (n) => (n < 10 ? "0" + n : "" + n);
+    const lines = sel.plain
+      ? [{ label: sel.name + " plan", value: sel.price, color: "rgba(255,255,255,0.86)" }]
+      : [{ label: sel.name + " plan", value: sel.renew, color: "rgba(255,255,255,0.86)" },
+         { label: "Intro discount −50%", value: "−$15.00", color: "#9ff3cb" }];
+    const renewLine = sel.plain ? "Renews at " + sel.renew + "/week" : "Then " + sel.renew + "/month";
+    const wb = (k) => (m === k ? "1.5px solid #ffffff" : "1.5px solid rgba(255,255,255,0.16)");
+    const wbg = (k) => (m === k ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.05)");
+    const pr = (k) => (m === k ? "true" : "false");
+    return {
+      plans: PLANS.map(p => {
+        const on = p.id === sel.id;
+        return {
+          name: p.name, tag: p.tag, hasTag: !!p.tag,
+          save: p.save, hasSave: !!p.save, old: p.old, hasOld: !!p.old,
+          sub: p.sub, perDay: p.perDay, pressed: on ? "true" : "false",
+          border: on ? "1.5px solid #ffffff" : "1.5px solid rgba(255,255,255,0.12)",
+          bg: on ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.05)",
+          subColor: on ? "rgba(255,255,255,0.86)" : "rgba(255,255,255,0.68)",
+          radioBorder: on ? "2px solid #ffffff" : "2px solid rgba(255,255,255,0.45)",
+          radioBg: on ? "#ffffff" : "transparent",
+          dot: on ? 1 : 0, dotScale: on ? 1 : 0.9, oldDay: p.oldDay, hasOldDay: !!p.oldDay,
+          pick: () => this.setState({ plan: p.id })
+        };
+      }),
+      fields: FIELDS,
+      timer: pad(Math.floor(left / 60)) + ":" + pad(left % 60),
+      lines: lines, renewLine: renewLine, hasSaving: !sel.plain, saving: "$15.00",
+      cta: "Get " + sel.name + " for " + sel.price,
+      note: note, fineprint: fineprint, total: total,
+      sheetOpen: this.state.sheet,
+      openSheet: () => this.setState({ sheet: true }),
+      closeSheet: () => this.setState({ sheet: false }),
+      showCardForm: m === "card",
+      appleBorder: wb("apple"), googleBorder: wb("google"), cardBorder: wb("card"),
+      appleBg: wbg("apple"), googleBg: wbg("google"), cardBg: wbg("card"),
+      applePressed: pr("apple"), googlePressed: pr("google"), cardPressed: pr("card"),
+      payLabel: m === "card" ? "Pay " + total : (m === "apple" ? "Pay with Apple Pay" : "Pay with Google Pay"),
+      pickApple: () => this.setState({ method: "apple" }),
+      pickGoogle: () => this.setState({ method: "google" }),
+      pickCard: () => this.setState({ method: "card" })
+    };
+  }
+}
+</script>
+<script src="../morphdom.min.js"></script>
+<script src="../dc-lite.js"></script>
+</body></html>

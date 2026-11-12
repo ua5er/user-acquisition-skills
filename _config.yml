@@ -25,3 +25,8 @@ include:
   - AGENTS.md
 exclude:
   - scripts
+defaults:
+  - scope:
+      path: "gallery"
+    values:
+      sitemap: false

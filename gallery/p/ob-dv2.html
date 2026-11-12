@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Studio onboarding D v2 · your profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050509}
+a{color:#f2f0f5}a:hover{color:#ff9d9a}
+::selection{background:rgba(255,116,111,.35);color:#ffffff}
+.ph{position:relative;width:390px;height:844px;border-radius:48px;overflow:hidden;background:#08080f;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);flex:none;color:#f2f0f5;isolation:isolate}
+.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.h1{margin:0;font-weight:900;font-size:36px;line-height:1.04;letter-spacing:-0.03em;text-wrap:balance}
+.h2{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:40px;line-height:1;letter-spacing:0;color:#ff9d9a}
+.sub{margin:0;font-size:15px;line-height:22px;color:rgba(242,240,245,.76)}
+.num{font-variant-numeric:tabular-nums}
+.lbl{font-size:13px;line-height:28px;color:rgba(242,240,245,.62);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.lbl b{display:inline-block;padding:0 8px;line-height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.18);font-weight:600;color:#f2f0f5}
+.need{display:inline-block;padding:0 8px;line-height:22px;border-radius:6px;border:1px dashed rgba(255,157,154,.6);color:#ff9d9a;font-size:12px;font-weight:500}
+.prog{position:absolute;top:20px;left:24px;right:24px;display:flex;gap:4px;z-index:4}
+.prog i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.18)}
+.prog i.on{background:#f2f0f5}
+.cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;height:56px;border-radius:28px;background:linear-gradient(90deg,#ff746f,#c14ca8 55%,#5d5bd7);color:#ffffff;font-size:17px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .16s cubic-bezier(.23,1,.32,1)}
+.cta:hover{color:#ffffff}
+.cta:active{transform:scale(.97)}
+.cta:focus-visible{outline:2px solid #f2f0f5;outline-offset:3px}
+.cta::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;pointer-events:none;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.3),rgba(255,255,255,0));transform:translateX(-130%) skewX(-20deg);will-change:transform;animation:kSheen 7s ease-in-out 2.4s infinite}
+.cta.s3::after{animation-delay:3s}
+.cta.wait::after{animation:none}
+.cta.late::after{animation-delay:5s}
+.nudge{display:block;animation:kNudge 7s ease-in-out 2.4s infinite}
+.ibtn{width:44px;height:44px;padding:0;border:0;background:none;color:#f2f0f5;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:10px}
+.ibtn:focus-visible,.tile:focus-visible,.chip:focus-visible,.photo:focus-visible{outline:2px solid #f2f0f5;outline-offset:2px}
+.in{animation:kIn .5s cubic-bezier(.2,.8,.2,1) both}
+.fade{animation:kFade .4s cubic-bezier(.2,.8,.2,1) both}
+.settle{animation:kSettle 1.2s cubic-bezier(.2,.8,.2,1) both}
+.open{animation:kOpen .5s cubic-bezier(.2,.8,.2,1) both}
+.beat{display:block;animation:kBeat 9s cubic-bezier(.2,.8,.2,1) infinite}
+.b9{position:absolute;left:0;top:0;margin:-9px 0 0 -9px;opacity:0;animation:kBurst 9s cubic-bezier(.23,1,.32,1) 1.2s infinite}
+.fly{position:absolute;left:0;top:0;opacity:0;animation:kFly 2.2s cubic-bezier(.23,1,.32,1) both}
+.big{position:absolute;left:50%;top:300px;width:120px;height:120px;margin:-60px 0 0 -60px;opacity:0;animation:kBig 1s cubic-bezier(.2,.8,.2,1) both}
+.th{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;opacity:0;animation:kTapH 1.2s cubic-bezier(.2,.8,.2,1) both}
+.rh{position:absolute;left:12px;top:0;width:18px;height:18px;opacity:0;animation:kRail 6s cubic-bezier(.2,.8,.2,1) infinite}
+.rl .ibtn svg,.rl .num{filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+.tile{position:relative;display:block;width:100%;height:155px;padding:0;border:0;background:none;cursor:pointer;perspective:800px;border-radius:10px;color:#f2f0f5;font-family:Archivo,sans-serif}
+.flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.flip.demo{animation:kDemo .6s cubic-bezier(.2,.8,.2,1) .5s both}
+.face{position:absolute;inset:0;border-radius:10px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.popA{animation:kPopA .5s cubic-bezier(.2,.8,.2,1) .3s both}
+.popB{animation:kPopB .5s cubic-bezier(.2,.8,.2,1) .3s both}
+.popD{animation:kPopA .5s cubic-bezier(.2,.8,.2,1) 1.1s both}
+.hrt{position:absolute;top:8px;right:8px;width:20px;height:20px;transition:opacity .3s cubic-bezier(.2,.8,.2,1) .45s}
+.hrt.hd{animation:kFade .3s cubic-bezier(.2,.8,.2,1) 1.1s both}
+.chip{height:44px;padding:0 16px;border-radius:22px;border:1px solid rgba(255,255,255,.2);background:rgba(8,8,15,.55);color:#f2f0f5;font-family:Archivo,sans-serif;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background-color .2s ease-out,border-color .2s ease-out,color .2s ease-out}
+.chip[aria-pressed="true"]{background:#f2f0f5;border-color:#f2f0f5;color:#08080f}
+.pr{position:absolute;inset:0;display:flex;align-items:center;transition:opacity .3s cubic-bezier(.2,.8,.2,1)}
+.vid{transition:opacity .3s cubic-bezier(.2,.8,.2,1)}
+.photo{position:absolute;left:0;right:0;top:0;height:470px;padding:0;border:0;background:none;cursor:pointer;z-index:2}
+.draw{transform-origin:0 50%;animation:kDraw 1.8s cubic-bezier(.4,0,.6,1) .6s both}
+.lit{animation:kLit .4s cubic-bezier(.2,.8,.2,1) both}
+.note{position:absolute;left:0;right:0;height:64px;box-sizing:border-box;padding:0 12px;border-radius:16px;background:#15151d;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 24px rgba(0,0,0,.4);display:flex;align-items:center;gap:12px;opacity:0;animation:kNote 12s cubic-bezier(.32,.72,0,1) infinite}
+.gt{position:relative;height:118px;overflow:visible}
+.pop9{position:absolute;inset:0;animation:kTile 9s cubic-bezier(.77,0,.175,1) infinite}
+.wave{opacity:0;animation:kWave 9s ease-in-out infinite}
+.nm-off *,.nm-off *::before,.nm-off *::after{animation-play-state:paused!important}
+@keyframes kSheen{0%,82.8%{transform:translateX(-130%) skewX(-20deg)}100%{transform:translateX(280%) skewX(-20deg)}}
+@keyframes kNudge{0%,86%,100%{transform:none}91%{transform:translateX(4px)}}
+@keyframes kIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes kFade{from{opacity:0}to{opacity:1}}
+@keyframes kSettle{from{transform:scale(1.04)}to{transform:none}}
+@keyframes kOpen{from{opacity:.4;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes kBeat{0%,12%,18%,100%{transform:scale(1)}14.5%{transform:scale(1.22)}}
+@keyframes kBurst{0%{opacity:0;transform:translate(0,0) scale(.4)}2%{opacity:1}17%{opacity:1}24.4%,100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.1) rotate(var(--r))}}
+@keyframes kFly{0%{opacity:0;transform:translate(0,0) scale(.4)}12%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.2) rotate(var(--r))}}
+@keyframes kBig{0%{opacity:0;transform:scale(.6)}35%{opacity:1;transform:scale(1.08)}55%{transform:scale(1)}75%{opacity:1}100%{opacity:0;transform:scale(1)}}
+@keyframes kTapH{0%{opacity:0;transform:scale(.6)}20%{opacity:1;transform:scale(1)}100%{opacity:0;transform:translateY(-64px)}}
+@keyframes kRail{0%{opacity:0;transform:translate(0,0) scale(.6)}4%{opacity:1}30%,100%{opacity:0;transform:translate(var(--x),-120px) scale(1)}}
+@keyframes kDemo{from{transform:rotateY(0deg)}to{transform:rotateY(180deg)}}
+@keyframes kPopA{0%,100%{transform:scale(1)}45%{transform:scale(1.06)}}
+@keyframes kPopB{0%,100%{transform:scale(1)}45%{transform:scale(1.06)}}
+@keyframes kDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes kLit{from{opacity:.5}to{opacity:1}}
+@keyframes kNote{0%{opacity:0;transform:translateY(-16px)}4.5%,37%{opacity:1;transform:none}41%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes kTile{0%,16%,100%{transform:scale(1);z-index:1}4%,12%{transform:scale(1.06);z-index:3}}
+@keyframes kWave{0%,18%,100%{opacity:0}4%,13%{opacity:1}}
+@media (prefers-reduced-motion: reduce){
+.cta::after,.b9,.fly,.big,.th,.rh,.note{animation:none;opacity:0}
+.nudge,.beat,.in,.fade,.settle,.open,.draw,.lit,.pop9,.popA,.popB,.popD,.hrt.hd,.flip.demo{animation:none}
+.wave{animation:none;opacity:0}
+.flip,.hrt,.pr,.vid,.chip{transition:none}
+}
+</style>
+
+<style>html,body{margin:0;overflow:hidden}</style>
+</head><body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div ref="{{ rootRef }}" class="{{ rootCls }}" style="position: relative; width: 2636px; height: 1140px; box-sizing: border-box; padding: 48px; background: #050509; color: #f2f0f5; font-family: Archivo, sans-serif; display: flex; flex-direction: column; gap: 40px;">
+  <svg width="0" height="0" aria-hidden="true" style="position: absolute;"><defs><linearGradient id="dv2Tri" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5d5bd7"></stop><stop offset="0.34" stop-color="#5d5bd7"></stop><stop offset="0.34" stop-color="#c14ca8"></stop><stop offset="0.66" stop-color="#c14ca8"></stop><stop offset="0.66" stop-color="#ff746f"></stop><stop offset="1" stop-color="#ff746f"></stop></linearGradient></defs></svg>
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="font-size: 44px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;">Concept D · your profile</div>
+    <div style="font-size: 16px; line-height: 24px; color: rgba(242,240,245,0.72); max-width: 1440px;">The user builds the profile: the first screen continues the ad with one portrait, selfies flip into looks on tap, they like their own post, and the chosen looks come back in a finished profile.</div>
+  </div>
+
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+
+    <!-- D1 the post -->
+    <div id="dv2-1" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="lbl"><b>D1</b>Post · continues the ad</div>
+      <div class="ph">
+        <img class="fill settle" src="img/c7b39acdcee3aa3a7156c23c5c82e238.webp" alt="Portrait in a red dress in a sunlit room" style="object-position: 50% 28%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.55) 0%, rgba(8,8,15,0) 16%, rgba(8,8,15,0) 40%, rgba(8,8,15,0.84) 60%, #08080f 74%);"></div>
+        <div style="position: absolute; top: 44px; left: 20px; right: 20px; height: 36px; display: flex; align-items: center; gap: 10px;">
+          <img src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt="" style="width: 28px; height: 28px; border-radius: 14px; object-fit: cover; object-position: 50% 15%;">
+          <span style="font-size: 14px; font-weight: 600;">your.looks</span>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column;">
+          <div class="in" style="position: relative; align-self: flex-start; height: 44px; box-sizing: border-box; padding: 0 16px 0 12px; border-radius: 22px; background: rgba(8,8,15,0.72); border: 1px solid rgba(255,255,255,0.16); display: flex; align-items: center; gap: 8px; animation-delay: 0.9s;">
+            <span style="position: relative; width: 22px; height: 22px; flex: none;">
+              <svg class="beat" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+              <span style="position: absolute; left: 11px; top: 11px; pointer-events: none;">
+                <sc-for list="{{ burst1 }}" as="h" hint-placeholder-count="10">
+                  <svg class="b9" viewBox="0 0 24 24" aria-hidden="true" style="width: {{ h.s }}; height: {{ h.s }}; --x: {{ h.x }}; --y: {{ h.y }}; --r: {{ h.r }};"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+                </sc-for>
+              </span>
+            </span>
+            <span ref="{{ c1Ref }}" class="num" style="min-width: 48px; font-size: 17px; font-weight: 700;">0</span>
+            <span style="font-size: 14px; color: rgba(242,240,245,0.74);">likes</span>
+          </div>
+          <h1 class="h1" style="margin-top: 20px;">Post like you hired<span class="h2">a photographer</span></h1>
+          <p class="sub" style="margin-top: 12px;">Upload a few selfies. Get studio portraits and short videos in about 5 minutes.</p>
+          <div style="margin-top: 16px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(242,240,245,0.76);">
+            <span style="display: flex; gap: 2px;" role="img" aria-label="Rated 4.9 out of 5">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+            </span>
+            <span><span class="num">4.9</span> rating · <span class="num">2</span> million portraits</span>
+          </div>
+          <a class="cta s3" href="#dv2-2" style="margin-top: 24px;">Pick my first looks</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- D2 tap selfies into looks -->
+    <div id="dv2-2" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="lbl"><b>D2</b>Selfies to looks · first choice<span class="need"></span></div>
+      <div class="ph">
+        <div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div style="position: absolute; top: 44px; left: 24px; right: 24px; height: 40px; display: flex; align-items: center; gap: 10px;">
+          <span style="width: 32px; height: 32px; box-sizing: border-box; border-radius: 16px; border: 1.5px dashed rgba(242,240,245,0.4); flex: none;"></span>
+          <span style="flex: 1; font-size: 14px; font-weight: 600;">your.looks</span>
+          <span style="font-size: 13px; color: rgba(242,240,245,0.74);"><span class="num">{{ postsLabel }}</span></span>
+        </div>
+        <div style="position: absolute; top: 112px; left: 24px; right: 24px;">
+          <h2 class="h1">Same face<span class="h2">New feed</span></h2>
+          <p class="sub" style="margin-top: 12px;">Tap a selfie to see it as a look. Keep the ones you want first.</p>
+        </div>
+        <div style="position: absolute; top: 272px; left: 16px; right: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px;">
+          <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="6">
+            <button class="tile {{ t.popCls }}" type="button" onClick="{{ t.toggle }}" aria-pressed="{{ t.pressed }}" aria-label="{{ t.aria }}">
+              <span class="flip {{ t.flipCls }}" style="transform: rotateY({{ t.deg }});">
+                <span class="face" style="background: #12121a; border: 1px solid rgba(255,255,255,0.08); box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: rgba(242,240,245,0.62);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"></rect><circle cx="12" cy="6" r="1"></circle><path d="M10 18.5h4"></path></svg>
+                  <span style="font-size: 13px; line-height: 16px; color: #f2f0f5;">{{ t.name }}</span>
+                </span>
+                <span class="face" style="transform: rotateY(180deg);">
+                  <img class="fill" src="{{ t.src }}" alt="" style="object-position: 50% 22%;">
+                  <span style="position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, rgba(8,8,15,0), rgba(8,8,15,0.82));"></span>
+                  <span style="position: absolute; left: 8px; right: 8px; bottom: 8px; font-size: 13px; line-height: 16px; font-weight: 600; text-align: left;">{{ t.name }}</span>
+                  <svg class="hrt {{ t.heartCls }}" viewBox="0 0 24 24" aria-hidden="true" style="opacity: {{ t.heartOp }};"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+                </span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+        <p style="position: absolute; top: 606px; left: 24px; right: 24px; margin: 0; font-size: 13px; line-height: 18px; color: rgba(242,240,245,0.62);">Sample photos. You add your own selfies after this.</p>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; gap: 16px;">
+          <div class="num" style="font-size: 14px; line-height: 20px; color: rgba(242,240,245,0.76); text-align: center;" aria-live="polite">{{ pickedLabel }}</div>
+          <a class="cta" href="#dv2-3">{{ saveLabel }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- D3 your post, your double-tap (peak) -->
+    <div id="dv2-3" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="lbl"><b>D3</b>Your post, your like · peak</div>
+      <div class="ph">
+        <img class="fill open" src="{{ topSrc }}" alt="{{ topAlt }}" style="object-position: 50% 24%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.6) 0%, rgba(8,8,15,0) 16%, rgba(8,8,15,0) 40%, rgba(8,8,15,0.84) 58%, #08080f 72%);"></div>
+        <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+        <div style="position: absolute; top: 40px; left: 20px; right: 20px; height: 36px; display: flex; align-items: center; gap: 10px; z-index: 3;">
+          <img src="{{ topSrc }}" alt="" style="width: 28px; height: 28px; border-radius: 14px; object-fit: cover; object-position: 50% 18%;">
+          <span style="font-size: 14px; font-weight: 600;">your.looks</span>
+        </div>
+        <button class="photo" type="button" onClick="{{ tapPhoto }}" aria-label="Like this post"></button>
+        <sc-if value="{{ unliked }}" hint-placeholder-val="{{ true }}">
+          <div class="fade" style="position: absolute; left: 0; right: 0; top: 280px; display: flex; justify-content: center; pointer-events: none; z-index: 3; animation-delay: 0.8s;">
+            <span style="height: 40px; padding: 0 16px; border-radius: 20px; background: rgba(8,8,15,0.66); border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z"></path></svg>
+              Double-tap to like
+            </span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ liked }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; inset: 0; pointer-events: none; z-index: 3;">
+            <svg class="big" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+            <span style="position: absolute; left: 195px; top: 300px;">
+              <sc-for list="{{ burst3 }}" as="h" hint-placeholder-count="16">
+                <svg class="fly" viewBox="0 0 24 24" aria-hidden="true" style="width: {{ h.s }}; height: {{ h.s }}; margin: {{ h.m }}; --x: {{ h.x }}; --y: {{ h.y }}; --r: {{ h.r }}; animation-delay: {{ h.d }};"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+              </sc-for>
+            </span>
+            <sc-for list="{{ taps }}" as="h" hint-placeholder-count="0">
+              <svg class="th" viewBox="0 0 24 24" aria-hidden="true" style="left: {{ h.x }}; top: {{ h.y }};"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column; z-index: 3;">
+          <div style="display: flex; align-items: center; margin-left: -10px;">
+            <button class="ibtn" type="button" aria-label="Like" aria-pressed="{{ likedStr }}" onClick="{{ tapPhoto }}">
+              <sc-if value="{{ liked }}" hint-placeholder-val="{{ false }}">
+                <svg class="open" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+              </sc-if>
+              <sc-if value="{{ unliked }}" hint-placeholder-val="{{ true }}">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z"></path></svg>
+              </sc-if>
+            </button>
+            <button class="ibtn" type="button" aria-label="Comment"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.3 7.6L3.5 20.5l1.4-4.6a8.5 8.5 0 1 1 15.6-4.4z"></path></svg></button>
+            <button class="ibtn" type="button" aria-label="Share"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5z"></path></svg></button>
+            <span style="flex: 1;"></span>
+            <button class="ibtn" type="button" aria-label="Save" style="margin-right: -10px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h12v17l-6-4.4-6 4.4z"></path></svg></button>
+          </div>
+          <div style="margin-top: 4px; font-size: 14px; font-weight: 600;"><span ref="{{ c3Ref }}" class="num">0</span> likes</div>
+          <div style="margin-top: 12px; height: 74px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 22px;">
+            <sc-if value="{{ liked }}" hint-placeholder-val="{{ true }}">
+              <div class="in" style="animation-delay: 2.7s;"><b style="font-weight: 600;">mila.r</b> <span style="color: rgba(242,240,245,0.82);">who shot this</span></div>
+              <div class="in" style="animation-delay: 3.6s;"><b style="font-weight: 600;">dan_k</b> <span style="color: rgba(242,240,245,0.82);">the light in this one</span></div>
+              <div class="in" style="animation-delay: 4.5s;"><b style="font-weight: 600;">sofia.v</b> <span style="color: rgba(242,240,245,0.82);">ok this is your new profile pic</span></div>
+            </sc-if>
+          </div>
+          <h2 class="h1" style="margin-top: 20px; font-size: 32px;">Get the “who took this?”<span class="h2" style="font-size: 38px;">comments</span></h2>
+          <a class="cta {{ cta3Cls }}" href="#dv2-4" style="margin-top: 20px;">I want that</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- D4 reels starring you -->
+    <div id="dv2-4" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="lbl"><b>D4</b>Reels with you · optional prompt</div>
+      <div class="ph">
+        <img class="fill" src="{{ clipPoster }}" alt="">
+        <video ref="{{ vidRef }}" class="fill vid" src="{{ clipSrc }}" poster="{{ clipPoster }}" muted="{{ yes }}" loop="{{ yes }}" playsInline="{{ yes }}" preload="metadata" onPlaying="{{ onPlaying }}" aria-label="{{ clipAria }}" style="opacity: {{ vidOp }};"></video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,15,0.5) 0%, rgba(8,8,15,0) 16%, rgba(8,8,15,0) 44%, rgba(8,8,15,0.82) 62%, #08080f 78%);"></div>
+        <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        <div class="rl" style="position: absolute; right: 12px; top: 276px; width: 44px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+            <svg class="rh" viewBox="0 0 24 24" aria-hidden="true" style="--x: -10px; animation-delay: 1s;"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+            <svg class="rh" viewBox="0 0 24 24" aria-hidden="true" style="--x: -26px; animation-delay: 1.4s;"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+            <svg class="rh" viewBox="0 0 24 24" aria-hidden="true" style="--x: 4px; animation-delay: 1.8s;"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg>
+            <button class="ibtn" type="button" aria-label="Like"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z"></path></svg></button>
+            <span class="num" style="font-size: 12px;">8,412</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <button class="ibtn" type="button" aria-label="Comment"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.3 7.6L3.5 20.5l1.4-4.6a8.5 8.5 0 1 1 15.6-4.4z"></path></svg></button>
+            <span class="num" style="font-size: 12px;">316</span>
+          </div>
+          <button class="ibtn" type="button" aria-label="Share"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5z"></path></svg></button>
+        </div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="img/f091ec11cd7c7fb5d1f245b676eb053d.webp" alt="" style="width: 28px; height: 28px; border-radius: 14px; object-fit: cover; object-position: 50% 15%;">
+            <span style="font-size: 14px; font-weight: 600;">your.looks</span>
+          </div>
+          <div style="margin-top: 12px; height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; background: rgba(8,8,15,0.6); border: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; gap: 10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(242,240,245,0.62)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M4 7V5h16v2M12 5v14M9 19h6"></path></svg>
+            <span style="position: relative; flex: 1; height: 20px;" aria-live="polite">
+              <sc-for list="{{ prompts }}" as="p" hint-placeholder-count="3">
+                <span class="pr" style="opacity: {{ p.op }}; font-size: 14px; line-height: 20px; color: rgba(242,240,245,0.9); white-space: nowrap; overflow: hidden;">{{ p.text }}</span>
+              </sc-for>
+            </span>
+          </div>
+          <div style="margin-top: 12px; display: flex; gap: 8px;">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="3">
+              <button class="chip" type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.pressed }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+          <h2 class="h1" style="margin-top: 24px;">Reels starring you</h2>
+          <p class="sub" style="margin-top: 8px;">Describe a scene in one line. Get a short video with you in it.</p>
+          <a class="cta" href="#dv2-5" style="margin-top: 24px;">Show me how it works</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- D5 how it works -->
+    <div id="dv2-5" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="lbl"><b>D5</b>How it works · remove doubts</div>
+      <div class="ph">
+        <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        <div style="position: absolute; top: 64px; left: 24px; right: 24px;">
+          <h2 class="h1">About 5 minutes<span class="h2">from selfie to post</span></h2>
+        </div>
+        <div style="position: absolute; top: 172px; left: 24px; right: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+          <div class="lit" style="height: 136px; border-radius: 12px; overflow: hidden; background: #12121a; border: 1px solid rgba(255,255,255,0.08); box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: rgba(242,240,245,0.62); animation-delay: 0.9s;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"></rect><circle cx="12" cy="6" r="1"></circle><path d="M10 18.5h4"></path></svg>
+          </div>
+          <div class="lit" style="position: relative; height: 136px; border-radius: 12px; overflow: hidden; animation-delay: 1.5s;"><img class="fill" src="{{ topSrc }}" alt="{{ topAlt }}" style="object-position: 50% 22%;"></div>
+          <div class="lit" style="position: relative; height: 136px; border-radius: 12px; overflow: hidden; animation-delay: 2.1s;"><img class="fill" src="img/edd51c3999e7a17990f65bfeb331e7c5.jpg" alt="Frame from a reel in a night club" style="object-position: 50% 30%;"></div>
+        </div>
+        <div style="position: absolute; top: 320px; left: 24px; right: 24px; height: 3px; border-radius: 2px; overflow: hidden; background: rgba(255,255,255,0.08);">
+          <div class="draw" style="height: 3px; display: flex;"><i style="flex: 1; background: #5d5bd7;"></i><i style="flex: 1; background: #c14ca8;"></i><i style="flex: 1; background: #ff746f;"></i></div>
+        </div>
+        <div style="position: absolute; top: 332px; left: 24px; right: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; line-height: 16px; color: rgba(242,240,245,0.62);">
+          <span>Your selfie</span><span>Your look</span><span>Your reel</span>
+        </div>
+        <ol style="position: absolute; top: 376px; left: 24px; right: 24px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px;">
+          <li style="display: flex; gap: 12px;">
+            <span class="num" style="flex: none; width: 24px; font-size: 17px; line-height: 24px; font-weight: 900; color: rgba(242,240,245,0.62);">1</span>
+            <span style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start;"><span style="font-size: 17px; line-height: 24px; font-weight: 600;">Upload a few selfies</span><span class="need"></span></span>
+          </li>
+          <li style="display: flex; gap: 12px;">
+            <span class="num" style="flex: none; width: 24px; font-size: 17px; line-height: 24px; font-weight: 900; color: rgba(242,240,245,0.62);">2</span>
+            <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 17px; line-height: 24px; font-weight: 600;">We build your looks in about 5 minutes</span><span style="font-size: 14px; line-height: 20px; color: rgba(242,240,245,0.74);">Your features stay. The light, the outfit and the place change.</span></span>
+          </li>
+          <li style="display: flex; gap: 12px;">
+            <span class="num" style="flex: none; width: 24px; font-size: 17px; line-height: 24px; font-weight: 900; color: rgba(242,240,245,0.62);">3</span>
+            <span style="font-size: 17px; line-height: 24px; font-weight: 600;">Post them, or turn one into a short video</span>
+          </li>
+        </ol>
+        <figure style="position: absolute; left: 24px; right: 24px; bottom: 120px; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+          <span style="display: flex; gap: 2px;" role="img" aria-label="5 out of 5">
+            <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+          </span>
+          <blockquote style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 20px; line-height: 26px; color: #f2f0f5;">“It really looks like me. The likeness is unsettling in the best way. It looks like me on a very good day.”</blockquote>
+        </figure>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px;"><a class="cta" href="#dv2-6">See my profile</a></div>
+      </div>
+    </div>
+
+    <!-- D6 the profile you built -->
+    <div id="dv2-6" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="lbl"><b>D6</b>A profile from your looks, then paywall</div>
+      <div class="ph">
+        <div style="position: absolute; top: 44px; left: 20px; right: 20px; height: 56px; display: flex; align-items: center; gap: 12px;">
+          <img src="{{ topSrc }}" alt="" style="width: 56px; height: 56px; border-radius: 28px; object-fit: cover; object-position: 50% 18%; flex: none;">
+          <div style="flex: 1; font-size: 17px; font-weight: 600;">your.looks</div>
+          <div style="display: flex; gap: 20px; text-align: right;">
+            <div><div class="num" style="font-size: 17px; font-weight: 600;">6</div><div style="font-size: 12px; color: rgba(242,240,245,0.62);">posts</div></div>
+            <div><div ref="{{ c6Ref }}" class="num" style="font-size: 17px; font-weight: 600; min-width: 56px;">0</div><div style="font-size: 12px; color: rgba(242,240,245,0.62);">likes</div></div>
+          </div>
+        </div>
+        <div style="position: absolute; top: 112px; left: 20px; right: 20px; height: 80px; display: flex; gap: 12px; overflow: hidden;">
+          <sc-for list="{{ covers }}" as="c" hint-placeholder-count="3">
+            <div style="flex: none; width: 60px; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+              <span style="width: 56px; height: 56px; box-sizing: border-box; border-radius: 28px; padding: 2px; border: 1.5px solid rgba(242,240,245,0.5);"><img src="{{ c.src }}" alt="" style="display: block; width: 100%; height: 100%; border-radius: 26px; object-fit: cover; object-position: 50% 20%;"></span>
+              <span style="max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; line-height: 16px; color: rgba(242,240,245,0.82);">{{ c.name }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="position: absolute; top: 204px; left: 0; right: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px;">
+          <sc-for list="{{ grid6 }}" as="g" hint-placeholder-count="6">
+            <div class="gt in" style="animation-delay: {{ g.d }};">
+              <div class="pop9" style="animation-delay: {{ g.pd }};">
+                <img class="fill" src="{{ g.src }}" alt="{{ g.name }}" style="object-position: 50% 22%;">
+                <span class="wave" style="position: absolute; left: 8px; bottom: 8px; height: 24px; padding: 0 8px; border-radius: 12px; background: #ff746f; color: #08080f; display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; animation-delay: {{ g.pd }};">
+                  <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="#08080f"></path></svg>
+                  <span class="num">{{ g.likes }}</span>
+                </span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="position: absolute; top: 44px; left: 12px; right: 12px; height: 210px; pointer-events: none;" aria-hidden="true">
+          <sc-for list="{{ notes }}" as="n" hint-placeholder-count="3">
+            <div class="note" style="top: {{ n.top }}; animation-delay: {{ n.d }};">
+              <span style="flex: none; width: 36px; height: 36px; border-radius: 18px; background: #262631; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">
+                <sc-if value="{{ n.person }}" hint-placeholder-val="{{ true }}">{{ n.initial }}</sc-if>
+                <sc-if value="{{ n.crowd }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.7-9.3C.8 7.6 2.9 4.2 6.4 4.2c2.2 0 3.7 1.2 4.6 2.6.5.8.6.8 1 .8s.5 0 1-.8c.9-1.4 2.4-2.6 4.6-2.6 3.5 0 5.6 3.4 4.1 6.8-2.1 4.7-9.7 9.3-9.7 9.3z" fill="url(#dv2Tri)"></path></svg></sc-if>
+              </span>
+              <span style="flex: 1; font-size: 14px; line-height: 20px; color: rgba(242,240,245,0.82);"><b style="font-weight: 600; color: #f2f0f5;">{{ n.who }}</b> {{ n.text }}</span>
+              <img src="{{ n.thumb }}" alt="" style="flex: none; width: 40px; height: 40px; border-radius: 8px; object-fit: cover; object-position: 50% 20%;">
+            </div>
+          </sc-for>
+        </div>
+        <div style="position: absolute; left: 0; right: 0; top: 446px; bottom: 0; background: #08080f;"></div>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 40px; display: flex; flex-direction: column;">
+          <h2 class="h1" style="font-size: 32px;">Your new profile<span class="h2" style="font-size: 36px;">is one shoot away</span></h2>
+          <p class="sub" style="margin-top: 8px;">Upload a few selfies and get yours in about 5 minutes</p>
+          <blockquote style="margin: 16px 0 0; font-family: 'Instrument Serif', serif; font-size: 18px; line-height: 24px; color: #f2f0f5;">“My LinkedIn photo is from here. Two colleagues asked which photographer I went to. I did not tell them.”</blockquote>
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(242,240,245,0.76);">
+            <span style="display: flex; gap: 2px;" role="img" aria-label="Rated 4.9 out of 5">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#f2f0f5"></path></svg>
+            </span>
+            <span><span class="num">4.9</span> rating · <span class="num">2</span> million portraits</span>
+          </div>
+          <a class="cta" href="#paywall" style="margin-top: 20px;">Start my shoot<svg class="nudge" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          <div style="margin-top: 10px; font-size: 13px; line-height: 18px; color: rgba(242,240,245,0.62); text-align: center;">Next: choose your plan</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2636,"height":1140}}'>
+const B = "img/";
+const LOOKS = [
+  { id: "paris", name: "Paris", src: B + "61d89b39ec612971a950488347f4729a.webp", alt: "Portrait in Paris with roses" },
+  { id: "bw", name: "Black and white", src: B + "81d5790966f90bb95fecfb9e01963b00.webp", alt: "Black and white portrait" },
+  { id: "velvet", name: "Red velvet", src: B + "f091ec11cd7c7fb5d1f245b676eb053d.webp", alt: "Portrait in a red dress with wine" },
+  { id: "studio", name: "White studio", src: B + "0ab866f4416cfd2c7a7b80fa122c948b.webp", alt: "Portrait in a white suit, studio light" },
+  { id: "window", name: "Window light", src: B + "7ec8f3ae9dd3abb8a651dbb6f78fd504.webp", alt: "Portrait with window blind shadows" },
+  { id: "sunlit", name: "Sunlit room", src: B + "c7b39acdcee3aa3a7156c23c5c82e238.webp", alt: "Portrait in a red dress in a sunlit room" }
+];
+const CLIPS = [
+  { id: "club", chip: "Night club", prompt: "Me dancing in a night club, flash", src: B + "03d9808d94706c25ec8449d2ede5b8d8.mp4", poster: B + "edd51c3999e7a17990f65bfeb331e7c5.jpg" },
+  { id: "old", chip: "Old city", prompt: "Me walking under old stone arches", src: B + "a1be6d5333deac9a30ca24d1d51152d6.mp4", poster: B + "afbea65e9da9ed193da9230b22ccf690.jpg" },
+  { id: "lion", chip: "With a lion", prompt: "Me next to a lion in the rain", src: B + "658e8cb157b9e7bae05139c0b6855cd8", poster: B + "e8b8d53763c576245ae4e17237fdbaf9" }
+];
+const NOTES = [
+  { who: "mila.r", initial: "M", text: "liked your photo", thumb: B + "61d89b39ec612971a950488347f4729a.webp", person: true, crowd: false, top: "0px", d: "1.5s" },
+  { who: "dan_k", initial: "D", text: "started following you", thumb: B + "0ab866f4416cfd2c7a7b80fa122c948b.webp", person: true, crowd: false, top: "72px", d: "2.4s" },
+  { who: "12 people", initial: "", text: "liked your reel", thumb: B + "edd51c3999e7a17990f65bfeb331e7c5.jpg", person: false, crowd: true, top: "144px", d: "3.3s" }
+];
+const GRID_LIKES = ["1,284", "962", "2,107", "748", "1,530", "1,016"];
+const r1 = (n) => Math.round(n) + "px";
+/* D1: one fan of 10 hearts up from the like pill, replayed in a 9 s cycle */
+const BURST1 = Array.from({ length: 10 }, (_, i) => {
+  const a = (-165 + i * 150 / 9) * Math.PI / 180;
+  const d = 96 + (i % 3) * 22;
+  return { x: r1(Math.cos(a) * d), y: r1(Math.sin(a) * d), r: ((i * 37) % 40 - 20) + "deg", s: (14 + (i % 3) * 3) + "px" };
+});
+/* D3: one radial fountain of 16 hearts on the like */
+const BURST3 = Array.from({ length: 16 }, (_, i) => {
+  const a = (i * 22.5 + 8) * Math.PI / 180;
+  const d = 112 + (i % 4) * 18;
+  const s = 16 + (i % 3) * 5;
+  return { x: r1(Math.cos(a) * d), y: r1(Math.sin(a) * d), r: ((i * 29) % 44 - 22) + "deg", s: s + "px", m: (-s / 2) + "px 0 0 " + (-s / 2) + "px", d: (120 + (i % 4) * 40) + "ms" };
+});
+const TAP_SPOTS = [[150, 250], [240, 220], [120, 330], [270, 320], [200, 180], [100, 220], [290, 260], [170, 360]];
+const smooth = (k) => k * k * (3 - 2 * k);
+
+class Component extends DCLogic {
+  state = { live: true, picks: ["paris"], demo: true, taps: {}, liked: false, likeTaps: 0, clip: "club", ready: false };
+
+  /* perf contract: setState only on taps, visibility and two slow D3 timers; counters write textContent from a 10 Hz rAF that runs only while visible */
+  rootEl = null; vidEl = null; cEl = {};
+  rootRef = (el) => { this.rootEl = el; };
+  vidRef = (el) => { this.vidEl = el; if (el) { el.muted = true; el.playsInline = true; } };
+  c1Ref = (el) => { this.cEl.c1 = el; };
+  c3Ref = (el) => { this.cEl.c3 = el; };
+  c6Ref = (el) => { this.cEl.c6 = el; };
+  t0 = Date.now(); pausedAt = 0; running = false; likeAt = -1;
+
+  clock() { return (this.pausedAt || Date.now()) - this.t0; }
+
+  componentDidMount() {
+    this.t0 = Date.now();
+    if (typeof IntersectionObserver !== "undefined" && this.rootEl) {
+      this.io = new IntersectionObserver((es) => {
+        if (es.some((e) => e.isIntersecting)) this.start(); else this.stop();
+      }, { threshold: 0.05 });
+      this.io.observe(this.rootEl);
+    } else {
+      this.start();
+    }
+  }
+
+  componentWillUnmount() {
+    this.stop();
+    if (this.io) this.io.disconnect();
+  }
+
+  componentDidUpdate(prev, prevState) {
+    if (prevState.clip !== this.state.clip) this.playVid();
+  }
+
+  still() { return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); }
+
+  start() {
+    if (this.running) return;
+    this.running = true;
+    if (this.pausedAt) { this.t0 += Date.now() - this.pausedAt; this.pausedAt = 0; }
+    this.setState({ live: true });
+    this.tick();
+    if (!this.still()) {
+      let last = 0;
+      const loop = (now) => {
+        if (!this.running) return;
+        this.raf = requestAnimationFrame(loop);
+        if (now - last < 100) return;
+        last = now;
+        this.tick();
+      };
+      this.raf = requestAnimationFrame(loop);
+    }
+    this.plan();
+    this.playVid();
+  }
+
+  stop() {
+    if (!this.running) return;
+    this.running = false;
+    this.pausedAt = Date.now();
+    cancelAnimationFrame(this.raf);
+    clearTimeout(this.autoT);
+    if (this.vidEl) this.vidEl.pause();
+    this.setState({ live: false });
+  }
+
+  playVid() {
+    const v = this.vidEl;
+    if (!v || !this.running) return;
+    v.muted = true;
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+  }
+
+  /* D3: plays by itself after 3.5 s without a tap; on the board it resets 12 s after the like */
+  plan() {
+    clearTimeout(this.autoT);
+    if (!this.running) return;
+    if (!this.state.liked) {
+      this.autoT = setTimeout(() => this.like(), 3500);
+    } else {
+      const left = Math.max(0, 12000 - (this.clock() - this.likeAt));
+      this.autoT = setTimeout(() => {
+        this.likeAt = -1;
+        this.setState({ liked: false, likeTaps: 0 }, () => this.plan());
+      }, left);
+    }
+  }
+
+  like() {
+    this.likeAt = this.clock();
+    this.setState({ liked: true, likeTaps: 0 }, () => this.plan());
+  }
+
+  tick() {
+    const t = this.clock();
+    const still = this.still();
+    const fmt = (n) => Math.round(n).toLocaleString("en-US");
+    const ramp = (x, from, dur, target) => {
+      if (still) return target;
+      if (x < from) return 0;
+      if (x >= from + dur) return target;
+      return target * smooth((x - from) / dur);
+    };
+    const out = {
+      c1: ramp(t % 9000, 900, 2400, 1284),
+      c3: this.likeAt < 0 ? 0 : ramp(t - this.likeAt, 200, 2500, 1284),
+      c6: ramp(t, 900, 2400, 12480)
+    };
+    Object.keys(out).forEach((k) => {
+      const el = this.cEl[k];
+      const s = fmt(out[k]);
+      if (el && el.textContent !== s) el.textContent = s;
+    });
+  }
+
+  toggle(id) {
+    this.setState((s) => {
+      const p = s.picks.slice();
+      const i = p.indexOf(id);
+      if (i >= 0) {
+        if (p.length === 1) return null;
+        p.splice(i, 1);
+      } else {
+        p.push(id);
+      }
+      const taps = Object.assign({}, s.taps);
+      taps[id] = (taps[id] || 0) + 1;
+      return { picks: p, demo: false, taps };
+    });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const picks = s.picks;
+    const topId = picks[picks.length - 1] || "paris";
+    const top = LOOKS.find((l) => l.id === topId) || LOOKS[0];
+    const n = picks.length;
+
+    const tiles = LOOKS.map((l) => {
+      const on = picks.indexOf(l.id) >= 0;
+      const isDemo = s.demo && l.id === "paris";
+      const tc = s.taps[l.id] || 0;
+      return {
+        name: l.name, src: l.src,
+        deg: on ? "180deg" : "0deg",
+        flipCls: isDemo ? "demo" : "",
+        popCls: isDemo ? "popD" : (on && tc ? (tc % 2 ? "popA" : "popB") : ""),
+        heartCls: isDemo ? "hd" : "",
+        heartOp: on ? "1" : "0",
+        pressed: on ? "true" : "false",
+        aria: l.name + (on ? ", picked" : ", selfie"),
+        toggle: () => this.toggle(l.id)
+      };
+    });
+
+    const ordered = LOOKS.filter((l) => picks.indexOf(l.id) >= 0)
+      .sort((a, b) => picks.indexOf(b.id) - picks.indexOf(a.id))
+      .concat(LOOKS.filter((l) => picks.indexOf(l.id) < 0));
+    const grid6 = ordered.map((l, i) => ({
+      src: l.src, name: l.name, likes: GRID_LIKES[i],
+      d: (300 + i * 70) + "ms",
+      pd: (2 + i * 1.5) + "s"
+    }));
+    const covers = ordered.filter((l) => picks.indexOf(l.id) >= 0).slice(0, 5).map((l) => ({ src: l.src, name: l.name }));
+
+    const tapPhoto = () => {
+      if (!this.state.liked) { this.like(); return; }
+      if (this.state.likeTaps < TAP_SPOTS.length) this.setState({ likeTaps: this.state.likeTaps + 1 });
+    };
+    const taps = TAP_SPOTS.slice(0, s.likeTaps).map((p) => ({ x: p[0] + "px", y: p[1] + "px" }));
+
+    const clip = CLIPS.find((c) => c.id === s.clip) || CLIPS[0];
+    const chips = CLIPS.map((c) => ({
+      label: c.chip,
+      pressed: c.id === clip.id ? "true" : "false",
+      pick: () => { if (this.state.clip !== c.id) this.setState({ clip: c.id, ready: false }); }
+    }));
+    const prompts = CLIPS.map((c) => ({ text: c.prompt, op: c.id === clip.id ? "1" : "0" }));
+
+    return {
+      yes: true,
+      rootRef: this.rootRef, vidRef: this.vidRef, c1Ref: this.c1Ref, c3Ref: this.c3Ref, c6Ref: this.c6Ref,
+      rootCls: s.live ? "" : "nm-off",
+      burst1: BURST1,
+      tiles,
+      postsLabel: n === 1 ? "1 post" : n + " posts",
+      pickedLabel: n === 1 ? "1 look picked" : n + " looks picked",
+      saveLabel: n === 1 ? "Save my look" : "Save my " + n + " looks",
+      topSrc: top.src, topAlt: top.alt,
+      liked: s.liked, unliked: !s.liked, likedStr: s.liked ? "true" : "false",
+      cta3Cls: s.liked ? "late" : "wait",
+      burst3: BURST3,
+      taps,
+      tapPhoto,
+      clipSrc: clip.src, clipPoster: clip.poster, clipAria: "Reel: " + clip.prompt,
+      vidOp: s.ready ? "1" : "0",
+      onPlaying: () => { if (!this.state.ready) this.setState({ ready: true }); },
+      chips, prompts,
+      grid6, covers,
+      notes: NOTES
+    };
+  }
+}
+</script>
+<script src="../morphdom.min.js"></script>
+<script src="../dc-lite.js"></script>
+</body></html>

@@ -1,0 +1,303 @@
+---
+layout: null
+sitemap: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User Acquisition Skills: open agent skills for app growth | Vlad Yasinski</title>
+<meta name="description" content="Eleven open agent skills for paid user acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution, plus live paywall and onboarding concepts built with them. By Vlad Yasinski.">
+<link rel="canonical" href="https://ua5er.github.io/user-acquisition-skills/">
+<meta name="author" content="Vlad Yasinski">
+<meta property="og:type" content="website">
+<meta property="og:title" content="User Acquisition Skills by Vlad Yasinski">
+<meta property="og:description" content="Open agent skills for paid UA, Meta Ads, paywalls and onboarding, with 19 live design concepts built using them.">
+<meta property="og:url" content="https://ua5er.github.io/user-acquisition-skills/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07070c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"SoftwareSourceCode","name":"User Acquisition Skills","codeRepository":"https://github.com/ua5er/user-acquisition-skills","license":"https://opensource.org/licenses/MIT","programmingLanguage":"Markdown","description":"Open agent skills for paid user acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses.","author":{"@id":"https://www.roimobi.com/#person"}},
+ {"@type":"Person","@id":"https://www.roimobi.com/#person","name":"Vlad Yasinski","jobTitle":"AI growth consultant","url":"https://www.roimobi.com","sameAs":["https://www.linkedin.com/in/vlad-yasinski-ua5er/","https://github.com/ua5er","https://t.me/ua5er"]}
+]}
+</script>
+<style>
+:root{
+  --bg:#07070c;--bg2:#0e0e17;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);
+  --tx:#f2f0f5;--tx2:rgba(242,240,245,.72);--tx3:rgba(242,240,245,.5);
+  --a1:#6d6bf0;--a2:#e0577f;--grad:linear-gradient(100deg,#5d5bd7,#b9456b);
+  --r:22px;--max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.55 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;letter-spacing:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(7,7,12,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.nav b{font-weight:800;letter-spacing:-.01em;white-space:nowrap}
+@media(max-width:420px){.nav b{font-size:14px}.nav nav{gap:12px;font-size:13px}}
+.nav nav{display:flex;gap:18px;margin-left:auto;font-size:14px;color:var(--tx2)}
+.nav nav a{text-decoration:none}.nav nav a:hover{color:var(--tx)}
+@media(max-width:720px){.nav nav a.hide-s{display:none}}
+
+/* hero */
+.hero{position:relative;padding:72px 0 40px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-30% -10% auto;height:520px;background:radial-gradient(40% 60% at 25% 40%,rgba(109,107,240,.22),transparent 70%),radial-gradient(35% 55% at 75% 30%,rgba(224,87,127,.16),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative}
+h1{font-size:clamp(40px,6.4vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:900;margin:14px 0 18px;max-width:14ch}
+h1 .serif{font-size:1.04em}
+.lede{font-size:clamp(17px,1.6vw,20px);color:var(--tx2);max-width:60ch;margin:0 0 28px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid var(--line2);background:rgba(255,255,255,.04);transition:transform .15s,background .15s}
+.btn:hover{background:rgba(255,255,255,.09)}.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--grad);border:0;position:relative;overflow:hidden}
+.btn.pri:after{content:"";position:absolute;top:0;bottom:0;width:60px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,40%{transform:translateX(-120px) skewX(-20deg)}100%{transform:translateX(420px) skewX(-20deg)}}
+.cmd{display:flex;align-items:center;gap:12px;margin:26px 0 0;max-width:640px;background:var(--bg2);border:1px solid var(--line2);border-radius:14px;padding:12px 12px 12px 18px;font-family:"IBM Plex Mono",monospace;font-size:14px;overflow:auto}
+.cmd code{white-space:nowrap;flex:1}
+.cmd code:before{content:"$ ";color:var(--tx3)}
+.copy{flex:none;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:rgba(255,255,255,.06);color:var(--tx);font:600 13px Archivo,sans-serif;cursor:pointer}
+.copy:hover{background:rgba(255,255,255,.12)}
+.stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:36px;color:var(--tx2);font-size:14px}
+.stats b{display:block;font-size:28px;color:var(--tx);font-weight:800;letter-spacing:-.02em}
+
+/* sections */
+section{padding:64px 0}
+.sh{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px}
+h2{font-size:clamp(30px,4vw,52px);line-height:1.02;letter-spacing:-.03em;font-weight:900;margin:8px 0 0;max-width:18ch}
+.sh p{color:var(--tx2);max-width:46ch;margin:0}
+
+/* phone grid */
+.phones{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:28px 22px}
+.card{margin:0}
+.phone{position:relative;aspect-ratio:402/874;border-radius:34px;overflow:hidden;background:#08080f;border:1px solid var(--line2);box-shadow:0 30px 60px -30px rgba(0,0,0,.9),0 0 0 6px rgba(255,255,255,.025);transition:transform .25s,box-shadow .25s}
+.card:hover .phone{transform:translateY(-4px);box-shadow:0 40px 70px -30px rgba(109,107,240,.35),0 0 0 6px rgba(255,255,255,.04)}
+.phone iframe{position:absolute;top:0;left:0;width:402px;height:874px;border:0;transform-origin:0 0;transform:scale(var(--s,.57))}
+.phone .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--tx3);font-size:13px}
+.card figcaption{padding:14px 4px 0}
+.card .t{font-weight:700;font-size:15px;letter-spacing:-.01em}
+.card .d{color:var(--tx2);font-size:13.5px;line-height:1.45;margin-top:4px}
+.tag{display:inline-block;margin-bottom:6px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.06);color:var(--tx2)}
+.tag.s{background:rgba(224,87,127,.14);color:#ff9cb5}.tag.m{background:rgba(109,107,240,.16);color:#b9b8ff}.tag.o{background:rgba(120,220,170,.12);color:#9ff3cb}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--tx2);font:600 14px Archivo,sans-serif;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--tx);color:#0b0b12;border-color:var(--tx)}
+.card[hidden]{display:none}
+
+/* onboarding viewer */
+.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:4px;margin-bottom:18px}
+.tabs button{flex:none;height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--tx2);font:600 14px Archivo,sans-serif;cursor:pointer;text-align:left}
+.tabs button b{color:var(--tx);margin-right:6px}
+.tabs button[aria-selected=true]{background:rgba(255,255,255,.1);color:var(--tx);border-color:rgba(255,255,255,.4)}
+.stage{position:relative;border-radius:var(--r);border:1px solid var(--line2);background:#050509;overflow:auto;-webkit-overflow-scrolling:touch}
+.stage .inner{position:relative;width:calc(2636px * var(--k));height:calc(1140px * var(--k))}
+.stage iframe{position:absolute;top:0;left:0;width:2636px;height:1140px;border:0;transform-origin:0 0;transform:scale(var(--k))}
+.ob-note{color:var(--tx2);font-size:15px;margin:16px 2px 0;max-width:80ch}
+.hint{color:var(--tx3);font-size:13px;margin-top:8px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.sk{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));text-decoration:none;transition:border-color .2s,transform .2s}
+.sk:hover{border-color:var(--line2);transform:translateY(-2px)}
+.sk code{font-family:"IBM Plex Mono",monospace;font-size:13px;color:#c9c8ff}
+.sk p{margin:0;color:var(--tx2);font-size:14.5px}
+.sk .job{color:var(--tx);font-size:14px;font-weight:600;margin-top:auto;padding-top:6px}
+
+/* about */
+.about{display:grid;gap:28px;grid-template-columns:1fr}
+@media(min-width:900px){.about{grid-template-columns:1.1fr .9fr;align-items:start}}
+.panel{border:1px solid var(--line2);border-radius:var(--r);padding:28px;background:var(--bg2)}
+.panel ul{margin:12px 0 0;padding-left:18px;color:var(--tx2)}
+.panel li{margin:6px 0}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--tx3);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+@media (prefers-reduced-motion: reduce){.btn.pri:after{animation:none}.card:hover .phone,.sk:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap">
+  <b>User Acquisition Skills</b>
+  <nav>
+    <a href="#paywalls">Paywalls</a>
+    <a href="#onboarding" class="hide-s">Onboarding</a>
+    <a href="#skills">Skills</a>
+    <a href="https://github.com/ua5er/user-acquisition-skills">GitHub</a>
+  </nav>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+  <div class="mono">Open source · MIT · by Vlad Yasinski</div>
+  <h1>Agent skills for <span class="serif">user acquisition</span></h1>
+  <p class="lede">Eleven open skills for paid acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They run in Claude Code, Codex, Cursor and any agent that reads SKILL.md. Below are 19 live paywall and onboarding concepts built with them. Every screen is the real thing: tap the plans, open checkout, post the photo.</p>
+  <div class="cta-row">
+    <a class="btn pri" href="#paywalls">See the live concepts</a>
+    <a class="btn" href="https://github.com/ua5er/user-acquisition-skills">Browse on GitHub</a>
+  </div>
+  <div class="cmd"><code id="cmd">npx skills add ua5er/user-acquisition-skills</code><button class="copy" type="button" data-copy="cmd">Copy</button></div>
+  <div class="stats">
+    <div><b>11</b>agent skills</div>
+    <div><b>14</b>live paywall concepts</div>
+    <div><b>5</b>onboarding flows, 29 screens</div>
+  </div>
+</div></div>
+
+<section id="paywalls"><div class="wrap">
+  <div class="sh">
+    <div><div class="mono">Built with paywall-audit</div><h2>Paywalls that <span class="serif">move</span></h2></div>
+    <p>One offer, one price table, fourteen ways to sell it. Each screen keeps the same honest disclosure and changes the hook above the plans.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter paywalls" style="margin-bottom:24px">
+    <button type="button" aria-pressed="true" data-f="all">All 14</button>
+    <button type="button" aria-pressed="false" data-f="s">Social proof</button>
+    <button type="button" aria-pressed="false" data-f="m">Photo motion</button>
+    <button type="button" aria-pressed="false" data-f="o">Offer and pricing</button>
+  </div>
+  <div class="phones" id="phones"></div>
+</div></section>
+
+<section id="onboarding"><div class="wrap">
+  <div class="sh">
+    <div><div class="mono">Built with onboarding-web2app-funnel</div><h2>Five onboarding <span class="serif">concepts</span></h2></div>
+    <p>Five different hypotheses about what a person should see between the ad click and the paywall. Each flow is six live screens.</p>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Onboarding concepts" id="tabs"></div>
+  <div class="stage" id="stage"><div class="inner"><iframe id="obf" title="Onboarding concept" loading="lazy"></iframe></div></div>
+  <p class="ob-note" id="obnote"></p>
+  <p class="hint">On a phone, swipe the stage sideways to see all six screens.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sh">
+    <div><div class="mono">Install one or all</div><h2>The <span class="serif">skills</span></h2></div>
+    <p>Each skill is a SKILL.md with a method, rules and output format. Ask your agent in plain words, for example "Audit this paywall".</p>
+  </div>
+  <div class="skills" id="skillgrid"></div>
+</div></section>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <div class="mono">Who wrote them</div>
+    <h2>Vlad <span class="serif">Yasinski</span></h2>
+    <p class="lede" style="margin-top:16px">AI growth consultant for app and subscription businesses. I build and run the marketing system around paid acquisition: Meta and TikTok user acquisition, web2app funnels, analytics and BI, automation and competitor intelligence, with AI agents that draft changes and a person who approves every budget move.</p>
+    <div class="links">
+      <a class="btn pri" href="https://www.roimobi.com/contact?intent=audit">Request an audit</a>
+      <a class="btn" href="https://www.roimobi.com">roimobi.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/vlad-yasinski-ua5er/">LinkedIn</a>
+      <a class="btn" href="https://t.me/ua5er">Telegram</a>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="mono">Track record</div>
+    <ul>
+      <li>Two apps taken to Top-1 in their US App Store categories</li>
+      <li>Facebook and TikTok budgets of up to $1.5M per month</li>
+      <li>10+ years in paid acquisition, based in Warsaw, Poland</li>
+    </ul>
+    <div class="mono" style="margin-top:24px">About these concepts</div>
+    <ul>
+      <li>Design explorations for a subscription AI photo app. The app name and logo are removed.</li>
+      <li>No conversion results are measured yet. Method and test plan: <a href="examples/paywall-redesign-subscription-photo-app.html">paywall case</a>, <a href="examples/onboarding-redesign-subscription-photo-app.html">onboarding case</a>.</li>
+      <li>Like counts and ratings on the screens are illustrative.</li>
+    </ul>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>User Acquisition Skills · MIT licence · <a href="https://github.com/ua5er/user-acquisition-skills/blob/main/THIRD_PARTY_NOTICES.md">third-party notices</a></span>
+  <span>© Vlad Yasinski · <a href="https://www.roimobi.com">roimobi.com</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var PW=[
+    ["v3-2d","s","Hearts fly, the counter spins","A post with a likes counter that keeps climbing. Social proof does the talking above the plans."],
+    ["v4e","s","Profile tiles pop with likes","A profile grid where tiles jump in one by one and collect likes, followers count up."],
+    ["v3-2c","m","Tilted 3D photo wall","A slow wall of portraits in perspective. Shows range of looks without a single word."],
+    ["v4d","s","Grid feed, a like on every photo","A feed grid where every photo gets its own like burst."],
+    ["v3e","s","A photo opens full screen","A profile where one portrait expands to fill the screen, then settles back."],
+    ["v4","o","V4 redesign","Living collage on top, plan tiles side by side, 2x2 benefits, first-month offer with a reserve timer."],
+    ["v3c","m","Stories with progress bars","Full-screen stories that feel like the ad the person came from."],
+    ["v4c","m","Card carousel","A carousel of portrait cards that rotates on its own."],
+    ["v3-2e","s","A wave of likes across the grid","Likes ripple across a profile grid in a wave."],
+    ["v3d","s","Feed: posts scroll, the like flashes","A scrolling feed where the like button flashes on each post."],
+    ["v3-2b","m","Slideshow with cross-dissolve","One portrait at a time, dissolving into the next."],
+    ["v4a","m","Two running ribbons","Two rows of portraits drifting in opposite directions."],
+    ["v3-2","o","V3.2: price per day first","The audit version: price per day as the big number, full terms next to the choice, light sweep on the CTA."],
+    ["v5","o","Trial plans","1-day and 1-week trials and a yearly plan, each with an honest per-day price."]
+  ];
+  var TAGS={s:"Social proof",m:"Photo motion",o:"Offer"};
+  var grid=document.getElementById("phones");
+  PW.forEach(function(p){
+    var f=document.createElement("figure");f.className="card";f.dataset.f=p[1];
+    f.innerHTML='<div class="phone" data-src="gallery/p/pw-'+p[0]+'.html"><div class="ph">Loading</div></div><figcaption><span class="tag '+p[1]+'">'+TAGS[p[1]]+'</span><div class="t">'+p[2]+'</div><div class="d">'+p[3]+'</div></figcaption>';
+    grid.appendChild(f);
+  });
+  function fit(el){var w=el.clientWidth;el.style.setProperty("--s",(w/402).toFixed(4));}
+  var ro=new ResizeObserver(function(es){es.forEach(function(e){fit(e.target)})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    var el=e.target,fr=el.querySelector("iframe");
+    if(e.isIntersecting&&!fr){fr=document.createElement("iframe");fr.src=el.dataset.src;fr.title="Live paywall concept";fr.setAttribute("tabindex","-1");el.appendChild(fr);}
+    else if(!e.isIntersecting&&fr){fr.remove();}
+  })},{rootMargin:"300px 0px"});
+  document.querySelectorAll(".phone").forEach(function(el){fit(el);ro.observe(el);io.observe(el);});
+  document.querySelectorAll(".filters button").forEach(function(b){b.addEventListener("click",function(){
+    document.querySelectorAll(".filters button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+    var f=b.dataset.f;document.querySelectorAll("#phones .card").forEach(function(c){c.hidden=!(f==="all"||c.dataset.f===f)});
+  })});
+
+  var OB=[
+    ["ev3","E","Like rain","Likes are the hero: a counter spins to six figures and hearts burst out of it, over a slow rain of hearts. Try the like button on screen 3 and the style picks on screen 5."],
+    ["dv2","D","Your profile","The person builds their future profile: selfies flip into looks on tap, they like their own post, and the chosen looks return in a finished profile."],
+    ["av2","A","Contact sheet","A two-question quiz builds one object, a contact sheet. Every picked style becomes a frame, and the same sheet develops into the plan."],
+    ["bv2","B","Demo shoot","The person drives the demo: picks looks, writes one line for a video, sees their own set at the peak, and the last screen says plainly that a plan comes next."],
+    ["cv2","C","Your story","Five full-screen stories with an honest progress bar. The looks picked in story 2 come back as their first shoot."]
+  ];
+  var tabs=document.getElementById("tabs"),fr=document.getElementById("obf"),note=document.getElementById("obnote"),stage=document.getElementById("stage");
+  function sel(i){
+    tabs.querySelectorAll("button").forEach(function(b,j){b.setAttribute("aria-selected",j===i?"true":"false")});
+    fr.src="gallery/p/ob-"+OB[i][0]+".html";note.textContent=OB[i][3];
+  }
+  OB.forEach(function(o,i){var b=document.createElement("button");b.type="button";b.setAttribute("role","tab");b.innerHTML="<b>"+o[1]+"</b>"+o[2];b.onclick=function(){sel(i)};tabs.appendChild(b);});
+  function kfit(){var w=stage.clientWidth;var k=Math.max(w/2636,window.innerWidth<720?0.34:0);stage.style.setProperty("--k",k.toFixed(4));}
+  new ResizeObserver(kfit).observe(stage);kfit();
+  var started=false;new IntersectionObserver(function(es){if(es[0].isIntersecting&&!started){started=true;sel(0);}},{rootMargin:"400px 0px"}).observe(stage);
+
+  var SK=[
+    ["ua-kill-scale-rules","Writes kill, scale and budget pacing rules for Meta and TikTok from your CAC target, then applies them to a campaign export.","Decide which ad sets to stop, scale or leave alone."],
+    ["paywall-audit","Audits a subscription paywall or checkout for message match, proof, price display, disclosure and CTA.","Get a ranked change list and a test queue."],
+    ["onboarding-web2app-funnel","Produces distinct onboarding or web-to-app concepts with hypotheses, a measurement plan and a test order.","Choose what the flow shows between the ad click and the paywall."],
+    ["meta-ads-learning-audit","Audits a Meta account stuck in Learning limited: event volume against budget, split signal, test CPMs, funnel and CAPI, plus a post-mortem.","Find out why the account never leaves learning."],
+    ["meta-ads-launch-planner","Plans a Meta sales launch that exits learning: budget from target CPA x 50 events a week, CBO, day-by-day and automated rules, scaling schedule.","Launch and scale without resetting learning."],
+    ["meta-creative-testing","Designs creative testing for Meta after Andromeda: what to relaunch, three test structures with the cost of an answer, winner and kill criteria, briefs.","Test creatives so each answer is worth what it costs."],
+    ["unit-economics-check","Checks CAC, cohort LTV and payback from your own data and sets a safe CAC ceiling.","Know what CAC you can afford to pay."],
+    ["attribution-sanity-check","Reconciles ad platform, MMP, SKAN and backend payment data and lists the fixes that matter.","Find out which acquisition numbers you can trust."],
+    ["creative-testing-research","Plans a creative testing cycle and researches competitor ads from public ad libraries only.","Plan the next round of creative tests."],
+    ["weekly-ua-report","Builds a one-page weekly acquisition report that ends in decisions.","Turn the week's export into next week's actions."],
+    ["ai-marketing-system-audit","Maps a marketing system as a loop (acquire, convert, measure, automate, intelligence, decide) and ranks the gaps.","Find the weakest link and what to build first."]
+  ];
+  var sg=document.getElementById("skillgrid");
+  SK.forEach(function(s){var a=document.createElement("a");a.className="sk";a.href="https://github.com/ua5er/user-acquisition-skills/tree/main/skills/"+s[0];a.innerHTML="<code>"+s[0]+"</code><p>"+s[1]+"</p><div class=\"job\">"+s[2]+"</div>";sg.appendChild(a);});
+
+  document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){
+    var t=document.getElementById(b.dataset.copy).textContent;
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1600)}).catch(function(){});
+  })});
+})();
+</script>
+</body>
+</html>
