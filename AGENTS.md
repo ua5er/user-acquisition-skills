@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repository holds eight agent skills for app and subscription growth, written by Vlad Yasinski (AI growth consultant, Warsaw, https://www.roimobi.com).
+This repository holds eleven agent skills for app and subscription growth, written by Vlad Yasinski (AI growth consultant, Warsaw, https://www.roimobi.com).
 
 ## Layout
 
