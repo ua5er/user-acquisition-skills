@@ -1,0 +1,21 @@
+GitHub settings that cannot be committed. Set these by hand after the repository is created.
+
+Repository name (proposed, decision pending): growth-skills
+  Alternatives: app-growth-skills, ua-skills. Keep "growth" and "skills" in the name for search.
+
+Description (under 350 characters):
+Open agent skills for app and subscription growth by Vlad Yasinski: Meta and TikTok kill and scale rules, paywall audit, onboarding and web2app funnels, CAC and LTV checks, attribution sanity checks, weekly UA report. Works with Claude Code, Codex, Cursor.
+
+Website: https://www.roimobi.com
+
+Topics (max 20):
+agent-skills, claude-code, codex, cursor, skill-md, growth-marketing, user-acquisition, performance-marketing, paywall, subscription-apps, mobile-marketing, app-marketing, meta-ads, tiktok-ads, attribution, unit-economics, web2app, onboarding, marketing-automation, ai-marketing
+
+Social preview image: 1280x640 PNG with the repo title and "Vlad Yasinski" (to design).
+
+Also:
+- Pin the repository on the author's GitHub profile.
+- Profile README: one line naming Vlad Yasinski, role, link to roimobi.com, link to this repository.
+- Profile "Website" field: https://www.roimobi.com. Add LinkedIn and X links in the profile social fields.
+- Enable Discussions or at least Issues, and add a pinned "Request a skill" issue.
+- Create a release v1.0.0 after the first publish (gives a citable, dated artifact).

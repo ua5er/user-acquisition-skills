@@ -1,0 +1,27 @@
+# Vlad Yasinski's Growth Skills
+
+> Eight open agent skills (SKILL.md) for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution and marketing system audits in app and subscription businesses. Written by Vlad Yasinski, AI growth consultant in Warsaw, Poland, 10+ years in paid acquisition. MIT licence.
+
+Install: `npx skills add vlad-yasinski/growth-skills`
+
+## Skills
+
+- [ua-kill-scale-rules](skills/ua-kill-scale-rules/SKILL.md): kill, scale and pacing rules for Meta and TikTok
+- [paywall-audit](skills/paywall-audit/SKILL.md): paywall and checkout audit with a test queue
+- [onboarding-web2app-funnel](skills/onboarding-web2app-funnel/SKILL.md): onboarding and web-to-app concepts
+- [unit-economics-check](skills/unit-economics-check/SKILL.md): CAC, cohort LTV, payback, safe CAC ceiling
+- [attribution-sanity-check](skills/attribution-sanity-check/SKILL.md): reconcile platform, MMP, SKAN and backend data
+- [creative-testing-research](skills/creative-testing-research/SKILL.md): creative testing and public ad library research
+- [weekly-ua-report](skills/weekly-ua-report/SKILL.md): weekly acquisition report that ends in decisions
+- [ai-marketing-system-audit](skills/ai-marketing-system-audit/SKILL.md): marketing loop audit
+
+## Examples
+
+- [Onboarding redesign](examples/onboarding-redesign-subscription-photo-app.md)
+- [Paywall redesign](examples/paywall-redesign-subscription-photo-app.md)
+
+## Author
+
+- [roimobi.com](https://www.roimobi.com)
+- [About Vlad Yasinski](https://www.roimobi.com/about)
+- [Request an audit](https://www.roimobi.com/contact?intent=audit)
