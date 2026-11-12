@@ -1,7 +1,6 @@
 GitHub settings that cannot be committed. Set these by hand after the repository is created.
 
-Repository name (proposed, decision pending): growth-skills
-  Alternatives: app-growth-skills, ua-skills. Keep "growth" and "skills" in the name for search.
+Repository name: user-acquisition-skills (owner: ua5er, confirmed 2026-11-12)
 
 Description (under 350 characters):
 Open agent skills for app and subscription growth by Vlad Yasinski: Meta and TikTok kill and scale rules, paywall audit, onboarding and web2app funnels, CAC and LTV checks, attribution sanity checks, weekly UA report. Works with Claude Code, Codex, Cursor.
