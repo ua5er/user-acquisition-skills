@@ -1,0 +1,27 @@
+title: User acquisition skills by Vlad Yasinski
+description: Open agent skills for performance marketing, user acquisition and mobile app growth (Meta and TikTok rules, Meta launch and creative testing, paywall audit, web2app funnels, CAC and LTV, attribution). Written by Vlad Yasinski, AI growth consultant, roimobi.com.
+url: https://ua5er.github.io
+baseurl: /user-acquisition-skills
+author:
+  name: Vlad Yasinski
+  url: https://www.roimobi.com
+social:
+  name: Vlad Yasinski
+  links:
+    - https://www.roimobi.com
+    - https://www.linkedin.com/in/vlad-yasinski-ua5er/
+    - https://github.com/ua5er
+    - https://t.me/ua5er
+lang: en
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
+include:
+  - AGENTS.md
+exclude:
+  - scripts
