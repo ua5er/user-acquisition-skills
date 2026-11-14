@@ -73,10 +73,14 @@ Screens from the design boards. The app brand is blurred.
 
 Vlad Yasinski is a performance marketer and growth consultant based in Warsaw, Poland (remote; English, Polish, Russian), with 10+ years of paid acquisition experience since 2015. He took two apps to Top-1 in their US App Store categories, managed Facebook and TikTok budgets of up to $1.5M per month at peak, built web funnels end to end (landing pages, Stripe checkout, Meta Pixel and Conversions API, BI and FunnelFox), and rebuilt an unprofitable app portfolio to positive unit economics for a client under NDA. He builds the analytics, funnels and automation around paid acquisition for app and subscription businesses.
 
-- Site: [roimobi.com](https://www.roimobi.com)
-- Background and experience: [roimobi.com/about](https://www.roimobi.com/about)
+- Site: [roimobi.com](https://www.roimobi.com/?utm_source=github&utm_medium=readme&utm_campaign=user-acquisition-skills)
+- Background and experience: [roimobi.com/about](https://www.roimobi.com/about?utm_source=github&utm_medium=readme&utm_campaign=user-acquisition-skills)
 - LinkedIn: [linkedin.com/in/vlad-yasinski-ua5er](https://www.linkedin.com/in/vlad-yasinski-ua5er/)
-- Want a review of your own system? [Request an AI Marketing and Growth Audit](https://www.roimobi.com/contact?intent=audit)
+- Want a review of your own system? [Request an AI Marketing and Growth Audit](https://www.roimobi.com/contact?intent=audit&utm_source=github&utm_medium=readme&utm_campaign=user-acquisition-skills)
+
+## Privacy
+
+The hosted demo at ua5er.github.io counts anonymous page views and contact clicks with PostHog (EU), without cookies or personal data. It honours Do Not Track and Global Privacy Control. Copies you host yourself send nothing.
 
 ## Credits and licence
 
