@@ -18,7 +18,7 @@ Install: `npx skills add ua5er/user-acquisition-skills`
 - [meta-ads-launch-planner](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/meta-ads-launch-planner): plan a Meta launch that exits learning, with budget math, rules and a scaling schedule
 - [meta-creative-testing](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/meta-creative-testing): creative testing for Meta after Andromeda, with winner and kill criteria and briefs
 - [jev-marketing-gates](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/jev-marketing-gates): typed decision gates with Jev for ad copy checks, comment triage, policy pre-checks and creative tagging; propose, judge, decide in code, approve by a person
-- [competitor-creative-parser](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/competitor-creative-parser): Claude + Jev step 1, parse competitor static and video ads into a tagged dataset and a market snapshot
+- [competitor-creative-parser](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/competitor-creative-parser): Claude + Jev step 1, parse competitor static and video ads into a tagged dataset and a market snapshot; Claude drafts a market taxonomy for the category before tagging
 - [market-to-creative-brief](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/market-to-creative-brief): Claude + Jev step 2, production decisions plus a static brief and a motion brief tied to snapshot numbers
 - [creative-preflight-panel](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/creative-preflight-panel): Claude + Jev step 3, simulated buyer panel with go, rework or drop per concept and a calibration check against real results
 
@@ -27,6 +27,7 @@ Install: `npx skills add ua5er/user-acquisition-skills`
 - [Onboarding redesign](examples/onboarding-redesign-subscription-photo-app.md)
 - [Paywall redesign](examples/paywall-redesign-subscription-photo-app.md)
 - [Claude + Jev on a fictional market: snapshot, briefs, panel](examples/competitor-parse-fictional-market.md)
+- [Claude + Jev on a real market: 54 anonymised ads from a public ad library, a market taxonomy step, 2,091 typed answers, $0.0146 in Jev spend](examples/competitor-parse-real-market.md)
 
 ## Author
 

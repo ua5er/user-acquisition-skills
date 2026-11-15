@@ -38,7 +38,7 @@ Then ask your agent in plain words, for example: "Audit this paywall", "Write ki
 | [`meta-ads-launch-planner`](skills/meta-ads-launch-planner/SKILL.md) | Plans a Meta sales launch that exits learning: budget from target CPA x 50 events a week (with `budget.py`), one broad ad set on CBO, day-by-day decision rules, automated stop and restart rules, scaling schedule, relaunch playbook and a plan document for management. |
 | [`meta-creative-testing`](skills/meta-creative-testing/SKILL.md) | Designs creative testing for Meta after Andromeda: which past ads to relaunch and why, three test structures with the cost of an answer, winner, kill and fatigue criteria, a weekly creative flow and a brief template for designers and UGC creators. |
 | [`jev-marketing-gates`](skills/jev-marketing-gates/SKILL.md) | Turns one marketing judgment into a typed decision gate with Jev (TypeSafe AI): an LLM or analyst proposes, Jev judges, code decides, a person approves spend and publishing. Four job templates (ad copy judge, comment and DM triage, policy pre-check, creative tagging), a batch runner, a calibration report and offline tests, standard library only. Request shapes follow the vendor docs as of 2026-11-15 and were checked against the live API that day. |
-| [`competitor-creative-parser`](skills/competitor-creative-parser/SKILL.md) | Claude + Jev, step 1. Turns competitor ads from public ad libraries or your own files into a tagged dataset and a market snapshot, in a static and a video track: shares per hook, angle, format, offer and CTA, crowded angles, gaps, pacing facts, with small-sample guards and a review queue. |
+| [`competitor-creative-parser`](skills/competitor-creative-parser/SKILL.md) | Claude + Jev, step 1. Turns competitor ads from public ad libraries or your own files into a tagged dataset and a market snapshot, in a static and a video track: shares per hook, angle, format, offer and CTA, crowded angles, gaps, pacing facts, with small-sample guards and a review queue. Claude drafts a market taxonomy for the category before tagging, and a confirm pass keeps confident choices out of review. |
 | [`market-to-creative-brief`](skills/market-to-creative-brief/SKILL.md) | Claude + Jev, step 2. Turns the snapshot and your constraints into production decisions, a static brief for designers and a motion brief for the video team. Code re-checks every cited number, ad id, gap, beat timing and the test budget before the pack renders. |
 | [`creative-preflight-panel`](skills/creative-preflight-panel/SKILL.md) | Claude + Jev, step 3. Shows every concept (and every video hook) to 12 to 30 simulated buyer profiles, builds a concept by profile heatmap and gives go, rework or drop with reasons; after launch it checks the panel against your real results. A cheap filter and a signal, not proof of performance. |
 
@@ -52,6 +52,8 @@ Three skills work as one system. Claude does what needs eyes and words: it descr
 
 Every step has a static track and a video track, an offline mock, a smoke test and a spend guard. The [walk-through on a fictional market](examples/competitor-parse-fictional-market.md) shows all three steps with real Jev output on invented ads: 24 ads tagged, 6 decisions, 6 concepts, 144 panel answers, 216,039 input tokens, about $0.009 in Jev spend.
 
+The system has also been run on a real market: 54 ads from the public Meta Ad Library (AI photo editor apps, US, 2026-11-15), anonymised in the [real-market walk-through](examples/competitor-parse-real-market.md). The stock questions failed on real ads, so the parser gained a step where Claude drafts a market taxonomy from the first descriptions, and a confirm pass in the tagger. The whole run, tagging and panel, was 2,091 typed answers and $0.0146 in Jev spend (four earlier pilots added $0.0128). An ad library shows what runs, never spend or results.
+
 ## How these were used
 
 Two design explorations for a subscription AI photo app (app name withheld) used these skills. Both are written up with the method, the versions produced and what is still unmeasured:
@@ -59,7 +61,7 @@ Two design explorations for a subscription AI photo app (app name withheld) used
 - [Onboarding redesign: five concepts](examples/onboarding-redesign-subscription-photo-app.md)
 - [Paywall redesign: versions V1 to V6 and hero variants](examples/paywall-redesign-subscription-photo-app.md)
 
-These are design cases. They do not contain measured conversion results. The Claude + Jev walk-through above runs on a fictional market and contains no results either.
+These are design cases. They do not contain measured conversion results. The Claude + Jev walk-throughs above contain no ad results either: one runs on a fictional market, the other on a real ad library capture, which shows what runs and never spend or results.
 
 ### Live gallery
 

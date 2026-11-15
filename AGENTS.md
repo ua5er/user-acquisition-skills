@@ -7,7 +7,7 @@ This repository holds fifteen agent skills for app and subscription growth, writ
 - `skills/<name>/SKILL.md`: one skill per folder. Frontmatter has `name` (kebab-case, equal to the folder name) and `description` (under 1024 characters, with trigger phrases).
 - `skills/<name>/references/` and `skills/<name>/scripts/`: optional long reference text and helper scripts. Scripts use the Python 3 standard library only, make no network call except the one vendor API they document, and read keys only from the environment. Every `test_offline.py` (in `jev-marketing-gates`, `competitor-creative-parser`, `market-to-creative-brief` and `creative-preflight-panel`) must pass without network or key.
 - Claude + Jev creative system: `competitor-creative-parser` (snapshot), `market-to-creative-brief` (decisions and briefs), `creative-preflight-panel` (concept screen). Their file contracts link them: `snapshot.json` feeds the brief pack, `concepts.jsonl` feeds the panel, `verdicts.json` goes back into the pack. Change one contract and update the scripts and tests on both sides. Saved live runs in `scripts/sample_market/` and `scripts/sample_panel/` are real model output on fictional data; do not edit them by hand.
-- `examples/`: two design case write-ups and one Claude + Jev walk-through on a fictional market. They contain no measured results.
+- `examples/`: two design case write-ups and two Claude + Jev walk-throughs, one on a fictional market and one on a real public ad library capture with every advertiser anonymised. They contain no measured ad results.
 - `scripts/validate.py`: checks every SKILL.md.
 - `THIRD_PARTY_NOTICES.md`: licence notices for the skill adapted from third-party MIT work.
 
