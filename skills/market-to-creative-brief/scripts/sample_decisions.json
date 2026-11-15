@@ -1,0 +1,705 @@
+{
+ "market": "sleep improvement apps, English (FICTIONAL sample market)",
+ "notice": "FICTIONAL example: the market, the ads and the team are invented. The snapshot numbers are real Jev output on the invented ads. Budget and CPA are example values.",
+ "project": "BRANDZ",
+ "test_name": "MKT01",
+ "constraints": {
+  "product": "Brand Z (fictional): a sleep routine app with an 8-minute guided wind-down (lights, breathing, a short story).",
+  "brand_rules": "Calm, plain tone. No medical claims: never cure, treat, fix or diagnose insomnia or any condition. No invented reviews or user counts. No before and after of bodies or faces.",
+  "offers": "7-day free trial, then an annual plan; the annual price is shown in full wherever a price appears.",
+  "can_produce": "Static: one in-house designer. Motion: one motion designer for screen-based and kinetic type work. UGC: one creator shoot per month.",
+  "test_budget": {
+   "amount": 1500,
+   "currency": "USD",
+   "target_cpa": 25,
+   "label": "example values"
+  },
+  "own_performance": null
+ },
+ "decisions": [
+  {
+   "id": "D1",
+   "track": "static",
+   "move": "enter_gap",
+   "dimension": "hook_type",
+   "value": "comparison",
+   "concepts": 2,
+   "rationale": "No static in the market sets the routine against an alternative, while 8 of 12 lead with an outcome promise and all 5 advertisers use it. A comparison hook stands apart in the feed without needing a stronger promise than the others.",
+   "evidence": [
+    {
+     "track": "static",
+     "dimension": "hook_type",
+     "value": "comparison",
+     "metric": "creatives",
+     "expected": 0
+    },
+    {
+     "track": "static",
+     "dimension": "hook_type",
+     "value": "outcome_promise",
+     "metric": "creatives",
+     "expected": 8
+    },
+    {
+     "track": "static",
+     "dimension": "hook_type",
+     "value": "outcome_promise",
+     "metric": "advertiser_share",
+     "expected": 1.0
+    },
+    {
+     "track": "static",
+     "dimension": "hook_type",
+     "value": "",
+     "metric": "unresolved",
+     "expected": 1
+    }
+   ],
+   "refs": [
+    "s01",
+    "s05",
+    "s09",
+    "s11"
+   ],
+   "hypothesis": "A comparison headline (routine against an alternative) gets a lower cost per trial than an outcome-promise control, because nobody else in the feed uses it."
+  },
+  {
+   "id": "D2",
+   "track": "static",
+   "move": "out_execute",
+   "dimension": "hook_type",
+   "value": "outcome_promise",
+   "concepts": 1,
+   "rationale": "Outcome promises are the crowded default, so one concept enters it with a sharper line: hook specificity averages 1.25 on a 0 to 3 scale and no static reaches the top level (audience, promise and a timeframe). The promise is about the routine, which the product can keep, not about sleep results.",
+   "evidence": [
+    {
+     "track": "static",
+     "dimension": "hook_type",
+     "value": "outcome_promise",
+     "metric": "share",
+     "expected": 0.667
+    },
+    {
+     "track": "static",
+     "dimension": "hook_specificity",
+     "metric": "score_mean",
+     "expected": 1.25
+    },
+    {
+     "track": "static",
+     "dimension": "offer_type",
+     "value": "price_stated",
+     "metric": "creatives",
+     "expected": 0
+    }
+   ],
+   "refs": [
+    "s01",
+    "s06",
+    "s09"
+   ],
+   "hypothesis": "An outcome promise with audience, promise and timeframe in one line beats the market's vaguer promises on cost per trial."
+  },
+  {
+   "id": "D3",
+   "track": "static",
+   "move": "avoid",
+   "dimension": "risky_claim",
+   "value": "",
+   "concepts": 0,
+   "rationale": "Health and guaranteed-result claims are common in this market (2 statics flagged, 5 more in review). Brand rules forbid them and they invite rejection. No concept uses cure, fix or a sleep-time guarantee.",
+   "evidence": [
+    {
+     "track": "static",
+     "dimension": "risky_claim",
+     "metric": "flag_yes",
+     "expected": 2
+    },
+    {
+     "track": "static",
+     "dimension": "risky_claim",
+     "metric": "flag_review",
+     "expected": 5
+    }
+   ],
+   "refs": [
+    "s03",
+    "s04"
+   ]
+  },
+  {
+   "id": "D4",
+   "track": "video",
+   "move": "enter_gap",
+   "dimension": "hook_channel",
+   "value": "visual_action",
+   "concepts": 2,
+   "rationale": "9 of 12 videos carry the hook with a spoken line and none with a visual action; none shows the product in the first 3 seconds (one in review). Two concepts open on the product doing something on screen, with no talking.",
+   "evidence": [
+    {
+     "track": "video",
+     "dimension": "hook_channel",
+     "value": "visual_action",
+     "metric": "creatives",
+     "expected": 0
+    },
+    {
+     "track": "video",
+     "dimension": "hook_channel",
+     "value": "spoken_line",
+     "metric": "creatives",
+     "expected": 9
+    },
+    {
+     "track": "video",
+     "dimension": "product_in_first_3s",
+     "metric": "flag_yes",
+     "expected": 0
+    },
+    {
+     "track": "video",
+     "dimension": "product_in_first_3s",
+     "metric": "flag_review",
+     "expected": 1
+    }
+   ],
+   "refs": [
+    "v06",
+    "v12",
+    "v02"
+   ],
+   "hypothesis": "Opening on the product doing something, with no speech in seconds 0 to 3, holds more viewers past 3 seconds than a spoken opening."
+  },
+  {
+   "id": "D5",
+   "track": "video",
+   "move": "out_execute",
+   "dimension": "video_format",
+   "value": "ugc_talking_head",
+   "concepts": 1,
+   "rationale": "Talking heads are half of the market and every advertiser runs one, so the team's monthly UGC shoot only earns its place with a different opening: the app on screen in the creator's hand from the first frame and a specific line (video hook specificity averages 1.36 of 3). Pacing stays near the market median of 1.58 cuts per 10 seconds; the difference is in the first 3 seconds, not the edit.",
+   "evidence": [
+    {
+     "track": "video",
+     "dimension": "video_format",
+     "value": "ugc_talking_head",
+     "metric": "creatives",
+     "expected": 6
+    },
+    {
+     "track": "video",
+     "dimension": "video_format",
+     "value": "ugc_talking_head",
+     "metric": "advertiser_share",
+     "expected": 1.0
+    },
+    {
+     "track": "video",
+     "dimension": "hook_specificity",
+     "metric": "score_mean",
+     "expected": 1.36
+    },
+    {
+     "track": "video",
+     "dimension": "cuts_per_10s.median",
+     "metric": "fact",
+     "expected": 1.58
+    }
+   ],
+   "refs": [
+    "v01",
+    "v03",
+    "v11"
+   ],
+   "hypothesis": "A talking head with the app in hand from the first frame beats a talking head that shows the app later, on cost per trial."
+  },
+  {
+   "id": "D6",
+   "track": "video",
+   "move": "avoid",
+   "dimension": "risky_claim",
+   "value": "",
+   "concepts": 0,
+   "rationale": "4 videos are flagged for health or result claims and 4 more sit in review, including a 'completely cured' line. No script promises a cure, a number of hours or minutes to fall asleep, or a fixed relationship or work outcome.",
+   "evidence": [
+    {
+     "track": "video",
+     "dimension": "risky_claim",
+     "metric": "flag_yes",
+     "expected": 4
+    },
+    {
+     "track": "video",
+     "dimension": "risky_claim",
+     "metric": "flag_review",
+     "expected": 4
+    }
+   ],
+   "refs": [
+    "v09",
+    "v03"
+   ]
+  }
+ ],
+ "static_briefs": [
+  {
+   "concept_id": "S1",
+   "decision_id": "D1",
+   "concept": "Counting sheep or 8 minutes",
+   "angle": "save_time: an easy, fixed routine instead of an open-ended struggle",
+   "hook": "Counting sheep, or an 8-minute wind-down?",
+   "layout": "Two panels side by side at equal width. Left: hand-drawn sheep in grey line art on a dark background. Right: the app's wind-down screen with the 8:00 timer, in the brand's warm amber. Headline across the top of both panels. Price line under the right panel. Button bottom right.",
+   "visual": "Split image: grey sketch of sheep on the left, a phone screen with an 8:00 timer and a dim amber glow on the right.",
+   "copy": {
+    "headline": "Counting sheep, or an 8-minute wind-down?",
+    "primary_text": "Same bed, same night. One way is lying there counting. The other is 8 minutes of lights down, slow breathing and a short story, guided step by step. Try it free for 7 days.",
+    "cta": "Start free trial"
+   },
+   "offer": "7 days free, then the annual price in full, in a footer line under the right panel (no static in the market states its price)",
+   "sizes": [
+    "1:1 1080x1080",
+    "4:5 1080x1350",
+    "9:16 1080x1920 with the headline inside the safe zone"
+   ],
+   "variants": [
+    "v1: left panel 'Counting sheep'",
+    "v2: left panel 'Scrolling till 1am', with a bright phone feed in grey line art; everything else unchanged"
+   ],
+   "references": [
+    {
+     "id": "s01",
+     "take": "the dark night palette and a large readable headline",
+     "leave": "the outcome promise and the sticker"
+    },
+    {
+     "id": "s09",
+     "take": "the plain footer price line",
+     "leave": "the photo style"
+    }
+   ],
+   "avoid": [
+    "any minutes-to-sleep promise",
+    "sleeping pill or medication imagery",
+    "a mocking tone toward people who cannot sleep"
+   ],
+   "claims_notes": [
+    "8 minutes is the routine length, a product fact; it is not a promise about falling asleep",
+    "No 'insomnia' wording (brand rule on conditions)"
+   ],
+   "acceptance": [
+    "Headline readable at phone size in under 2 seconds",
+    "Both panels the same width",
+    "Annual price shown in full",
+    "No claim about sleep results",
+    "All three sizes delivered with names from the test plan"
+   ]
+  },
+  {
+   "concept_id": "S2",
+   "decision_id": "D1",
+   "concept": "Price per night, stated openly",
+   "angle": "save_money: the cost of the routine set against something the viewer already buys",
+   "hook": "Less per week than one late-night snack",
+   "layout": "Text card. Headline top, the price per week in large figures in the centre, the full annual price and trial line under it, a small app screen bottom left, button bottom right.",
+   "visual": "Warm dark background, large price figure, a small phone screen with the wind-down timer.",
+   "copy": {
+    "headline": "Less per week than one late-night snack",
+    "primary_text": "An 8-minute wind-down every night. [weekly price] a week on the annual plan, [annual price] billed once a year after a 7-day free trial.",
+    "cta": "Start free trial"
+   },
+   "offer": "7-day free trial, then the annual price in full; weekly figure computed by the team from the real annual price",
+   "sizes": [
+    "1:1 1080x1080",
+    "4:5 1080x1350"
+   ],
+   "variants": [
+    "v1: comparison with a late-night snack",
+    "v2: comparison with one coffee a week; same layout"
+   ],
+   "references": [
+    {
+     "id": "s07",
+     "take": "a clear offer badge that is easy to read",
+     "leave": "the countdown deadline"
+    }
+   ],
+   "avoid": [
+    "fake urgency or countdowns",
+    "a price that hides the annual billing"
+   ],
+   "claims_notes": [
+    "Ship only if the weekly figure is true for the real annual price",
+    "Comparison item must be a plausible everyday purchase, no named brands"
+   ],
+   "acceptance": [
+    "Weekly and annual figures checked by a person against the live price",
+    "Billing period stated next to the price",
+    "No deadline wording"
+   ]
+  },
+  {
+   "concept_id": "S3",
+   "decision_id": "D2",
+   "concept": "Awake after 11pm, 8 minutes tonight",
+   "angle": "save_time: a specific audience and a promise the routine can keep",
+   "hook": "Still awake after 11? Here is an 8-minute wind-down for tonight.",
+   "layout": "Headline top third, a phone-style photo of a bedside table with the phone showing the timer, footer price line, button bottom.",
+   "visual": "Phone-style photo of a bedside table at night, lamp off, phone screen showing the 8:00 timer in amber.",
+   "copy": {
+    "headline": "Still awake after 11? Here is an 8-minute wind-down for tonight.",
+    "primary_text": "Lights down, slow breathing, a short story. Guided step by step, the same 8 minutes every night. 7 days free.",
+    "cta": "Start tonight"
+   },
+   "offer": "7 days free, then the annual price in a footer line",
+   "sizes": [
+    "1:1 1080x1080",
+    "4:5 1080x1350",
+    "9:16 1080x1920"
+   ],
+   "variants": [
+    "v1: 'after 11'",
+    "v2: 'after midnight'"
+   ],
+   "references": [
+    {
+     "id": "s06",
+     "take": "the product on screen as the hero",
+     "leave": "the sleep score framing"
+    },
+    {
+     "id": "s09",
+     "take": "the phone-style photo at night",
+     "leave": "the 'fall asleep faster' promise"
+    }
+   ],
+   "avoid": [
+    "'fall asleep in' promises",
+    "a person in bed looking distressed"
+   ],
+   "claims_notes": [
+    "The promise is the routine's length, which the product delivers"
+   ],
+   "acceptance": [
+    "Audience, promise and timeframe all in the headline",
+    "Timer visible on the phone screen",
+    "Footer price line present"
+   ]
+  }
+ ],
+ "motion_briefs": [
+  {
+   "concept_id": "M1",
+   "decision_id": "D4",
+   "concept": "One tap and the room goes dark",
+   "format": "screen-led motion: phone screen footage composited with a real bedroom, no presenter",
+   "aspect_ratios": [
+    "9:16",
+    "4:5"
+   ],
+   "durations_s": [
+    15,
+    24
+   ],
+   "voice_or_captions": "No voice-over in seconds 0 to 3. Calm voice-over from second 3. Captions burned in for every spoken line, white on a soft dark band inside the 9:16 safe zone.",
+   "pacing_sound": "Market median is 1.58 cuts per 10 s and 5 s per shot; keep the opening a single continuous shot so the action carries the hook, then cut every 3 to 4 s. Sound: a soft tap at 0.5 s, room tone drops when the light goes off, quiet piano from second 3.",
+   "hooks": [
+    {
+     "id": "A",
+     "spoken": "",
+     "on_screen": "1:12 am",
+     "visual": "Bright phone screen in a dark room, a thumb taps Start wind-down, the screen fades to amber and the bedside lamp clicks off with it",
+     "sound": "tap, then the room tone drops"
+    },
+    {
+     "id": "B",
+     "spoken": "",
+     "on_screen": "One tap",
+     "visual": "Close-up of the app's 8:00 timer starting, the reflection of the screen in a window goes from white to amber",
+     "sound": "tap, low chime"
+    },
+    {
+     "id": "C",
+     "spoken": "",
+     "on_screen": "Bedtime in 8:00",
+     "visual": "Phone placed face up on a bedside table, the app's moon icon slides down and the screen dims as the camera pulls back to show the dark room",
+     "sound": "soft whoosh"
+    }
+   ],
+   "beats": [
+    {
+     "t": "0-3",
+     "visual": "hook variant",
+     "spoken": "",
+     "on_screen": "hook variant text",
+     "motion": "one continuous shot, no cut",
+     "sound": "hook variant sound"
+    },
+    {
+     "t": "3-8",
+     "visual": "Step one on screen: lights down, the room dims",
+     "spoken": "Eight minutes. Lights down first.",
+     "on_screen": "1. Lights down",
+     "motion": "text slides up from the bottom, 300 ms ease-out",
+     "sound": "piano starts"
+    },
+    {
+     "t": "8-13",
+     "visual": "Breathing circle grows and shrinks",
+     "spoken": "Then breathe with the circle.",
+     "on_screen": "2. Breathe",
+     "motion": "circle scales with a 4 s cycle",
+     "sound": "piano"
+    },
+    {
+     "t": "13-19",
+     "visual": "Story screen, the phone goes face down",
+     "spoken": "Then a short story. Phone face down.",
+     "on_screen": "3. A short story",
+     "motion": "cut on the phone turning",
+     "sound": "voice softens"
+    },
+    {
+     "t": "19-24",
+     "visual": "End card",
+     "spoken": "Try it free for seven days.",
+     "on_screen": "7 days free, then [annual price]/year",
+     "motion": "logo fades in",
+     "sound": "piano resolves"
+    }
+   ],
+   "end_card": "Brand Z logo, '7 days free, then [annual price] a year', button 'Start free trial'",
+   "variants": [
+    "Hooks A, B and C on the same body",
+    "15 s cut: beats 1, 2 and 5 only"
+   ],
+   "references": [
+    {
+     "id": "v06",
+     "take": "screen footage as the main picture",
+     "leave": "the voice-over hook and the sleep score"
+    },
+    {
+     "id": "v12",
+     "take": "the three-step routine shown on screen",
+     "leave": "the spoken opening"
+    }
+   ],
+   "avoid": [
+    "a presenter in the first 3 seconds",
+    "minutes-to-sleep claims",
+    "a stock bedroom that looks like a hotel"
+   ],
+   "claims_notes": [
+    "8 minutes is the routine length, stated as such",
+    "No condition words (insomnia, disorder)"
+   ],
+   "acceptance": [
+    "Product visible from the first frame",
+    "No speech before second 3",
+    "Captions inside the safe zone",
+    "Three hook files share one body",
+    "Annual price on the end card"
+   ]
+  },
+  {
+   "concept_id": "M2",
+   "decision_id": "D4",
+   "concept": "The 8 minutes in real time, sped up",
+   "format": "kinetic type over a locked-off timelapse of a bedside table",
+   "aspect_ratios": [
+    "9:16"
+   ],
+   "durations_s": [
+    15
+   ],
+   "voice_or_captions": "No voice. On-screen text carries the message, at most 6 words per screen.",
+   "pacing_sound": "One locked-off shot sped up, type changes every 2 to 3 s. Sound: a quiet clock tick that slows down as the timer runs.",
+   "hooks": [
+    {
+     "id": "A",
+     "spoken": "",
+     "on_screen": "Watch 8 minutes in 8 seconds",
+     "visual": "Timelapse starts at once: lamp on, phone timer at 8:00 counting fast",
+     "sound": "fast tick"
+    },
+    {
+     "id": "B",
+     "spoken": "",
+     "on_screen": "This is the whole routine",
+     "visual": "Same timelapse, timer visible top right",
+     "sound": "fast tick"
+    },
+    {
+     "id": "C",
+     "spoken": "",
+     "on_screen": "8:00",
+     "visual": "Extreme close-up of the timer, then the camera holds as the room darkens",
+     "sound": "one tick per second, slowing"
+    }
+   ],
+   "beats": [
+    {
+     "t": "0-3",
+     "visual": "hook variant",
+     "spoken": "",
+     "on_screen": "hook variant text",
+     "motion": "type pops in with a short spring",
+     "sound": "hook variant sound"
+    },
+    {
+     "t": "3-7",
+     "visual": "Lamp goes off in the timelapse",
+     "spoken": "",
+     "on_screen": "Lights down",
+     "motion": "word fades in 200 ms",
+     "sound": "tick slows"
+    },
+    {
+     "t": "7-11",
+     "visual": "Phone screen shows the breathing circle, then the story",
+     "spoken": "",
+     "on_screen": "Breathe. Listen.",
+     "motion": "two words, one at a time",
+     "sound": "tick slows more"
+    },
+    {
+     "t": "11-15",
+     "visual": "End card over the dark room",
+     "spoken": "",
+     "on_screen": "7 days free",
+     "motion": "logo and button rise 8 px",
+     "sound": "silence"
+    }
+   ],
+   "end_card": "Brand Z logo, '7 days free, then [annual price] a year', button 'Start free trial'",
+   "variants": [
+    "Hooks A, B and C on the same timelapse"
+   ],
+   "references": [
+    {
+     "id": "v02",
+     "take": "text-only storytelling with sound",
+     "leave": "the '9 out of 10' claim"
+    }
+   ],
+   "avoid": [
+    "user numbers or ratings the team cannot prove",
+    "more than 6 words on any screen"
+   ],
+   "claims_notes": [
+    "No result claims; the video shows the routine only"
+   ],
+   "acceptance": [
+    "Timer visible in every beat",
+    "No voice",
+    "Max 6 words per screen",
+    "15 s exactly"
+   ]
+  },
+  {
+   "concept_id": "M3",
+   "decision_id": "D5",
+   "concept": "Creator does the routine with the viewer",
+   "format": "UGC talking head, phone look, the app visible in the creator's hand from frame 1",
+   "aspect_ratios": [
+    "9:16"
+   ],
+   "durations_s": [
+    20,
+    30
+   ],
+   "voice_or_captions": "Creator speaks; captions burned in, the spoken words verbatim.",
+   "pacing_sound": "Near the market median of 1.58 cuts per 10 s: jump cuts only between steps. Room sound, no music under speech.",
+   "hooks": [
+    {
+     "id": "A",
+     "spoken": "Still awake after 11? Do the 8-minute version with me.",
+     "on_screen": "8-minute wind-down",
+     "visual": "Creator in a dim bedroom holds the phone to camera, timer at 8:00",
+     "sound": "room tone"
+    },
+    {
+     "id": "B",
+     "spoken": "This is my whole bedtime, it takes 8 minutes.",
+     "on_screen": "My 8-minute bedtime",
+     "visual": "Creator taps Start, the screen dims in their hand",
+     "sound": "tap"
+    },
+    {
+     "id": "C",
+     "spoken": "I stopped counting sheep. I do this instead.",
+     "on_screen": "Instead of counting sheep",
+     "visual": "Creator turns the phone to camera showing the timer starting",
+     "sound": "tap"
+    }
+   ],
+   "beats": [
+    {
+     "t": "0-3",
+     "visual": "hook variant, phone in frame",
+     "spoken": "hook variant line",
+     "on_screen": "hook variant text",
+     "motion": "none",
+     "sound": "room tone"
+    },
+    {
+     "t": "3-9",
+     "visual": "Creator switches off the lamp, screen glow on the face",
+     "spoken": "Lights down first. The app walks you through it.",
+     "on_screen": "1. Lights down",
+     "motion": "jump cut",
+     "sound": "lamp click"
+    },
+    {
+     "t": "9-15",
+     "visual": "Creator breathes with the circle on screen",
+     "spoken": "Breathe with the circle for two minutes.",
+     "on_screen": "2. Breathe",
+     "motion": "jump cut",
+     "sound": "room tone"
+    },
+    {
+     "t": "15-20",
+     "visual": "Creator lies down, puts the phone face down",
+     "spoken": "Then a short story. That is it. Seven days free if you want to try.",
+     "on_screen": "3. A short story",
+     "motion": "end card overlay at 18 s",
+     "sound": "voice from the phone, quiet"
+    }
+   ],
+   "end_card": "Overlay: '7 days free, then [annual price] a year', button 'Start free trial'",
+   "variants": [
+    "Hooks A, B and C on the same body",
+    "30 s cut with one more line about the story library"
+   ],
+   "references": [
+    {
+     "id": "v01",
+     "take": "the dark bedroom and phone-lit face",
+     "leave": "'I wake up actually rested' and the minutes claim"
+    },
+    {
+     "id": "v11",
+     "take": "a plain everyday creator",
+     "leave": "the three-coffees result line"
+    }
+   ],
+   "avoid": [
+    "any result the creator 'got' (hours slept, cured, rested)",
+    "an expert costume or title",
+    "music under speech"
+   ],
+   "claims_notes": [
+    "Creator describes what they do, never what it did to their sleep",
+    "Disclose the paid partnership as the platform requires"
+   ],
+   "acceptance": [
+    "App visible in the first frame",
+    "Hook line spoken in under 3 s",
+    "No result claims in the script",
+    "Captions verbatim",
+    "Three hook files share one body"
+   ]
+  }
+ ]
+}
