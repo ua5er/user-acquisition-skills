@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # UA kill and scale rules (Meta, TikTok)
@@ -95,3 +96,7 @@ Run every ad and ad set through the rules in order. Output a table with: entity,
 ## Worked example (illustrative numbers)
 
 Target CAC: 40 (currency units). Gate: 2x = 80 spend. One ad has spend 95, 0 payments, 3 trials. Hard stop is 4x = 160, not reached. Soft kill needs cost per payment above the kill line, but there are no payments, so cost per trial is the fallback: 95 / 3 = 31.7. If the trial to paid rate for this offer is known to be about one in three (example), expected cost per payment is about 95, above the kill line of 52 (1.3x). Verdict: soft kill, medium confidence, because three trials is a small sample. Action: pause, keep the creative idea for one retest with a changed hook.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-ua-kill-scale-rules). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

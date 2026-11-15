@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Unit economics check (CAC, LTV, payback)
@@ -86,3 +87,7 @@ Show how the ceiling moves when each driver changes by a stated step: first-rene
 ## Worked example (illustrative numbers)
 
 Example only: 1,000 spend, 20 new payers, CAC 50. Net contribution per payer: month 0 is 18, month 1 adds 9, month 2 adds 7, month 3 adds 6, cumulative 18, 27, 34, 40. Payback has not happened by month 3 (40 < 50), so payback is beyond observed data. Verdict: with a 3-month financing limit, this CAC is above the ceiling of about 40. Options: raise first-month contribution (offer or price), lower CAC (creative, funnel), or accept a longer payback with cash to match.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-unit-economics-check). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

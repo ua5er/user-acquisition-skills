@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Weekly UA report
@@ -66,3 +67,7 @@ Markdown, one page: data checks, headline table, three to five bullets on what m
 ## Worked example (illustrative)
 
 Headline: spend up, backend CAC up, payers flat. What moved: CPM up in one placement, click to trial down on the newest landing page. Decision: pause the placement, roll back the landing page, test a revised hook next. Last week's decision to raise budget on the best ad set is reviewed: marginal CAC rose above the ceiling, so scaling stops.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-weekly-ua-report). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

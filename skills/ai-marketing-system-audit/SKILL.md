@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # AI marketing system audit
@@ -85,3 +86,7 @@ Define the weekly loop: data check, report, decisions, test queue, review of las
 ## Worked example (illustrative)
 
 A subscription app buys on two channels. Acquire exists. Convert has a paywall nobody has tested. Measure shows platform payments higher than backend by an unexplained gap. Automate is a spreadsheet updated by hand. Intelligence is none. Decide is ad hoc. Order of work: reconcile attribution first, then the weekly report script, then a test queue for the paywall, then kill and scale rules, then competitor monitoring.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-ai-marketing-system-audit). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

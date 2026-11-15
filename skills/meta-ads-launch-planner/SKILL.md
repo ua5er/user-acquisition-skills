@@ -1,6 +1,11 @@
 ---
 name: meta-ads-launch-planner
 description: Plan and set up a Meta (Facebook/Instagram) sales campaign launch that exits the learning phase without wasting budget. Calculates the budget from target CPA × 50 events/week, picks the structure (CBO, one broad ad set), writes day-by-day decision rules, creates automated stop/restart rules, a scaling schedule and a relaunch playbook, and turns it into a launch plan document for a client or manager. Use for "meta ads launch plan", "how much budget to exit learning phase", "how to scale facebook ads without resetting learning", "facebook automated rules", "CBO vs ABO", "advantage+ sales campaign setup", or when a stakeholder asks for stop conditions and a clear action plan.
+metadata:
+  author: Vlad Yasinski
+  version: "1.0"
+  site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Meta Ads launch and scaling planner
@@ -88,3 +93,7 @@ for k in (0.7, 0.85, 1.0, 1.15, 1.3):
     learn = c * 50 / 7
     print(f"CPA {c:6.2f} | learn/day {learn:7.0f} | @190: {190/c:4.1f}/day | @380: {380/c:4.1f}/day")
 ```
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-meta-ads-launch-planner). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

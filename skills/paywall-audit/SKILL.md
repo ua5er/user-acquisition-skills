@@ -7,6 +7,7 @@ metadata:
   version: "1.0"
   site: https://www.roimobi.com
   adapted-from: "coreyhaines31/marketingskills paywalls (MIT, Corey Haines); appeeky/aso-skills paywall-optimization (MIT, Erencan)"
+  telegram: https://t.me/ua5er
 ---
 
 # Paywall audit
@@ -84,3 +85,7 @@ Test one element at a time unless traffic allows a factorial design. For each te
 ## Worked example
 
 A mock-up for a subscription photo app, three plans (illustrative prices: a 1-day trial at 0.99 then 9.99 per week, a 1-week trial at 4.99 then 19.99 per month, one year at 49.99). Findings: rating line held a placeholder (blocker), per-day price shown larger than the billing price (risk), "Save 79%" computed against 12 monthly payments of 19.99 (acceptable if the comparison is stated), CTA did not name the price. Fixes: real proof, billing line equal in size to per-day line, CTA text includes the price of the selected plan, explicit date of first charge under the button. First test: default plan.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-paywall-audit). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Attribution sanity check
@@ -78,3 +79,7 @@ Rank fixes by money at risk. Each item: what is wrong, evidence, fix, owner, how
 ## Worked example (illustrative)
 
 A platform report shows 120 purchases, backend shows 70 payers. Check 1: platform counts trial starts as purchases, backend payers exclude trials in progress. After aligning definitions the platform shows 85 against 70. Check 2: browser and server events share no event id, so some purchases count twice. After adding deduplication the platform count falls to 74. Remaining gap of 4 is within what modelled conversions could explain, flagged as "unverified". Decision metric: backend payers by campaign.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-attribution-sanity-check). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Creative testing and competitor ad research
@@ -76,3 +77,7 @@ Record each test: hypothesis, result, spend, decision (scale, iterate, drop), an
 ## Worked example
 
 A competitor list of four apps. Ad library shows most use a transformation hook. One uses a "ask 3 friends to rate" social hook. Gap: the social-reaction angle is rare. Hypothesis: a reaction-focused hook lowers cost per trial against the transformation control. Test: three hooks, same body, equal budget for the run window, verdict on cost per trial once the gate is passed.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-creative-testing-research). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

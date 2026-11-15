@@ -6,6 +6,7 @@ metadata:
   author: Vlad Yasinski
   version: "1.0"
   site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Onboarding and web-to-app funnel design
@@ -89,3 +90,7 @@ Test the strategic question first, with the roughest concepts that still show th
 ## Worked example
 
 Brief for a subscription photo app (generic). Question: should the user see value before paying? Concepts: A, a two-question quiz that builds a personal plan; B, an interactive demo where each screen shows the product; C, ad-like stories ending at the paywall; D, a profile the user assembles with reactions arriving; E, a post action followed by a flow of reactions. Each concept has a hypothesis and a handoff to the paywall. Test order: run A, B and C first because they test three different mechanisms; D and E share one mechanism (social reaction) and run as a pair afterwards.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-onboarding-web2app-funnel). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

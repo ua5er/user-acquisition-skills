@@ -1,6 +1,11 @@
 ---
 name: meta-creative-testing
 description: Design creative testing for Meta Ads in the Andromeda era: choose which existing ads to relaunch based on real performance, decide between one broad ad set, ABO with a fixed budget per creative, or Meta's Creative Testing tool, set winner and kill criteria, and write briefs for designers and UGC creators. Use for "meta ads creative testing framework", "how to test ad creatives after andromeda", "ABO vs CBO for creative testing", "how to pick winning ad creatives", "static vs video ads", "UGC ad brief", "creative requirements for the design team".
+metadata:
+  author: Vlad Yasinski
+  version: "1.0"
+  site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Meta creative testing framework
@@ -65,3 +70,7 @@ Weekly table: creative | spend | purchases | CPA | ROAS | status (winner / watch
 - Never declare a winner below 5 purchases unless the client accepts the risk in writing.
 - Do not change creatives and budget on the same day; batch changes weekly.
 - Keep claims in ad copy policy-safe for the vertical (employment, health, finance).
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-meta-creative-testing). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills

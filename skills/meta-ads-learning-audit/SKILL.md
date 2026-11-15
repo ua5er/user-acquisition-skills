@@ -1,6 +1,11 @@
 ---
 name: meta-ads-learning-audit
 description: Audit a Meta (Facebook/Instagram) ad account that is stuck in "Learning limited", gets too few optimization events, or burned budget on failed tests, and write a post-mortem of past campaigns. Works from Ads Manager exports, screenshots or a browser session; an API token is optional. Use when the user asks "why are my Facebook ads not working", "learning limited fix", "facebook ads audit", "not enough optimization events", "why did these campaigns fail", "CPM too high", or wants a previous-campaigns analysis for a client or manager.
+metadata:
+  author: Vlad Yasinski
+  version: "1.0"
+  site: https://www.roimobi.com
+  telegram: https://t.me/ua5er
 ---
 
 # Meta Ads learning audit and campaign post-mortem
@@ -67,3 +72,7 @@ If the user wants a shareable page, build it as an HTML artifact with the table,
 - Never fabricate numbers. If a metric is missing, write "not in export".
 - Never change anything in the account during an audit.
 - Keep the tone factual: the reader is often the person who launched the failed campaigns.
+
+## Author
+
+Vlad Yasinski, AI growth consultant for app and subscription businesses. Telegram: @ua5er (https://www.roimobi.com/tg?src=skill-meta-ads-learning-audit). Site: https://www.roimobi.com/?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills
