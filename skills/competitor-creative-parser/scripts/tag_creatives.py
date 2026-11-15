@@ -20,6 +20,8 @@ An API or shape error marks the creative as "error": errors never become tags.
 Examples:
   python3 tag_creatives.py sample_market/descriptions.jsonl --track static --dry-run --out-dir out
   python3 tag_creatives.py descriptions.jsonl --track video --smoke --data-handling-confirmed
+  python3 tag_creatives.py descriptions.jsonl --track video --questions markets/ai_photo_editor/questions_video.py \\
+      --confirm-pass --data-handling-confirmed
   python3 tag_creatives.py descriptions.jsonl --track static --max-usd 0.50 --order-check 6 \\
       --data-handling-confirmed --out-dir parsed-market/2026-11-15-sleep
 """
@@ -45,7 +47,8 @@ RETRY_STATUS = {429, 529}
 QUESTION_TYPES = {"noul", "choice", "score"}
 DEFAULT_QUESTIONS = {"static": "questions_static.py", "video": "questions_video.py"}
 QUEUE_COLUMNS = ["creative_id", "track", "question_id", "kind", "reason", "model_answer", "probability",
-                 "runner_up", "runner_up_probability", "companion_probability", "priority", "human_label"]
+                 "runner_up", "runner_up_probability", "companion_probability", "confirm_probability", "priority",
+                 "human_label"]
 
 
 class ApiError(Exception):
@@ -281,8 +284,13 @@ def mock_post(url, key, body, timeout=60):
 
 # --------------------------------------------------------------- decisions
 
-def decide_choice(answer, companion_p, t):
-    """Code decides. Returns (status, tag, reason). status: tagged, review, untagged."""
+def decide_choice(answer, companion_p, t, confirm_p=None):
+    """Code decides. Returns (status, tag, reason). status: tagged, review, untagged.
+
+    A tag needs two yes votes at or above the tag threshold: the Choice itself and a second
+    yes/no. With the confirm pass the second vote is a separate question about the chosen
+    option only (confirm_p); without it, the generic companion (companion_p).
+    """
     top = answer["choice"]
     p = answer["probabilities"].get(top, 0.0)
     if p < t["review_low"]:
@@ -291,12 +299,29 @@ def decide_choice(answer, companion_p, t):
         if p >= t["tag"]:
             return "tagged", "other", "other at %.2f" % p
         return "review", None, "other at %.2f inside the review band" % p
-    if companion_p <= t["review_low"]:
-        return "review", None, "conflict: picked %s at %.2f but the companion says no option fits (%.2f)" % (
-            top, p, companion_p)
-    if p >= t["tag"] and companion_p >= t["tag"]:
-        return "tagged", top, "%s at %.2f, companion %.2f" % (top, p, companion_p)
-    return "review", None, "%s at %.2f, companion %.2f, inside the review band" % (top, p, companion_p)
+    second, name = (confirm_p, "confirmation") if confirm_p is not None else (companion_p, "companion")
+    if second <= t["review_low"]:
+        return "review", None, "conflict: picked %s at %.2f but the %s says no (%.2f)" % (top, p, name, second)
+    if p >= t["tag"] and second >= t["tag"]:
+        return "tagged", top, "%s at %.2f, %s %.2f" % (top, p, name, second)
+    return "review", None, "%s at %.2f, %s %.2f, inside the review band" % (top, p, name, second)
+
+
+def confirm_questions(qs, answers, t):
+    """Second pass: one yes/no per Choice about the option the model picked, in that option's own words."""
+    out = {}
+    for qid in qs["CHOICE_COMPANION"]:
+        a = answers[qid]
+        top = a["choice"]
+        if top == "other" or a["probabilities"].get(top, 0.0) < t["review_low"]:
+            continue
+        q = qs["QUESTIONS"][qid]
+        out["confirm_" + qid] = {
+            "type": "noul",
+            "instructions": 'Question: "%s" This description fits the ad: "%s"' % (q["instructions"],
+                                                                                  q["criteria"][top]),
+        }
+    return out
 
 
 def decide_flag(p, t):
@@ -318,14 +343,16 @@ def decide_creative(qs, answers, t):
     for qid, comp in qs["CHOICE_COMPANION"].items():
         a = answers[qid]
         cp = answers[comp]["p_yes"]
-        status, tag, reason = decide_choice(a, cp, t)
+        conf = answers.get("confirm_" + qid, {}).get("p_yes")
+        status, tag, reason = decide_choice(a, cp, t, conf)
         tags[qid] = {"status": status, "value": tag, "model_choice": a["choice"],
-                     "p": a["probabilities"].get(a["choice"]), "companion_p": cp, "reason": reason}
+                     "p": a["probabilities"].get(a["choice"]), "companion_p": cp, "confirm_p": conf,
+                     "reason": reason}
         if status != "tagged":
             ru, rp = runner_up(a["probabilities"], a["choice"])
             queue.append({"question_id": qid, "kind": "choice", "reason": reason, "model_answer": a["choice"],
                           "probability": a["probabilities"].get(a["choice"]), "runner_up": ru,
-                          "runner_up_probability": rp, "companion_probability": cp,
+                          "runner_up_probability": rp, "companion_probability": cp, "confirm_probability": conf,
                           "priority": "normal" if status == "review" else "low"})
     for qid in qs["FLAGS"]:
         p = answers[qid]["p_yes"]
@@ -349,7 +376,7 @@ def decide_creative(qs, answers, t):
 
 def run(descriptions, qs, post, *, base_url=DEFAULT_BASE_URL, key="", model=None, max_usd=0.5,
         price=DEFAULT_PRICE_PER_MILLION, rotate=True, order_check=0, source="live", retries=4,
-        sleep=time.sleep, log=print):
+        sleep=time.sleep, log=print, confirm_pass=False):
     """One request per creative with all questions. Returns (records, queue_rows, summary, order_rows)."""
     t = thresholds(qs)
     model = model or qs.get("MODEL", "jev-1.14.0")
@@ -358,7 +385,8 @@ def run(descriptions, qs, post, *, base_url=DEFAULT_BASE_URL, key="", model=None
     records, queue_rows, order_rows = [], [], []
     summary = {"track": track, "source": source, "model_requested": model, "creatives": 0, "tagged_ok": 0,
                "errors": 0, "skipped_by_guard": 0, "requests": 0, "input_tokens": 0, "est_usd": 0.0,
-               "thresholds": t, "taxonomy_version": qs.get("TAXONOMY_VERSION"), "rotation": rotate}
+               "thresholds": t, "taxonomy_version": qs.get("TAXONOMY_VERSION"), "rotation": rotate,
+               "confirm_pass": confirm_pass, "decisions": 0}
     spent = 0.0
 
     def send(body):
@@ -375,7 +403,7 @@ def run(descriptions, qs, post, *, base_url=DEFAULT_BASE_URL, key="", model=None
         state = qs["build_state"](d)
         questions, offsets = rotated_questions(qs["QUESTIONS"], cid, rotate=rotate)
         body = {"model": model, "state": state, "questions": questions}
-        extra = 1 if index < order_check else 0
+        extra = (1 if index < order_check else 0) + (1 if confirm_pass else 0)
         projected = estimate_input_tokens(body) * (1 + extra) * price / 1e6
         if spent + projected > max_usd:
             summary["skipped_by_guard"] = len(descriptions) - index
@@ -398,6 +426,16 @@ def run(descriptions, qs, post, *, base_url=DEFAULT_BASE_URL, key="", model=None
                                "human_label": ""})
             records.append(rec)
             continue
+        if confirm_pass:
+            cq = confirm_questions(qs, answers, t)
+            if cq:
+                try:
+                    c_answers, c_tokens, _ = send({"model": model, "state": state, "questions": cq})
+                    answers.update(c_answers)
+                    tokens += c_tokens
+                except (ApiError, ResponseShapeError) as exc:
+                    log("confirm pass failed for %s (%s): the generic companion decides" % (cid, str(exc)[:80]))
+        summary["decisions"] += len(answers)
         rec.update(model=answered or model, answers=answers, input_tokens=tokens)
         rec["tags"], rec["flags"], rec["scores"], queue = decide_creative(qs, answers, t)
         for row in queue:
@@ -405,7 +443,7 @@ def run(descriptions, qs, post, *, base_url=DEFAULT_BASE_URL, key="", model=None
             queue_rows.append(row)
         summary["tagged_ok"] += 1
         records.append(rec)
-        if extra:
+        if index < order_check:
             rev_q, _ = rotated_questions({k: v for k, v in qs["QUESTIONS"].items() if v["type"] == "choice"},
                                          cid, reverse=True)
             try:
@@ -472,6 +510,9 @@ def main(argv=None):
     ap.add_argument("--order-check", type=int, default=0,
                     help="ask the Choice questions again in reversed order for the first N creatives")
     ap.add_argument("--no-rotate", action="store_true", help="send options in the module's order")
+    ap.add_argument("--confirm-pass", action="store_true",
+                    help="second request per creative: one yes/no about each chosen option; it replaces the "
+                         "generic companion as the second vote")
     ap.add_argument("--retries", type=int, default=4)
     ap.add_argument("--data-handling-confirmed", action="store_true",
                     help="required for live runs: the user decided these descriptions may go to the vendor")
@@ -508,7 +549,7 @@ def main(argv=None):
 
     records, queue_rows, summary, order_rows = run(
         items, qs, post, base_url=args.base_url, key=key, model=args.model, max_usd=args.max_usd,
-        price=args.price_per_million, rotate=not args.no_rotate, order_check=args.order_check,
+        price=args.price_per_million, rotate=not args.no_rotate, order_check=args.order_check, confirm_pass=args.confirm_pass,
         source=source, retries=args.retries)
     write_outputs(args.out_dir, args.track, records, queue_rows, summary, order_rows)
     print("track %s: %d creatives sent, %d tagged, %d errors, %d skipped by the spend guard, %d requests"

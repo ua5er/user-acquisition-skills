@@ -20,6 +20,11 @@ Standard library only, no network.
 
   python3 market_snapshot.py --creatives creatives.jsonl --tags out/tags-static.jsonl out/tags-video.jsonl \\
       --out-dir out --market "sleep apps, US English (fictional)"
+
+With a market taxonomy, point the snapshot at the same question files the tags were made with:
+
+  python3 market_snapshot.py ... --questions-static markets/ai_photo_editor/questions_static.py \\
+      --questions-video markets/ai_photo_editor/questions_video.py
 """
 import argparse
 import datetime as dt
@@ -30,7 +35,8 @@ import statistics
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-QUESTION_FILES = {"static": "questions_static.py", "video": "questions_video.py"}
+QUESTION_FILES = {"static": os.path.join(HERE, "questions_static.py"),
+                  "video": os.path.join(HERE, "questions_video.py")}
 CROWDED_SHARE = 0.30        # value used by at least this share of the track's creatives
 CROWDED_ADV_SHARE = 0.50    # and by at least this share of its advertisers
 DOMINATED_SHARE = 0.50      # one advertiser supplies more than this share of a value's creatives
@@ -114,27 +120,32 @@ def track_snapshot(track, recs, caps, qs, min_n):
                      "max_level": len(levels) - 1,
                      "levels": {str(i): sum(1 for r in ok if r["scores"][s]["level"] == i) for i in range(len(levels))}}
     facts = {}
+    feats = [r.get("features") or {} for r in ok]
     if track == "video":
         for k in ("duration_s", "cuts_per_10s", "avg_shot_s"):
-            vals = [r["features"][k] for r in ok if r["features"].get(k) is not None]
+            vals = [f[k] for f in feats if f.get(k) is not None]
             facts[k] = ({"min": min(vals), "median": round(statistics.median(vals), 2), "max": max(vals), "n": len(vals)}
                         if vals else None)
-        facts["captions_yes"] = sum(1 for r in ok if r["features"].get("captions") is True)
+        if any("captions" in f for f in feats):
+            facts["captions_yes"] = sum(1 for f in feats if f.get("captions") is True)
     else:
-        words = [r["features"]["words_on_image"] for r in ok]
+        words = [f["words_on_image"] for f in feats if f.get("words_on_image") is not None]
         facts["words_on_image"] = ({"min": min(words), "median": statistics.median(words), "max": max(words)}
                                    if words else None)
-        facts["has_price"] = sum(1 for r in ok if r["features"].get("has_price"))
-        ctas = {}
-        for r in ok:
-            label = r["features"].get("cta_label", "(no button)")
-            ctas[label] = ctas.get(label, 0) + 1
-        facts["cta_labels"] = dict(sorted(ctas.items(), key=lambda kv: (-kv[1], kv[0])))
+        if any("has_price" in f for f in feats):
+            facts["has_price"] = sum(1 for f in feats if f.get("has_price"))
+        if any("cta_label" in f for f in feats):
+            ctas = {}
+            for f in feats:
+                label = f.get("cta_label", "(no button)")
+                ctas[label] = ctas.get(label, 0) + 1
+            facts["cta_labels"] = dict(sorted(ctas.items(), key=lambda kv: (-kv[1], kv[0])))
         ratios = {}
-        for r in ok:
-            for a in r["features"].get("aspect_ratios", []):
+        for f in feats:
+            for a in f.get("aspect_ratios", []):
                 ratios[a] = ratios.get(a, 0) + 1
-        facts["aspect_ratios"] = dict(sorted(ratios.items()))
+        if ratios:
+            facts["aspect_ratios"] = dict(sorted(ratios.items()))
     runtimes = []
     for r in ok:
         days = runtime_days(caps.get(r["creative_id"], {}))
@@ -157,7 +168,7 @@ def track_snapshot(track, recs, caps, qs, min_n):
             "models": sorted({r.get("model") or "" for r in ok}), "sources": sorted({r.get("source") for r in ok})}
 
 
-def build(caps_list, tag_files, market, min_n, captured=None):
+def build(caps_list, tag_files, market, min_n, captured=None, question_files=None):
     caps = {c["creative_id"]: c for c in caps_list}
     by_track = {}
     for path in tag_files:
@@ -167,8 +178,11 @@ def build(caps_list, tag_files, market, min_n, captured=None):
             "rules": {"min_n": min_n, "crowded_share": CROWDED_SHARE, "crowded_advertiser_share": CROWDED_ADV_SHARE,
                       "dominated_share": DOMINATED_SHARE},
             "caveat": "Ad libraries show what runs and for how long, not spend or results.", "tracks": {}}
+    files = dict(QUESTION_FILES)
+    files.update({k: v for k, v in (question_files or {}).items() if v})
     for track, recs in sorted(by_track.items()):
-        qs = runpy.run_path(os.path.join(HERE, QUESTION_FILES[track]))
+        path = files[track]
+        qs = runpy.run_path(path)
         snap["tracks"][track] = track_snapshot(track, recs, caps, qs, min_n)
     return snap
 
@@ -234,9 +248,14 @@ def main(argv=None):
     ap.add_argument("--out-dir", default=".")
     ap.add_argument("--market", default="unnamed market")
     ap.add_argument("--min-n", type=int, default=20, help="no ranking below this many creatives per track")
+    ap.add_argument("--questions-static", help="static question set module (default questions_static.py next to "
+                                               "this script); use the file the tags were made with")
+    ap.add_argument("--questions-video", help="video question set module (default questions_video.py next to "
+                                              "this script)")
     ap.add_argument("--date", help="build date to print (default today)")
     args = ap.parse_args(argv)
-    snap = build(load_jsonl(args.creatives), args.tags, args.market, args.min_n, args.date)
+    snap = build(load_jsonl(args.creatives), args.tags, args.market, args.min_n, args.date,
+                 {"static": args.questions_static, "video": args.questions_video})
     os.makedirs(args.out_dir, exist_ok=True)
     with open(os.path.join(args.out_dir, "snapshot.json"), "w", encoding="utf-8") as fh:
         json.dump(snap, fh, indent=1, ensure_ascii=False)

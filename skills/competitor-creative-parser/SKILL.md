@@ -4,7 +4,7 @@ description: Claude + Jev competitor creative parser. Turns competitor ads from 
 license: MIT
 metadata:
   author: Vlad Yasinski
-  version: "1.0"
+  version: "1.1"
   site: https://www.roimobi.com
   telegram: https://t.me/ua5er
 ---
@@ -34,20 +34,23 @@ Not for: competitor spend or results (a library does not show them), copying ads
 ```
 1 Capture (person or official API)  -> creatives.jsonl
 2 Describe (Claude)                 -> descriptions.jsonl        the state Jev reads
+2b Taxonomy (Claude)                -> questions_<track>.py for this market, pilot of about 30 ads
 3 Tag (Jev, tag_creatives.py)       -> tags-<track>.jsonl, review-queue-<track>.csv
 4 Review (a person)                 -> human_label in the queue
 5 Aggregate (code, market_snapshot.py) -> snapshot.json, snapshot.md
 ```
 
+The stock question sets suit a generic first look. For a real category, add step 2b: Claude reads the first 30 or so descriptions and writes options that this market really runs (`references/market-taxonomy.md`, worked example in `scripts/markets/ai_photo_editor/`).
+
 ## Static track and video track
 
 | | Static | Video |
 |---|---|---|
-| Capture | screenshot or image file, post copy, CTA | file or link, plus a local transcript |
+| Capture | screenshot or image file, post copy, CTA | file or link, plus a local transcript when there is audio |
 | Claude writes | headline, copy, CTA label, offer line, text blocks with position, layout, visual | first 3 seconds, spoken hook, on-screen text with times, format notes, transcript, end card, cut times |
 | Jev tags | hook type, angle, offer type, visual format, offer placement; social proof, urgency, risky claim, personal attribute; hook specificity, CTA clarity, legibility | hook type, hook channel, angle, video format, structure, creator type, offer type; product in first 3 s, CTA at the end, social proof, urgency, risky claim, personal attribute; hook specificity |
 | Code computes | words on image, text blocks, price shown, aspect ratios, CTA labels | duration, cuts per 10 s, average shot length, captions |
-| Question file | `scripts/questions_static.py` (17 questions) | `scripts/questions_video.py` (21 questions) |
+| Stock question file | `scripts/questions_static.py` (17 questions) | `scripts/questions_video.py` (21 questions) |
 | Snapshot adds | CTA label counts, aspect ratios, words on image | pacing ranges, captions share |
 
 ## Inputs to ask for
@@ -82,6 +85,14 @@ Fill the template in `references/description-templates.md` for every creative. T
 
 The description is the state Jev reads. Images and videos never go to Jev.
 
+### Ad library capture (no audio)
+
+A capture from an ad library has the picture, the on-screen text, the ad text, the link headline and the button, and no sound. Mark `transcript` and spoken hook as "not captured", and write `first_3s` from frames at about 0, 1.5 and 3 seconds. Question sets for such a capture must not read a transcript or a spoken hook; the stock video set does, the market example does not.
+
+## Step 2b. Taxonomy (Claude)
+
+Read `references/market-taxonomy.md`. In short: read about 30 descriptions, write 5 to 10 positive, mutually exclusive options per dimension with `other` last, put "nothing stated" into `other`, avoid negations and compound statements, read only fields the capture has, set a `TAXONOMY_VERSION`, run a 30-ad pilot and look at the unresolved count per dimension before the full run. Pass the file with `--questions`.
+
 ## Step 3. Tag (Jev)
 
 ```
@@ -89,12 +100,15 @@ python3 scripts/tag_creatives.py descriptions.jsonl --track static --dry-run --o
 python3 scripts/tag_creatives.py descriptions.jsonl --track static --smoke --data-handling-confirmed --out-dir run
 python3 scripts/tag_creatives.py descriptions.jsonl --track video --order-check 6 --max-usd 0.50 \
     --data-handling-confirmed --out-dir run
+python3 scripts/tag_creatives.py descriptions.jsonl --track video --questions scripts/markets/ai_photo_editor/questions_video.py \
+    --confirm-pass --order-check 6 --data-handling-confirmed --out-dir run
 ```
 
 - Key from the environment only: `TYPESAFE_API_KEY` (or the name given with `--key-env`). Never in chat, a file or a log.
 - `--base-url` takes an https gateway URL; `--model` and `--key-env` go with it.
 - `--dry-run` is an offline mock with meaningless numbers; `--smoke` runs 3 creatives live and checks the response shape.
 - Spend guard `--max-usd` (default 0.50). Tokens are taken from the API's usage field.
+- `--confirm-pass` sends a second request per creative: one specific yes/no about the option the model picked, in that option's own words. It replaces the generic companion as the second vote (an `other` answer needs no confirmation). The spend guard counts the second request. Without the flag nothing changes.
 - Choice options are rotated per creative with `other` kept last; `--order-check N` re-asks the Choices in reversed order for N creatives and reports agreement.
 - Thresholds: tag at 0.70, a person reviews 0.35 to 0.70, a Choice under 0.35 stays untagged, a yes/no under 0.35 counts as no.
 - Errors never become tags: a failed or malformed response marks the creative `error` and puts it in the queue.
@@ -110,6 +124,8 @@ Open `review-queue-<track>.csv`. Work high priority first (`risky_claim` in the 
 ```
 python3 scripts/market_snapshot.py --creatives creatives.jsonl \
     --tags run/tags-static.jsonl run/tags-video.jsonl --out-dir run --market "sleep apps, US English"
+# with a market taxonomy, give the snapshot the same question files the tags were made with
+python3 scripts/market_snapshot.py ... --questions-static PATH --questions-video PATH
 ```
 
 Per track and per dimension: creatives per value, share of the track, advertisers using it and their share, a note when one advertiser supplies most of a value, and unresolved counts. Then:
@@ -141,18 +157,22 @@ Guards: under 20 creatives in a track (`--min-n`) nothing is ranked, every crowd
 
 ## What was checked live and what was not
 
-Checked on 2026-11-15 with the owner's key on a fictional sample market (`scripts/sample_market/`, 12 static and 12 video descriptions of invented sleep apps): a smoke run, then both tracks live on `jev-1.14.0` through the direct vendor endpoint, with an order check on 6 creatives per track. All 24 creatives returned the documented response shape with no errors; 72,500 input tokens in total (smoke 5,793, static 31,330, video 35,377), $0.0030 at the listed price. Saved output: `scripts/sample_market/live-run-2026-11-15/` (real model output on fictional ads). Write-up with tables: `examples/competitor-parse-fictional-market.md` in the repository.
+Checked on 2026-11-15 with the owner's key, twice.
 
-Not checked: no real ad library was parsed, the gateway route was not run, and the thresholds were not calibrated. Calibrate on the user's own labelled sample of about 100 ads before the shares drive decisions.
+1. A fictional sample market (`scripts/sample_market/`, 12 static and 12 video descriptions of invented sleep apps) with the stock sets: a smoke run, then both tracks live on `jev-1.14.0` through the direct vendor endpoint, with an order check on 6 creatives per track. All 24 creatives returned the documented response shape with no errors; 72,500 input tokens, $0.0030. Saved output: `scripts/sample_market/live-run-2026-11-15/`. Write-up: `examples/competitor-parse-fictional-market.md`.
+2. A real capture: 54 ads (20 static, 34 video) from 23 advertisers in the public Meta Ad Library, AI photo editor apps, US, 2026-11-15, with the market taxonomy in `scripts/markets/ai_photo_editor/` and `--confirm-pass`. 124 requests, 1,371 typed answers, 204,504 input tokens, 0.0086 US dollars. 222 of 304 choice tags (73%) resolved without a person, 107 rows in the review queue, option order check 85 of 88 the same. The stock sets had failed on the first 31 of these ads (143 review rows, 12 to 22 of 22 videos unresolved per dimension), which is why step 2b and the confirm pass exist. Write-up with the anonymised numbers: `examples/competitor-parse-real-market.md`.
+
+Not checked: the gateway route was not run, and the thresholds were not calibrated on labelled ads, so the 73% is a share of tags the code accepted, not an accuracy. Calibrate on the user's own labelled sample of about 100 ads before the shares drive decisions.
 
 ## Files
 
-- `scripts/questions_static.py`, `scripts/questions_video.py`: question sets, thresholds, state builders, code facts.
+- `scripts/questions_static.py`, `scripts/questions_video.py`: stock question sets, thresholds, state builders, code facts.
+- `scripts/markets/ai_photo_editor/`: a market taxonomy as a worked example, with `ABOUT.md`.
 - `scripts/tag_creatives.py`: Jev tagger, standard library only.
 - `scripts/market_snapshot.py`: snapshot builder, no network.
 - `scripts/test_offline.py`: tests, no network, no key.
 - `scripts/sample_market/`: fictional capture records and descriptions, plus the saved live run.
-- `references/capture-and-access.md`, `references/description-templates.md`, `references/tagging-and-thresholds.md`.
+- `references/capture-and-access.md`, `references/description-templates.md`, `references/market-taxonomy.md`, `references/tagging-and-thresholds.md`.
 
 Related skills: `jev-marketing-gates` (runner pattern, calibration report, hard rules), `creative-testing-research` (hypotheses and test design), `market-to-creative-brief` (next step).
 

@@ -107,6 +107,153 @@ class DecisionTests(unittest.TestCase):
         self.assertEqual(tc.decide_flag(0.5, T), "review")
 
 
+class ConfirmPassTests(unittest.TestCase):
+    def choice(self, top, p):
+        return {"choice": top, "probabilities": {top: p, "z": 1 - p}}
+
+    def test_two_vote_rule_with_confirm(self):
+        d = tc.decide_choice
+        self.assertEqual(d(self.choice("a", 0.9), 0.1, T, 0.9)[:2], ("tagged", "a"))  # companion is not used
+        self.assertEqual(d(self.choice("a", 0.9), 0.9, T, 0.5)[0], "review")  # review band
+        self.assertEqual(d(self.choice("a", 0.6), 0.9, T, 0.9)[0], "review")
+        status, tag, reason = d(self.choice("a", 0.9), 0.9, T, 0.2)  # conflict
+        self.assertEqual((status, tag), ("review", None))
+        self.assertIn("confirmation says no", reason)
+        self.assertEqual(d(self.choice("other", 0.8), 0.1, T, None)[:2], ("tagged", "other"))
+        self.assertEqual(d(self.choice("other", 0.8), 0.1, T, 0.1)[:2], ("tagged", "other"))
+        self.assertEqual(d(self.choice("a", 0.3), 0.9, T, 0.9)[0], "untagged")
+
+    def test_flag_off_keeps_old_rule(self):
+        d = tc.decide_choice
+        self.assertEqual(d(self.choice("a", 0.9), 0.9, T)[:2], ("tagged", "a"))
+        self.assertEqual(d(self.choice("a", 0.9), 0.2, T)[0], "review")
+        self.assertIn("companion", d(self.choice("a", 0.9), 0.2, T)[2])
+
+    def test_confirm_questions_output(self):
+        qs = qset("static")
+        answers = {}
+        for qid, q in qs["QUESTIONS"].items():
+            if q["type"] == "choice":
+                first = list(q["criteria"])[0]
+                answers[qid] = {"choice": first, "probabilities": {first: 0.8, "other": 0.2}}
+        answers["angle"] = {"choice": "other", "probabilities": {"other": 0.9}}
+        answers["offer_type"] = {"choice": "free_trial", "probabilities": {"free_trial": 0.2, "other": 0.8}}
+        out = tc.confirm_questions(qs, answers, T)
+        self.assertNotIn("confirm_angle", out)  # other needs no confirmation
+        self.assertNotIn("confirm_offer_type", out)  # top option under the review floor
+        self.assertIn("confirm_hook_type", out)
+        q = out["confirm_hook_type"]
+        self.assertEqual(q["type"], "noul")
+        self.assertIn(qs["QUESTIONS"]["hook_type"]["instructions"], q["instructions"])
+        self.assertIn(qs["QUESTIONS"]["hook_type"]["criteria"]["problem_callout"], q["instructions"])
+
+    def test_run_with_confirm_pass(self):
+        items = [d for d in tc.load_jsonl(os.path.join(SAMPLE, "descriptions.jsonl")) if d["format"] == "static"][:4]
+        recs, queue, summary, _ = tc.run(items, qset("static"), tc.mock_post, source="mock", confirm_pass=True,
+                                         log=lambda *a: None)
+        self.assertTrue(summary["confirm_pass"])
+        self.assertGreater(summary["decisions"], 0)
+        self.assertGreater(summary["requests"], len(items))
+        seen = [t["confirm_p"] for r in recs for t in r["tags"].values() if t["confirm_p"] is not None]
+        self.assertTrue(seen)
+        self.assertIn("confirm_probability", tc.QUEUE_COLUMNS)
+        off = tc.run(items, qset("static"), tc.mock_post, source="mock", log=lambda *a: None)
+        self.assertEqual(off[2]["requests"], len(items))
+        self.assertFalse(off[2]["confirm_pass"])
+        self.assertTrue(all(t["confirm_p"] is None for r in off[0] for t in r["tags"].values()))
+
+    def test_spend_guard_counts_second_request(self):
+        items = [d for d in tc.load_jsonl(os.path.join(SAMPLE, "descriptions.jsonl")) if d["format"] == "static"][:6]
+        probe = tc.run(items[:1], qset("static"), tc.mock_post, source="mock", log=lambda *a: None)[2]
+        one = probe["est_usd"]
+        cap = one * 1.5  # room for one plain request, not for two
+        _, _, plain, _ = tc.run(items[:1], qset("static"), tc.mock_post, max_usd=cap, source="mock",
+                                log=lambda *a: None)
+        _, _, conf, _ = tc.run(items[:1], qset("static"), tc.mock_post, max_usd=cap, source="mock",
+                               confirm_pass=True, log=lambda *a: None)
+        self.assertEqual(plain["skipped_by_guard"], 0)
+        self.assertEqual(conf["skipped_by_guard"], 1)
+
+    def test_cli_flag_accepted(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            rc = tc.main([os.path.join(SAMPLE, "descriptions.jsonl"), "--track", "static", "--dry-run",
+                          "--confirm-pass", "--out-dir", tmp, "--max-items", "3"])
+            self.assertEqual(rc, 0)
+            with open(os.path.join(tmp, "run-static.json"), encoding="utf-8") as fh:
+                self.assertTrue(json.load(fh)["confirm_pass"])
+        finally:
+            shutil.rmtree(tmp)
+
+
+MARKET_DIR = os.path.join(HERE, "markets", "ai_photo_editor")
+
+
+class MarketTaxonomyTests(unittest.TestCase):
+    def test_market_sets_validate(self):
+        for track in ("static", "video"):
+            qs = tc.load_question_set(os.path.join(MARKET_DIR, "questions_%s.py" % track))
+            self.assertEqual(qs["TRACK"], track)
+            tc.validate_question_set(qs)
+            self.assertTrue(qs["TAXONOMY_VERSION"].startswith("ai-photo-"))
+            for qid, q in qs["QUESTIONS"].items():
+                if q["type"] == "choice":
+                    self.assertGreaterEqual(len(q["criteria"]), 5)
+                    self.assertLessEqual(len(q["criteria"]), 11)
+                    self.assertEqual(list(q["criteria"])[-1], "other")
+                    self.assertNotIn("none", q["criteria"])
+
+    def test_video_set_reads_no_audio_fields(self):
+        qs = tc.load_question_set(os.path.join(MARKET_DIR, "questions_video.py"))
+        state = qs["build_state"]({"first_3s": "x", "transcript": "spoken words", "hook_spoken": "spoken hook"})
+        self.assertNotIn("transcript", json.dumps(state))
+        self.assertNotIn("spoken", json.dumps(state))
+
+    def test_snapshot_with_custom_question_files(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            descs = tc.load_jsonl(os.path.join(SAMPLE, "descriptions.jsonl"))
+            for track in ("static", "video"):
+                qs = tc.load_question_set(os.path.join(MARKET_DIR, "questions_%s.py" % track))
+                items = [d for d in descs if d["format"] == track]
+                recs, queue, summary, order = tc.run(items, qs, tc.mock_post, source="mock", confirm_pass=True,
+                                                     log=lambda *a: None)
+                self.assertEqual(summary["errors"], 0)
+                tc.write_outputs(tmp, track, recs, queue, summary, order)
+            files = {t: os.path.join(MARKET_DIR, "questions_%s.py" % t) for t in ("static", "video")}
+            snap = market_snapshot.build(tc.load_jsonl(os.path.join(SAMPLE, "creatives.jsonl")),
+                                         [os.path.join(tmp, "tags-%s.jsonl" % t) for t in ("static", "video")],
+                                         "test", 20, "2026-11-15", files)
+            self.assertIn("use_case", snap["tracks"]["static"]["dimensions"])
+            self.assertIn("proof_device", snap["tracks"]["video"]["dimensions"])
+            self.assertIn("Low sample", market_snapshot.render_md(snap))
+            rc = market_snapshot.main(["--creatives", os.path.join(SAMPLE, "creatives.jsonl"), "--tags",
+                                       os.path.join(tmp, "tags-static.jsonl"), "--out-dir", os.path.join(tmp, "o"),
+                                       "--questions-static", files["static"]])
+            self.assertEqual(rc, 0)
+        finally:
+            shutil.rmtree(tmp)
+
+    def test_code_facts_tolerate_missing_facts(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            items = [d for d in tc.load_jsonl(os.path.join(SAMPLE, "descriptions.jsonl")) if d["format"] == "video"][:3]
+            recs, queue, summary, order = tc.run(items, qset("video"), tc.mock_post, source="mock",
+                                                 log=lambda *a: None)
+            for r in recs:
+                r["features"] = {}
+            path = os.path.join(tmp, "tags-video.jsonl")
+            with open(path, "w", encoding="utf-8") as fh:
+                for r in recs:
+                    fh.write(json.dumps(r) + "\n")
+            snap = market_snapshot.build(tc.load_jsonl(os.path.join(SAMPLE, "creatives.jsonl")), [path], "t", 20,
+                                         "2026-11-15")
+            market_snapshot.render_md(snap)
+            self.assertNotIn("captions_yes", snap["tracks"]["video"]["facts"])
+        finally:
+            shutil.rmtree(tmp)
+
+
 class RunTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
