@@ -1,6 +1,6 @@
 # Jev API notes
 
-Every fact below was read from the vendor's own pages on 2026-11-15, with the URL next to it. No request was sent to the API: the author had no key. The pages were read through a fetch tool that summarises, so confirm anything you build on against the OpenAPI spec at https://api.typesafe.ai/openapi.json. Vendor pages change; check the date.
+Every fact below was read from the vendor's own pages on 2026-11-15, with the URL next to it. A live check on 2026-11-15 (direct endpoint, jev-1.14.0, Noul, Score and Choice questions on illustrative ad texts) returned the response shapes described here; the gateway route, the long-context header and error paths were not exercised live. The pages were read through a fetch tool that summarises, so confirm anything you build on against the OpenAPI spec at https://api.typesafe.ai/openapi.json. Vendor pages change; check the date.
 
 For API craft (state design, question wording, testing practice) read the vendor's own MIT-licensed skill instead of relying on this file: https://github.com/typesafe-ai/skills (skills/typesafe-ai/SKILL.md). Its topics: judgments versus decisions, designing state, writing questions, composing requests, reading answers, testing with the live API, cookbooks. This repo does not copy its text.
 

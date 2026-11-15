@@ -4,7 +4,7 @@ description: Turns one marketing judgment into a typed decision gate with Jev, T
 license: MIT
 metadata:
   author: Vlad Yasinski
-  version: "0.9"
+  version: "1.0"
   site: https://www.roimobi.com
   telegram: https://t.me/ua5er
 ---
@@ -17,7 +17,7 @@ Pattern: an LLM or an analyst proposes, Jev judges, code decides, a person appro
 
 ## Status, read first
 
-Request shapes follow the vendor docs as of 2026-11-15. Nothing here has been tested against the live API, because the author had no API key. Run `scripts/run_batch.py --smoke` with your own key before relying on it. The offline tests (`scripts/test_offline.py`) check the code against mock responses shaped like the documented ones. They do not prove the live API behaves the same way.
+Request shapes follow the vendor docs as of 2026-11-15, and they were checked against the live API on that day: Noul, Score and Choice questions on `jev-1.14.0` through the direct vendor endpoint returned the documented response shape (a dozen illustrative ad texts, a fraction of a cent). That proves the plumbing, not the accuracy: thresholds must be tuned on your own labelled items (step 6). The Vercel AI Gateway route is supported by the script but was not run live. Before your first real batch, run `scripts/run_batch.py --smoke` with your own key.
 
 For API craft (state design, question writing, testing practice) read the vendor's own MIT skill: https://github.com/typesafe-ai/skills. This skill does not copy it. Verified API facts, limits, price and access routes are in `references/jev-api-notes.md`.
 

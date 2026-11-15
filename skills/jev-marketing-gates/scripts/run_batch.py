@@ -5,9 +5,9 @@ Python 3 standard library only. The one network call is a POST to the vendor
 endpoint (default https://api.typesafe.ai/v1/systemone). The API key is read
 only from the environment (TYPESAFE_API_KEY, or the variable named by --key-env).
 
-Request and response shapes follow the vendor docs as of 2026-11-15. They have
-NOT been tested against the live API by the author. Run with --smoke and your
-own key before relying on this.
+Request and response shapes follow the vendor docs as of 2026-11-15 and passed
+a live check that day (Noul, Score and Choice on jev-1.14.0, direct endpoint).
+Run with --smoke and your own key before your first real batch.
 
 Examples:
   python3 run_batch.py sample_items.csv --questions questions_example.py --dry-run
