@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski: agent skills for app and subscription growth
 
-User Acquisition Skills is a set of twelve open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution and typed AI decision gates in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
+User Acquisition Skills is a set of fifteen open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, typed AI decision gates and competitor creative research in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
 ## Install
 
@@ -37,7 +37,20 @@ Then ask your agent in plain words, for example: "Audit this paywall", "Write ki
 | [`meta-ads-learning-audit`](skills/meta-ads-learning-audit/SKILL.md) | Audits a Meta ad account stuck in "Learning limited": event volume against the budget learning needs, split signal, CPM of small test ad sets, funnel and CAPI, and a post-mortem table of past campaigns. Works from exports and screenshots, no API token. |
 | [`meta-ads-launch-planner`](skills/meta-ads-launch-planner/SKILL.md) | Plans a Meta sales launch that exits learning: budget from target CPA x 50 events a week (with `budget.py`), one broad ad set on CBO, day-by-day decision rules, automated stop and restart rules, scaling schedule, relaunch playbook and a plan document for management. |
 | [`meta-creative-testing`](skills/meta-creative-testing/SKILL.md) | Designs creative testing for Meta after Andromeda: which past ads to relaunch and why, three test structures with the cost of an answer, winner, kill and fatigue criteria, a weekly creative flow and a brief template for designers and UGC creators. |
-| [`jev-marketing-gates`](skills/jev-marketing-gates/SKILL.md) | Turns one marketing judgment into a typed decision gate with Jev (TypeSafe AI): an LLM or analyst proposes, Jev judges, code decides, a person approves spend and publishing. Four job templates (ad copy judge, comment and DM triage, policy pre-check, creative tagging), a batch runner, a calibration report and offline tests, standard library only. Request shapes follow the vendor docs as of 2026-11-15 and have not been tested against the live API. |
+| [`jev-marketing-gates`](skills/jev-marketing-gates/SKILL.md) | Turns one marketing judgment into a typed decision gate with Jev (TypeSafe AI): an LLM or analyst proposes, Jev judges, code decides, a person approves spend and publishing. Four job templates (ad copy judge, comment and DM triage, policy pre-check, creative tagging), a batch runner, a calibration report and offline tests, standard library only. Request shapes follow the vendor docs as of 2026-11-15 and were checked against the live API that day. |
+| [`competitor-creative-parser`](skills/competitor-creative-parser/SKILL.md) | Claude + Jev, step 1. Turns competitor ads from public ad libraries or your own files into a tagged dataset and a market snapshot, in a static and a video track: shares per hook, angle, format, offer and CTA, crowded angles, gaps, pacing facts, with small-sample guards and a review queue. |
+| [`market-to-creative-brief`](skills/market-to-creative-brief/SKILL.md) | Claude + Jev, step 2. Turns the snapshot and your constraints into production decisions, a static brief for designers and a motion brief for the video team. Code re-checks every cited number, ad id, gap, beat timing and the test budget before the pack renders. |
+| [`creative-preflight-panel`](skills/creative-preflight-panel/SKILL.md) | Claude + Jev, step 3. Shows every concept (and every video hook) to 12 to 30 simulated buyer profiles, builds a concept by profile heatmap and gives go, rework or drop with reasons; after launch it checks the panel against your real results. A cheap filter and a signal, not proof of performance. |
+
+## Claude + Jev: from competitor ads to tested concepts
+
+Three skills work as one system. Claude does what needs eyes and words: it describes every competitor image and video, writes the briefs and writes the buyer profiles. [Jev](https://docs.typesafe.ai), TypeSafe AI's typed-decision model, does what needs the same careful judgment many times: yes/no, choice and score answers with probabilities, at $0.042 per million input tokens (vendor price on 2026-11-15). Code does the counting, thresholds and checks. A person approves anything that is produced, spent or published.
+
+1. **Parse the market** with `competitor-creative-parser`. Capture competitor ads through official routes or your own browsing, Claude describes each one in a fixed template, Jev tags it, code builds `snapshot.json`: what the category runs, what is crowded and where nobody is.
+2. **Write the briefs** with `market-to-creative-brief`. Claude picks the moves (enter a gap, out-execute a crowded angle, avoid a risky claim) and writes a static brief and a motion brief with references by ad id. `brief_pack.py` refuses any number the snapshot does not hold.
+3. **Pre-flight the concepts** with `creative-preflight-panel`. Every concept meets a simulated buyer panel; code ranks with guards and returns go, rework or drop to the brief pack. Survivors go to the test plan in `meta-creative-testing`. After launch, `panel_vs_results.py` measures how well the panel's order matched real results, so its weight goes up or down.
+
+Every step has a static track and a video track, an offline mock, a smoke test and a spend guard. The [walk-through on a fictional market](examples/competitor-parse-fictional-market.md) shows all three steps with real Jev output on invented ads: 24 ads tagged, 6 decisions, 6 concepts, 144 panel answers, 216,039 input tokens, about $0.009 in Jev spend.
 
 ## How these were used
 
@@ -46,7 +59,7 @@ Two design explorations for a subscription AI photo app (app name withheld) used
 - [Onboarding redesign: five concepts](examples/onboarding-redesign-subscription-photo-app.md)
 - [Paywall redesign: versions V1 to V6 and hero variants](examples/paywall-redesign-subscription-photo-app.md)
 
-These are design cases. They do not contain measured conversion results.
+These are design cases. They do not contain measured conversion results. The Claude + Jev walk-through above runs on a fictional market and contains no results either.
 
 ### Live gallery
 
@@ -93,6 +106,6 @@ This repository is released under the [MIT licence](LICENSE).
 - `paywalls` in [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), MIT, copyright 2025 Corey Haines.
 - `paywall-optimization` in [appeeky/aso-skills](https://github.com/appeeky/aso-skills), MIT, copyright 2026 Erencan.
 
-Their licence texts are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The other ten skills are original. Motion guidance referenced in the paywall case comes from [emilkowalski/skills](https://github.com/emilkowalski/skills) and [ibelick/ui-skills](https://github.com/ibelick/ui-skills), both MIT, and is not included here.
+Their licence texts are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The other fourteen skills are original. Motion guidance referenced in the paywall case comes from [emilkowalski/skills](https://github.com/emilkowalski/skills) and [ibelick/ui-skills](https://github.com/ibelick/ui-skills), both MIT, and is not included here.
 
 Product and platform names (Meta, TikTok, Stripe, AppsFlyer, Adjust and others) belong to their owners and are used only to describe what the skills work with. This project is not affiliated with or endorsed by them.
