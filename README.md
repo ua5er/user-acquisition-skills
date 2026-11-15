@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski: agent skills for app and subscription growth
 
-User Acquisition Skills is a set of eleven open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
+User Acquisition Skills is a set of twelve open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution and typed AI decision gates in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
 ## Install
 
@@ -37,6 +37,7 @@ Then ask your agent in plain words, for example: "Audit this paywall", "Write ki
 | [`meta-ads-learning-audit`](skills/meta-ads-learning-audit/SKILL.md) | Audits a Meta ad account stuck in "Learning limited": event volume against the budget learning needs, split signal, CPM of small test ad sets, funnel and CAPI, and a post-mortem table of past campaigns. Works from exports and screenshots, no API token. |
 | [`meta-ads-launch-planner`](skills/meta-ads-launch-planner/SKILL.md) | Plans a Meta sales launch that exits learning: budget from target CPA x 50 events a week (with `budget.py`), one broad ad set on CBO, day-by-day decision rules, automated stop and restart rules, scaling schedule, relaunch playbook and a plan document for management. |
 | [`meta-creative-testing`](skills/meta-creative-testing/SKILL.md) | Designs creative testing for Meta after Andromeda: which past ads to relaunch and why, three test structures with the cost of an answer, winner, kill and fatigue criteria, a weekly creative flow and a brief template for designers and UGC creators. |
+| [`jev-marketing-gates`](skills/jev-marketing-gates/SKILL.md) | Turns one marketing judgment into a typed decision gate with Jev (TypeSafe AI): an LLM or analyst proposes, Jev judges, code decides, a person approves spend and publishing. Four job templates (ad copy judge, comment and DM triage, policy pre-check, creative tagging), a batch runner, a calibration report and offline tests, standard library only. Request shapes follow the vendor docs as of 2026-11-15 and have not been tested against the live API. |
 
 ## How these were used
 
@@ -92,6 +93,6 @@ This repository is released under the [MIT licence](LICENSE).
 - `paywalls` in [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), MIT, copyright 2025 Corey Haines.
 - `paywall-optimization` in [appeeky/aso-skills](https://github.com/appeeky/aso-skills), MIT, copyright 2026 Erencan.
 
-Their licence texts are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The other seven skills are original. Motion guidance referenced in the paywall case comes from [emilkowalski/skills](https://github.com/emilkowalski/skills) and [ibelick/ui-skills](https://github.com/ibelick/ui-skills), both MIT, and is not included here.
+Their licence texts are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The other ten skills are original. Motion guidance referenced in the paywall case comes from [emilkowalski/skills](https://github.com/emilkowalski/skills) and [ibelick/ui-skills](https://github.com/ibelick/ui-skills), both MIT, and is not included here.
 
 Product and platform names (Meta, TikTok, Stripe, AppsFlyer, Adjust and others) belong to their owners and are used only to describe what the skills work with. This project is not affiliated with or endorsed by them.

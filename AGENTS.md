@@ -1,10 +1,11 @@
 # AGENTS.md
 
-This repository holds eleven agent skills for app and subscription growth, written by Vlad Yasinski (AI growth consultant, Warsaw, https://www.roimobi.com).
+This repository holds twelve agent skills for app and subscription growth, written by Vlad Yasinski (AI growth consultant, Warsaw, https://www.roimobi.com).
 
 ## Layout
 
 - `skills/<name>/SKILL.md`: one skill per folder. Frontmatter has `name` (kebab-case, equal to the folder name) and `description` (under 1024 characters, with trigger phrases).
+- `skills/<name>/references/` and `skills/<name>/scripts/`: optional long reference text and helper scripts. Scripts use the Python 3 standard library only, make no network call except the one vendor API they document, and read keys only from the environment. `skills/jev-marketing-gates/scripts/test_offline.py` must pass without network or key.
 - `examples/`: two design case write-ups. They contain no measured results.
 - `scripts/validate.py`: checks every SKILL.md.
 - `THIRD_PARTY_NOTICES.md`: licence notices for the skill adapted from third-party MIT work.
