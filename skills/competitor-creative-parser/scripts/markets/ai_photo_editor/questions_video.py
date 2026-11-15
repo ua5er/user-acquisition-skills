@@ -18,7 +18,7 @@ QUESTIONS = {
         "criteria": {
             "pro_headshot": "Turns selfies into professional headshots or business portraits.",
             "ai_photoshoot": "Creates a photo shoot of the person or a couple in new outfits or settings, "
-                             "for example studio fashion shots, a birthday set or an old money portrait.",
+                             "for example studio fashion shots, a birthday set or a vintage style portrait.",
             "fantasy_scene": "Puts the person into an aspirational or cinematic scene, for example a luxury car, "
                              "a film scene or a stage.",
             "funny_animation": "Animates a photo of a pet or a person into a funny clip, for example dancing or singing.",
@@ -43,7 +43,7 @@ QUESTIONS = {
         "instructions": "Which kind of hook do the first three seconds in `first_3s` use?",
         "criteria": {
             "first_person_caption": "A caption written as the user talking about their own result, for example "
-                                    "'Me in my dream car' or 'How I pull up'.",
+                                    "'Me at my own premiere' or 'How I arrive now'.",
             "result_reveal": "Shows the finished result right away, with no caption.",
             "transformation": "Shows a change happening on screen, from a starting photo or face to a new look.",
             "tool_demo": "Shows the app or software being used.",

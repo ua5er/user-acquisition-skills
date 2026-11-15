@@ -18,7 +18,7 @@ QUESTIONS = {
         "criteria": {
             "pro_headshot": "Turns selfies into professional headshots or business portraits.",
             "ai_photoshoot": "Creates a photo shoot of the person or a couple in new outfits or settings, "
-                             "for example studio fashion shots, a birthday set or an old money portrait.",
+                             "for example studio fashion shots, a birthday set or a vintage style portrait.",
             "fantasy_scene": "Puts the person into an aspirational or cinematic scene, for example a luxury car, "
                              "a film scene or a stage.",
             "funny_animation": "Animates a photo of a pet or a person into a funny clip.",
