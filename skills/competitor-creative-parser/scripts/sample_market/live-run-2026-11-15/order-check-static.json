@@ -1,0 +1,242 @@
+{
+ "note": "Same creative asked twice with Choice options in a rotated and a reversed order. Low agreement means option order moves the answer: rewrite the options or keep more of that question in review.",
+ "per_question": {
+  "angle": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "hook_type": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "offer_placement": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "offer_type": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "visual_format": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  }
+ },
+ "rows": [
+  {
+   "creative_id": "s01",
+   "question_id": "hook_type",
+   "reversed_choice": "outcome_promise",
+   "rotated_choice": "outcome_promise",
+   "same": true
+  },
+  {
+   "creative_id": "s01",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "s01",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "s01",
+   "question_id": "visual_format",
+   "reversed_choice": "app_screenshot",
+   "rotated_choice": "app_screenshot",
+   "same": true
+  },
+  {
+   "creative_id": "s01",
+   "question_id": "offer_placement",
+   "reversed_choice": "badge_sticker",
+   "rotated_choice": "badge_sticker",
+   "same": true
+  },
+  {
+   "creative_id": "s02",
+   "question_id": "hook_type",
+   "reversed_choice": "question",
+   "rotated_choice": "question",
+   "same": true
+  },
+  {
+   "creative_id": "s02",
+   "question_id": "angle",
+   "reversed_choice": "feel_better",
+   "rotated_choice": "feel_better",
+   "same": true
+  },
+  {
+   "creative_id": "s02",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "s02",
+   "question_id": "visual_format",
+   "reversed_choice": "ugc_photo",
+   "rotated_choice": "ugc_photo",
+   "same": true
+  },
+  {
+   "creative_id": "s02",
+   "question_id": "offer_placement",
+   "reversed_choice": "footer_line",
+   "rotated_choice": "footer_line",
+   "same": true
+  },
+  {
+   "creative_id": "s03",
+   "question_id": "hook_type",
+   "reversed_choice": "outcome_promise",
+   "rotated_choice": "outcome_promise",
+   "same": true
+  },
+  {
+   "creative_id": "s03",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "s03",
+   "question_id": "offer_type",
+   "reversed_choice": "none",
+   "rotated_choice": "none",
+   "same": true
+  },
+  {
+   "creative_id": "s03",
+   "question_id": "visual_format",
+   "reversed_choice": "text_card",
+   "rotated_choice": "text_card",
+   "same": true
+  },
+  {
+   "creative_id": "s03",
+   "question_id": "offer_placement",
+   "reversed_choice": "not_shown",
+   "rotated_choice": "not_shown",
+   "same": true
+  },
+  {
+   "creative_id": "s04",
+   "question_id": "hook_type",
+   "reversed_choice": "social_proof",
+   "rotated_choice": "social_proof",
+   "same": true
+  },
+  {
+   "creative_id": "s04",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "s04",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "s04",
+   "question_id": "visual_format",
+   "reversed_choice": "testimonial_card",
+   "rotated_choice": "testimonial_card",
+   "same": true
+  },
+  {
+   "creative_id": "s04",
+   "question_id": "offer_placement",
+   "reversed_choice": "not_shown",
+   "rotated_choice": "not_shown",
+   "same": true
+  },
+  {
+   "creative_id": "s05",
+   "question_id": "hook_type",
+   "reversed_choice": "outcome_promise",
+   "rotated_choice": "outcome_promise",
+   "same": true
+  },
+  {
+   "creative_id": "s05",
+   "question_id": "angle",
+   "reversed_choice": "feel_better",
+   "rotated_choice": "feel_better",
+   "same": true
+  },
+  {
+   "creative_id": "s05",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "s05",
+   "question_id": "visual_format",
+   "reversed_choice": "lifestyle_stock",
+   "rotated_choice": "lifestyle_stock",
+   "same": true
+  },
+  {
+   "creative_id": "s05",
+   "question_id": "offer_placement",
+   "reversed_choice": "cta_button",
+   "rotated_choice": "cta_button",
+   "same": true
+  },
+  {
+   "creative_id": "s06",
+   "question_id": "hook_type",
+   "reversed_choice": "outcome_promise",
+   "rotated_choice": "outcome_promise",
+   "same": true
+  },
+  {
+   "creative_id": "s06",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "s06",
+   "question_id": "offer_type",
+   "reversed_choice": "freemium_download",
+   "rotated_choice": "freemium_download",
+   "same": true
+  },
+  {
+   "creative_id": "s06",
+   "question_id": "visual_format",
+   "reversed_choice": "app_screenshot",
+   "rotated_choice": "app_screenshot",
+   "same": true
+  },
+  {
+   "creative_id": "s06",
+   "question_id": "offer_placement",
+   "reversed_choice": "not_shown",
+   "rotated_choice": "not_shown",
+   "same": true
+  }
+ ]
+}

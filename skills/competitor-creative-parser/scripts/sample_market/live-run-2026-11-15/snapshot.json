@@ -1,0 +1,2201 @@
+{
+ "market": "sleep improvement apps, English (FICTIONAL sample market)",
+ "built": "2026-11-15",
+ "rules": {
+  "min_n": 20,
+  "crowded_share": 0.3,
+  "crowded_advertiser_share": 0.5,
+  "dominated_share": 0.5
+ },
+ "caveat": "Ad libraries show what runs and for how long, not spend or results.",
+ "tracks": {
+  "static": {
+   "n": 12,
+   "min_n": 20,
+   "low_sample": true,
+   "errors": [],
+   "advertisers": [
+    "Brand A",
+    "Brand B",
+    "Brand C",
+    "Brand D",
+    "Brand E"
+   ],
+   "creatives_per_advertiser": {
+    "Brand A": 3,
+    "Brand B": 2,
+    "Brand C": 3,
+    "Brand D": 2,
+    "Brand E": 2
+   },
+   "dimensions": {
+    "hook_type": {
+     "rows": [
+      {
+       "value": "problem_callout",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "outcome_promise",
+       "creatives": 8,
+       "share": 0.667,
+       "advertisers": 5,
+       "advertiser_share": 1.0,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s01",
+        "s03",
+        "s05",
+        "s06",
+        "s07",
+        "s09",
+        "s10",
+        "s11"
+       ]
+      },
+      {
+       "value": "question",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s02",
+        "s12"
+       ]
+      },
+      {
+       "value": "social_proof",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s04"
+       ]
+      },
+      {
+       "value": "curiosity",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "comparison",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "offer_price",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 1,
+     "unresolved_ids": [
+      "s08"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "angle": {
+     "rows": [
+      {
+       "value": "save_time",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "feel_better",
+       "creatives": 5,
+       "share": 0.417,
+       "advertisers": 4,
+       "advertiser_share": 0.8,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s02",
+        "s05",
+        "s09",
+        "s10",
+        "s12"
+       ]
+      },
+      {
+       "value": "get_result",
+       "creatives": 4,
+       "share": 0.333,
+       "advertisers": 3,
+       "advertiser_share": 0.6,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s01",
+        "s03",
+        "s04",
+        "s06"
+       ]
+      },
+      {
+       "value": "save_money",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "belonging_status",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "fear_of_missing_out",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 3,
+     "unresolved_ids": [
+      "s07",
+      "s08",
+      "s11"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "offer_type": {
+     "rows": [
+      {
+       "value": "free_trial",
+       "creatives": 8,
+       "share": 0.667,
+       "advertisers": 4,
+       "advertiser_share": 0.8,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s01",
+        "s02",
+        "s04",
+        "s05",
+        "s09",
+        "s10",
+        "s11",
+        "s12"
+       ]
+      },
+      {
+       "value": "discount",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s07"
+       ]
+      },
+      {
+       "value": "freemium_download",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s06"
+       ]
+      },
+      {
+       "value": "price_stated",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "none",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s03"
+       ]
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 1,
+     "unresolved_ids": [
+      "s08"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "visual_format": {
+     "rows": [
+      {
+       "value": "ugc_photo",
+       "creatives": 3,
+       "share": 0.25,
+       "advertisers": 3,
+       "advertiser_share": 0.6,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s02",
+        "s09",
+        "s12"
+       ]
+      },
+      {
+       "value": "app_screenshot",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": true,
+       "ids": [
+        "s06",
+        "s07"
+       ]
+      },
+      {
+       "value": "text_card",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s03"
+       ]
+      },
+      {
+       "value": "before_after",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "testimonial_card",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s04"
+       ]
+      },
+      {
+       "value": "illustration_3d",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s08"
+       ]
+      },
+      {
+       "value": "meme_native",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "lifestyle_stock",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s05",
+        "s11"
+       ]
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 2,
+     "unresolved_ids": [
+      "s01",
+      "s10"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "offer_placement": {
+     "rows": [
+      {
+       "value": "headline",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "badge_sticker",
+       "creatives": 3,
+       "share": 0.25,
+       "advertisers": 3,
+       "advertiser_share": 0.6,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s01",
+        "s07",
+        "s11"
+       ]
+      },
+      {
+       "value": "cta_button",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s05",
+        "s10"
+       ]
+      },
+      {
+       "value": "footer_line",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s02",
+        "s09"
+       ]
+      },
+      {
+       "value": "not_shown",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "s03",
+        "s06"
+       ]
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 3,
+     "unresolved_ids": [
+      "s04",
+      "s08",
+      "s12"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    }
+   },
+   "crowded": [
+    {
+     "dimension": "hook_type",
+     "value": "outcome_promise",
+     "share": 0.667,
+     "advertiser_share": 1.0,
+     "low_sample": true
+    },
+    {
+     "dimension": "angle",
+     "value": "feel_better",
+     "share": 0.417,
+     "advertiser_share": 0.8,
+     "low_sample": true
+    },
+    {
+     "dimension": "angle",
+     "value": "get_result",
+     "share": 0.333,
+     "advertiser_share": 0.6,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "free_trial",
+     "share": 0.667,
+     "advertiser_share": 0.8,
+     "low_sample": true
+    }
+   ],
+   "gaps": [
+    {
+     "dimension": "hook_type",
+     "value": "problem_callout",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "hook_type",
+     "value": "curiosity",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "hook_type",
+     "value": "comparison",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "hook_type",
+     "value": "offer_price",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "angle",
+     "value": "save_time",
+     "low_sample": true,
+     "unresolved": 3,
+     "firm": true
+    },
+    {
+     "dimension": "angle",
+     "value": "save_money",
+     "low_sample": true,
+     "unresolved": 3,
+     "firm": true
+    },
+    {
+     "dimension": "angle",
+     "value": "belonging_status",
+     "low_sample": true,
+     "unresolved": 3,
+     "firm": true
+    },
+    {
+     "dimension": "angle",
+     "value": "fear_of_missing_out",
+     "low_sample": true,
+     "unresolved": 3,
+     "firm": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "price_stated",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "visual_format",
+     "value": "before_after",
+     "low_sample": true,
+     "unresolved": 2,
+     "firm": true
+    },
+    {
+     "dimension": "visual_format",
+     "value": "meme_native",
+     "low_sample": true,
+     "unresolved": 2,
+     "firm": true
+    },
+    {
+     "dimension": "offer_placement",
+     "value": "headline",
+     "low_sample": true,
+     "unresolved": 3,
+     "firm": true
+    }
+   ],
+   "single_advertiser": [
+    {
+     "dimension": "hook_type",
+     "value": "social_proof",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "discount",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "freemium_download",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "none",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "visual_format",
+     "value": "app_screenshot",
+     "creatives": 2,
+     "low_sample": true
+    },
+    {
+     "dimension": "visual_format",
+     "value": "text_card",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "visual_format",
+     "value": "testimonial_card",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "visual_format",
+     "value": "illustration_3d",
+     "creatives": 1,
+     "low_sample": true
+    }
+   ],
+   "flags": {
+    "social_proof": {
+     "yes": 2,
+     "share": 0.167,
+     "review": 0,
+     "yes_ids": [
+      "s01",
+      "s04"
+     ],
+     "review_ids": []
+    },
+    "urgency": {
+     "yes": 1,
+     "share": 0.083,
+     "review": 0,
+     "yes_ids": [
+      "s07"
+     ],
+     "review_ids": []
+    },
+    "risky_claim": {
+     "yes": 2,
+     "share": 0.167,
+     "review": 5,
+     "yes_ids": [
+      "s03",
+      "s04"
+     ],
+     "review_ids": [
+      "s01",
+      "s05",
+      "s07",
+      "s09",
+      "s11"
+     ]
+    },
+    "personal_attribute": {
+     "yes": 1,
+     "share": 0.083,
+     "review": 4,
+     "yes_ids": [
+      "s02"
+     ],
+     "review_ids": [
+      "s03",
+      "s08",
+      "s11",
+      "s12"
+     ]
+    }
+   },
+   "scores": {
+    "hook_specificity": {
+     "mean": 1.25,
+     "max_level": 3,
+     "levels": {
+      "0": 1,
+      "1": 8,
+      "2": 3,
+      "3": 0
+     }
+    },
+    "cta_clarity": {
+     "mean": 1.52,
+     "max_level": 2,
+     "levels": {
+      "0": 0,
+      "1": 6,
+      "2": 6
+     }
+    },
+    "legibility": {
+     "mean": 1.94,
+     "max_level": 2,
+     "levels": {
+      "0": 0,
+      "1": 0,
+      "2": 12
+     }
+    }
+   },
+   "facts": {
+    "words_on_image": {
+     "min": 6,
+     "median": 11.5,
+     "max": 17
+    },
+    "has_price": 2,
+    "cta_labels": {
+     "Start free": 2,
+     "Start free trial": 2,
+     "Try free": 2,
+     "Claim 50% off": 1,
+     "Download": 1,
+     "Get started": 1,
+     "Join now": 1,
+     "Start free week": 1,
+     "Take the check": 1
+    },
+    "aspect_ratios": {
+     "1:1": 11,
+     "4:5": 12,
+     "9:16": 1
+    }
+   },
+   "durability": {
+    "note": "Runtime is a weak durability signal, not proof of results.",
+    "median_days": 52.0,
+    "longest": [],
+    "withheld": true
+   },
+   "creatives": [
+    {
+     "creative_id": "s01",
+     "advertiser": "Brand A",
+     "days": 105,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": "get_result",
+      "offer_type": "free_trial",
+      "visual_format": null,
+      "offer_placement": "badge_sticker"
+     },
+     "flags": {
+      "social_proof": "yes",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s02",
+     "advertiser": "Brand A",
+     "days": 56,
+     "tags": {
+      "hook_type": "question",
+      "angle": "feel_better",
+      "offer_type": "free_trial",
+      "visual_format": "ugc_photo",
+      "offer_placement": "footer_line"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "yes"
+     }
+    },
+    {
+     "creative_id": "s03",
+     "advertiser": "Brand A",
+     "days": 21,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": "get_result",
+      "offer_type": "none",
+      "visual_format": "text_card",
+      "offer_placement": "not_shown"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "yes",
+      "personal_attribute": "review"
+     }
+    },
+    {
+     "creative_id": "s04",
+     "advertiser": "Brand B",
+     "days": 127,
+     "tags": {
+      "hook_type": "social_proof",
+      "angle": "get_result",
+      "offer_type": "free_trial",
+      "visual_format": "testimonial_card",
+      "offer_placement": null
+     },
+     "flags": {
+      "social_proof": "yes",
+      "urgency": "no",
+      "risky_claim": "yes",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s05",
+     "advertiser": "Brand B",
+     "days": 45,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": "feel_better",
+      "offer_type": "free_trial",
+      "visual_format": "lifestyle_stock",
+      "offer_placement": "cta_button"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s06",
+     "advertiser": "Brand C",
+     "days": 153,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": "get_result",
+      "offer_type": "freemium_download",
+      "visual_format": "app_screenshot",
+      "offer_placement": "not_shown"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s07",
+     "advertiser": "Brand C",
+     "days": 71,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": null,
+      "offer_type": "discount",
+      "visual_format": "app_screenshot",
+      "offer_placement": "badge_sticker"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "yes",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s08",
+     "advertiser": "Brand C",
+     "days": 14,
+     "tags": {
+      "hook_type": null,
+      "angle": null,
+      "offer_type": null,
+      "visual_format": "illustration_3d",
+      "offer_placement": null
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "review"
+     }
+    },
+    {
+     "creative_id": "s09",
+     "advertiser": "Brand D",
+     "days": 87,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": "feel_better",
+      "offer_type": "free_trial",
+      "visual_format": "ugc_photo",
+      "offer_placement": "footer_line"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s10",
+     "advertiser": "Brand D",
+     "days": 34,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": "feel_better",
+      "offer_type": "free_trial",
+      "visual_format": null,
+      "offer_placement": "cta_button"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "s11",
+     "advertiser": "Brand E",
+     "days": 48,
+     "tags": {
+      "hook_type": "outcome_promise",
+      "angle": null,
+      "offer_type": "free_trial",
+      "visual_format": "lifestyle_stock",
+      "offer_placement": "badge_sticker"
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "review"
+     }
+    },
+    {
+     "creative_id": "s12",
+     "advertiser": "Brand E",
+     "days": 10,
+     "tags": {
+      "hook_type": "question",
+      "angle": "feel_better",
+      "offer_type": "free_trial",
+      "visual_format": "ugc_photo",
+      "offer_placement": null
+     },
+     "flags": {
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "review"
+     }
+    }
+   ],
+   "models": [
+    "jev-1.14.0"
+   ],
+   "sources": [
+    "live"
+   ]
+  },
+  "video": {
+   "n": 12,
+   "min_n": 20,
+   "low_sample": true,
+   "errors": [],
+   "advertisers": [
+    "Brand A",
+    "Brand B",
+    "Brand C",
+    "Brand D",
+    "Brand E"
+   ],
+   "creatives_per_advertiser": {
+    "Brand A": 2,
+    "Brand B": 3,
+    "Brand C": 2,
+    "Brand D": 3,
+    "Brand E": 2
+   },
+   "dimensions": {
+    "hook_type": {
+     "rows": [
+      {
+       "value": "problem_callout",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v10"
+       ]
+      },
+      {
+       "value": "bold_claim",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v07"
+       ]
+      },
+      {
+       "value": "question",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v05"
+       ]
+      },
+      {
+       "value": "pattern_interrupt",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "demo_first",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v12"
+       ]
+      },
+      {
+       "value": "story_opener",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v03"
+       ]
+      },
+      {
+       "value": "social_proof",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v08"
+       ]
+      }
+     ],
+     "unresolved": 5,
+     "unresolved_ids": [
+      "v02",
+      "v04",
+      "v06",
+      "v09",
+      "v11"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "hook_channel": {
+     "rows": [
+      {
+       "value": "spoken_line",
+       "creatives": 9,
+       "share": 0.75,
+       "advertisers": 5,
+       "advertiser_share": 1.0,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v03",
+        "v05",
+        "v06",
+        "v07",
+        "v08",
+        "v09",
+        "v11",
+        "v12"
+       ]
+      },
+      {
+       "value": "on_screen_text",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v02",
+        "v10"
+       ]
+      },
+      {
+       "value": "visual_action",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "sound",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 1,
+     "unresolved_ids": [
+      "v04"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "angle": {
+     "rows": [
+      {
+       "value": "save_time",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "feel_better",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v11"
+       ]
+      },
+      {
+       "value": "get_result",
+       "creatives": 4,
+       "share": 0.333,
+       "advertisers": 3,
+       "advertiser_share": 0.6,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v03",
+        "v04",
+        "v09"
+       ]
+      },
+      {
+       "value": "save_money",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "belonging_status",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "fear_of_missing_out",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 7,
+     "unresolved_ids": [
+      "v02",
+      "v05",
+      "v06",
+      "v07",
+      "v08",
+      "v10",
+      "v12"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "video_format": {
+     "rows": [
+      {
+       "value": "ugc_talking_head",
+       "creatives": 6,
+       "share": 0.5,
+       "advertisers": 5,
+       "advertiser_share": 1.0,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v03",
+        "v05",
+        "v07",
+        "v09",
+        "v11"
+       ]
+      },
+      {
+       "value": "screen_recording",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v06",
+        "v12"
+       ]
+      },
+      {
+       "value": "motion_graphics",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v02"
+       ]
+      },
+      {
+       "value": "voiceover_broll",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v08"
+       ]
+      },
+      {
+       "value": "split_screen_reaction",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v04"
+       ]
+      },
+      {
+       "value": "skit_dramatized",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v10"
+       ]
+      },
+      {
+       "value": "slideshow_static",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 0,
+     "unresolved_ids": [],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "structure": {
+     "rows": [
+      {
+       "value": "problem_solution",
+       "creatives": 4,
+       "share": 0.333,
+       "advertisers": 3,
+       "advertiser_share": 0.6,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v03",
+        "v09",
+        "v10"
+       ]
+      },
+      {
+       "value": "demo_walkthrough",
+       "creatives": 2,
+       "share": 0.167,
+       "advertisers": 2,
+       "advertiser_share": 0.4,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v05",
+        "v12"
+       ]
+      },
+      {
+       "value": "testimonial_story",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "listicle_tips",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v07"
+       ]
+      },
+      {
+       "value": "before_after",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v04"
+       ]
+      },
+      {
+       "value": "challenge_trend",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 4,
+     "unresolved_ids": [
+      "v02",
+      "v06",
+      "v08",
+      "v11"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "creator_type": {
+     "rows": [
+      {
+       "value": "everyday_person",
+       "creatives": 7,
+       "share": 0.583,
+       "advertisers": 4,
+       "advertiser_share": 0.8,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v03",
+        "v04",
+        "v05",
+        "v09",
+        "v11",
+        "v12"
+       ]
+      },
+      {
+       "value": "expert_authority",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "influencer",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "faceless",
+       "creatives": 3,
+       "share": 0.25,
+       "advertisers": 3,
+       "advertiser_share": 0.6,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v02",
+        "v06",
+        "v08"
+       ]
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 2,
+     "unresolved_ids": [
+      "v07",
+      "v10"
+     ],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    },
+    "offer_type": {
+     "rows": [
+      {
+       "value": "free_trial",
+       "creatives": 10,
+       "share": 0.833,
+       "advertisers": 4,
+       "advertiser_share": 0.8,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v01",
+        "v02",
+        "v03",
+        "v04",
+        "v05",
+        "v08",
+        "v09",
+        "v10",
+        "v11",
+        "v12"
+       ]
+      },
+      {
+       "value": "discount",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v07"
+       ]
+      },
+      {
+       "value": "freemium_download",
+       "creatives": 1,
+       "share": 0.083,
+       "advertisers": 1,
+       "advertiser_share": 0.2,
+       "dominated_by_one_advertiser": false,
+       "ids": [
+        "v06"
+       ]
+      },
+      {
+       "value": "price_stated",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "none",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      },
+      {
+       "value": "other",
+       "creatives": 0,
+       "share": 0.0,
+       "advertisers": 0,
+       "advertiser_share": 0.0,
+       "dominated_by_one_advertiser": false,
+       "ids": []
+      }
+     ],
+     "unresolved": 0,
+     "unresolved_ids": [],
+     "ordered_by": "taxonomy order (low sample, not ranked)"
+    }
+   },
+   "crowded": [
+    {
+     "dimension": "hook_channel",
+     "value": "spoken_line",
+     "share": 0.75,
+     "advertiser_share": 1.0,
+     "low_sample": true
+    },
+    {
+     "dimension": "angle",
+     "value": "get_result",
+     "share": 0.333,
+     "advertiser_share": 0.6,
+     "low_sample": true
+    },
+    {
+     "dimension": "video_format",
+     "value": "ugc_talking_head",
+     "share": 0.5,
+     "advertiser_share": 1.0,
+     "low_sample": true
+    },
+    {
+     "dimension": "structure",
+     "value": "problem_solution",
+     "share": 0.333,
+     "advertiser_share": 0.6,
+     "low_sample": true
+    },
+    {
+     "dimension": "creator_type",
+     "value": "everyday_person",
+     "share": 0.583,
+     "advertiser_share": 0.8,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "free_trial",
+     "share": 0.833,
+     "advertiser_share": 0.8,
+     "low_sample": true
+    }
+   ],
+   "gaps": [
+    {
+     "dimension": "hook_type",
+     "value": "pattern_interrupt",
+     "low_sample": true,
+     "unresolved": 5,
+     "firm": false
+    },
+    {
+     "dimension": "hook_type",
+     "value": "social_proof",
+     "low_sample": true,
+     "unresolved": 5,
+     "firm": false
+    },
+    {
+     "dimension": "hook_channel",
+     "value": "visual_action",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "hook_channel",
+     "value": "sound",
+     "low_sample": true,
+     "unresolved": 1,
+     "firm": true
+    },
+    {
+     "dimension": "angle",
+     "value": "save_time",
+     "low_sample": true,
+     "unresolved": 7,
+     "firm": false
+    },
+    {
+     "dimension": "angle",
+     "value": "save_money",
+     "low_sample": true,
+     "unresolved": 7,
+     "firm": false
+    },
+    {
+     "dimension": "angle",
+     "value": "belonging_status",
+     "low_sample": true,
+     "unresolved": 7,
+     "firm": false
+    },
+    {
+     "dimension": "angle",
+     "value": "fear_of_missing_out",
+     "low_sample": true,
+     "unresolved": 7,
+     "firm": false
+    },
+    {
+     "dimension": "video_format",
+     "value": "slideshow_static",
+     "low_sample": true,
+     "unresolved": 0,
+     "firm": true
+    },
+    {
+     "dimension": "structure",
+     "value": "testimonial_story",
+     "low_sample": true,
+     "unresolved": 4,
+     "firm": false
+    },
+    {
+     "dimension": "structure",
+     "value": "challenge_trend",
+     "low_sample": true,
+     "unresolved": 4,
+     "firm": false
+    },
+    {
+     "dimension": "creator_type",
+     "value": "expert_authority",
+     "low_sample": true,
+     "unresolved": 2,
+     "firm": true
+    },
+    {
+     "dimension": "creator_type",
+     "value": "influencer",
+     "low_sample": true,
+     "unresolved": 2,
+     "firm": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "price_stated",
+     "low_sample": true,
+     "unresolved": 0,
+     "firm": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "none",
+     "low_sample": true,
+     "unresolved": 0,
+     "firm": true
+    }
+   ],
+   "single_advertiser": [
+    {
+     "dimension": "hook_type",
+     "value": "bold_claim",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "hook_type",
+     "value": "question",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "hook_type",
+     "value": "demo_first",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "hook_type",
+     "value": "story_opener",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "angle",
+     "value": "feel_better",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "video_format",
+     "value": "motion_graphics",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "video_format",
+     "value": "voiceover_broll",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "video_format",
+     "value": "split_screen_reaction",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "video_format",
+     "value": "skit_dramatized",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "structure",
+     "value": "listicle_tips",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "structure",
+     "value": "before_after",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "discount",
+     "creatives": 1,
+     "low_sample": true
+    },
+    {
+     "dimension": "offer_type",
+     "value": "freemium_download",
+     "creatives": 1,
+     "low_sample": true
+    }
+   ],
+   "flags": {
+    "product_in_first_3s": {
+     "yes": 0,
+     "share": 0.0,
+     "review": 1,
+     "yes_ids": [],
+     "review_ids": [
+      "v06"
+     ]
+    },
+    "cta_in_end": {
+     "yes": 12,
+     "share": 1.0,
+     "review": 0,
+     "yes_ids": [
+      "v01",
+      "v02",
+      "v03",
+      "v04",
+      "v05",
+      "v06",
+      "v07",
+      "v08",
+      "v09",
+      "v10",
+      "v11",
+      "v12"
+     ],
+     "review_ids": []
+    },
+    "social_proof": {
+     "yes": 3,
+     "share": 0.25,
+     "review": 0,
+     "yes_ids": [
+      "v02",
+      "v03",
+      "v04"
+     ],
+     "review_ids": []
+    },
+    "urgency": {
+     "yes": 1,
+     "share": 0.083,
+     "review": 0,
+     "yes_ids": [
+      "v07"
+     ],
+     "review_ids": []
+    },
+    "risky_claim": {
+     "yes": 4,
+     "share": 0.333,
+     "review": 4,
+     "yes_ids": [
+      "v03",
+      "v04",
+      "v09",
+      "v11"
+     ],
+     "review_ids": [
+      "v01",
+      "v02",
+      "v06",
+      "v07"
+     ]
+    },
+    "personal_attribute": {
+     "yes": 1,
+     "share": 0.083,
+     "review": 3,
+     "yes_ids": [
+      "v01"
+     ],
+     "review_ids": [
+      "v05",
+      "v08",
+      "v10"
+     ]
+    }
+   },
+   "scores": {
+    "hook_specificity": {
+     "mean": 1.36,
+     "max_level": 3,
+     "levels": {
+      "0": 0,
+      "1": 9,
+      "2": 2,
+      "3": 1
+     }
+    }
+   },
+   "facts": {
+    "duration_s": {
+     "min": 20.0,
+     "median": 29.0,
+     "max": 40.0,
+     "n": 12
+    },
+    "cuts_per_10s": {
+     "min": 1.0,
+     "median": 1.58,
+     "max": 2.73,
+     "n": 12
+    },
+    "avg_shot_s": {
+     "min": 3.14,
+     "median": 5.0,
+     "max": 8.0,
+     "n": 12
+    },
+    "captions_yes": 10
+   },
+   "durability": {
+    "note": "Runtime is a weak durability signal, not proof of results.",
+    "median_days": 52.0,
+    "longest": [],
+    "withheld": true
+   },
+   "creatives": [
+    {
+     "creative_id": "v01",
+     "advertiser": "Brand A",
+     "days": 108,
+     "tags": {
+      "hook_type": "problem_callout",
+      "hook_channel": "spoken_line",
+      "angle": "get_result",
+      "video_format": "ugc_talking_head",
+      "structure": "problem_solution",
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "yes"
+     }
+    },
+    {
+     "creative_id": "v02",
+     "advertiser": "Brand A",
+     "days": 36,
+     "tags": {
+      "hook_type": null,
+      "hook_channel": "on_screen_text",
+      "angle": null,
+      "video_format": "motion_graphics",
+      "structure": null,
+      "creator_type": "faceless",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "yes",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v03",
+     "advertiser": "Brand B",
+     "days": 167,
+     "tags": {
+      "hook_type": "story_opener",
+      "hook_channel": "spoken_line",
+      "angle": "get_result",
+      "video_format": "ugc_talking_head",
+      "structure": "problem_solution",
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "yes",
+      "urgency": "no",
+      "risky_claim": "yes",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v04",
+     "advertiser": "Brand B",
+     "days": 61,
+     "tags": {
+      "hook_type": null,
+      "hook_channel": null,
+      "angle": "get_result",
+      "video_format": "split_screen_reaction",
+      "structure": "before_after",
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "yes",
+      "urgency": "no",
+      "risky_claim": "yes",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v05",
+     "advertiser": "Brand B",
+     "days": 13,
+     "tags": {
+      "hook_type": "question",
+      "hook_channel": "spoken_line",
+      "angle": null,
+      "video_format": "ugc_talking_head",
+      "structure": "demo_walkthrough",
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "review"
+     }
+    },
+    {
+     "creative_id": "v06",
+     "advertiser": "Brand C",
+     "days": 133,
+     "tags": {
+      "hook_type": null,
+      "hook_channel": "spoken_line",
+      "angle": null,
+      "video_format": "screen_recording",
+      "structure": null,
+      "creator_type": "faceless",
+      "offer_type": "freemium_download"
+     },
+     "flags": {
+      "product_in_first_3s": "review",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v07",
+     "advertiser": "Brand C",
+     "days": 26,
+     "tags": {
+      "hook_type": "bold_claim",
+      "hook_channel": "spoken_line",
+      "angle": null,
+      "video_format": "ugc_talking_head",
+      "structure": "listicle_tips",
+      "creator_type": null,
+      "offer_type": "discount"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "yes",
+      "risky_claim": "review",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v08",
+     "advertiser": "Brand D",
+     "days": 97,
+     "tags": {
+      "hook_type": "other",
+      "hook_channel": "spoken_line",
+      "angle": null,
+      "video_format": "voiceover_broll",
+      "structure": null,
+      "creator_type": "faceless",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "review"
+     }
+    },
+    {
+     "creative_id": "v09",
+     "advertiser": "Brand D",
+     "days": 43,
+     "tags": {
+      "hook_type": null,
+      "hook_channel": "spoken_line",
+      "angle": "get_result",
+      "video_format": "ugc_talking_head",
+      "structure": "problem_solution",
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "yes",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v10",
+     "advertiser": "Brand D",
+     "days": 11,
+     "tags": {
+      "hook_type": "problem_callout",
+      "hook_channel": "on_screen_text",
+      "angle": null,
+      "video_format": "skit_dramatized",
+      "structure": "problem_solution",
+      "creator_type": null,
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "review"
+     }
+    },
+    {
+     "creative_id": "v11",
+     "advertiser": "Brand E",
+     "days": 75,
+     "tags": {
+      "hook_type": null,
+      "hook_channel": "spoken_line",
+      "angle": "feel_better",
+      "video_format": "ugc_talking_head",
+      "structure": null,
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "yes",
+      "personal_attribute": "no"
+     }
+    },
+    {
+     "creative_id": "v12",
+     "advertiser": "Brand E",
+     "days": 9,
+     "tags": {
+      "hook_type": "demo_first",
+      "hook_channel": "spoken_line",
+      "angle": null,
+      "video_format": "screen_recording",
+      "structure": "demo_walkthrough",
+      "creator_type": "everyday_person",
+      "offer_type": "free_trial"
+     },
+     "flags": {
+      "product_in_first_3s": "no",
+      "cta_in_end": "yes",
+      "social_proof": "no",
+      "urgency": "no",
+      "risky_claim": "no",
+      "personal_attribute": "no"
+     }
+    }
+   ],
+   "models": [
+    "jev-1.14.0"
+   ],
+   "sources": [
+    "live"
+   ]
+  }
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "creatives": 12,
+ "errors": 0,
+ "est_usd": 0.001486,
+ "input_tokens": 35377,
+ "model_requested": "jev-1.14.0",
+ "price_per_million": 0.042,
+ "requests": 18,
+ "review_rows": 27,
+ "rotation": true,
+ "skipped_by_guard": 0,
+ "source": "live",
+ "tagged_ok": 12,
+ "taxonomy_version": "video-1.0",
+ "thresholds": {
+  "review_low": 0.35,
+  "tag": 0.7
+ },
+ "track": "video"
+}

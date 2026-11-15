@@ -1,0 +1,336 @@
+{
+ "note": "Same creative asked twice with Choice options in a rotated and a reversed order. Low agreement means option order moves the answer: rewrite the options or keep more of that question in review.",
+ "per_question": {
+  "angle": {
+   "agreement": 0.833,
+   "pairs": 6,
+   "same": 5
+  },
+  "creator_type": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "hook_channel": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "hook_type": {
+   "agreement": 0.667,
+   "pairs": 6,
+   "same": 4
+  },
+  "offer_type": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "structure": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  },
+  "video_format": {
+   "agreement": 1.0,
+   "pairs": 6,
+   "same": 6
+  }
+ },
+ "rows": [
+  {
+   "creative_id": "v01",
+   "question_id": "hook_type",
+   "reversed_choice": "problem_callout",
+   "rotated_choice": "problem_callout",
+   "same": true
+  },
+  {
+   "creative_id": "v01",
+   "question_id": "hook_channel",
+   "reversed_choice": "spoken_line",
+   "rotated_choice": "spoken_line",
+   "same": true
+  },
+  {
+   "creative_id": "v01",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "v01",
+   "question_id": "video_format",
+   "reversed_choice": "ugc_talking_head",
+   "rotated_choice": "ugc_talking_head",
+   "same": true
+  },
+  {
+   "creative_id": "v01",
+   "question_id": "structure",
+   "reversed_choice": "problem_solution",
+   "rotated_choice": "problem_solution",
+   "same": true
+  },
+  {
+   "creative_id": "v01",
+   "question_id": "creator_type",
+   "reversed_choice": "everyday_person",
+   "rotated_choice": "everyday_person",
+   "same": true
+  },
+  {
+   "creative_id": "v01",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "hook_type",
+   "reversed_choice": "social_proof",
+   "rotated_choice": "bold_claim",
+   "same": false
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "hook_channel",
+   "reversed_choice": "on_screen_text",
+   "rotated_choice": "on_screen_text",
+   "same": true
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "feel_better",
+   "same": false
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "video_format",
+   "reversed_choice": "motion_graphics",
+   "rotated_choice": "motion_graphics",
+   "same": true
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "structure",
+   "reversed_choice": "problem_solution",
+   "rotated_choice": "problem_solution",
+   "same": true
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "creator_type",
+   "reversed_choice": "faceless",
+   "rotated_choice": "faceless",
+   "same": true
+  },
+  {
+   "creative_id": "v02",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "hook_type",
+   "reversed_choice": "story_opener",
+   "rotated_choice": "story_opener",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "hook_channel",
+   "reversed_choice": "spoken_line",
+   "rotated_choice": "spoken_line",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "video_format",
+   "reversed_choice": "ugc_talking_head",
+   "rotated_choice": "ugc_talking_head",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "structure",
+   "reversed_choice": "problem_solution",
+   "rotated_choice": "problem_solution",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "creator_type",
+   "reversed_choice": "everyday_person",
+   "rotated_choice": "everyday_person",
+   "same": true
+  },
+  {
+   "creative_id": "v03",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "hook_type",
+   "reversed_choice": "story_opener",
+   "rotated_choice": "story_opener",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "hook_channel",
+   "reversed_choice": "on_screen_text",
+   "rotated_choice": "on_screen_text",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "video_format",
+   "reversed_choice": "split_screen_reaction",
+   "rotated_choice": "split_screen_reaction",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "structure",
+   "reversed_choice": "before_after",
+   "rotated_choice": "before_after",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "creator_type",
+   "reversed_choice": "everyday_person",
+   "rotated_choice": "everyday_person",
+   "same": true
+  },
+  {
+   "creative_id": "v04",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "hook_type",
+   "reversed_choice": "question",
+   "rotated_choice": "question",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "hook_channel",
+   "reversed_choice": "spoken_line",
+   "rotated_choice": "spoken_line",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "video_format",
+   "reversed_choice": "ugc_talking_head",
+   "rotated_choice": "ugc_talking_head",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "structure",
+   "reversed_choice": "demo_walkthrough",
+   "rotated_choice": "demo_walkthrough",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "creator_type",
+   "reversed_choice": "everyday_person",
+   "rotated_choice": "everyday_person",
+   "same": true
+  },
+  {
+   "creative_id": "v05",
+   "question_id": "offer_type",
+   "reversed_choice": "free_trial",
+   "rotated_choice": "free_trial",
+   "same": true
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "hook_type",
+   "reversed_choice": "bold_claim",
+   "rotated_choice": "demo_first",
+   "same": false
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "hook_channel",
+   "reversed_choice": "spoken_line",
+   "rotated_choice": "spoken_line",
+   "same": true
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "angle",
+   "reversed_choice": "get_result",
+   "rotated_choice": "get_result",
+   "same": true
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "video_format",
+   "reversed_choice": "screen_recording",
+   "rotated_choice": "screen_recording",
+   "same": true
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "structure",
+   "reversed_choice": "problem_solution",
+   "rotated_choice": "problem_solution",
+   "same": true
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "creator_type",
+   "reversed_choice": "faceless",
+   "rotated_choice": "faceless",
+   "same": true
+  },
+  {
+   "creative_id": "v06",
+   "question_id": "offer_type",
+   "reversed_choice": "freemium_download",
+   "rotated_choice": "freemium_download",
+   "same": true
+  }
+ ]
+}
