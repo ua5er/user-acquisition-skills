@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski
 
-> Fifteen open agent skills (SKILL.md) for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, marketing system audits, typed AI decision gates and a Claude + Jev competitor creative system in app and subscription businesses. Written by Vlad Yasinski, AI growth consultant in Warsaw, Poland, 10+ years in paid acquisition. MIT licence.
+> Sixteen open agent skills (SKILL.md) for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, marketing system audits, typed AI decision gates and a Claude + Jev competitor creative system in app and subscription businesses. Written by Vlad Yasinski, AI growth consultant in Warsaw, Poland, 10+ years in paid acquisition. MIT licence.
 
 Install: `npx skills add ua5er/user-acquisition-skills`
 
@@ -21,6 +21,7 @@ Install: `npx skills add ua5er/user-acquisition-skills`
 - [competitor-creative-parser](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/competitor-creative-parser): Claude + Jev step 1, parse competitor static and video ads into a tagged dataset and a market snapshot; Claude drafts a market taxonomy for the category before tagging
 - [market-to-creative-brief](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/market-to-creative-brief): Claude + Jev step 2, production decisions plus a static brief and a motion brief tied to snapshot numbers
 - [creative-preflight-panel](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/creative-preflight-panel): Claude + Jev step 3, simulated buyer panel with go, rework or drop per concept and a calibration check against real results
+- [synthetic-audience-panel](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/synthetic-audience-panel): Claude + Jev, one ad or two shown to about 1,000 virtual people in a few requests; funnel per 1,000, objections, readings by kind of person and a verdict for two ads; panel answers, not a forecast
 
 ## Examples
 

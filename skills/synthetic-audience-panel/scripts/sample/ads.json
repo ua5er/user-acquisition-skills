@@ -1,0 +1,16 @@
+[
+  {
+    "id": "A",
+    "primary_text": "Speak Spanish on your next trip, guaranteed\u0021 Ten minute lessons built around the phrases travellers use most, with a voice coach that checks your accent. Start today.",
+    "headline": "Learn Spanish fast",
+    "button": "Learn more",
+    "offer": "First week free, then $9.99 a month"
+  },
+  {
+    "id": "B",
+    "primary_text": "Ten minute Spanish lessons for travellers. Learn the phrases for the airport, the hotel and the table. Start your free week.",
+    "headline": "Travel Spanish in 10 minutes a day",
+    "button": "Start free week",
+    "offer": "First week free, then $9.99 a month"
+  }
+]

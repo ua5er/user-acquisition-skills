@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski: agent skills for app and subscription growth
 
-User Acquisition Skills is a set of fifteen open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, typed AI decision gates and competitor creative research in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
+User Acquisition Skills is a set of sixteen open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, typed AI decision gates and competitor creative research in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
 ## Install
 
@@ -41,6 +41,7 @@ Then ask your agent in plain words, for example: "Audit this paywall", "Write ki
 | [`competitor-creative-parser`](skills/competitor-creative-parser/SKILL.md) | Claude + Jev, step 1. Turns competitor ads from public ad libraries or your own files into a tagged dataset and a market snapshot, in a static and a video track: shares per hook, angle, format, offer and CTA, crowded angles, gaps, pacing facts, with small-sample guards and a review queue. Claude drafts a market taxonomy for the category before tagging, and a confirm pass keeps confident choices out of review. |
 | [`market-to-creative-brief`](skills/market-to-creative-brief/SKILL.md) | Claude + Jev, step 2. Turns the snapshot and your constraints into production decisions, a static brief for designers and a motion brief for the video team. Code re-checks every cited number, ad id, gap, beat timing and the test budget before the pack renders. |
 | [`creative-preflight-panel`](skills/creative-preflight-panel/SKILL.md) | Claude + Jev, step 3. Shows every concept (and every video hook) to 12 to 30 simulated buyer profiles, builds a concept by profile heatmap and gives go, rework or drop with reasons; after launch it checks the panel against your real results. A cheap filter and a signal, not proof of performance. |
+| [`synthetic-audience-panel`](skills/synthetic-audience-panel/SKILL.md) | Claude + Jev. Shows one ad or two to about 1,000 virtual people in a few requests: every combination of seven situations and attitudes, with a control group. Returns a funnel per 1,000 virtual impressions, the main objections, readings by kind of person and a verdict for two ads on the same panel. Also reads onboarding screens step by step. Panel answers and a cheap filter, not a forecast of CTR. |
 
 ## Claude + Jev: from competitor ads to tested concepts
 
@@ -60,6 +61,7 @@ Two design explorations for a subscription AI photo app (app name withheld) used
 
 - [Onboarding redesign: five concepts](examples/onboarding-redesign-subscription-photo-app.md)
 - [Paywall redesign: versions V1 to V6 and hero variants](examples/paywall-redesign-subscription-photo-app.md)
+- [Synthetic audience panel: two ads on 1,000 virtual people](examples/synthetic-audience-panel-walkthrough.md)
 
 These are design cases. They do not contain measured conversion results. The Claude + Jev walk-throughs above contain no ad results either: one runs on a fictional market, the other on a real ad library capture, which shows what runs and never spend or results.
 
