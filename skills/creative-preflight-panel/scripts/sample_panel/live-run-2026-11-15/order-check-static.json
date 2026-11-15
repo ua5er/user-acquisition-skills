@@ -1,0 +1,92 @@
+{
+ "agreement": 0.917,
+ "note": "The action Choice asked twice for the same pair, options rotated and reversed. Low agreement means option order moves the answer: keep those pairs in review or rewrite the options.",
+ "pairs": 12,
+ "rows": [
+  {
+   "item_id": "S1",
+   "profile_id": "p01",
+   "reversed_choice": "stop",
+   "rotated_choice": "scroll",
+   "same": false
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p02",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p03",
+   "reversed_choice": "scroll",
+   "rotated_choice": "scroll",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p04",
+   "reversed_choice": "scroll",
+   "rotated_choice": "scroll",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p05",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p06",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p07",
+   "reversed_choice": "click",
+   "rotated_choice": "click",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p08",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p09",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p10",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p11",
+   "reversed_choice": "click",
+   "rotated_choice": "click",
+   "same": true
+  },
+  {
+   "item_id": "S1",
+   "profile_id": "p12",
+   "reversed_choice": "stop",
+   "rotated_choice": "stop",
+   "same": true
+  }
+ ],
+ "same": 11
+}

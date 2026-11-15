@@ -166,6 +166,24 @@ class RenderTest(unittest.TestCase):
         self.assertEqual(len(lines[3]["hooks"]), 3)
         self.assertEqual(lines[0]["track"], "static")
 
+    def test_panel_verdicts(self):
+        panel = {"notice": "signal only", "items": [{"item_id": "S1", "verdict": "go"}, {"item_id": "S2", "verdict": "drop"},
+                                                    {"item_id": "M1-B", "verdict": "rework"}],
+                 "concepts": [{"concept_id": "S2", "track": "static", "verdict": "drop", "best_item": "S2",
+                               "items": {"S2": "drop"}, "reasons": ["holds few profiles"]}]}
+        vpath = os.path.join(self.tmp, "verdicts.json")
+        with open(vpath, "w", encoding="utf-8") as fh:
+            json.dump(panel, fh)
+        out = os.path.join(self.tmp, "pack-panel.md")
+        rc = brief_pack.main(["--decisions", self.dec_path, "--snapshot", self.snap_path, "--out", out,
+                              "--panel-verdicts", vpath])
+        self.assertEqual(rc, 0)
+        text = open(out, encoding="utf-8").read()
+        self.assertIn("## Pre-flight panel", text)
+        self.assertIn("Held back by the pre-flight panel", text)
+        self.assertIn("`BRANDZ | MKT01 | Static | S2 v1 | src: market s07` (drop)", text)
+        self.assertIn("M1 hook B | src: market v06+v12` (panel: rework before production)", text)
+
     def test_errors_stop_rendering(self):
         dec = load("sample_decisions.json")
         dec["decisions"][0]["evidence"][0]["expected"] = 5

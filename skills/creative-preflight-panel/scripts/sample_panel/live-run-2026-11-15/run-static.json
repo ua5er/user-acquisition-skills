@@ -1,0 +1,20 @@
+{
+ "answered": 36,
+ "errors": 0,
+ "est_usd": 0.001502,
+ "input_tokens": 35760,
+ "items": 3,
+ "model_requested": "jev-1.14.0",
+ "pairs": 36,
+ "panel_version": "panel-static-1.0",
+ "price_per_million": 0.042,
+ "profiles": 12,
+ "requests": 48,
+ "skipped_by_guard": 0,
+ "source": "live",
+ "thresholds": {
+  "review_low": 0.35,
+  "tag": 0.7
+ },
+ "track": "static"
+}

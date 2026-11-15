@@ -47,6 +47,7 @@ Mixing static and video in one ad set is fine: one format taking most of the spe
 - New batch every week, 3 to 6 creatives, into the same ad set. Concepts, not small variations: different angle, persona, hook, format.
 - Mix: proven winner iterations (new hook on the same idea), new angles, UGC video, static with a strong headline.
 - Name every ad: `PROJECT | TEST | Format | Concept | src: file_or_original`.
+- Optional screen before production: run the batch's concepts through `creative-preflight-panel`. Go items and fixed rework items enter the batch; the panel never decides kill, winner or budget, the criteria in section 3 do.
 
 ## 5. Brief template for designers and UGC creators
 ```

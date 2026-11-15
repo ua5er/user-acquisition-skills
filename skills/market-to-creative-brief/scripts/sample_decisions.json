@@ -292,7 +292,8 @@
     "Annual price shown in full",
     "No claim about sleep results",
     "All three sizes delivered with names from the test plan"
-   ]
+   ],
+   "offer_line": "7 days free, then [annual price] a year"
   },
   {
    "concept_id": "S2",
@@ -335,7 +336,8 @@
     "Weekly and annual figures checked by a person against the live price",
     "Billing period stated next to the price",
     "No deadline wording"
-   ]
+   ],
+   "offer_line": "[weekly price] a week on the annual plan, [annual price] billed yearly after a 7-day free trial"
   },
   {
    "concept_id": "S3",
@@ -383,7 +385,8 @@
     "Audience, promise and timeframe all in the headline",
     "Timer visible on the phone screen",
     "Footer price line present"
-   ]
+   ],
+   "offer_line": "7 days free, then [annual price] a year"
   }
  ],
  "motion_briefs": [

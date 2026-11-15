@@ -1,11 +1,12 @@
-# Example: parse a fictional market, write the briefs
+# Example: parse a fictional market, write the briefs, pre-flight the concepts
 
-**The market is fictional. The tags are real model output.** Five invented sleep improvement apps ("Brand A" to "Brand E") and their 24 invented ads were written for this example. Jev (`jev-1.14.0`, TypeSafe AI's direct endpoint) tagged the descriptions live on 2026-11-15, and code counted the result. No real ad library was parsed, no real brand appears, and nothing here says anything about how real ads perform. "Brand Z", the team the briefs are written for, is invented too; its budget and target CPA are example values.
+**The market is fictional. The tags and panel answers are real model output.** Five invented sleep improvement apps ("Brand A" to "Brand E") and their 24 invented ads were written for this example. Jev (`jev-1.14.0`, TypeSafe AI's direct endpoint) tagged the descriptions live on 2026-11-15, and code counted the result. No real ad library was parsed, no real brand appears, and nothing here says anything about how real ads perform. "Brand Z", the team the briefs are written for, is invented too, and so are its 12 buyer profiles; its budget and target CPA are example values.
 
 The chain uses the Claude + Jev skills in this repository:
 
 1. `competitor-creative-parser`: capture, Claude describes, Jev tags, code builds the snapshot.
 2. `market-to-creative-brief`: Claude picks the moves and writes the briefs, code checks every number against the snapshot and assembles the pack.
+3. `creative-preflight-panel`: Claude writes buyer profiles, Jev answers typed questions for every concept and profile pair, code builds the heatmap and the go, rework, drop list, which goes back into the pack.
 
 ## What went in
 
@@ -15,19 +16,24 @@ The chain uses the Claude + Jev skills in this repository:
 | Descriptions (the state Jev reads) | `skills/competitor-creative-parser/scripts/sample_market/descriptions.jsonl` | 24, videos with transcripts and cut times |
 | Question sets | `questions_static.py` (17 questions), `questions_video.py` (21 questions) | |
 | Team constraints and decisions | `skills/market-to-creative-brief/scripts/sample_decisions.json` | 6 decisions, 3 static and 3 motion briefs |
+| Buyer profiles | `skills/creative-preflight-panel/scripts/sample_panel/profiles.jsonl` | 12 (7 from ICP notes, 5 from snapshot signals, one control) |
+| Panel concepts | `skills/creative-preflight-panel/scripts/sample_panel/concepts.jsonl` | 6 concepts, 12 panel items (each video hook is its own item) |
 
 Images and videos never go to Jev: only the text descriptions do.
 
-## Live run: tokens and cost
+## Live runs: tokens and cost
 
-| Run | Creatives | Requests | Input tokens | Cost at $0.042 per million |
+| Run | Items | Requests | Input tokens | Cost at $0.042 per million |
 |---|---|---|---|---|
-| Smoke (3 creatives, shape check) | 3 | 3 | 5,793 | $0.00024 |
-| Static track, with an order check on 6 | 12 | 18 | 31,330 | $0.00132 |
-| Video track, with an order check on 6 | 12 | 18 | 35,377 | $0.00149 |
-| Total | 24 | 39 | 72,500 | $0.0030 |
+| Parser smoke (3 creatives, shape check) | 3 | 3 | 5,793 | $0.00024 |
+| Parser, static track, order check on 6 | 12 creatives | 18 | 31,330 | $0.00132 |
+| Parser, video track, order check on 6 | 12 creatives | 18 | 35,377 | $0.00149 |
+| Panel smoke (3 pairs, shape check) | 3 pairs | 3 | 2,407 | $0.00010 |
+| Panel, static track, order check on 12 | 36 pairs (3 items x 12 profiles) | 48 | 35,760 | $0.00150 |
+| Panel, video track, order check on 12 | 108 pairs (9 items x 12 profiles) | 120 | 105,372 | $0.00443 |
+| Total | | 210 | 216,039 | $0.0091 |
 
-Token counts come from the API's usage field. Errors: 0. Every creative came back in the documented response shape.
+Token counts come from the API's usage field. Errors: 0. Every request came back in the documented response shape. Claude's own work (descriptions, decisions, briefs, profiles) ran in the chat session and is not in these numbers.
 
 Order check (the same creative asked twice with Choice options in rotated and reversed order): every static Choice agreed 6 of 6; on video, angle agreed 5 of 6 and hook type 4 of 6, the rest 6 of 6. Hook type on video is the question to keep in review until it is rewritten or calibrated.
 
@@ -44,7 +50,19 @@ python3 market_snapshot.py --creatives sample_market/creatives.jsonl --tags run/
     --out-dir run --market "sleep improvement apps, English (FICTIONAL sample market)"
 cd ../../market-to-creative-brief/scripts
 python3 brief_pack.py --decisions sample_decisions.json --snapshot sample_snapshot.json --out brief-pack.md \
-    --gates-csv copy-check.csv --panel-concepts concepts.jsonl
+    --gates-csv copy-check.csv --panel-concepts ../../creative-preflight-panel/scripts/sample_panel/concepts.jsonl
+cd ../../creative-preflight-panel/scripts
+python3 run_panel.py --concepts sample_panel/concepts.jsonl --profiles sample_panel/profiles.jsonl --track static \
+    --smoke --data-handling-confirmed --out-dir panel-smoke
+python3 run_panel.py --concepts sample_panel/concepts.jsonl --profiles sample_panel/profiles.jsonl --track static \
+    --order-check 12 --max-usd 0.05 --data-handling-confirmed --out-dir panel
+python3 run_panel.py --concepts sample_panel/concepts.jsonl --profiles sample_panel/profiles.jsonl --track video \
+    --order-check 12 --max-usd 0.05 --data-handling-confirmed --out-dir panel
+python3 panel_matrix.py --answers panel/answers-static.jsonl panel/answers-video.jsonl \
+    --profiles sample_panel/profiles.jsonl --out-dir panel
+cd ../../market-to-creative-brief/scripts
+python3 brief_pack.py --decisions sample_decisions.json --snapshot sample_snapshot.json --out brief-pack.md \
+    --panel-verdicts ../../creative-preflight-panel/scripts/sample_panel/live-run-2026-11-15/verdicts.json
 ```
 
 Both tracks hold 12 creatives, under the 20-creative guard, so the snapshot ranks nothing and marks every label low sample. That is the honest reading of 12 ads: directional.
@@ -282,7 +300,7 @@ Longest-running list withheld under the sample guard.
 
 ## Step 2 output: the brief pack
 
-As written by `brief_pack.py` from `sample_decisions.json`, which Claude wrote by following `market-to-creative-brief` on this snapshot (headings shifted one level).
+As written by `brief_pack.py` from `sample_decisions.json`, which Claude wrote by following `market-to-creative-brief` on this snapshot, rendered with the panel verdicts from step 3 (headings shifted one level).
 
 > FICTIONAL example: the market, the ads and the team are invented. The snapshot numbers are real Jev output on the invented ads. Budget and CPA are example values.
 
@@ -335,6 +353,19 @@ Hypothesis for the test: A talking head with the app in hand from the first fram
 
 **D6.** 4 videos are flagged for health or result claims and 4 more sit in review, including a 'completely cured' line. No script promises a cure, a number of hours or minutes to fall asleep, or a fixed relationship or work outcome.
 
+### Pre-flight panel (creative-preflight-panel)
+
+> A panel score is a cheap filter and a signal, not proof of performance. It never replaces a live test and never touches budgets. A person decides.
+
+| Concept | Track | Verdict | Best item | Items | Reasons |
+|---|---|---|---|---|---|
+| S1 | static | go | S1 | S1 go | offer or product clear at first sight for 0 of 12 profiles |
+| S3 | static | go | S3 | S3 go | offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| S2 | static | rework | S2 | S2 rework | fit 1.84 of 3, under 2.0 for a go; hook about the person's problem for 0 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles; loses 3 of 12 profiles |
+| M1 | video | go | M1-A | M1-A go, M1-B rework, M1-C rework | offer or product clear at first sight for 0 of 12 profiles |
+| M2 | video | go | M2-B | M2-A go, M2-B go, M2-C rework | hook about the person's problem for 4 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles |
+| M3 | video | go | M3-A | M3-A go, M3-B rework, M3-C rework | offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+
 ### Static brief S1: Counting sheep or 8 minutes
 
 For: designers. Decision: D1.
@@ -345,6 +376,7 @@ For: designers. Decision: D1.
 - Visual: Split image: grey sketch of sheep on the left, a phone screen with an 8:00 timer and a dim amber glow on the right.
 - Copy blocks: headline "Counting sheep, or an 8-minute wind-down?"; primary text "Same bed, same night. One way is lying there counting. The other is 8 minutes of lights down, slow breathing and a short story, guided step by step. Try it free for 7 days."; CTA button "Start free trial"
 - Offer and its placement: 7 days free, then the annual price in full, in a footer line under the right panel (no static in the market states its price)
+- Offer line as the viewer reads it: 7 days free, then [annual price] a year
 - Sizes: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920 with the headline inside the safe zone
 
 Variants (one variable each):
@@ -386,6 +418,7 @@ For: designers. Decision: D1.
 - Visual: Warm dark background, large price figure, a small phone screen with the wind-down timer.
 - Copy blocks: headline "Less per week than one late-night snack"; primary text "An 8-minute wind-down every night. [weekly price] a week on the annual plan, [annual price] billed once a year after a 7-day free trial."; CTA button "Start free trial"
 - Offer and its placement: 7-day free trial, then the annual price in full; weekly figure computed by the team from the real annual price
+- Offer line as the viewer reads it: [weekly price] a week on the annual plan, [annual price] billed yearly after a 7-day free trial
 - Sizes: 1:1 1080x1080, 4:5 1080x1350
 
 Variants (one variable each):
@@ -423,6 +456,7 @@ For: designers. Decision: D2.
 - Visual: Phone-style photo of a bedside table at night, lamp off, phone screen showing the 8:00 timer in amber.
 - Copy blocks: headline "Still awake after 11? Here is an 8-minute wind-down for tonight."; primary text "Lights down, slow breathing, a short story. Guided step by step, the same 8 minutes every night. 7 days free."; CTA button "Start tonight"
 - Offer and its placement: 7 days free, then the annual price in a footer line
+- Offer line as the viewer reads it: 7 days free, then [annual price] a year
 - Sizes: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920
 
 Variants (one variable each):
@@ -623,19 +657,148 @@ Ad names in the format `PROJECT | TEST | Format | Concept | src`:
 
 - `BRANDZ | MKT01 | Static | S1 v1 | src: market s01+s09`
 - `BRANDZ | MKT01 | Static | S1 v2 | src: market s01+s09`
-- `BRANDZ | MKT01 | Static | S2 v1 | src: market s07`
-- `BRANDZ | MKT01 | Static | S2 v2 | src: market s07`
+- `BRANDZ | MKT01 | Static | S2 v1 | src: market s07` (panel: rework before production)
+- `BRANDZ | MKT01 | Static | S2 v2 | src: market s07` (panel: rework before production)
 - `BRANDZ | MKT01 | Static | S3 v1 | src: market s06+s09`
 - `BRANDZ | MKT01 | Static | S3 v2 | src: market s06+s09`
 - `BRANDZ | MKT01 | Video | M1 hook A | src: market v06+v12`
-- `BRANDZ | MKT01 | Video | M1 hook B | src: market v06+v12`
-- `BRANDZ | MKT01 | Video | M1 hook C | src: market v06+v12`
+- `BRANDZ | MKT01 | Video | M1 hook B | src: market v06+v12` (panel: rework before production)
+- `BRANDZ | MKT01 | Video | M1 hook C | src: market v06+v12` (panel: rework before production)
 - `BRANDZ | MKT01 | Video | M2 hook A | src: market v02`
 - `BRANDZ | MKT01 | Video | M2 hook B | src: market v02`
-- `BRANDZ | MKT01 | Video | M2 hook C | src: market v02`
+- `BRANDZ | MKT01 | Video | M2 hook C | src: market v02` (panel: rework before production)
 - `BRANDZ | MKT01 | Video | M3 hook A | src: market v01+v11`
-- `BRANDZ | MKT01 | Video | M3 hook B | src: market v01+v11`
-- `BRANDZ | MKT01 | Video | M3 hook C | src: market v01+v11`
+- `BRANDZ | MKT01 | Video | M3 hook B | src: market v01+v11` (panel: rework before production)
+- `BRANDZ | MKT01 | Video | M3 hook C | src: market v01+v11` (panel: rework before production)
 
 Run it with meta-creative-testing: one broad ad set by default, its kill, winner and fatigue criteria, a control that stays live, judged on the primary metric only after the spend gate. Optional before production: creative-preflight-panel on the concepts file. Optional before launch: the copy lines through jev-marketing-gates. Nothing in this pack is published or launched by the skill.
 
+## Step 3: pre-flight panel
+
+Claude wrote 12 buyer profiles for Brand Z (fictional) from invented ICP notes and from audience signals in the snapshot above (the market's outcome promises and health claims suggested skeptics; the free-trial default suggested a price watcher). Each concept, and each video hook on its own, met every profile: 12 panel items x 12 profiles = 144 pairs.
+
+| Profile | Label | Source |
+|---|---|---|
+| p01 | Racing mind after work | ICP notes |
+| p02 | New parent, broken nights | ICP notes |
+| p03 | Shift worker | ICP notes |
+| p04 | Phone in bed | snapshot signal |
+| p05 | Skeptical of sleep claims | snapshot signal |
+| p06 | Price watcher | snapshot signal |
+| p07 | Travelling for work | ICP notes |
+| p08 | Tried everything | ICP notes |
+| p09 | Anxious at bedtime | ICP notes |
+| p10 | Good sleeper, curious | snapshot signal |
+| p11 | Parent of a teenager, buying for the family | ICP notes |
+| p12 | Hates talking-head ads | snapshot signal |
+
+Jev answered one Choice (scroll, stop, click) with probabilities, three yes/no questions (hook about this person's problem, offer or product clear at first sight, would distrust a claim) and a fit Score for every pair. Option order was rotated per pair; the reversed-order check agreed on 11 of 12 pairs per track.
+
+A panel score is a cheap filter and a signal, not proof of performance. It never replaces a live test and never touches budgets.
+
+### The matrix
+
+As written by `panel_matrix.py` (headings shifted two levels).
+
+Cells: probability mass on stop or click (0 to 1) for one item and one profile. A `?` marks a pair in the review band (over 0.35 and under 0.70): the panel cannot tell whether this person stops or scrolls.
+
+#### Static track
+
+3 items x 12 profiles. Ranking: no leader: S1, S3 within 0.10 of each other.
+
+##### Heatmap
+
+| Item | p01 | p02 | p03 | p04 | p05 | p06 | p07 | p08 | p09 | p10 | p11 | p12 | Mean |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| S1 | 0.55? | 0.64? | 0.59? | 0.43? | 0.99 | 0.71 | 0.89 | 0.93 | 0.95 | 0.72 | 0.98 | 0.95 | 0.78 |
+| S3 | 0.55? | 0.66? | 0.25 | 0.51? | 0.99 | 0.81 | 0.91 | 0.78 | 0.92 | 0.49? | 0.96 | 0.94 | 0.73 |
+| S2 | 0.20 | 0.40? | 0.23 | 0.25 | 0.68? | 0.81 | 0.63? | 0.36? | 0.43? | 0.77 | 0.70 | 0.63? | 0.51 |
+
+Profiles: p01 Racing mind after work; p02 New parent, broken nights; p03 Shift worker; p04 Phone in bed; p05 Skeptical of sleep claims; p06 Price watcher; p07 Travelling for work; p08 Tried everything; p09 Anxious at bedtime; p10 Good sleeper, curious; p11 Parent of a teenager, buying for the family; p12 Hates talking-head ads.
+
+##### Ranking and verdicts
+
+| Rank | Item | Stop or click | Click | Fit (0-3) | Hook about problem | Offer clear | Distrust | Review band | Verdict | Reasons |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | S1 | 0.78 | 0.25 | 2.24 | 83% | 0% | 8% | 33% | go | offer or product clear at first sight for 0 of 12 profiles |
+| 2 | S3 | 0.73 | 0.32 | 2.20 | 83% | 0% | 8% | 33% | go | offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| 3 | S2 | 0.51 | 0.12 | 1.84 | 0% | 0% | 17% | 50% | rework | fit 1.84 of 3, under 2.0 for a go; hook about the person's problem for 0 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles; loses 3 of 12 profiles |
+
+##### Profiles each item loses
+
+- S1: none
+- S3: p03 (0.25, fit 1.3)
+- S2: p01 (0.20, fit 1.8), p03 (0.23, fit 1.3), p04 (0.25, fit 2.1)
+
+#### Video track
+
+9 items x 12 profiles. Ranking: no leader: M1-A, M2-B, M3-A, M3-B within 0.10 of each other.
+
+##### Heatmap
+
+| Item | p01 | p02 | p03 | p04 | p05 | p06 | p07 | p08 | p09 | p10 | p11 | p12 | Mean |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| M1-A | 0.53? | 0.71 | 0.84 | 0.48? | 0.91 | 0.53? | 0.87 | 0.66? | 0.79 | 0.68? | 0.89 | 0.95 | 0.74 |
+| M2-B | 0.70 | 0.77 | 0.59? | 0.66? | 0.92 | 0.48? | 0.83 | 0.70 | 0.44? | 0.37? | 0.79 | 0.86 | 0.68 |
+| M3-A | 0.49? | 0.86 | 0.51? | 0.77 | 0.84 | 0.71 | 0.88 | 0.49? | 0.71 | 0.31 | 0.89 | 0.58? | 0.67 |
+| M3-B | 0.38? | 0.67? | 0.53? | 0.66? | 0.91 | 0.62? | 0.91 | 0.52? | 0.77 | 0.62? | 0.92 | 0.42? | 0.66 |
+| M3-C | 0.22 | 0.90 | 0.53? | 0.68? | 0.87 | 0.65? | 0.83 | 0.49? | 0.67? | 0.36? | 0.89 | 0.40? | 0.62 |
+| M1-C | 0.17 | 0.60? | 0.38? | 0.39? | 0.83 | 0.45? | 0.78 | 0.60? | 0.73 | 0.61? | 0.93 | 0.93 | 0.62 |
+| M2-A | 0.35 | 0.83 | 0.38? | 0.66? | 0.66? | 0.54? | 0.83 | 0.37? | 0.16 | 0.88 | 0.74 | 0.92 | 0.61 |
+| M2-C | 0.35 | 0.66? | 0.53? | 0.24 | 0.80 | 0.44? | 0.68? | 0.36? | 0.52? | 0.62? | 0.80 | 0.93 | 0.58 |
+| M1-B | 0.21 | 0.50? | 0.60? | 0.40? | 0.77 | 0.49? | 0.87 | 0.35? | 0.51? | 0.46? | 0.84 | 0.91 | 0.58 |
+
+Profiles: p01 Racing mind after work; p02 New parent, broken nights; p03 Shift worker; p04 Phone in bed; p05 Skeptical of sleep claims; p06 Price watcher; p07 Travelling for work; p08 Tried everything; p09 Anxious at bedtime; p10 Good sleeper, curious; p11 Parent of a teenager, buying for the family; p12 Hates talking-head ads.
+
+##### Ranking and verdicts
+
+| Rank | Item | Stop or click | Click | Fit (0-3) | Hook about problem | Offer clear | Distrust | Review band | Verdict | Reasons |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | M1-A | 0.74 | 0.09 | 2.27 | 83% | 0% | 8% | 42% | go | offer or product clear at first sight for 0 of 12 profiles |
+| 2 | M2-B | 0.68 | 0.05 | 2.24 | 33% | 0% | 0% | 42% | go | hook about the person's problem for 4 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles |
+| 3 | M3-A | 0.67 | 0.11 | 2.27 | 83% | 0% | 0% | 33% | go | offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| 4 | M3-B | 0.66 | 0.10 | 2.16 | 25% | 0% | 0% | 67% | rework | 67% of answers in the review band: too uncertain for a go; hook about the person's problem for 3 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles |
+| 5 | M3-C | 0.62 | 0.09 | 2.31 | 75% | 0% | 0% | 58% | rework | 58% of answers in the review band: too uncertain for a go; offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| 6 | M1-C | 0.62 | 0.06 | 2.14 | 33% | 8% | 8% | 50% | rework | trails hook M1-A of the same concept by 0.12: replace this opening; hook about the person's problem for 4 of 12 profiles; offer or product clear at first sight for 1 of 12 profiles; loses 1 of 12 profiles |
+| 7 | M2-A | 0.61 | 0.07 | 2.18 | 17% | 0% | 0% | 42% | go | hook about the person's problem for 2 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| 8 | M2-C | 0.58 | 0.05 | 2.11 | 8% | 0% | 0% | 58% | rework | 58% of answers in the review band: too uncertain for a go; hook about the person's problem for 1 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| 9 | M1-B | 0.58 | 0.06 | 2.19 | 0% | 0% | 8% | 58% | rework | 58% of answers in the review band: too uncertain for a go; hook about the person's problem for 0 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+
+##### Profiles each item loses
+
+- M1-A: none
+- M2-B: none
+- M3-A: p10 (0.31, fit 1.7)
+- M3-B: none
+- M3-C: p01 (0.22, fit 2.1)
+- M1-C: p01 (0.17, fit 1.9)
+- M2-A: p09 (0.16, fit 2.0)
+- M2-C: p04 (0.24, fit 1.9)
+- M1-B: p01 (0.21, fit 1.9)
+
+#### Concepts: go, rework, drop
+
+| Concept | Track | Verdict | Best item | Items | Reasons |
+|---|---|---|---|---|---|
+| S1 | static | go | S1 | S1 go | offer or product clear at first sight for 0 of 12 profiles |
+| S3 | static | go | S3 | S3 go | offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+| S2 | static | rework | S2 | S2 rework | fit 1.84 of 3, under 2.0 for a go; hook about the person's problem for 0 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles; loses 3 of 12 profiles |
+| M1 | video | go | M1-A | M1-A go, M1-C rework, M1-B rework | offer or product clear at first sight for 0 of 12 profiles |
+| M2 | video | go | M2-B | M2-B go, M2-A go, M2-C rework | hook about the person's problem for 4 of 12 profiles; offer or product clear at first sight for 0 of 12 profiles |
+| M3 | video | go | M3-A | M3-A go, M3-B rework, M3-C rework | offer or product clear at first sight for 0 of 12 profiles; loses 1 of 12 profiles |
+
+A person decides. Survivors (go, and rework after the fix) go to the test plan in meta-creative-testing; the live test decides, the panel does not.
+
+### What the panel says, read by a person
+
+- Static: S1 (counting sheep against an 8-minute wind-down) and S3 (awake after 11) both pass, with no leader between them (0.78 and 0.73 stop-or-click mass, inside the 0.10 tie margin). S2 (price per week against a snack) goes to rework: fit 1.84 of 3, its headline is about the buyer's problem for 0 of 12 profiles, and it loses the racing-mind, shift-worker and late-scroller profiles. The fix is a headline that names a problem before the price.
+- Video: the best hook of each concept passes (M1-A "1:12 am", M2-B "This is the whole routine", M3-A "Still awake after 11?"), again with no leader across them. M1-C trails M1-A by 0.12 and is replaced; M1-B, M2-C, M3-B and M3-C have most of their answers in the review band. Produce the A or B opening first and keep one weaker hook only if the test budget allows.
+- The control profile (p10, a good sleeper) was not low across the board (0.31 to 0.88). The panel discriminates weakly on who is in the target, so these verdicts are a rough cut, not a ranking.
+- Two questions did not resolve on these concepts: `offer_clear` reached 0.70 in 1 of 144 pairs and `distrust_claim` in 7 (111 in the review band). The static offer lines use price placeholders and the video hooks keep the offer for the end card, so both are notes here, not gates. Rewrite or calibrate them on real concepts.
+- One rule changed during this run. The first matrix pass read uncertainty on the top of the three actions; because probability spreads between stop and click, every item landed in rework. The rule now reads uncertainty on the hold-or-scroll split (stop-or-click mass over 0.35 and under 0.70), which matches what the verdict uses. The answers are the same in both passes; only the code rule changed.
+
+The verdicts went back into the brief pack (`brief_pack.py --panel-verdicts`, the "Pre-flight panel" section and the marked test plan above). No concept was dropped, so the test plan keeps all 15 ad names and marks 7 of them for rework before production.
+
+### Calibration
+
+Not run: a fictional market has no real results. After a real test, `panel_vs_results.py` takes the per-item numbers the team exports (impressions, clicks, conversions, spend) and reports rank agreement and the misses, which sets the panel's weight for the next round. The saved panel run is in `skills/creative-preflight-panel/scripts/sample_panel/live-run-2026-11-15/`.

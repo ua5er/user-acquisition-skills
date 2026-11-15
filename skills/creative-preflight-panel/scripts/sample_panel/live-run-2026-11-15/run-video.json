@@ -1,0 +1,20 @@
+{
+ "answered": 108,
+ "errors": 0,
+ "est_usd": 0.004426,
+ "input_tokens": 105372,
+ "items": 9,
+ "model_requested": "jev-1.14.0",
+ "pairs": 108,
+ "panel_version": "panel-video-1.0",
+ "price_per_million": 0.042,
+ "profiles": 12,
+ "requests": 120,
+ "skipped_by_guard": 0,
+ "source": "live",
+ "thresholds": {
+  "review_low": 0.35,
+  "tag": 0.7
+ },
+ "track": "video"
+}

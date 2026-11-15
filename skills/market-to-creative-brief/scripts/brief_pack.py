@@ -22,6 +22,11 @@ Standard library only, no network.
 
   python3 brief_pack.py --decisions decisions.json --snapshot snapshot.json --out brief-pack.md \\
       --gates-csv copy-check.csv --panel-concepts concepts.jsonl
+
+After the pre-flight panel, render again with its verdicts:
+
+  python3 brief_pack.py --decisions decisions.json --snapshot snapshot.json --out brief-pack.md \\
+      --panel-verdicts verdicts.json
 """
 import argparse
 import csv
@@ -199,7 +204,7 @@ def ev_text(ev):
     return "%s = %s" % (" ".join(p for p in parts if p), shown)
 
 
-def render(dec, snap, errors, warnings, blocking, plan):
+def render(dec, snap, errors, warnings, blocking, plan, panel=None):
     out = ["# Creative brief pack: %s" % dec.get("market", snap.get("market", "")), ""]
     if dec.get("notice"):
         out += ["> %s" % dec["notice"], ""]
@@ -235,11 +240,13 @@ def render(dec, snap, errors, warnings, blocking, plan):
         out += ["**%s.** %s" % (d["id"], d.get("rationale", "")), ""]
         if d.get("hypothesis"):
             out += ["Hypothesis for the test: %s" % d["hypothesis"], ""]
+    if panel:
+        out += render_panel(panel)
     for b in dec.get("static_briefs", []):
         out += render_static(b)
     for b in dec.get("motion_briefs", []):
         out += render_motion(b)
-    out += render_test_plan(dec)
+    out += render_test_plan(dec, panel)
     return "\n".join(out) + "\n"
 
 
@@ -259,6 +266,7 @@ def render_static(b):
            "- Copy blocks: headline \"%s\"; primary text \"%s\"; CTA button \"%s\"" % (
                cp.get("headline", "MISSING"), cp.get("primary_text", "MISSING"), cp.get("cta", "MISSING")),
            "- Offer and its placement: %s" % b.get("offer", "MISSING"),
+           "- Offer line as the viewer reads it: %s" % b.get("offer_line", "(as in the copy)"),
            "- Sizes: %s" % ", ".join(b.get("sizes", [])),
            "", "Variants (one variable each):", ""]
     out += bullet(b.get("variants", []))
@@ -296,24 +304,49 @@ def render_motion(b):
 
 
 def ad_names(dec):
+    """(panel item id, ad name) per creative: one per static variant, one per motion hook."""
     project = dec.get("project", "PROJECT")
     test = dec.get("test_name", "TEST")
     rows = []
     for b in dec.get("static_briefs", []):
         for i, _ in enumerate(b.get("variants", []) or [""], start=1):
-            rows.append("%s | %s | Static | %s v%d | src: market %s" % (
-                project, test, b["concept_id"], i, "+".join(r["id"] for r in b.get("references", []))))
+            rows.append((b["concept_id"], "%s | %s | Static | %s v%d | src: market %s" % (
+                project, test, b["concept_id"], i, "+".join(r["id"] for r in b.get("references", [])))))
     for b in dec.get("motion_briefs", []):
         for h in b.get("hooks", []):
-            rows.append("%s | %s | Video | %s hook %s | src: market %s" % (
-                project, test, b["concept_id"], h.get("id"), "+".join(r["id"] for r in b.get("references", []))))
+            rows.append(("%s-%s" % (b["concept_id"], h.get("id")), "%s | %s | Video | %s hook %s | src: market %s" % (
+                project, test, b["concept_id"], h.get("id"), "+".join(r["id"] for r in b.get("references", [])))))
     return rows
 
 
-def render_test_plan(dec):
+def panel_item_verdicts(panel):
+    return {s["item_id"]: s["verdict"] for s in (panel or {}).get("items", [])}
+
+
+def render_panel(panel):
+    out = ["## Pre-flight panel (creative-preflight-panel)", "",
+           "> %s" % panel.get("notice", "A panel score is a signal, not proof of performance."), "",
+           "| Concept | Track | Verdict | Best item | Items | Reasons |", "|---|---|---|---|---|---|"]
+    for c in panel.get("concepts", []):
+        out.append("| %s | %s | %s | %s | %s | %s |" % (
+            c["concept_id"], c["track"], c["verdict"], c["best_item"],
+            ", ".join("%s %s" % kv for kv in sorted(c.get("items", {}).items())), "; ".join(c.get("reasons", []))))
+    out.append("")
+    return out
+
+
+def render_test_plan(dec, panel=None):
+    verdicts = panel_item_verdicts(panel)
+    names = ad_names(dec)
+    keep = ["`%s`%s" % (n, " (panel: rework before production)" if verdicts.get(item) == "rework" else "")
+            for item, n in names if verdicts.get(item, "go") in ("go", "rework")]
+    held = [(item, n) for item, n in names if verdicts.get(item, "go") not in ("go", "rework")]
     out = ["## Hand-off: test plan for meta-creative-testing", "",
            "Ad names in the format `PROJECT | TEST | Format | Concept | src`:", ""]
-    out += ["- `%s`" % n for n in ad_names(dec)]
+    out += ["- %s" % n for n in keep]
+    if held:
+        out += ["", "Held back by the pre-flight panel (a person may override; rework items enter after the fix):", ""]
+        out += ["- `%s` (%s)" % (n, verdicts[item]) for item, n in held]
     out += ["", "Run it with meta-creative-testing: one broad ad set by default, its kill, winner and fatigue "
             "criteria, a control that stays live, judged on the primary metric only after the spend gate. "
             "Optional before production: creative-preflight-panel on the concepts file. Optional before launch: "
@@ -344,7 +377,8 @@ def panel_concepts(dec):
         cp = b.get("copy") or {}
         out.append({"concept_id": b["concept_id"], "track": "static", "decision_id": b["decision_id"],
                     "headline": cp.get("headline", ""), "primary_text": cp.get("primary_text", ""),
-                    "cta": cp.get("cta", ""), "offer": b.get("offer", ""), "layout": b.get("layout", ""),
+                    "cta": cp.get("cta", ""), "offer": b.get("offer", ""), "offer_line": b.get("offer_line", ""),
+                    "layout": b.get("layout", ""),
                     "visual": b.get("visual", "")})
     for b in dec.get("motion_briefs", []):
         out.append({"concept_id": b["concept_id"], "track": "video", "decision_id": b["decision_id"],
@@ -363,12 +397,18 @@ def main(argv=None):
     ap.add_argument("--out", default="brief-pack.md")
     ap.add_argument("--gates-csv", help="write copy lines for jev-marketing-gates (id, headline, body, brand_rules)")
     ap.add_argument("--panel-concepts", help="write concepts.jsonl for creative-preflight-panel")
+    ap.add_argument("--panel-verdicts", help="verdicts.json from creative-preflight-panel: adds the go, rework, "
+                    "drop table and holds dropped items out of the test plan")
     ap.add_argument("--allow-errors", action="store_true", help="render even when evidence does not match")
     args = ap.parse_args(argv)
     with open(args.decisions, encoding="utf-8") as fh:
         dec = json.load(fh)
     with open(args.snapshot, encoding="utf-8") as fh:
         snap = json.load(fh)
+    panel = None
+    if args.panel_verdicts:
+        with open(args.panel_verdicts, encoding="utf-8") as fh:
+            panel = json.load(fh)
     errors, warnings, blocking, plan = check(dec, snap)
     for e in errors:
         print("ERROR " + e)
@@ -380,7 +420,7 @@ def main(argv=None):
         print("not rendered: fix the evidence or pass --allow-errors to see a draft marked Not ready")
         return 1
     with open(args.out, "w", encoding="utf-8") as fh:
-        fh.write(render(dec, snap, errors, warnings, blocking, plan))
+        fh.write(render(dec, snap, errors, warnings, blocking, plan, panel))
     if args.gates_csv:
         with open(args.gates_csv, "w", encoding="utf-8", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=["id", "headline", "body", "brand_rules"])

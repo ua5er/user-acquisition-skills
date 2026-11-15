@@ -1,0 +1,1591 @@
+{
+ "built": "2026-11-15",
+ "concepts": [
+  {
+   "best_item": "S1",
+   "concept_id": "S1",
+   "items": {
+    "S1": "go"
+   },
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "track": "static",
+   "verdict": "go"
+  },
+  {
+   "best_item": "S3",
+   "concept_id": "S3",
+   "items": {
+    "S3": "go"
+   },
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "track": "static",
+   "verdict": "go"
+  },
+  {
+   "best_item": "S2",
+   "concept_id": "S2",
+   "items": {
+    "S2": "rework"
+   },
+   "reasons": [
+    "fit 1.84 of 3, under 2.0 for a go",
+    "hook about the person's problem for 0 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 3 of 12 profiles"
+   ],
+   "track": "static",
+   "verdict": "rework"
+  },
+  {
+   "best_item": "M1-A",
+   "concept_id": "M1",
+   "items": {
+    "M1-A": "go",
+    "M1-B": "rework",
+    "M1-C": "rework"
+   },
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "track": "video",
+   "verdict": "go"
+  },
+  {
+   "best_item": "M2-B",
+   "concept_id": "M2",
+   "items": {
+    "M2-A": "go",
+    "M2-B": "go",
+    "M2-C": "rework"
+   },
+   "reasons": [
+    "hook about the person's problem for 4 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "track": "video",
+   "verdict": "go"
+  },
+  {
+   "best_item": "M3-A",
+   "concept_id": "M3",
+   "items": {
+    "M3-A": "go",
+    "M3-B": "rework",
+    "M3-C": "rework"
+   },
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "track": "video",
+   "verdict": "go"
+  }
+ ],
+ "items": [
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.55,
+     "fit": 2.25,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p02": {
+     "engage": 0.64,
+     "fit": 2.0,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.59,
+     "fit": 1.57,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.43,
+     "fit": 2.13,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.99,
+     "fit": 2.91,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.71,
+     "fit": 2.0,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p07": {
+     "engage": 0.89,
+     "fit": 2.13,
+     "top": "click",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.93,
+     "fit": 2.46,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p09": {
+     "engage": 0.95,
+     "fit": 2.33,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.72,
+     "fit": 1.84,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p11": {
+     "engage": 0.98,
+     "fit": 2.4,
+     "top": "click",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.95,
+     "fit": 2.83,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.248,
+   "concept_id": "S1",
+   "engage": 0.777,
+   "errors": 0,
+   "fit": 2.24,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.499,
+     "review": 8,
+     "yes_share": 0.083
+    },
+    "hook_about_problem": {
+     "mean": 0.762,
+     "review": 1,
+     "yes_share": 0.833
+    },
+    "offer_clear": {
+     "mean": 0.362,
+     "review": 7,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "S1",
+   "loses": [],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 1,
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 2,
+    "scroll": 3,
+    "stop": 7
+   },
+   "track": "static",
+   "uncertain_share": 0.333,
+   "verdict": "go"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.55,
+     "fit": 2.31,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p02": {
+     "engage": 0.66,
+     "fit": 1.81,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.25,
+     "fit": 1.33,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p04": {
+     "engage": 0.51,
+     "fit": 2.17,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.99,
+     "fit": 2.95,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.81,
+     "fit": 2.12,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p07": {
+     "engage": 0.91,
+     "fit": 2.44,
+     "top": "click",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.78,
+     "fit": 2.11,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p09": {
+     "engage": 0.92,
+     "fit": 2.17,
+     "top": "click",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.49,
+     "fit": 1.81,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.96,
+     "fit": 2.25,
+     "top": "click",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.94,
+     "fit": 2.91,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.323,
+   "concept_id": "S3",
+   "engage": 0.731,
+   "errors": 0,
+   "fit": 2.2,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.518,
+     "review": 9,
+     "yes_share": 0.083
+    },
+    "hook_about_problem": {
+     "mean": 0.821,
+     "review": 1,
+     "yes_share": 0.833
+    },
+    "offer_clear": {
+     "mean": 0.188,
+     "review": 0,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "S3",
+   "loses": [
+    {
+     "engage": 0.25,
+     "fit": 1.33,
+     "label": "Shift worker",
+     "profile_id": "p03"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 2,
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 3,
+    "scroll": 4,
+    "stop": 5
+   },
+   "track": "static",
+   "uncertain_share": 0.333,
+   "verdict": "go"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.2,
+     "fit": 1.78,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.4,
+     "fit": 1.7,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.23,
+     "fit": 1.31,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p04": {
+     "engage": 0.25,
+     "fit": 2.12,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p05": {
+     "engage": 0.68,
+     "fit": 2.08,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p06": {
+     "engage": 0.81,
+     "fit": 2.13,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p07": {
+     "engage": 0.63,
+     "fit": 1.81,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p08": {
+     "engage": 0.36,
+     "fit": 1.67,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.43,
+     "fit": 1.45,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p10": {
+     "engage": 0.77,
+     "fit": 1.93,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p11": {
+     "engage": 0.7,
+     "fit": 1.83,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.63,
+     "fit": 2.26,
+     "top": "stop",
+     "uncertain": true
+    }
+   },
+   "click": 0.119,
+   "concept_id": "S2",
+   "engage": 0.507,
+   "errors": 0,
+   "fit": 1.84,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.587,
+     "review": 10,
+     "yes_share": 0.167
+    },
+    "hook_about_problem": {
+     "mean": 0.217,
+     "review": 1,
+     "yes_share": 0.0
+    },
+    "offer_clear": {
+     "mean": 0.303,
+     "review": 2,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "S2",
+   "loses": [
+    {
+     "engage": 0.2,
+     "fit": 1.78,
+     "label": "Racing mind after work",
+     "profile_id": "p01"
+    },
+    {
+     "engage": 0.23,
+     "fit": 1.31,
+     "label": "Shift worker",
+     "profile_id": "p03"
+    },
+    {
+     "engage": 0.25,
+     "fit": 2.12,
+     "label": "Phone in bed",
+     "profile_id": "p04"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 3,
+   "reasons": [
+    "fit 1.84 of 3, under 2.0 for a go",
+    "hook about the person's problem for 0 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 3 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 7,
+    "stop": 5
+   },
+   "track": "static",
+   "uncertain_share": 0.5,
+   "verdict": "rework"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.53,
+     "fit": 2.03,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p02": {
+     "engage": 0.71,
+     "fit": 2.02,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p03": {
+     "engage": 0.84,
+     "fit": 2.22,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p04": {
+     "engage": 0.48,
+     "fit": 2.15,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.91,
+     "fit": 2.91,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.53,
+     "fit": 2.01,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.87,
+     "fit": 2.63,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.66,
+     "fit": 2.05,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.79,
+     "fit": 2.12,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.68,
+     "fit": 1.84,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.89,
+     "fit": 2.37,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.95,
+     "fit": 2.95,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.093,
+   "concept_id": "M1",
+   "engage": 0.737,
+   "errors": 0,
+   "fit": 2.27,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.477,
+     "review": 7,
+     "yes_share": 0.083
+    },
+    "hook_about_problem": {
+     "mean": 0.782,
+     "review": 1,
+     "yes_share": 0.833
+    },
+    "offer_clear": {
+     "mean": 0.554,
+     "review": 12,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M1-A",
+   "loses": [],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 1,
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 1,
+    "stop": 11
+   },
+   "track": "video",
+   "uncertain_share": 0.417,
+   "verdict": "go"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.7,
+     "fit": 2.09,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.77,
+     "fit": 2.46,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p03": {
+     "engage": 0.59,
+     "fit": 1.62,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.66,
+     "fit": 1.98,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.92,
+     "fit": 2.73,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.48,
+     "fit": 2.02,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.83,
+     "fit": 2.84,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.7,
+     "fit": 1.93,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p09": {
+     "engage": 0.44,
+     "fit": 2.19,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p10": {
+     "engage": 0.37,
+     "fit": 1.8,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.79,
+     "fit": 2.28,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.86,
+     "fit": 2.93,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.048,
+   "concept_id": "M2",
+   "engage": 0.676,
+   "errors": 0,
+   "fit": 2.24,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.481,
+     "review": 9,
+     "yes_share": 0.0
+    },
+    "hook_about_problem": {
+     "mean": 0.562,
+     "review": 5,
+     "yes_share": 0.333
+    },
+    "offer_clear": {
+     "mean": 0.193,
+     "review": 0,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M2-B",
+   "loses": [],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 2,
+   "reasons": [
+    "hook about the person's problem for 4 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 3,
+    "stop": 9
+   },
+   "track": "video",
+   "uncertain_share": 0.417,
+   "verdict": "go"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.49,
+     "fit": 2.43,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p02": {
+     "engage": 0.86,
+     "fit": 2.42,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p03": {
+     "engage": 0.51,
+     "fit": 1.64,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.77,
+     "fit": 2.45,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p05": {
+     "engage": 0.84,
+     "fit": 2.86,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.71,
+     "fit": 2.08,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p07": {
+     "engage": 0.88,
+     "fit": 2.7,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.49,
+     "fit": 2.09,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.71,
+     "fit": 2.33,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.31,
+     "fit": 1.7,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p11": {
+     "engage": 0.89,
+     "fit": 2.27,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.58,
+     "fit": 2.31,
+     "top": "stop",
+     "uncertain": true
+    }
+   },
+   "click": 0.111,
+   "concept_id": "M3",
+   "engage": 0.67,
+   "errors": 0,
+   "fit": 2.27,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.522,
+     "review": 12,
+     "yes_share": 0.0
+    },
+    "hook_about_problem": {
+     "mean": 0.855,
+     "review": 1,
+     "yes_share": 0.833
+    },
+    "offer_clear": {
+     "mean": 0.5,
+     "review": 12,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M3-A",
+   "loses": [
+    {
+     "engage": 0.31,
+     "fit": 1.7,
+     "label": "Good sleeper, curious",
+     "profile_id": "p10"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 3,
+   "reasons": [
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 4,
+    "stop": 8
+   },
+   "track": "video",
+   "uncertain_share": 0.333,
+   "verdict": "go"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.38,
+     "fit": 2.07,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p02": {
+     "engage": 0.67,
+     "fit": 1.76,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.53,
+     "fit": 1.63,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.66,
+     "fit": 2.23,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.91,
+     "fit": 2.84,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.62,
+     "fit": 2.03,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.91,
+     "fit": 2.68,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.52,
+     "fit": 2.06,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.77,
+     "fit": 2.27,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.62,
+     "fit": 1.87,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.92,
+     "fit": 2.22,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.42,
+     "fit": 2.26,
+     "top": "scroll",
+     "uncertain": true
+    }
+   },
+   "click": 0.103,
+   "concept_id": "M3",
+   "engage": 0.661,
+   "errors": 0,
+   "fit": 2.16,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.538,
+     "review": 11,
+     "yes_share": 0.0
+    },
+    "hook_about_problem": {
+     "mean": 0.6,
+     "review": 8,
+     "yes_share": 0.25
+    },
+    "offer_clear": {
+     "mean": 0.427,
+     "review": 9,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M3-B",
+   "loses": [],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 4,
+   "reasons": [
+    "67% of answers in the review band: too uncertain for a go",
+    "hook about the person's problem for 3 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 4,
+    "stop": 8
+   },
+   "track": "video",
+   "uncertain_share": 0.667,
+   "verdict": "rework"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.22,
+     "fit": 2.14,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.9,
+     "fit": 2.83,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p03": {
+     "engage": 0.53,
+     "fit": 1.83,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.68,
+     "fit": 2.37,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.87,
+     "fit": 2.91,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.65,
+     "fit": 2.12,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.83,
+     "fit": 2.69,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.49,
+     "fit": 2.0,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.67,
+     "fit": 2.42,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p10": {
+     "engage": 0.36,
+     "fit": 1.72,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.89,
+     "fit": 2.28,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.4,
+     "fit": 2.35,
+     "top": "scroll",
+     "uncertain": true
+    }
+   },
+   "click": 0.086,
+   "concept_id": "M3",
+   "engage": 0.624,
+   "errors": 0,
+   "fit": 2.31,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.505,
+     "review": 10,
+     "yes_share": 0.0
+    },
+    "hook_about_problem": {
+     "mean": 0.726,
+     "review": 2,
+     "yes_share": 0.75
+    },
+    "offer_clear": {
+     "mean": 0.256,
+     "review": 2,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M3-C",
+   "loses": [
+    {
+     "engage": 0.22,
+     "fit": 2.14,
+     "label": "Racing mind after work",
+     "profile_id": "p01"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 5,
+   "reasons": [
+    "58% of answers in the review band: too uncertain for a go",
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 5,
+    "stop": 7
+   },
+   "track": "video",
+   "uncertain_share": 0.583,
+   "verdict": "rework"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.17,
+     "fit": 1.86,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.6,
+     "fit": 1.78,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.38,
+     "fit": 1.43,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.39,
+     "fit": 2.03,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.83,
+     "fit": 2.86,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.45,
+     "fit": 2.02,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.78,
+     "fit": 2.51,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.6,
+     "fit": 1.95,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.73,
+     "fit": 2.04,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.61,
+     "fit": 1.73,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.93,
+     "fit": 2.5,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.93,
+     "fit": 2.93,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.063,
+   "concept_id": "M1",
+   "engage": 0.617,
+   "errors": 0,
+   "fit": 2.14,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.485,
+     "review": 8,
+     "yes_share": 0.083
+    },
+    "hook_about_problem": {
+     "mean": 0.619,
+     "review": 7,
+     "yes_share": 0.333
+    },
+    "offer_clear": {
+     "mean": 0.573,
+     "review": 11,
+     "yes_share": 0.083
+    }
+   },
+   "item_id": "M1-C",
+   "loses": [
+    {
+     "engage": 0.17,
+     "fit": 1.86,
+     "label": "Racing mind after work",
+     "profile_id": "p01"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 6,
+   "reasons": [
+    "trails hook M1-A of the same concept by 0.12: replace this opening",
+    "hook about the person's problem for 4 of 12 profiles",
+    "offer or product clear at first sight for 1 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 4,
+    "stop": 8
+   },
+   "track": "video",
+   "uncertain_share": 0.5,
+   "verdict": "rework"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.35,
+     "fit": 2.02,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.83,
+     "fit": 2.82,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p03": {
+     "engage": 0.38,
+     "fit": 1.57,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.66,
+     "fit": 2.07,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.66,
+     "fit": 2.36,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p06": {
+     "engage": 0.54,
+     "fit": 2.09,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.83,
+     "fit": 2.64,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.37,
+     "fit": 1.81,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.16,
+     "fit": 1.98,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p10": {
+     "engage": 0.88,
+     "fit": 1.84,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p11": {
+     "engage": 0.74,
+     "fit": 2.08,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.92,
+     "fit": 2.92,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.069,
+   "concept_id": "M2",
+   "engage": 0.61,
+   "errors": 0,
+   "fit": 2.18,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.495,
+     "review": 10,
+     "yes_share": 0.0
+    },
+    "hook_about_problem": {
+     "mean": 0.512,
+     "review": 7,
+     "yes_share": 0.167
+    },
+    "offer_clear": {
+     "mean": 0.289,
+     "review": 2,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M2-A",
+   "loses": [
+    {
+     "engage": 0.16,
+     "fit": 1.98,
+     "label": "Anxious at bedtime",
+     "profile_id": "p09"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 7,
+   "reasons": [
+    "hook about the person's problem for 2 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 4,
+    "stop": 8
+   },
+   "track": "video",
+   "uncertain_share": 0.417,
+   "verdict": "go"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.35,
+     "fit": 1.63,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.66,
+     "fit": 2.39,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.53,
+     "fit": 1.64,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.24,
+     "fit": 1.95,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p05": {
+     "engage": 0.8,
+     "fit": 2.34,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.44,
+     "fit": 2.05,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.68,
+     "fit": 2.55,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p08": {
+     "engage": 0.36,
+     "fit": 1.83,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.52,
+     "fit": 2.05,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p10": {
+     "engage": 0.62,
+     "fit": 1.7,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.8,
+     "fit": 2.22,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.93,
+     "fit": 2.92,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.053,
+   "concept_id": "M2",
+   "engage": 0.578,
+   "errors": 0,
+   "fit": 2.11,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.442,
+     "review": 7,
+     "yes_share": 0.0
+    },
+    "hook_about_problem": {
+     "mean": 0.547,
+     "review": 10,
+     "yes_share": 0.083
+    },
+    "offer_clear": {
+     "mean": 0.168,
+     "review": 0,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M2-C",
+   "loses": [
+    {
+     "engage": 0.24,
+     "fit": 1.95,
+     "label": "Phone in bed",
+     "profile_id": "p04"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 8,
+   "reasons": [
+    "58% of answers in the review band: too uncertain for a go",
+    "hook about the person's problem for 1 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 6,
+    "stop": 6
+   },
+   "track": "video",
+   "uncertain_share": 0.583,
+   "verdict": "rework"
+  },
+  {
+   "cells": {
+    "p01": {
+     "engage": 0.21,
+     "fit": 1.86,
+     "top": "scroll",
+     "uncertain": false
+    },
+    "p02": {
+     "engage": 0.5,
+     "fit": 1.92,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p03": {
+     "engage": 0.6,
+     "fit": 1.76,
+     "top": "stop",
+     "uncertain": true
+    },
+    "p04": {
+     "engage": 0.4,
+     "fit": 2.04,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p05": {
+     "engage": 0.77,
+     "fit": 2.85,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p06": {
+     "engage": 0.49,
+     "fit": 1.97,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p07": {
+     "engage": 0.87,
+     "fit": 2.51,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p08": {
+     "engage": 0.35,
+     "fit": 2.04,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p09": {
+     "engage": 0.51,
+     "fit": 2.12,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p10": {
+     "engage": 0.46,
+     "fit": 1.81,
+     "top": "scroll",
+     "uncertain": true
+    },
+    "p11": {
+     "engage": 0.84,
+     "fit": 2.49,
+     "top": "stop",
+     "uncertain": false
+    },
+    "p12": {
+     "engage": 0.91,
+     "fit": 2.91,
+     "top": "stop",
+     "uncertain": false
+    }
+   },
+   "click": 0.058,
+   "concept_id": "M1",
+   "engage": 0.576,
+   "errors": 0,
+   "fit": 2.19,
+   "flags": {
+    "distrust_claim": {
+     "mean": 0.533,
+     "review": 10,
+     "yes_share": 0.083
+    },
+    "hook_about_problem": {
+     "mean": 0.449,
+     "review": 8,
+     "yes_share": 0.0
+    },
+    "offer_clear": {
+     "mean": 0.259,
+     "review": 0,
+     "yes_share": 0.0
+    }
+   },
+   "item_id": "M1-B",
+   "loses": [
+    {
+     "engage": 0.21,
+     "fit": 1.86,
+     "label": "Racing mind after work",
+     "profile_id": "p01"
+    }
+   ],
+   "profiles_answered": 12,
+   "profiles_sent": 12,
+   "rank": 9,
+   "reasons": [
+    "58% of answers in the review band: too uncertain for a go",
+    "hook about the person's problem for 0 of 12 profiles",
+    "offer or product clear at first sight for 0 of 12 profiles",
+    "loses 1 of 12 profiles"
+   ],
+   "top_actions": {
+    "click": 0,
+    "scroll": 7,
+    "stop": 5
+   },
+   "track": "video",
+   "uncertain_share": 0.583,
+   "verdict": "rework"
+  }
+ ],
+ "notice": "A panel score is a cheap filter and a signal, not proof of performance. It never replaces a live test and never touches budgets. A person decides.",
+ "rules": {
+  "distrust_max": 0.25,
+  "drop_engage": 0.3,
+  "drop_fit": 1.0,
+  "go_engage": 0.5,
+  "go_fit": 2.0,
+  "min_profiles": 12,
+  "review_low": 0.35,
+  "tag": 0.7,
+  "tie_margin": 0.1,
+  "uncertain_max": 0.5
+ },
+ "tracks": {
+  "static": {
+   "items": 3,
+   "low_sample": false,
+   "order": [
+    "S1",
+    "S3",
+    "S2"
+   ],
+   "profiles": 12,
+   "ranking_note": "no leader: S1, S3 within 0.10 of each other"
+  },
+  "video": {
+   "items": 9,
+   "low_sample": false,
+   "order": [
+    "M1-A",
+    "M2-B",
+    "M3-A",
+    "M3-B",
+    "M3-C",
+    "M1-C",
+    "M2-A",
+    "M2-C",
+    "M1-B"
+   ],
+   "profiles": 12,
+   "ranking_note": "no leader: M1-A, M2-B, M3-A, M3-B within 0.10 of each other"
+  }
+ }
+}

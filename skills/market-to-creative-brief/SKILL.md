@@ -36,7 +36,8 @@ snapshot.json (+ tags) + team constraints (+ own results, if supplied)
   2 Brief (Claude)           -> static_briefs and motion_briefs inside decisions.json
   3 Check and assemble (code)-> brief-pack.md, copy-check.csv, concepts.jsonl
   4 Approve (a person)       -> production starts
-  5 Hand-off                 -> meta-creative-testing (test plan), jev-marketing-gates (copy check)
+  5 Pre-flight (optional)    -> creative-preflight-panel on concepts.jsonl, verdicts back into the pack
+  6 Hand-off                 -> meta-creative-testing (test plan), jev-marketing-gates (copy check)
 ```
 
 ## Static track and video track
@@ -91,7 +92,7 @@ Try it on the fictional sample: `python3 scripts/brief_pack.py --decisions scrip
 ## Step 4. Hand-offs
 
 - `copy-check.csv` (id, headline, body, brand_rules) goes to `jev-marketing-gates` for an advisory copy check against the brand rules. The platform's review stays the real check.
-- `concepts.jsonl` feeds the pre-flight panel, which screens concepts against buyer profiles before production.
+- `concepts.jsonl` feeds `creative-preflight-panel`, which shows every concept to a simulated buyer panel before production. Render the pack again with `--panel-verdicts verdicts.json`: the go, rework, drop table goes into the pack, dropped items are held out of the test plan and rework items are marked. A person may override any verdict.
 - The test plan section lists every ad name for `meta-creative-testing`: one broad ad set by default, its kill and winner criteria, a control that stays live.
 - Nothing is published, uploaded or launched by this skill. A person approves the pack.
 
@@ -120,7 +121,7 @@ Checked on 2026-11-15: the pack for the fictional sample market (`scripts/sample
 - `references/decision-rules.md`: moves, rules, the `decisions.json` shape.
 - `references/static-brief-template.md`, `references/motion-brief-template.md`: brief fields and writing rules.
 
-Related skills: `competitor-creative-parser` (input), `meta-creative-testing` (test plan), `jev-marketing-gates` (copy check), `creative-testing-research` (hypotheses and test design).
+Related skills: `competitor-creative-parser` (input), `creative-preflight-panel` (concept screen), `meta-creative-testing` (test plan), `jev-marketing-gates` (copy check), `creative-testing-research` (hypotheses and test design).
 
 ## Author
 
