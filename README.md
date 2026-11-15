@@ -2,6 +2,13 @@
 
 User Acquisition Skills is a set of sixteen open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, typed AI decision gates and competitor creative research in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
+## Try it free in the browser
+
+The skills are the method. The same methods also run as free tools on my site, with no install and no signup:
+
+- [Free ad creative checker](https://www.roimobi.com/tools/ad-checker?utm_source=github&utm_medium=readme&utm_campaign=user-acquisition-skills): paste your ad copy, get a score from 0 to 100 and the fixes, most important first. Built on the typed checks in `jev-marketing-gates`.
+- [Free synthetic audience ad test](https://www.roimobi.com/tools/synthetic-audience-ad-test?utm_source=github&utm_medium=readme&utm_campaign=user-acquisition-skills): show one ad or two to 1,000 virtual people and read the funnel per 1,000 virtual impressions, the objections and the verdict. Built on `synthetic-audience-panel`.
+
 ## Install
 
 Requires Node.js. Uses the open [`skills` CLI](https://github.com/vercel-labs/skills).

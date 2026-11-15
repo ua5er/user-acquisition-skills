@@ -20,7 +20,7 @@ Show an ad or another short text stimulus to about 1,000 distinct virtual people
 | Code | Builds people, weights answers, computes tables and comparisons |
 | A person | Approves vendor data handling and decides what to test |
 
-The live free tool uses the same method: https://www.roimobi.com/tools/synthetic-audience-ad-test
+Try it free in the browser, no install and no signup: https://www.roimobi.com/tools/synthetic-audience-ad-test?utm_source=github&utm_medium=skill&utm_campaign=user-acquisition-skills (the same method, 1,000 virtual people per ad).
 
 ## When to use
 
