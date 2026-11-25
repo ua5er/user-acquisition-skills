@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski: agent skills for app and subscription growth
 
-User Acquisition Skills is a set of twenty-two open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, typed AI decision gates and competitor creative research in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
+User Acquisition Skills is a set of twenty-five open agent skills for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, typed AI decision gates and competitor creative research in app and subscription businesses. They are written by [Vlad Yasinski](https://www.roimobi.com), an AI growth consultant in Warsaw with 10+ years of paid acquisition experience, and work in Claude Code, Codex, Cursor and other agents that read SKILL.md files.
 
 ## Try it free in the browser
 
@@ -50,11 +50,14 @@ Then ask your agent in plain words, for example: "Audit this paywall", "Write ki
 | [`creative-preflight-panel`](skills/creative-preflight-panel/SKILL.md) | Claude + Jev, step 3. Shows every concept (and every video hook) to 12 to 30 simulated buyer profiles, builds a concept by profile heatmap and gives go, rework or drop with reasons; after launch it checks the panel against your real results. A cheap filter and a signal, not proof of performance. |
 | [`synthetic-audience-panel`](skills/synthetic-audience-panel/SKILL.md) | Claude + Jev. Shows one ad or two to about 1,000 virtual people in a few requests: every combination of seven situations and attitudes, with a control group. Returns a funnel per 1,000 virtual impressions, the main objections, readings by kind of person and a verdict for two ads on the same panel. Also reads onboarding screens step by step. Panel answers and a cheap filter, not a forecast of CTR. |
 | [`ua-budget-planner`](skills/ua-budget-planner/SKILL.md) | Builds a monthly or quarterly UA budget and channel mix from target CAC, payback window and cash limits, with a test reserve, a payer and payback forecast and a scenario table. |
+| [`apple-search-ads-playbook`](skills/apple-search-ads-playbook/SKILL.md) | Builds an Apple Search Ads account for subscription apps: brand, category, competitor and discovery campaigns, match types and negatives, bids from cost per payer, custom product pages, AdServices attribution and a weekly loop. |
+| [`google-app-campaigns-playbook`](skills/google-app-campaigns-playbook/SKILL.md) | Plans Google App campaigns: install, in-app action or tROAS bidding by event volume, event import from Firebase or an MMP, asset groups and ratings, budget steps, learning period and iOS versus Android. |
+| [`tiktok-app-campaigns-playbook`](skills/tiktok-app-campaigns-playbook/SKILL.md) | Sets up TikTok app and web campaigns: optimisation event, Smart+ versus manual, Events API and MMP check, creative cadence, Spark Ads, cost cap versus lowest cost, scaling and fatigue signals. |
+| [`aso-store-listing`](skills/aso-store-listing/SKILL.md) | Plans App Store and Google Play listing work: keyword research and field allocation, screenshot and video order, custom product pages and experiments, ratings prompts, localisation priority and page view to install measurement. |
+| [`ad-copy-production`](skills/ad-copy-production/SKILL.md) | A pipeline for ad text at volume: angles, hook bank, per-platform copy with limits, cheap-model drafts with strong-model editing, claim and policy checks, naming, test plan and cost line. |
 | [`payment-capi-tracking`](skills/payment-capi-tracking/SKILL.md) | Designs server-side purchase events from Stripe, RevenueCat or Adapty to Meta Conversions API and TikTok Events API: click ids, dedup, value, refunds, web2app, QA plan. |
 | [`spend-anomaly-alerts`](skills/spend-anomaly-alerts/SKILL.md) | Designs a daily ad account monitor: pacing, CPA, CPM and CTR spikes, zero-conversion spend and tracking drops, with history-based thresholds and a human approval queue. |
 | [`competitor-watch-weekly`](skills/competitor-watch-weekly/SKILL.md) | Weekly watch of competitor ads in public libraries and store pages: snapshots, week-over-week diff and a brief with new angles, survivors, price and paywall changes. |
-| [`static-ad-production`](skills/static-ad-production/SKILL.md) | Pipeline for static ads: facts-only brief, concepts, live-text layouts, cheap drafts then hero render, platform sizes, QA gate, naming and a cost line per batch. |
-| [`video-ad-production`](skills/video-ad-production/SKILL.md) | Pipeline for short video ads: hook-first script with three hooks, storyboard, TTS and music mix, HTML composition rendered to MP4, captions, shot library, QA and cost line. |
 
 ## Claude + Jev: from competitor ads to tested concepts
 
