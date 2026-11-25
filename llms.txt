@@ -1,6 +1,6 @@
 # User acquisition skills by Vlad Yasinski
 
-> Sixteen open agent skills (SKILL.md) for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, marketing system audits, typed AI decision gates and a Claude + Jev competitor creative system in app and subscription businesses. Written by Vlad Yasinski, AI growth consultant in Warsaw, Poland, 10+ years in paid acquisition. MIT licence.
+> Twenty-two open agent skills (SKILL.md) for paid user acquisition, paywalls, onboarding funnels, unit economics, attribution, marketing system audits, typed AI decision gates and a Claude + Jev competitor creative system, budget planning, server-side tracking, anomaly alerts and ad production pipelines in app and subscription businesses. Written by Vlad Yasinski, AI growth consultant in Warsaw, Poland, 10+ years in paid acquisition. MIT licence.
 
 Install: `npx skills add ua5er/user-acquisition-skills`
 
@@ -27,6 +27,12 @@ Install: `npx skills add ua5er/user-acquisition-skills`
 - [market-to-creative-brief](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/market-to-creative-brief): Claude + Jev step 2, production decisions plus a static brief and a motion brief tied to snapshot numbers
 - [creative-preflight-panel](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/creative-preflight-panel): Claude + Jev step 3, simulated buyer panel with go, rework or drop per concept and a calibration check against real results
 - [synthetic-audience-panel](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/synthetic-audience-panel): Claude + Jev, one ad or two shown to about 1,000 virtual people in a few requests; funnel per 1,000, objections, readings by kind of person and a verdict for two ads; panel answers, not a forecast
+- [ua-budget-planner](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/ua-budget-planner): Builds a monthly or quarterly UA budget and channel mix from target CAC, payback window and cash limits, with a test reserve, a payer and payback forecast and a scenario table.
+- [payment-capi-tracking](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/payment-capi-tracking): Designs server-side purchase events from Stripe, RevenueCat or Adapty to Meta Conversions API and TikTok Events API: click ids, dedup, value, refunds, web2app, QA plan.
+- [spend-anomaly-alerts](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/spend-anomaly-alerts): Designs a daily ad account monitor: pacing, CPA, CPM and CTR spikes, zero-conversion spend and tracking drops, with history-based thresholds and a human approval queue.
+- [competitor-watch-weekly](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/competitor-watch-weekly): Weekly watch of competitor ads in public libraries and store pages: snapshots, week-over-week diff and a brief with new angles, survivors, price and paywall changes.
+- [static-ad-production](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/static-ad-production): Pipeline for static ads: facts-only brief, concepts, live-text layouts, cheap drafts then hero render, platform sizes, QA gate, naming and a cost line per batch.
+- [video-ad-production](https://github.com/ua5er/user-acquisition-skills/tree/main/skills/video-ad-production): Pipeline for short video ads: hook-first script with three hooks, storyboard, TTS and music mix, HTML composition rendered to MP4, captions, shot library, QA and cost line.
 
 ## Examples
 

@@ -8,7 +8,7 @@ sitemap: true
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>User Acquisition Skills: open agent skills for app growth | Vlad Yasinski</title>
-<meta name="description" content="Sixteen open agent skills for paid user acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution, plus live paywall and onboarding concepts built with them. By Vlad Yasinski.">
+<meta name="description" content="Twenty-two open agent skills for paid user acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution, plus live paywall and onboarding concepts built with them. By Vlad Yasinski.">
 <link rel="canonical" href="https://ua5er.github.io/user-acquisition-skills/">
 <meta name="author" content="Vlad Yasinski">
 <meta property="og:type" content="website">
@@ -146,7 +146,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 <div class="hero"><div class="wrap">
   <div class="mono">Open source · MIT · by Vlad Yasinski</div>
   <h1>Agent skills for <span class="serif">user acquisition</span></h1>
-  <p class="lede">Sixteen open skills for paid acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They run in Claude Code, Codex, Cursor and any agent that reads SKILL.md. Below are 19 live paywall and onboarding concepts built with them. Every screen is the real thing: tap the plans, open checkout, post the photo.</p>
+  <p class="lede">Twenty-two open skills for paid acquisition, Meta Ads, paywalls, onboarding funnels, unit economics and attribution in app and subscription businesses. They run in Claude Code, Codex, Cursor and any agent that reads SKILL.md. Below are 19 live paywall and onboarding concepts built with them. Every screen is the real thing: tap the plans, open checkout, post the photo.</p>
   <div class="cta-row">
     <a class="btn pri" href="#paywalls">See the live concepts</a>
     <a class="btn" href="https://github.com/ua5er/user-acquisition-skills">Browse on GitHub</a>
@@ -154,7 +154,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <p class="lede" style="margin-top:18px">The skills are the method. Two of them also run as free tools in the browser, no install and no signup: the <a href="https://www.roimobi.com/tools/ad-checker?utm_source=github&utm_medium=landing&utm_campaign=user-acquisition-skills">free ad creative checker</a> and the <a href="https://www.roimobi.com/tools/synthetic-audience-ad-test?utm_source=github&utm_medium=landing&utm_campaign=user-acquisition-skills">free synthetic audience ad test</a> (your ad shown to 1,000 virtual people).</p>
   <div class="cmd"><code id="cmd">npx skills add ua5er/user-acquisition-skills</code><button class="copy" type="button" data-copy="cmd">Copy</button></div>
   <div class="stats">
-    <div><b>16</b>agent skills</div>
+    <div><b>22</b>agent skills</div>
     <div><b>14</b>live paywall concepts</div>
     <div><b>5</b>onboarding flows, 29 screens</div>
   </div>
@@ -299,6 +299,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     ["market-to-creative-brief","Claude + Jev: turns the market snapshot into production decisions and two briefs, one for static designers and one for the motion team, with every number checked against the snapshot.","Know what to make next and why, with references by ad id."],
     ["creative-preflight-panel","Claude + Jev: shows every concept to 12 to 30 simulated buyer profiles, builds a concept by profile heatmap and gives go, rework or drop; a calibration script checks it against real results.","Cut weak concepts before production. A filter, not a live test."],
     ["synthetic-audience-panel","Claude + Jev: shows an ad to about 1,000 virtual people, every combination of seven situations and attitudes with a control group, and returns a funnel per 1,000, the objections and a verdict for two ads.","Compare two ads on one panel before the live test. Panel answers, not a forecast."],
+    ["ua-budget-planner","Builds a monthly or quarterly UA budget and channel mix from target CAC, payback window and cash limits, with a test reserve, a payer and payback forecast and a scenario table.","Decide how much to spend and where, before the month starts."],
+    ["payment-capi-tracking","Designs server-side purchase events from Stripe, RevenueCat or Adapty to Meta Conversions API and TikTok Events API: click ids, dedup, value, refunds, web2app, QA plan.","Make platforms see the payments that really happened."],
+    ["spend-anomaly-alerts","Designs a daily ad account monitor: pacing, CPA, CPM and CTR spikes, zero-conversion spend and tracking drops, with history-based thresholds and a human approval queue.","Catch spend problems the same day, with a person approving each change."],
+    ["competitor-watch-weekly","Weekly watch of competitor ads in public libraries and store pages: snapshots, week-over-week diff and a brief with new angles, survivors, price and paywall changes.","Know what competitors changed and what to test this week."],
+    ["static-ad-production","Pipeline for static ads: facts-only brief, concepts, live-text layouts, cheap drafts then hero render, platform sizes, QA gate, naming and a cost line per batch.","Produce a batch of static ads with controlled cost and claims."],
+    ["video-ad-production","Pipeline for short video ads: hook-first script with three hooks, storyboard, TTS and music mix, HTML composition rendered to MP4, captions, shot library, QA and cost line.","Produce video ads and hook variants as repeatable renders."],
     ["ai-marketing-system-audit","Maps a marketing system as a loop (acquire, convert, measure, automate, intelligence, decide) and ranks the gaps.","Find the weakest link and what to build first."]
   ];
   var sg=document.getElementById("skillgrid");
